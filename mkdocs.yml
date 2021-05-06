@@ -1,0 +1,128 @@
+site_name: monk docs
+operators: &operators
+        - monkscript/operators/HTTP.md
+        - monkscript/operators/JSON-RPC.md
+        - monkscript/operators/JSON.md
+        - monkscript/operators/actions.md
+        - monkscript/operators/boolean.md
+        - monkscript/operators/containers.md
+        - monkscript/operators/internals.md
+        - monkscript/operators/math.md
+        - monkscript/operators/network.md
+        - monkscript/operators/numbers.md
+        - monkscript/operators/random.md
+        - monkscript/operators/strings.md
+        - monkscript/operators/types.md
+        - monkscript/operators/variables.md
+theme:
+        name: material
+        logo: assets/monk-dolphin-small.svg
+        favicon: assets/monk-dolphin-small.svg
+        palette:
+                scheme: default
+                primary: white
+                accent: blue
+        features:
+                - navigation.tabs
+                - navigation.instant
+                - navigation.tabs
+                - navigation.sections
+                - navigation.expand
+                - navigation.indexes
+extra_css:
+        - stylesheets/extra.css
+nav:
+        - About Monk:
+                  - "Welcome to Monk": "index.md"
+                  - "Why Monk?": "use-cases.md"
+                  - "Monk ecosystem": "key-concepts.md"
+                  - "Monk vs other software": "comparison.md"
+                  - "Getting Started":
+                            - "Getting & Upgrading Monk": "get-monk.md"
+                            - "Accounts & Authentication": "acc-and-auth.md"
+                            - "Monk in 10 minutes": "monk-in-10.md"
+                  - "Publishing":
+                            - "Publisher program (Alpha)": "publishers.md"
+                  - "Other":
+                            - "Support & Resources": "support.md"
+        - Features: "features.md"
+        - Guides:
+                  - "Intro to Guides": "guides/index.md"
+                  - Basics:
+                            - "Running templates locally": "guides/running-templates.md"
+                            - "Running templates in a cluster": "guides/running-templates-cluster.md"
+                            - "Inspecting your workloads": "guides/inspecting-workloads.md"
+                  #   - Template lifecycle:
+                  #         - Overview: "lifecycle/overview.md"
+                  #         - Create: "lifecycle/create-1.md"
+                  #         - Deploy: "lifecycle/deploy-1.md"
+                  #         - Operate: "lifecycle/operate-1.md"
+                  - Cluster lifecycle:
+                            - Overview: "lifecycle/cluster-overview.md"
+                            - Create: "lifecycle/cluster-create-1.md"
+                            #   - Grow and shrink: "lifecycle/cluster-grow-1.md"
+                            - Operate: "lifecycle/cluster-operate-1.md"
+                            - Switch: "lifecycle/cluster-switch-1.md"
+                  - Cookbook:
+                            - "How to build and deploy a small app": "guides/basic-app.md"
+                            - "How to add cloud provider to monk": "guides/01-cloud-provider.md"
+                            - "How to provision persistent storage for container in monk template": "guides/02-persistent-storage.md"
+                            - "How to provision a multi-cloud cluster in monk": "guides/03-multi-cloud.md"
+                            - "How to provision instances via templates": "guides/provisioning-via-templates.md"
+                            - "How to dynamically pass or modify containerised services config files": "guides/04-config-files.md"
+                            - "How to pass secrets in templates": "guides/passing-secrets.md"
+                            - "How to constrain containers to certain instances in monk cluster": "guides/05-affinity.md"
+                            - "How to define and use load balancers": "guides/load-balancers.md"
+                            - "How to define and use hooks": "guides/hooks.md"
+                            - "How to connect services together": "guides/connecting-runnables.md"
+                            - "How to deploy templates from CI/CD": "guides/ci-cd.md"
+                  - Examples:
+                            - "Chainlink Nodes": "guides/chainlink.md"
+                  - Troubleshooting:
+                            - "Overview": "guides/troubleshooting.md"
+        - Reference:
+                  - MonkScript:
+                            - "Overview": monkscript/index.md
+                            - "Working with MonkScript": monkscript/working.md
+                            # - "Language features": monkscript/language-features.md
+                            - YAML:
+                                      - Overview: monkscript/yaml/index.md
+                                      - "Runnables": "monkscript/yaml/runnables.md"
+                                      - "Process groups": "monkscript/yaml/groups.md"
+                                      - "Services": "monkscript/yaml/services.md"
+                            - Scripting:
+                                      - Overview: monkscript/scripting-index.md
+                                      - Cheatsheet: monkscript/scripting-cheatsheet.md
+                                      - Operators: *operators
+                  - CLI:
+                            - "monk": "cli/monk.md"
+                            - "monkd": "cli/monkd.md"
+                  - GUI:
+                            - "Overview": "gui/index.md"
+        - "FAQ": "faq.md"
+markdown_extensions:
+        - admonition
+        - abbr
+        - def_list
+        - pymdownx.details
+        - pymdownx.keys
+        - pymdownx.inlinehilite
+        - pymdownx.highlight
+        - pymdownx.tabbed
+        - pymdownx.snippets
+        - pymdownx.smartsymbols
+        - pymdownx.mark
+        - pymdownx.superfences:
+                  custom_fences:
+                          - name: mermaid
+                            class: mermaid-experimental
+                            format: !!python/name:pymdownx.superfences.fence_code_format
+        - toc:
+                  permalink: true
+        - pymdownx.emoji:
+                  emoji_index: !!python/name:materialx.emoji.twemoji
+                  emoji_generator: !!python/name:materialx.emoji.to_svg
+
+google_analytics:
+        - UA-188474701-2
+        - auto

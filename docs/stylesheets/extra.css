@@ -1,0 +1,169 @@
+@font-face {
+    font-family: "Lineto";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../assets/fonts/Lineto/Regular.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Visuelt";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../assets/fonts/Visuelt/Regular.woff") format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Visuelt";
+    font-style: normal;
+    font-weight: 200;
+    src: url("../assets/fonts/Visuelt/Light.woff") format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Visuelt";
+    font-style: normal;
+    font-weight: 500;
+    src: url("../assets/fonts/Visuelt/Medium.woff") format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Visuelt";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../assets/fonts/Visuelt/Bold.woff") format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Visuelt";
+    font-style: normal;
+    font-weight: 900;
+    src: url("../assets/fonts/Visuelt/Black.woff") format("woff");
+}
+
+
+
+
+@font-face {
+    font-family: "Aeonik";
+    font-style: normal;
+    font-weight: 200;
+    src: url("../assets/fonts/Aeonik/Aeonik-Light.woff") format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Aeonik";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../assets/fonts/Aeonik/Aeonik-Regular.woff") format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Aeonik";
+    font-style: normal;
+    font-weight: 500;
+    src: url("../assets/fonts/Aeonik/Aeonik-Medium.woff") format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Aeonik";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../assets/fonts/Aeonik/Aeonik-Bold.woff") format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Aeonik";
+    font-style: normal;
+    font-weight: 900;
+    src: url("../assets/fonts/Aeonik/Aeonik-Black.woff") format("woff");
+}
+
+
+
+[data-md-color-primary=white] {
+    --md-typeset-a-color: #0315F9;
+}
+
+[data-md-color-accent=blue] {
+    --md-accent-fg-color: #020a7a;
+}
+
+:root {
+    --md-default-fg-color: #131a25;
+    --md-text-font-family: "Aeonik";
+    --md-code-font-family: "Lineto";
+}
+
+:root>* {
+    --md-code-fg-color: #e8e7e6;
+    --md-footer-bg-color: #131a25;
+
+    --md-code-hl-color: #e8e7e6;
+    --md-code-hl-number-color: #e8e7e6;
+    --md-code-hl-special-color: #e8e7e6;
+    --md-code-hl-function-color: #e8e7e6;
+    --md-code-hl-constant-color: #e8e7e6;
+    --md-code-hl-keyword-color: #e8e7e6;
+    --md-code-hl-string-color: #e8e7e6;
+
+    --md-code-hl-operator-color: #e8e7e6;
+    --md-code-hl-punctuation-color: #e8e7e6;
+    --md-code-hl-comment-color: #e8e7e6;
+    --md-code-hl-generic-color: #e8e7e6;
+    --md-code-hl-variable-color: #e8e7e6;
+}
+
+body {
+    background-color: #F0EFEC;
+}
+
+.md-header[data-md-state=shadow] {
+    box-shadow: none;
+}
+
+.md-footer-meta {
+    display: none;
+}
+
+.md-typeset .admonition {
+    border: none;
+    box-shadow: 0 16px 0 -8px #6d6e71;
+    border: 1px solid #d3d2d1;
+    border-color: #d3d2d1 !important;
+}
+
+.md-typeset pre>code {
+    background-color: #353535;
+    border: 1px solid #d3d2d1;
+    border-color: #d3d2d1 !important;
+}
+
+.md-typeset pre code {
+    color: #e8e7e6;
+}
+.md-typeset code {
+    color: #F9452D;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Visuelt;
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.md-header__title {
+    margin-left: 0;
+}

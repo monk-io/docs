@@ -1,0 +1,11 @@
+namespace: guides
+
+database:
+  defines: runnable
+  inherits: mongodb/latest
+  volumes:
+    defines: volumes
+    important-data:
+      kind: 60
+      type: SSD
+      path: <- $volume-data
