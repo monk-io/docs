@@ -193,6 +193,36 @@ Be sure to provide these variables to the Gitlab CI:
 -   `MONK_PASSWORD`: your Monk account password
 -   `MONKCODE`: the Monkcode for your cluster
 
+## Bitbucket
+
+Here's a basic `bitbucket-pipelines.yml` config for deploying with Monk:
+
+=== "bitbucket-pipelines.yml"
+
+    ```yaml linenums="1"
+    image: gcr.io/monk-releases/monk-ci:latest
+
+    pipelines:
+      default:
+        - parallel:
+          - step:
+              name: 'monk deploy'
+              script: 
+                - export MONK="monk -s monkcode://$MONKCODE --nofancy --nocolor"
+                - $MONK login --email $MONK_USER --password $MONK_PASSWORD
+                - $MONK load <your-template-file.yaml>
+                - $MONK update -t $MONK_TAG <your/runnable>
+    ```
+
+This will load and update `<your/runnable>` in the target cluster whenever a new commit is pushed to the repo. Note `-t $MONK_TAG` is required on first run to put your workload on the correct tag in the cluster. Remember to fill in your own values for `<your-template-file.yaml>` and `<your/runnable>`.
+
+Be sure to provide these variables in the Bitbucket pipeline settings:
+
+-    `MONK_USER`: your Monk account username
+-    `MONK_PASSWORD`: your monk account password
+-   `MONKCODE`: the Monkcode for your cluster
+-   `MONK_TAG`: tag on which to deploy in your cluster
+
 ## Secrets
 
 Throughout this tutorial we've had to deal with secrets, even if just for our Monk account credentials. Let's now see how you can boost your Monk setup security and work with [encrypted templates](./passing-secrets.md) 🤫
