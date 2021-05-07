@@ -1,4 +1,4 @@
-# Monk in 10 minutes
+# Monk in 10 Minutes
 
 This is a super-quick guide to get some containers running within your own Monk cluster, from start to finish.
 
@@ -6,17 +6,17 @@ This is a super-quick guide to get some containers running within your own Monk 
 
 ## Prerequisites
 
--   A computer with **Linux** or **macOS** installed,
--   If you're behind a firewall: open ports **44001** and **44002** for ingress/egress,
--   **Docker** installed and running,
--   An account with your favorite **cloud provider**,
--   **10 minutes** of your time.
+-   A computer with **Linux** or **macOS** installed
+-   Open ports **44001** and **44002** for ingress/egress if you're behind a firewall.
+-   Have **Docker** installed and running
+-   An account with your favorite **cloud provider**
+-   **10 minutes** of your time
 
-## Getting a Monk account
+## Creating a Monk Account
 
 Chances are that you already have one but in case you don't, [sign up on our website](https://monk.io/join) now.
 
-Monk currently won't work without an account, but it takes a grand total of 10 seconds to get one.
+Monk currently won't work without an account, but it takes a grand total of 10 seconds to get one. We use accounts to match users with their Monk setups and for licensing and analytics purposes. We are very privacy-focused and only use telemetry data for product improvement. This data never includes your proprietary information. You can [learn more about the privacy of Monk accounts](monk-privacy.md).
 
 ## Getting Monk
 
@@ -110,9 +110,9 @@ Ensure that Docker is running on your system. Both Docker and `monkd` have to be
 
 !!! warning
 
-    **Yep, you always need to have `monkd` running in order to use Monk CLI. Fire it up to continue this guide.**
+    **You always need to have `monkd` running in order to use Monk CLI. Fire it up to continue this guide.**
 
-## Signing in
+## Signing In
 
 Once `monkd` is running:
 
@@ -128,11 +128,11 @@ Use your Monk account email and password:
 
     **Monk is 100% ready to roll at this point.** You will not be asked to log in very often but some commands will require your Monk account credentials.
 
-## Creating a Monk cluster
+## Creating a Monk Cluster
 
-Now to the exciting part! Monk cluster is where your workloads will run. Clusters are created once and they serve as a runtime environment that can be grown or shrunk on demand. We will now create a cluster with 3 short commands.
+Now to the exciting part! Monk cluster is where your workloads will run. Clusters are created once and they serve as a runtime environment that can be grown or shrunk on demand. Let's create a cluster with 3 short commands.
 
-Before that, get your service account credentials ready. Here's a reminder on how to get them:
+You'll need your service account credentials handy. Here's a reminder on how to get them:
 
 === "GCP"
 
@@ -191,13 +191,13 @@ Before that, get your service account credentials ready. Here's a reminder on ho
 
 !!! note
 
-    **It's alright if you want to skip cluster creation for now.** You can run things locally for now and create a cluster later. You can still follow this guide but remember that stuff will happen on your machine and not in the cloud. To skip ahead, head out to [Running templates locally](guides/running-templates.md).
+    **It's alright if you want to skip cluster creation for now.** You can run things locally and create a cluster later. You can still follow this guide but remember that stuff will happen on your machine and not in the cloud. To skip ahead, head to [Running templates locally](guides/running-templates.md).
 
 To create a new cluster:
 
     monk cluster new
 
-It will ask you to choose a name for the new cluster. Then, to attach your cloud credentials to the new cluster:
+You'll be asked to choose a name for the new cluster. Now we'll attach your cloud credentials to the new cluster:
 
 === "GCP"
 
@@ -282,7 +282,7 @@ It will ask you to choose a name for the new cluster. Then, to attach your cloud
 
     **That's it!** We now have a brand new cluster. Its only member is your own machine at the moment.
 
-## Growing your new cluster
+## Growing Your New Cluster
 
 The cluster is there _logically_. Now we have to expand it _physically_. Fortunately, we don't have to go back to the cloud console or resort to other tools like Terraform. We will just tell Monk to bootstrap it for us:
 
@@ -328,11 +328,11 @@ You should get a similar output:
 
     You now have a fully operational 3 machine Monk cluster running in your cloud 🎉
 
-## Deploying a template
+## Deploying a Template
 
 Now that we have a working cluster, it's high time to run something on it.
 
-Use the following to see what's immediately available:
+Use the following command to see what's immediately available:
 
     monk list
 
@@ -354,18 +354,18 @@ Monk will work for a moment and then display a summary showing the current workl
 
     That's it! You're now running stuff, in the cloud, with Monk 🎉
 
-## Cleaning up
+## Cleaning Up
 
 If you don't want to use the cluster anymore just do:
 
     monk cluster nuke
 
-This will destroy the cluster and all associated resources. **Careful here! Monk will not back up the storage of the instances it terminates**.
+This will destroy the cluster and all associated resources. **Be careful! Monk will not back up the storage of the instances it terminates**.
 
 In case you'd like to create another cluster, follow this guide again or see: [Creating a cluster](guides/creating-a-cluster.md).
 
-## What's next?
+## What's Next?
 
-The cluster has 3 machines and it can do much more than just running one simple workload. Having your cluster up and running is enough to start trying [everything that Monk has to offer](features.md).
+Our newly formed cluster has 3 machines and can do much more than just running one simple workload. Having your cluster up and running is enough to start trying [everything that Monk has to offer](features.md).
 
-If you'd like to try a more advanced setup including a database, an HTTP server, and a self-made service, continue to our first A-Z tutorial: [Running a small system](guides/basic-app.md).
+If you'd like to try a more advanced setup including a database, HTTP server, and a self-made service, continue to our first A-Z tutorial: [Running a small system](guides/basic-app.md).
