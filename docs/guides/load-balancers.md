@@ -4,7 +4,7 @@ Load balancers are important components of any modern cloud setup. They provide 
 
 ## Cloud Load Balancers
 
-Monk currently supports TCP, UDP, HTTP(s) and Elastic IP type balancers on AWS and GCP. It doesn't matter on which cloud you're running as long as the balanced portion of the workload stays on the same cloud.
+Monk currently supports TCP, UDP, HTTP(s) and Elastic IP type balancers on AWS, GCP, Azure and Digital Ocean. It doesn't matter on which cloud you're running as long as the balanced portion of the workload stays on the same cloud.
 
 !!! note
 
