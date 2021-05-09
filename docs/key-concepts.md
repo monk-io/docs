@@ -1,4 +1,4 @@
-# Monk ecosystem
+# Monk Ecosystem
 
 Monk is a new infrastructure platform that makes it easy to deploy and manage container-based applications in any environment. It works as a highly customizable abstraction layer between containers and infrastructure, and it's based on three key technologies:
 
@@ -8,7 +8,7 @@ Monk is a new infrastructure platform that makes it easy to deploy and manage co
 
 : **Monk Hub** a globally accessible repository where templates are stored
 
-With this "trinity" working together, you can define your entire stack with a single master manifest (_written in MonkScript_) composed from other developers' templates (_on Monk Hub_), and deploy said stack on your infrastructure of choice, without needing to define provisioning somewhere else (_thanks to Monk Engine_).
+With this "trinity" working together, you can define your entire stack with a single master manifest (_written in MonkScript_) composed from other developers' templates (_on Monk Hub_). You can then deploy said stack on your infrastructure of choice without needing to define provisioning somewhere else (_thanks to Monk Engine_).
 
 Pretty nifty, right? Let's take a closer look at each component.
 
@@ -32,11 +32,11 @@ Monk Clusters are groups of machines running the Monk Engine. Particular instanc
 
 The clusters can be created by manually connecting the Peers between a group of machines, or they can be "grown" from a single machine by bootstrapping the engine onto other machines automatically.
 
-Once created, a Cluster will work autonomously to keep itself and the workloads up. You can run one big cluster, even spanning multiple cloud providers, and run all your workloads there. Alternatively, you can run multiple smaller clusters, for example, one for each of your projects or customers. Thanks to Monk's architecture, all of the clusters will behave and scale the same way starting from one instance to hundreds of them.
+Once created, a Cluster will work autonomously to keep itself and the workloads online. You can run one big cluster, even spanning multiple cloud providers, and run all your workloads there. Alternatively, you can run multiple smaller clusters, for example, one for each of your projects or customers. Thanks to Monk's architecture, all of the clusters will behave and scale the same way starting from one instance to hundreds of them.
 
 Check out [Creating a cluster](guides/creating-a-cluster.md) to learn more about how clusters work.
 
-### Multi-site presence
+### Multi-site Presence
 
 Monk Clusters span a coordination layer between their members and create an encrypted overlay network between the peers. This design is a result of Monk's early mission to run anywhere without assuming anything about the underlying network environment.
 
@@ -56,7 +56,7 @@ Dive deeper into the provisioning side of things in the [Guides](./guides/runnin
 
 ### Programmable Control Plane
 
-Monk undersands workloads natively. The Engine contains a programmable control plane that can be precisely tuned to any piece of software running on Monk. By moving the computation from manifest pre-processing (e.g. Helm) to runtime, we have given Monk the ability to perform user-defined scripted actions on any level of the workload.
+Monk undersands workloads natively. The Engine contains a programmable control plane that can be precisely tuned to any piece of software running on Monk. By moving computation from manifest pre-processing (e.g. Helm) to runtime, we have given Monk the ability to perform user-defined scripted actions on any level of the workload.
 
 Starting from a single container, all the way to the entire system, actions and variables can be used to control and query the workloads across the whole cluster.
 
@@ -78,9 +78,9 @@ Learn everything about MonkScript in the [Reference](./monkscript/index.md).
 
 _Monk Hub_ ([monkhub.io](https://monkhub.io)) is the place to find pre-built Monk Templates.
 
-Templates on the Hub can be either Components, such as popular databases and services, or compositions thereof, defining things like entire data pipelines that can be just taken off the shelf and run.
+Templates on the Hub can be either Components, such as popular databases and services, or compositions thereof, defining things like entire data pipelines that can be run off the shelf.
 
-Furthermore, thanks to MonkScript, each template can be composed from other templates, and the resulting template can be published to the Hub for others to use.
+Furthermore, thanks to MonkScript, each template can be composed from other templates. The resulting template can be published to the Hub for others to use.
 
 !!! note
 

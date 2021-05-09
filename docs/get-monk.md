@@ -1,6 +1,6 @@
 # Getting Monk
 
-Here's how you install, test and upgrade Monk.
+Here's how you install, test, and upgrade Monk.
 
 !!!prerequisites
 
@@ -70,7 +70,7 @@ Here's how you install, test and upgrade Monk.
 
     All done! Go to [Testing the installation](#testing-your-setup) to try it out.
 
-## Testing your setup
+## Testing Your Setup
 
 In a new terminal, run:
 
@@ -80,7 +80,7 @@ After logging in, you should be able to list the available templates like so:
 
     monk list
 
-The command should return available templates if the installation was successful, but sometimes it may take up to 30 seconds to sync the templates - just retry in a couple seconds if you don't see the list at first.
+The command should return available templates if the installation was successful, but sometimes it may take up to 30 seconds to sync the templates. If you don't see a list at first, just retry in a few seconds.
 
     Type      Template              Repository    Version   Tags
     runnable  chatwoot/chatwoot     local         latest    self hosted, messaging, communication
@@ -97,7 +97,7 @@ If for some reason the command didn't work, please check if you have followed al
 
 ## Upgrading Monk
 
-To upgrade your local Monk to the newest version:
+Upgrading your local Monk to the newest version is simple.
 
 === "macOS"
 
@@ -120,11 +120,11 @@ If you have a cluster running:
 2. Make sure your local Monk is the latest version,
 3. Run `monk system upgrade` to upgrade all the nodes to the newest version.
 
-## Installation impact
+## Installation Impact
 
-Monk distribution consists of two binaries, `monkd` and `monk`. When installing with `apt` or `brew` those are placed or symlinked in `/usr/local/bin`.
+Monk aims to be a good steward of your filesystem and not scatter files throughout the disk. The Monk distribution is simple and consists of two binaries, `monkd` and `monk`. 
 
-`apt` on Linux configures your `systemd` to start `monkd` as a service immediately after install and on system startup. Additionally, a `monkd` user group is created and assigned appropriately.
+When installing with `apt` or `brew` those are placed or symlinked in `/usr/local/bin`. `apt` on Linux configures your `systemd` to start `monkd` as a service immediately after install and on system startup. Additionally, a `monkd` user group is created and assigned appropriately.
 
 All data files needed for Monk's operation are created in `/var/lib/monkd` (Linux) and `~/.monk` (both Linux and macOS) upon first `monkd` startup.
 

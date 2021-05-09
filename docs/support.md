@@ -1,19 +1,18 @@
 # Support & Contact
 
-## Get help
+## Get Help
 
 Join [Monk at Discord](https://discord.gg/WxDzaKe) to get real-time support or to discuss all things Monk.
 
 Or send us an email at <hello@monk.io>. We do read those.
 
-## Get involved
+## Get Involved
 
 Read the [Publisher program page](publishers.md) for all info about sharing your templates for glory, fame and revenue.
 
 Here's a quick link to the [application form](https://monk-io.typeform.com/to/SCkHZKPE) (takes only a minute or so).
 
-
-## Other resources
+## Other Resources
 
 Be sure to check out:
 
