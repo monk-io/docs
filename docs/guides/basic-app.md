@@ -84,7 +84,7 @@ Let's start writing a template that will describe where to get the app, how to c
 
     You can look at the `tutorial.yaml` file in the App's repo to see the full example at any time.
 
-We have provided the simplest description of the container image to be run and Monk is already capable of starting it. The `namespace` field tells Monk where to put the description of `app` - it will be under `yourname/app`. The defines `field` is important as it tells Monk how to interpret parts of the YAML tree - all the names are free form so this is the way to "type" the YAML.
+We have provided the simplest description of the container image to be run and Monk is already capable of starting it. The `namespace` field tells Monk where to put the description of `app` - it will be under `yourname/app`. The `defines` field is important as it tells Monk how to interpret parts of the YAML tree - all the names are free form so this is the way to "type" the YAML.
 
 You could run your new template with:
 
