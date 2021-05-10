@@ -57,6 +57,6 @@ In order to switch to another cluster from either local mode or current cluster 
 
     monk cluster switch
 
-This command will prompt you for a Monkcode of the target cluster. If this is your cluster you should be connected immediately. If this is somebody's else cluster - you may need to contect them so that they add your email with `monk user add`.
+This command will prompt you for a Monkcode of the target cluster. If this is your cluster you should be connected immediately. If this is somebody's else cluster - you may need to connect them so that they add your email with `monk user add`.
 
 If you are currently in a cluster, Monk will exit that cluster before joining the target one.
