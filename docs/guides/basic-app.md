@@ -93,7 +93,8 @@ You could run your new template with:
 
 !!! note
 
-    `monk stop yourname/app` to stop the template.
+    To do this, you should have the cluster already set-up. 
+    Also, `monk stop yourname/app` to stop the template.
 
 However, the template is not complete. Much like with `docker-compose`, in order to prepare a good runtime environment, we must understand what are the App's requirements.
 
