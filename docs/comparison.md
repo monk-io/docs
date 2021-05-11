@@ -1,11 +1,11 @@
-# Monk vs other software
+# Monk vs Other Software
 
-As a new startup kid on the stack block, we often get compared to other services, and those who ask usually have their assumptions all wrong 🚨
+As a new startup kid on the stack block, we often get compared to other services. Those who ask usually have their assumptions all wrong 🚨
 
 Let's fix that, starting with two common misconceptions:
 
--   **Not built on Kubernetes**: Monk doesn't enhance, add to or require K8s. In fact, we replace it altogether.
--   **Not a managed service/IaaS**: deploy anywhere and however you want. Monk simply helps you compose and provision your stack with minimal overhead.
+-   **Monk is not built on Kubernetes**: Monk doesn't enhance, add to or require K8s. In fact, we replace it altogether.
+-   **Monk is not a managed service/IaaS**: Deploy anywhere and however you want. Monk helps you compose and provision your stack with minimal overhead.
 
 Monk is a new paradigm and approach to orchestration: a control plane sitting between application and infrastructure that lets you interact with both, touching only what matters to you, while the rest 'just works'.
 
@@ -17,9 +17,9 @@ Monk is a new paradigm and approach to orchestration: a control plane sitting be
 
 ## Kubernetes
 
-Plain and simple, Monk was built to be the next-gen Kubernetes alternative. We realized that with K8s's power came great complexity and overhead, so we went ahead and built something simpler but no less powerful. In fact, we built Monk to make our own lives easier in our previous startup, which dealt with a lot of decentralized applications (where staying lean and flexible is key).
+Monk was built to be the next-gen Kubernetes alternative. We realized that with K8s's power came great complexity and overhead, so we built something simpler but just as powerful. In fact, we built Monk to make our own lives easier with a startup that dealt with a lot of decentralized applications (where staying lean and flexible is key).
 
-Both Monk and Kubernetes orchestrate containers, provision workloads and reduce hardware footprint. However, Kubernetes being a monumental solution, it requires highly specialized engineers and a sophisticated DevOps setup. Monk bypasses this complexity by abstracting the vast majority of orchestration and infrastructure-side operations into an efficient single workflow:
+Both Monk and Kubernetes orchestrate containers, provision workloads and reduce hardware footprint. However, Kubernetes being a monumental solution, requires highly specialized engineers and a sophisticated DevOps setup. Monk bypasses this complexity by abstracting the vast majority of orchestration and infrastructure-side operations into an efficient single workflow.
 
 -   **Fast onboarding**: familiar YAML, easy to customize templates and a logic mimicking `docker-compose` make it easy to deploy your first app with Monk in less than 2 hours.
 
@@ -33,7 +33,7 @@ Also note that Monk integrates natively with popular [CI/CD providers](./guides/
 
 ## Helm
 
-You could think of Monk templates as superpowered Helm charts. Yet unlike Helm, Monk is built from the ground up to integrate template language and package management into one:
+You could think of Monk templates as superpowered Helm charts. Yet unlike Helm, Monk is built from the ground up to integrate template language and package management into one.
 
 -   _All in one_: Helm was supposed to be a package manager for K8s definitions, but it also doubles as a templating language. Doing more things at once increases complexity and errors.
 
@@ -57,7 +57,7 @@ Like Nomad, Monk is designed for simplicity, which means we keep the number of m
 
 -   **More specialized in scope**: Nomad supports orchestrating applications of different kinds, including Windows, Java, VMs and others. Monk currently works only with Docker (see next section) but the architecture can easily support any other OCI-compliant containerization solutions.
 
-In short, both Monk and Nomad make it easy and efficient to orchestrate applications across regions and infrastructures. Monk is easier to use and offers a stable, efficient single workflow, while Nomad works better and offers more reliability at the highest scale and scope.
+In short, both Monk and Nomad make it easy and efficient to orchestrate applications across regions and infrastructures. Monk is easier to use and offers a stable, efficient single workflow, while Nomad offers more reliability at the highest scale and scope.
 
 ## Docker-compose
 
@@ -65,8 +65,8 @@ In general principle and syntax, Monk is similar to Docker Compose: you define a
 
 However, Monk adds an invaluable extra layer of control to your manifests, making them truly independent of environment, and bypassing the need for a Dockerfile in most cases.
 
--   **Environment definition**: with Compose you need to specify a particular environment in your Dockerfile, and make manual changes to it when needed. Monk lets you do that inside your single MonkScript manifest, and switch environments (staging, production, CI/CD etc.) and infrastructure (cloud, multi-cloud or bare metal) in one place with just a few lines of code.
--   **Scriptable actions**: you can execute code in your containers and communicate with your cloud provider directly from Monk, without a Dockerfile or even your cloud CLI. All you need is your template's manifest and the Monk [command line](cli/monk.md).
+-   **Environment definition**: With Compose, you need to specify a particular environment in your Dockerfile, and make manual changes to it when needed. Monk lets you do that inside your single MonkScript manifest, and switch environments (staging, production, CI/CD etc.) and infrastructure (cloud, multi-cloud or bare metal) in one place with just a few lines of code.
+-   **Scriptable actions**: You can execute code in your containers and communicate with your cloud provider directly from Monk, without a Dockerfile or even your cloud CLI. All you need is your template's manifest and the Monk [command line](cli/monk.md).
 
 Think of Monk as a docker-compose for herds of docker-composes, which also sets up and manages your infra in addition to containers.
 
@@ -79,9 +79,9 @@ Terraform specializes in the provisioning/infrastructure level. Monk has that co
 
 -   **More than provisioning**: Monk templates can contain both infrastructure elements and service definitions (containers).
 
--   **Complete system definitions**: since infrastructure components and service components are unified on Monk, it's possible to share a complete system – e.g. a Kafka cluster with a lot of moving parts – and put it on any Monk cluster in the world. All with a single YAML file.
+-   **Complete system definitions**: Since infrastructure components and service components are unified on Monk, it's possible to share a complete system – e.g. a Kafka cluster with a lot of moving parts – and put it on any Monk cluster in the world. All with a single YAML file.
 
--   **Simple and efficient**: starting a new Monk cluster, without even having Monk installed, only takes three commands: `apt install monk` && `monk cluster new` && `monk provider add`. Even without writing any templates you get to deploy full systems with e.g. `monk run gitlab/latest` pulled straight from the Hub.
+-   **Simple and efficient**: Starting a new Monk cluster, without even having Monk installed, only takes three commands: `apt install monk` && `monk cluster new` && `monk provider add`. Even without writing any templates you get to deploy full systems with e.g. `monk run gitlab/latest` pulled straight from the Hub.
 
 -   **Declarative templating**: like MonkScript, Terraform uses declarative configuration files that work predictably in testing, staging, and production environments. However, MonkScript is arguably easier to learn than HCL (HashiCorp Configuration Language) and provides a more unified workflow thanks to [scriptable actions](./monkscript/scripting-index.md) and more unique features.
 
