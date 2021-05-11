@@ -2,13 +2,11 @@
 
 Welcome to [Monk](https://monk.io), the stack orchestration platform. 
 
-Monk lets you compose, deploy, and manage your entire stack, on your own infrastructure, with nearly zero DevOps overhead.
+Monk lets you compose, deploy, and manage your entire stack, on your own infrastructure, with nearly zero DevOps overhead. 
 
-Think of Monk as a Kubernetes and Terraform rolled into one tool: **a new orchestrator that lets you take control of both the application and provisioning layers in one place** by (1) writing feature-packed YAML manifests, and (2) using the CLI to interact directly with your containers and cloud provider(s) of choice. 
+Think of Monk as a Kubernetes and Terraform rolled into one tool. Monk is **a new orchestrator that lets you take control of both the application and provisioning layers in one place** by (1) writing feature-packed YAML manifests, and (2) using the CLI to interact directly with your containers and cloud provider(s) of choice. 
 
 [Download Monk](get-monk.md) and [get started in ten minutes or less](monk-in-10.md).
-
-We're a startup on a mission to make stacks stupid-easy to build and manage. We've built everything from scratch, engine included, and don't rely on any 3rd party platforms except Docker.
 
 !!!note
 
@@ -18,13 +16,21 @@ We're a startup on a mission to make stacks stupid-easy to build and manage. We'
 
 ## Key Features at a Glance
 
--   **Next-gen manifests**: compose your application _and_ provision workloads with composable and scriptable YAML manifests known as Monk Templates.
--   **Ready stack components**: Easily combine and customize containers or entire pre-composed stacks from the Monk Hub repository.
--   **Masterless P2P clusters**: Deploy on any combination of GCP, AWS, Azure, Digital Ocean, bare metal, or even single board computers.
--   **One CLI, two levels**: Control containers and environment in one place. Monk's CLI talks directly to your cloud provider, and the built-in Engine can provision workloads without 3rd party services (e.g. GKE, EKS, AKS).
--   **Orchestration on your terms**: Monk only saves you time and sanity composing and orchestrating your stack; you bring your own cloud and CI/CD workflow.
+-   **Next-gen Manifests**: Compose your application _and_ provision workloads with composable and scriptable YAML manifests known as Monk Templates.
+-   **Ready-to-use Stack Components**: Easily combine and customize containers or entire pre-composed stacks from the Monk Hub repository.
+-   **Easily Mix and Match Templates**: Use our ready-made templates or modify them to suit your needs with our Monk Hub wizard.
+-   **Masterless P2P Clusters**: An encrypted 0-config network connects all containers in Monk securely and transparently--even across clouds.
+-   **Multi-Cloud Support**: Deploy on any combination of GCP, AWS, Azure, Digital Ocean, bare metal, or even single board computers.
+-   **Automatic Provisioning**: Monk does the heavy lifting in your cloud accounts or bare metal servers so you can focus on development.
+-   **Automatic Security**: Monk dynamically manages cloud firewalls and security groups. Security is on by default.
+-   **One CLI, Two Levels**: Control containers and environment in one place. Monk's CLI talks directly to your cloud provider, and the built-in Engine can provision workloads without 3rd party services (e.g. GKE, EKS, AKS).
+-   **Orchestration on Your Terms**: Monk only saves you time and sanity composing and orchestrating your stack; you bring your own cloud and CI/CD workflow.
 
 Explore all features on the [Features](features.md) page.
+
+## Our Mission
+
+We're making infra stacks stupid-easy to build and manage. We've built everything from scratch, engine included, and don't rely on any 3rd party platforms except Docker. 
 
 ## Docs Overview
 
