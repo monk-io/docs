@@ -160,7 +160,8 @@ The invocation is simple:
 Upon running this command, Monk will look for idle (not running any containers) instances in the cluster and terminate them.
 
 !!! warning
-Monk will not back up the storage of the instances it terminates. Use `shrink` with caution and make sure that you've backed up your data first if you'd like to keep it.
+
+    Monk will not back up the storage of the instances it terminates. Use `shrink` with caution and make sure that you've backed up your data first if you'd like to keep it.
 
 ## Destroying the cluster
 
