@@ -34,7 +34,7 @@ The clusters can be created by manually connecting the Peers between a group of 
 
 Once created, a Cluster will work autonomously to keep itself and the workloads online. You can run one big cluster, even spanning multiple cloud providers, and run all your workloads there. Alternatively, you can run multiple smaller clusters, for example, one for each of your projects or customers. Thanks to Monk's architecture, all of the clusters will behave and scale the same way starting from one instance to hundreds of them.
 
-Check out [Creating a cluster](guides/creating-a-cluster.md) to learn more about how clusters work.
+Check out [Creating a cluster](lifecycle/cluster-create-1.md) to learn more about how clusters work.
 
 ### Multi-site Presence
 

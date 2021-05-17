@@ -6,7 +6,7 @@ Monk can run as a step in your CI process and push updated templates to an exist
 
 ### A cluster
 
-In order to deploy to a cluster, you will need a running cluster. See: [Creating a cluster](creating-a-cluster.md).
+In order to deploy to a cluster, you will need a running cluster. See: [Creating a cluster](../lifecycle/cluster-create-1.md).
 
 Be sure to note down the Monkcode for the cluster, you can get it by running:
 
@@ -20,7 +20,7 @@ You'll need a template YAML file available to the CI job. It can come from the r
 
 The CI process will need access to your Monk account email and password.
 
-Alternatively, you can [create another account](../acc-and-auth.md) just for your CI and [authorize it against the cluster](creating-a-cluster.md). This can be done with:
+Alternatively, you can [create another account](../acc-and-auth.md) just for your CI and [authorize it against the cluster](../lifecycle/cluster-switch-1.md). This can be done with:
 
     monk user add
 
@@ -207,7 +207,7 @@ Here's a basic `bitbucket-pipelines.yml` config for deploying with Monk:
         - parallel:
           - step:
               name: 'monk deploy'
-              script: 
+              script:
                 - export MONK="monk -s monkcode://$MONKCODE --nofancy --nocolor"
                 - $MONK login --email $MONK_USER --password $MONK_PASSWORD
                 - $MONK load <your-template-file.yaml>
@@ -218,8 +218,8 @@ This will load and update `<your/runnable>` in the target cluster whenever a new
 
 Be sure to provide these variables in the Bitbucket pipeline settings:
 
--    `MONK_USER`: your Monk account username
--    `MONK_PASSWORD`: your monk account password
+-   `MONK_USER`: your Monk account username
+-   `MONK_PASSWORD`: your monk account password
 -   `MONKCODE`: the Monkcode for your cluster
 -   `MONK_TAG`: tag on which to deploy in your cluster
 

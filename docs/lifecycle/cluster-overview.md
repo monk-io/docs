@@ -15,7 +15,7 @@ Peers communicate and coordinate using an encrypted peer-to-peer protocol and, i
 
 !!! note ""
 
-    Learn more about networking here: [Connecting runnables -->](/guides/connecting-runnables.md).
+    Learn more about networking here: [Connecting runnables -->](/guides/connecting-runnables.md)
 
 The Cluster can be automatically grown within cloud environments without any work from its operator. This chapter shows how to create Monk Clusters and manage the peers.
 

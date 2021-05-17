@@ -27,7 +27,7 @@ Both Monk and Kubernetes orchestrate containers, provision workloads and reduce 
 
 -   **Low overhead**: lean teams can manage very complex applications. Monk is easy to use, and [developers who maintain templates](publishers.md) significantly reduce overhead for end users.
 
--   **Built-in Engine**: in most use cases, especially for smaller teams, K8s requires managed services such as EKS, AKS or GKE, which add extra steps and scaling pains. Monk Engine, which runs a new kind of [peer-to-peer clusters](./guides/creating-a-cluster.md), is a native part of the [ecosystem](key-concepts.md) and offers load balancing, auto-scaling and much more out of the box. See [Features](features.md) for a complete list.
+-   **Built-in Engine**: in most use cases, especially for smaller teams, K8s requires managed services such as EKS, AKS or GKE, which add extra steps and scaling pains. Monk Engine, which runs a new kind of [peer-to-peer clusters](./lifecycle/cluster-create-1.md), is a native part of the [ecosystem](key-concepts.md) and offers load balancing, auto-scaling and much more out of the box. See [Features](features.md) for a complete list.
 
 Also note that Monk integrates natively with popular [CI/CD providers](./guides/ci-cd.md). Overall, Monk is meant to be a single solution that maintains the power of K8s where it shines, but without the extra steps of setting up DevOps or using external IaaS, managed engines, or Helm. And speaking of...
 
@@ -71,7 +71,7 @@ However, Monk adds an invaluable extra layer of control to your manifests, makin
 Think of Monk as a docker-compose for herds of docker-composes, which also sets up and manages your infra in addition to containers.
 
 !!! note
-    Monk works seamlessly with Docker, and in fact to [install Monk](get-monk.md) at this point in time you'll need to have Docker installed and running.
+Monk works seamlessly with Docker, and in fact to [install Monk](get-monk.md) at this point in time you'll need to have Docker installed and running.
 
 ## Terraform
 
