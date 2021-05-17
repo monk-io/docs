@@ -1,4 +1,6 @@
-Runnables are the most common and basic unit in Monk. They represent a container or multiple containers meant to be standing together on a single node together with all necessary resources and configuration. Runnables can be composed together to form [Groups](/monkscript/yaml/groups).
+Services are much like [Runnables](runnables.md) but they don't define any containers and associated lifecycle sections. Services are meant to be an abstract counterpart of Runnables that defines 3rd party services existing outside of Monk control. They can be useful for representing external APIs together with associated state, actions and variables.
+
+Services can be composed with other Services and Runnables to form [Groups](/monkscript/yaml/groups).
 
 ## Minimal example
 
