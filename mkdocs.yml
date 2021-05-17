@@ -67,6 +67,7 @@ nav:
                 - "How to define and use hooks": "guides/hooks.md"
                 - "How to connect services together": "guides/connecting-runnables.md"
                 - "How to deploy templates from CI/CD": "guides/ci-cd.md"
+                - "How to port simple Kubernetes applications to Monk": "guides/k8s-migrate.md"
           - Examples:
                 - "Chainlink Nodes": "guides/chainlink.md"
           - Troubleshooting:
@@ -78,7 +79,7 @@ nav:
                 - YAML:
                       - Monk YAML: monkscript/yaml/index.md
                       - "Runnables": "monkscript/yaml/runnables.md"
-                      - "Process groups": "monkscript/yaml/groups.md"
+                      - "Groups": "monkscript/yaml/groups.md"
                       - "Services": "monkscript/yaml/services.md"
                 - Scripting:
                       - Arrow Scripts: monkscript/scripting-index.md
