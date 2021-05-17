@@ -6,36 +6,39 @@ Monk is able to run any action in response to an event. This mechanism is good f
 
 This is a very basic example of how a hook can be applied to generate a file inside a container every time it is started:
 
-```yaml linenums="1"
-namespace: foobars
+=== "basic.yaml"
 
-foo:
-    defines: runnable
-    containers:
-        defines: containers
-        bar:
-            image: alpine:latest
-            entrypoint: <- `/bin/sh /root/r.sh`
-            hooks:
-                container-started: hello-world
+    ```yaml linenums="1"
+    namespace: foobars
 
-    files:
-        defines: files
-        r1:
-            path: /root/r.sh
-            container: bar
-            contents: "while true; do sleep 1; date; done"
+    foo:
+        defines: runnable
+        containers:
+            defines: containers
+            bar:
+                image: alpine:latest
+                entrypoint: <- `/bin/sh /root/r.sh`
+                hooks:
+                    container-started: hello-world
 
-    actions:
-        defines: actions
-        hello-world:
-            code: exec("bar", "/bin/sh", "-c", `echo "Hello World" > /tmp/hello`)
-```
+        files:
+            defines: files
+            r1:
+                path: /root/r.sh
+                container: bar
+                contents: "while true; do sleep 1; date; done"
+
+        actions:
+            defines: actions
+            hello-world:
+                code: exec("bar", "/bin/sh", "-c", `echo "Hello World" > /tmp/hello`)
+    ```
 
 The container itself will just hang out and wait but this is perfect for us since we'll be inspecting its filesystem contents.
 
 Run the template with:
 
+    monk load basic.yaml
     monk run foobars/foo
 
 Now use the shell command to enter the container:

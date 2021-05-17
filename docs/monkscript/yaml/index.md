@@ -43,7 +43,7 @@ quux:
 
 !!! note ""
 
-    Learn more about [Arrow script -->](/monkscript/scripting-index).
+    Learn more about [Arrow script -->](/monkscript/scripting-index)
 
 ## Inheritance
 
@@ -124,7 +124,7 @@ Runnables are the basic unit in Monk. A `runnable` is essentially something that
 
 !!! note ""
 
-    Learn more about [Runnables -->](/monkscript/yaml/runnables).
+    Learn more about [Runnables -->](/monkscript/yaml/runnables)
 
 ### `process-group`
 
@@ -132,7 +132,7 @@ Groups (or `process-group`s) are compositions of multiple [runnables](#runnable)
 
 !!! note ""
 
-    Learn more about [Groups -->](/monkscript/yaml/groups).
+    Learn more about [Groups -->](/monkscript/yaml/groups)
 
 ### `service`
 
@@ -140,4 +140,4 @@ Services are like [runnables](#runnable) but don't define containers. They can b
 
 !!! note ""
 
-    Learn more about [Services -->](/monkscript/yaml/services).
+    Learn more about [Services -->](/monkscript/yaml/services)
