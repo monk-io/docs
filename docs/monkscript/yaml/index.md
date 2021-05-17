@@ -1,6 +1,4 @@
-# Monk flavor of YAML
-
-Monk uses YAML to describe templates. One of our design goals was to make YAML manageable and eliminate the need for pre-processing using external tools. In order to achieve succinct definitions and composability, we've defined three special keys on top of standard YAML: `namespace`, `defines` and `inherits`.
+Monk uses YAML to express templates. One of our design goals was to make YAML manageable and eliminate the need for pre-processing using external tools. In order to achieve succinct definitions and composability, we've defined three special keys on top of standard YAML: `namespace`, `defines` and `inherits`.
 
 Additionally, Monk provides a `<-` macro that denotes an [Arrow script](/monkscript/scripting-index) which can be used in place of _any_ value in YAML.
 

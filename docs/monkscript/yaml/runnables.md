@@ -118,8 +118,8 @@ A variable can either just specify the value - in which case the type is inferre
 
 | Field   | Value                            | Purpose                                                                               | Required |
 | ------- | -------------------------------- | ------------------------------------------------------------------------------------- | -------- |
-| `type`  | one of: `string`, `int`, `float` | Variable type                                                                         | yes      |
-| `value` | anything                         | Variable value                                                                        | yes      |
+| `type`  | one of: `string`, `int`, `float` | Type of the variable                                                                  | yes      |
+| `value` | anything                         | Initial value of the variable                                                         | yes      |
 | `env`   | `VAIRABLE_NAME`                  | Name of environment variable that will receive the variable's value in all containers | no       |
 
 ### `actions`
@@ -159,13 +159,22 @@ action-name:
     code: Arrow script code
 ```
 
-An acction specifies its code using Arrow script syntax but without `<-` as the code is constant here.
+Actions are somewhat akin to function definitions known from regular programming languages. They are specified by name, list of arguments and code to be executed upon calling the action.
+`action` specifies its code using Arrow script syntax but without `<-` as the code is constant here.
 
-| Field   | Value                            | Purpose                                                                               | Required |
-| ------- | -------------------------------- | ------------------------------------------------------------------------------------- | -------- |
-| `type`  | one of: `string`, `int`, `float` | Variable type                                                                         | yes      |
-| `value` | anything                         | Variable value                                                                        | yes      |
-| `env`   | `VAIRABLE_NAME`                  | Name of environment variable that will receive the variable's value in all containers | no       |
+| Field         | Value                 | Purpose                                                           | Required |
+| ------------- | --------------------- | ----------------------------------------------------------------- | -------- |
+| `description` | human readable string | Human readable description of the action. MonkHub displays these. | yes      |
+| `code`        | Arrow script code     | Code for the action, notice that the `<-` prefix is not needed    | yes      |
+| `arguments`   | map of `argument`s    | Specifies action's expected arguments. See the table below        | no       |
+
+#### `argument`
+
+| Field         | Value                            | Purpose                                                             | Required |
+| ------------- | -------------------------------- | ------------------------------------------------------------------- | -------- |
+| `description` | human readable string            | Human readable description of the argument. MonkHub displays these. | yes      |
+| `type`        | one of: `string`, `int`, `float` | Type of the argument                                                | yes      |
+| `default`     | anything                         | Value of the argument used when it is not specified during call     | no       |
 
 #### Example
 

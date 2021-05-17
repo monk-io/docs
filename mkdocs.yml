@@ -76,12 +76,12 @@ nav:
                 - "Overview": monkscript/index.md
                 - "Working with MonkScript": monkscript/working.md
                 - YAML:
-                      - YAML Overview: monkscript/yaml/index.md
+                      - Monk YAML: monkscript/yaml/index.md
                       - "Runnables": "monkscript/yaml/runnables.md"
                       - "Process groups": "monkscript/yaml/groups.md"
                       - "Services": "monkscript/yaml/services.md"
                 - Scripting:
-                      - Scripting Overview: monkscript/scripting-index.md
+                      - Arrow Scripts: monkscript/scripting-index.md
                       - Cheatsheet: monkscript/scripting-cheatsheet.md
                       - Operators: *operators
           - CLI:
