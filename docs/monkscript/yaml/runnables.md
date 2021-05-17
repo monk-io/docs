@@ -198,6 +198,72 @@ actions:
         code: $args["a"] $args["b"] add $args["add-one"] add
 ```
 
+### `files`
+
+!!! info inline end ""
+
+    **Applicable to:** [`runnable`](#runnable)
+
+    **Required:** no
+
+```yaml linenums="1"
+files:
+    defines: files
+    file-a: ...
+    file-b: ...
+```
+
+Under this section there are definitions of [`file`](#file)s to be created in the container.
+
+#### `file`
+
+!!! info inline end ""
+
+    **Applicable to:** [`files`](#file)
+
+    **Required:** at least one
+
+```yaml linenums="1"
+file-a:
+    path: path inside the container
+    container: name of the container
+    chmod: octal numeral
+    raw: boolean
+    contents: string
+```
+
+| Field       | Value                      | Purpose                                                                                                               | Required |
+| ----------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------- |
+| `path`      | `/foo/bar`                 | the path in the container where the file needs to be stored                                                           | yes      |
+| `container` | name of existing container | the name of the container sub-section describing the container that the file is to be created in                      | yes      |
+| `chmod`     | octal number               | an octal numeral representing the file permissions (defaults to `0600` if omited).                                    | no       |
+| `raw`       | `true` or `false`          | if set to `true`, the contents will not be interpreted as a Golang `text/template`, if `false` or omitted, they will  | no       |
+| `contents`  | any text                   | the file contents. If `raw` is `false`, interpreted as a template. See [docs](https://golang.org/pkg/text/template/). | yes      |
+
+The `contents` of the file can be either literal, or rendered by Golang's `text/template`. In the `contents`, if `raw` is not set to `true`, you can use the following to access the template variables:
+
+```
+{{ v "foo-bar" }} or {{ var "foo-bar" }}
+```
+
+It's useful to declare multiline file `contents` using YAML syntax `|`
+
+#### Example
+
+```yaml linenums="1"
+files:
+    defines: files
+    poem:
+        path: /var/poem.txt
+        container: dummy
+        chmod: 0666
+        raw: false
+        contents: |
+            roses are {{ v "color" }}
+            violets are {{ v "another-color" }}
+            Monk is awesome!
+```
+
 ### `checks`
 
 Each runnable can contain status checks. Currently the only supported check is `readiness`.
@@ -232,7 +298,14 @@ depends:
 ### `recovery`
 
 Each runnable can contain a recovery section.
-If it doesn't exist, it uses defaults values: after: 60s, when: always, mode: default.
+
+If it doesn't exist, Monk will assume default values:
+
+```
+    after: 60s
+    when: always
+    mode: default
+```
 
 #### Example
 
@@ -257,11 +330,13 @@ recovery:
 
 ### `affinity`
 
-Each runnable can contain affinity section.
-It uses to looking for a peer for starting on.
-If use `tag` it looks peers with same tag, `name` searches by name.
-If `resident` is true(false by default). It search free peer and bacome resident on it.(Other runnables can't take it to start).
-If `ignore-pressure` is true(false by default), it ignores pressures on node.
+Each runnable can contain `affinity` section. It's used to determine runtime placement of the `runnable`.
+
+Eiher `tag` or `name` can be specified, depending on the choice, Monk will place the runnable either on any of the nodes bearing the `tag`, or on a specific node named by `name`.
+
+If `resident` is `true` (`false` by default), Monk will search for an empty node and reserve it for the runnable in questions so that no other `runnable` will start on that node as long as the `runnable` in question is present.
+
+If `ignore-pressure` is `true` (`false` by default) Monk will ignore pressure and consider all nodes, even the busy ones for allocation.
 
 ```yaml linenums="1"
 affinity:

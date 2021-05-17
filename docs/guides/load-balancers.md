@@ -213,7 +213,7 @@ services:
         app-balancer:
             port: 8080
             type: http
-                health-check:
+            health-check:
                 kind: http
                 url: /some/path
                 interval: 5
@@ -224,8 +224,8 @@ services:
                 - lbs/service-2
 
     runnable-list:
-            - lbs/service-1
-            - lbs/service-2
+        - lbs/service-1
+        - lbs/service-2
 ```
 
 ### TCP

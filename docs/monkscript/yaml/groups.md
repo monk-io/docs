@@ -1,4 +1,6 @@
-Runnables are the most common and basic unit in Monk. They represent a container or multiple containers meant to be standing together on a single node together with all necessary resources and configuration. Runnables can be composed together to form [Groups](/monkscript/yaml/groups).
+Groups are Monk's composition constructs. Groups allow for composing [`runnables`](runnables.md), [`services`](services.md) and other groups into sets that can be ran and managed as single entities. This allows for expressing complex systems in a portable and modular way. Additionally, a group can define additional resources, such as load balancers that apply to all members of the group.
+
+Groups can also contain common [`variables`](#variables) shared by the group members providing a scoped state storage and communication bus.
 
 ## Minimal example
 
@@ -7,80 +9,30 @@ Runnables are the most common and basic unit in Monk. They represent a container
     ```yaml linenums="1"
     namespace: reference
 
-    example-runnable:
-        defines: runnable
-
-        containers:
-            defines: containers
-            utils:
-                image: amouat/network-utils
-                image-tag: latest
-                entrypoint: sleep 36000
+    example-group:
+        defines: process-group
+        runnable-list:
+            - reference/runnable-a
+            - reference/runnable-b
     ```
 
-    This example shows a runnable `example-runnable` inside a namespace `reference`. At minimum, a valid `runnable` must have a [`containers`](#containers) sub-section containing at least one container.
+    This example shows a group `example-group` inside a namespace `reference`. At minimum, a valid `process-group` must have at least one `runnable` (or other object) specified in the `runnable-list`.
+
+## `process-group`
+
+| Field           | Value         | Purpose                                                                                                                      | Required |
+| --------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `runnable-list` | list of paths | List of members of the group, can be namespace paths to [`runnable`](runnables.md), [`service`](services.md) or other group. | yes      |
 
 ## Sub-sections
 
 Runnable sections can have multiple sub-sections of special meaning. All definitions applicable inside a `runnable` are described below.
 
-### `containers`
-
-!!! info inline end ""
-
-    **Applicable to:**  [`runnable`](#)
-
-    **Required:** yes
-
-```yaml
-containers:
-    defines: containers
-    container-a: ...
-    container-b: ...
-```
-
-Containers section is a map of [`container`](#container), each container is named by its key (`container-a`, `container-b` in above example). Names can be any valid YAML key.
-
-#### `container`
-
-!!! info inline end ""
-
-    **Applicable to:** [`containers`](#containers)
-
-    **Required:** at least one
-
-```yaml
-container-name:
-    image: string
-    image-tag: string
-    entrypoint: container entrypoint
-    bash: shell command to run
-    workdir: container working directory
-    environment:
-        - list of environment variables
-    ports:
-        - list of public port mappings
-    paths:
-        - list of paths to mount
-    labels:
-        - list of labels
-```
-
-| Field        | Value                                                  | Purpose                                                     | Required                    |
-| ------------ | ------------------------------------------------------ | ----------------------------------------------------------- | --------------------------- |
-| `image`      | `alpine`, `alpine:latest`, `gcr.io/someimage`          | A container image to run                                    | yes                         |
-| `image-tag`  | `latest`, `v2`                                         | Image tag, will override the one in `image` if present.     | only when no tag in `image` |
-| `entrypoint` | `run.sh --someoption`                                  | Container entrypoint, will override the image's entrypoint. | no                          |
-| `bash`       | `rm /app/cache`                                        | A shell command to run upon container start.                | no                          |
-| `ports`      | list of: `8080`, `8080:9090`, `0.0.0.0:8080:9090`      | A list of ports to bind and publish to the internet.        | no                          |
-| `paths`      | list of: `host/path:container/path`                    | A list of filesystem paths to bind.                         | no                          |
-| `labels`     | list of: `"com.example.description=Accounting webapp"` | A list of container labels.                                 | no                          |
-
 ### `variables`
 
 !!! info inline end ""
 
-    **Applicable to:** [`runnable`](#)
+    **Applicable to:** [`process-group`](#)
 
     **Required:** no
 
@@ -92,6 +44,8 @@ variables:
 ```
 
 Variables section is a map of [`variable`](#variable), each container is named by its key (`variable-a`, `variable-b` in above example). Names can be any valid YAML key.
+
+Variables in groups are visible to all member `runnables` as if they were declared in the runnable as long as there is no definition for a variable of the same name inside the runnable itself. In other words, whenever resolving a variable inside a `runnable`, Monk first looks at variables defined or inherited in that runnable, only then looks at the variables defined in the group containing the runnable.
 
 !!! info
 
@@ -126,7 +80,7 @@ A variable can either just specify the value - in which case the type is inferre
 
 !!! info inline end ""
 
-    **Applicable to:** [`runnable`](#)
+    **Applicable to:** [`process-group`](#)
 
     **Required:** no
 
@@ -196,4 +150,37 @@ actions:
                 description: add 1 to result
                 default: false # if default is not set, the argument is required
         code: $args["a"] $args["b"] add $args["add-one"] add
+```
+
+### `balancers`
+
+!!! info inline end ""
+
+    **Applicable to:** [`process-group`](#)
+
+    **Required:** no
+
+```yaml linenums="1"
+balancers:
+    defines: balancers
+    balancer-a: ...
+    balancer-b: ...
+```
+
+Balancers section is a map of [`balancer`](#balancer), each load balancer is named by its key (`balancer-a`, `balancer-b` in above example). Names can be any valid YAML key.
+
+#### `balancer`
+
+!!! info inline end ""
+
+    **Applicable to:** [`balancers`](#balancers)
+
+    **Required:** at least one
+
+```yaml linenums="1"
+balancer-a:
+    type: load balancer type
+    port: target port
+    instances:
+        - list of runnables to balance between
 ```

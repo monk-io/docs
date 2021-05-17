@@ -120,7 +120,7 @@ Functions are really just code blocks treated as values and they can be passed a
 
 ### String interpolation
 
-String interpolation is a convenience feature that helps to express string values succinctly. In Arrow script backticks (`` ` ``) are used to denote an interpolated string. Within those strings variables can be resolved using `${variable-name}` syntax. This form of string interpolation is inspired by JavaScript - it's simple and effective.
+String interpolation is a convenience feature that helps to express string values succinctly. In Arrow script backticks (`` ` ``) are used to denote an interpolated string. Within those strings variables can be resolved using `${variable-name}` syntax. Values will be converted to strings (by `to-s`) before concatenating the final result. This form of string interpolation is inspired by JavaScript - it's simple and effective.
 
 Consider this example:
 
@@ -146,11 +146,11 @@ this will evaluate to `"Flipper had a chrome speedboat"`
 
 !!! note
 
-    Only variables and constants can be resolved inside `${...}`, putting anything else there will not work.
+    Only variables and literals can be resolved inside `${...}`, putting anything else there will not work.
 
     For example, this is wrong:
     ```
-    `2 + 2 is ${2 2 add}`
+    <- `2 + 2 is ${2 2 add}`
     ```
 
 ## Variable scope
