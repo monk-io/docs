@@ -1,4 +1,4 @@
-With Monk you can [grow your cluster manually](creating-a-cluster.md) by issuing the `grow` command. This is not the only way to add instances to your cluster as the templates can also carry instructions instance definitions. Monk will create instances when running a template containing such a definition.
+With Monk you can [grow your cluster manually](../lifecycle/cluster-create-1.md) by issuing the `grow` command. This is not the only way to add instances to your cluster as the templates can also carry instructions instance definitions. Monk will create instances when running a template containing such a definition.
 
 ---
 
@@ -8,7 +8,7 @@ You need to create a cluster or join already existing cluster in order to deploy
 
 !!! note
 
-    Please follow [this guide](creating-a-cluster.md) if you need to create a new cluster.
+    Please follow [this guide](../lifecycle/cluster-create-1.md) if you need to create a new cluster.
 
 ## Defining nodes
 

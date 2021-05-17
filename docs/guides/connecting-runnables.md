@@ -20,6 +20,7 @@ Consider the following template:
                 environment:
                     - <- `DB_ADDR=${db-addr}`
                     - <- `DB_PORT=${db-port}`
+                entrypoint: 'echo "db at ${DB_ADDR}:${DB_PORT}" ; sleep 3600'
         variables:
             defines: variables
             db-addr:
@@ -70,6 +71,7 @@ The template should now look like this:
                 environment:
                     - <- `DB_ADDR=${db-addr}`
                     - <- `DB_PORT=${db-port}`
+                entrypoint: 'echo "db at ${DB_ADDR}:${DB_PORT}" ; sleep 3600'
         variables:
             defines: variables
             db-addr:
@@ -84,15 +86,20 @@ The template should now look like this:
 
 Run the new template with:
 
-    monk load
+    monk load mystuff.yaml
     monk run mystuff/my-service
 
 It will automatically find MongoDB that we run earlier. It will also work if you decide to run both runnables as a group:
 
-```yaml linenums="1"
-my-group:
-    defines: process-group
-    runnable-list:
-        - mongodb/latest
-        - mystuff/my-service
-```
+=== "mygroup.yaml"
+
+    ```yaml linenums="1"
+    my-group:
+        defines: process-group
+        runnable-list:
+            - mongodb/latest
+            - mystuff/my-service
+    ```
+
+    monk load mygroup.yaml
+    monk run mystuff/my-group
