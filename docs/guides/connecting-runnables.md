@@ -20,7 +20,7 @@ Consider the following template:
                 environment:
                     - <- `DB_ADDR=${db-addr}`
                     - <- `DB_PORT=${db-port}`
-                entrypoint: 'echo "db at ${DB_ADDR}:${DB_PORT}" ; sleep 3600'
+                entrypoint: echo "db at ${DB_ADDR}:${DB_PORT}" ; sleep 3600
         variables:
             defines: variables
             db-addr:
@@ -71,7 +71,7 @@ The template should now look like this:
                 environment:
                     - <- `DB_ADDR=${db-addr}`
                     - <- `DB_PORT=${db-port}`
-                entrypoint: 'echo "db at ${DB_ADDR}:${DB_PORT}" ; sleep 3600'
+                entrypoint: echo "db at ${DB_ADDR}:${DB_PORT}" ; sleep 3600
         variables:
             defines: variables
             db-addr:
