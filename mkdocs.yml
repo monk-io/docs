@@ -37,6 +37,7 @@ nav:
           - "Monk vs other software": "comparison.md"
           - Features: "features.md"
           - "Support & Resources": "support.md"
+          - Privacy: monk-privacy.md
           - "Getting Started":
                 - "Getting & Upgrading Monk": "get-monk.md"
                 - "Accounts & Authentication": "acc-and-auth.md"
