@@ -93,7 +93,7 @@ You could run your new template with:
 
 !!! note
 
-    To do this, you should have the cluster already set-up. 
+    To do this, you should have the cluster already set-up.
     Also, `monk stop yourname/app` to stop the template.
 
 However, the template is not complete. Much like with `docker-compose`, in order to prepare a good runtime environment, we must understand what are the App's requirements.
@@ -361,6 +361,6 @@ To stop it, use:
 
 This concludes our basic app tutorial. We have learned how to compose 3rd party software with our own containerized service and how to run it all as an ensemble using Monk.
 
-The next step would be to run your app on different clouds. To that end, you can head back to the [Creating a cluster](creating-a-cluster.md) and [Running templates in a cluster](running-templates-cluster.md) guides to see them with a fresh perspective.
+The next step would be to run your app on different clouds. To that end, you can head back to the [Creating a cluster](../lifecycle/cluster-create-1.md) and [Running templates in a cluster](running-templates-cluster.md) guides to see them with a fresh perspective.
 
 Or better yet, continue to [Connecting runnables](connecting-runnables.md) to see how we can make our services talk to each other.

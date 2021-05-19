@@ -362,7 +362,7 @@ If you don't want to use the cluster anymore just do:
 
 This will destroy the cluster and all associated resources. **Be careful! Monk will not back up the storage of the instances it terminates**.
 
-In case you'd like to create another cluster, follow this guide again or see: [Creating a cluster](guides/creating-a-cluster.md).
+In case you'd like to create another cluster, follow this guide again or see: [Creating a cluster](lifecycle/cluster-create-1.md).
 
 ## What's Next?
 

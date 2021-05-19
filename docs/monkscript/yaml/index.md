@@ -1,6 +1,4 @@
-# Monk flavor of YAML
-
-Monk uses YAML to describe templates. One of our design goals was to make YAML manageable and eliminate the need for pre-processing using external tools. In order to achieve succinct definitions and composability, we've defined three special keys on top of standard YAML: `namespace`, `defines` and `inherits`.
+Monk uses YAML to express templates. One of our design goals was to make YAML manageable and eliminate the need for pre-processing using external tools. In order to achieve succinct definitions and composability, we've defined three special keys on top of standard YAML: `namespace`, `defines` and `inherits`.
 
 Additionally, Monk provides a `<-` macro that denotes an [Arrow script](/monkscript/scripting-index) which can be used in place of _any_ value in YAML.
 
@@ -43,7 +41,7 @@ quux:
 
 !!! note ""
 
-    Learn more about [Arrow script -->](/monkscript/scripting-index).
+    Learn more about [Arrow script -->](/monkscript/scripting-index)
 
 ## Inheritance
 
@@ -124,7 +122,7 @@ Runnables are the basic unit in Monk. A `runnable` is essentially something that
 
 !!! note ""
 
-    Learn more about [Runnables -->](/monkscript/yaml/runnables).
+    Learn more about [Runnables -->](/monkscript/yaml/runnables)
 
 ### `process-group`
 
@@ -132,7 +130,7 @@ Groups (or `process-group`s) are compositions of multiple [runnables](#runnable)
 
 !!! note ""
 
-    Learn more about [Groups -->](/monkscript/yaml/groups).
+    Learn more about [Groups -->](/monkscript/yaml/groups)
 
 ### `service`
 
@@ -140,4 +138,4 @@ Services are like [runnables](#runnable) but don't define containers. They can b
 
 !!! note ""
 
-    Learn more about [Services -->](/monkscript/yaml/services).
+    Learn more about [Services -->](/monkscript/yaml/services)
