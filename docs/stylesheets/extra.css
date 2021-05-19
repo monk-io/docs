@@ -158,12 +158,37 @@ h1, h2, h3, h4, h5, h6 {
     font-family: Visuelt;
 }
 
+.md-header__button.md-logo {
+    padding: 6px;
+}
+
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
-    width: 1.5rem;
-    height: 1.5rem;
+    height: 50px;
+    width: auto;
+}
+
+.md-nav__title .md-nav__button.md-logo img,
+.md-nav__title .md-nav__button.md-logo svg {
+    height: 35px;
+    width: auto;
 }
 
 .md-header__title {
     margin-left: 0;
+}
+
+.md-header__topic {
+    display: none;
+}
+
+@media screen and (max-width: 76.1875em) {
+    .md-nav--primary .md-nav__title {
+        height: 50px;
+        overflow: hidden;
+    }
+
+    .md-header__title {
+        background: url("../assets/monk-dolphin-full.svg") left center / auto 35px no-repeat;
+    }
 }

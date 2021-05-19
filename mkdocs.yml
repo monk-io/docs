@@ -16,7 +16,7 @@ operators: &operators
     - monkscript/operators/variables.md
 theme:
     name: material
-    logo: assets/monk-dolphin-small.svg
+    logo: assets/monk-dolphin-full.svg
     favicon: assets/monk-dolphin-small.svg
     palette:
         scheme: default
@@ -29,6 +29,8 @@ theme:
         - navigation.indexes
 extra_css:
     - stylesheets/extra.css
+extra_javascript:
+    - scripts/chatwoot.js
 nav:
     - About Monk:
           - "Welcome to Monk": "index.md"

@@ -5,7 +5,7 @@
   s.parentNode.insertBefore(g,s);
   g.onload=function(){
     window.chatwootSDK.run({
-      websiteToken: 'ZrAzeGi8m9WKopwezQN7ermX',
+      websiteToken: 'Ejk4Y5wBbP745wiXVtMunWdC',
       baseUrl: BASE_URL
     })
   }
