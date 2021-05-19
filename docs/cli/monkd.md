@@ -9,8 +9,9 @@
 
 ## Description
 
-`monkd` is the Monk engine daemon. It implements all of Monk's functionalities and is required to be running in order for a Monk setup to perform its operation.
-Running `monkd` in a normal scenario does not require setting any options.
+`monkd` is the Monk engine daemon. It implements all of Monk's functionalities and is required to be running in order for Monk setup to operate.
+
+Running `monkd` in a normal scenario does not require any options.
 It is advised to run `monkd` as a service on your system. See Running monccd as a service for an example setup.
 
 ### Usage
@@ -82,11 +83,11 @@ It is advised to run `monkd` as a service on your system. See Running monccd as 
 `--volume-path` _string_
 : Path to a directory where the monkd should store container volumes
 
-## Running `monkd` as a service
+## Running `monkd` as a Service
 
 ### Linux `systemd`
 
-In order to set up Monk to start as a service on your Linux system running systemd, create a config file like the one presented below and substitute the path to `monkd` binary for `PATH_TO_MONKD_BINARY`.
+To setup Monk as a service on a Linux system running systemd, create a config file like the one presented below and substitute the path to `monkd` binary for `PATH_TO_MONKD_BINARY`.
 
 ```ini
 [Unit]
@@ -100,15 +101,21 @@ Restart=on-abort
 
 [Install]
 WantedBy=multi-user.target
-Place the file in /etc/systemd/system/ and run the new service:
-systemctl enable --now monkd
 ```
 
-`monkd` will start at this point and it will be started automatically on your system from now on.
+Place the file in `/etc/systemd/system/`, then run:
+
+    systemctl daemon-reload
+
+to read the new configuration into systemd, then run:
+
+    systemctl enable --now monkd
+
+to start `monkd` and set it to automatically start on boot.
 
 ### MacOS `launchd`
 
-In order to set up Monk to start as a service on your Mac, create a config file like the one presented below and substitute the path to `monkd` binary for `PATH_TO_MONKD_BINARY`.
+To setup Monk as a service on macOS, create a config file like the one presented below and substitute the path to `monkd` binary for `PATH_TO_MONKD_BINARY`.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -135,7 +142,7 @@ In order to set up Monk to start as a service on your Mac, create a config file 
 </plist>
 ```
 
-To install the config file move it to `$HOME/Library/LaunchAgents/`:
+To install the config file, move it to `$HOME/Library/LaunchAgents/`:
 
     cp -v com.monkd.daemon.plist $HOME/Library/LaunchAgents/com.monkd.daemon.plist
 
@@ -145,19 +152,19 @@ Then load it with `launchctl`:
 
 !!!success
 
-    `monkd` will start at this point and it will be started automatically on your system from now on.
+    `monkd` will start and will be automatically started on boot.
 
 ## Troubleshooting
 
-This section contains solution to problems that were reported by Monk users.
+This section contains solution to problems you may experience when running `monkd` as a service.
 
-### File limit reached on MacOS
+### File Limit Reached on macOS
 
-The reason for this problem is the fact that MacOS limits the number of open files per process to 256. Since `monkd` opens many network connections, this limit is easily reached and may cause issues.
+By default, macOS limits the number of open files per process to 256. Since `monkd` opens many network connections, it's easy to bump against this limit.
 
-The solution to this problem is to increase the open file limit. Run the following command as root before starting monkd:
+To fix this problem, you'll need to increase the open file limit. Run the following command with sudo before starting monkd:
 
-    launchctl limit maxfiles 4096 unlimited
+    sudo launchctl limit maxfiles 4096 unlimited
 
 This will set the limit to 4096 which is more than enough for `monkd`.
 
