@@ -1,10 +1,18 @@
-# Troubleshooting
+You'll find answers to common problems with Monk, templates and deployments here.
 
-This one's coming real, real soon.
-Keep calm and visit our [support channels](../support.md).
+## Some of my runnables have problem resolving hostnames of other runnables
 
-<br>
+If some of the runnables crash with errors like `Error connecting to Redis on templates-stack-redis-redis:6379 (SocketError)` and you are using `alpine` based image then you have probably encountered a bug with `alpine` hostname resolving.
 
-<figure width="180" height="200">
-  <img src="/assets/documentation-coming.jpg" />
-</figure>
+How to verify it:
+
+```clojure
+monk shell problematic-runnable-name
+ping templates-stack-redis-redis
+```
+
+If the ping works correctly then it might be problem with your service. If on the other hand the host is not reachable when pinging it might be problem related to some `alpine` versions. It can be mitigated by adding `.monk` at the end of the host. For example `templates-stack-redis-redis.monk`. After that you can verify that host is working by loading template again and updating your runnable. In `monk` templates the `.monk` suffix can be added using `arrowscript`:
+
+```clojure
+<- get-hostname("stack/redis", "redis") ".monk" concat
+```

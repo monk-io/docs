@@ -38,41 +38,40 @@ nav:
           - Features: "features.md"
           - "Support & Resources": "support.md"
           - Privacy: monk-privacy.md
-          - "Getting Started":
-                - "Getting & Upgrading Monk": "get-monk.md"
-                - "Accounts & Authentication": "acc-and-auth.md"
-                - "Monk in 10 minutes": "monk-in-10.md"
-          - "Publishing":
-                - "Publisher program (Alpha)": "publishers.md"
-    - Guides:
-          - "Intro to Guides": "guides/index.md"
-          - Basics:
-                - "Running templates locally": "guides/running-templates.md"
-                - "Running templates in a cluster": "guides/running-templates-cluster.md"
-                - "Inspecting your workloads": "guides/inspecting-workloads.md"
-          - Cluster lifecycle:
-                - Overview: "lifecycle/cluster-overview.md"
-                - Create: "lifecycle/cluster-create-1.md"
-                - Operate: "lifecycle/cluster-operate-1.md"
-                - Switch: "lifecycle/cluster-switch-1.md"
-          - Cookbook:
-                - "How to build and deploy a small app": "guides/basic-app.md"
-                - "How to add cloud provider to monk": "guides/01-cloud-provider.md"
-                - "How to provision persistent storage for container in monk template": "guides/02-persistent-storage.md"
-                - "How to provision a multi-cloud cluster in monk": "guides/03-multi-cloud.md"
-                - "How to provision instances via templates": "guides/provisioning-via-templates.md"
-                - "How to dynamically pass or modify containerised services config files": "guides/04-config-files.md"
-                - "How to pass secrets in templates": "guides/passing-secrets.md"
-                - "How to constrain containers to certain instances in monk cluster": "guides/05-affinity.md"
-                - "How to define and use load balancers": "guides/load-balancers.md"
-                - "How to define and use hooks": "guides/hooks.md"
-                - "How to connect services together": "guides/connecting-runnables.md"
-                - "How to deploy templates from CI/CD": "guides/ci-cd.md"
-                - "How to port simple Kubernetes applications to Monk": "guides/k8s-migrate.md"
-          - Examples:
-                - "Chainlink Nodes": "guides/chainlink.md"
-          - Troubleshooting:
-                - "Overview": "guides/troubleshooting.md"
+    - Getting Started:
+          - "Getting & Upgrading Monk": "get-monk.md"
+          - "Accounts & Authentication": "acc-and-auth.md"
+    - Basics:
+          - "Monk in 10 minutes": "monk-in-10.md"
+          - "Run locally": "guides/running-templates.md"
+          - "Inspect workloads": "guides/inspecting-workloads.md"
+    - Deploy:
+          - Overview: "lifecycle/cluster-overview.md"
+          - Create Clusters: "lifecycle/cluster-create-1.md"
+          - Operate Clusters: "lifecycle/cluster-operate-1.md"
+          - Switch Clusters: "lifecycle/cluster-switch-1.md"
+          - Run Templates in a Cluster: "guides/running-templates-cluster.md"
+    - Develop Templates:
+          - Build a Basic App: "guides/basic-app.md"
+          - Define Connections: "guides/connecting-runnables.md"
+          - Define Dependencies: "guides/readiness-and-dependency-checks.md"
+          - Add Persistent Storage: "guides/02-persistent-storage.md"
+          - Add Dynamic Configuration: "guides/04-config-files.md"
+          - Add Secrets: "guides/passing-secrets.md"
+          - Add Infrastructure: "guides/provisioning-via-templates.md"
+          - Add Placement Constraints: "guides/05-affinity.md"
+          - Add Load Balancers: "guides/load-balancers.md"
+          - Automate with Hooks: "guides/hooks.md"
+    - Level Up:
+          - Porting Apps from K8s: "guides/k8s-migrate.md"
+          - Deploy templates from CI/CD: "guides/ci-cd.md"
+          - Multi-Cloud Deployments: "guides/03-multi-cloud.md"
+    - Publish to MonkHub:
+          - "Publish your templates": "publishers.md"
+    - Case Studies:
+          - "Chainlink Nodes": "guides/chainlink.md"
+    - Troubleshooting:
+          - "Template problems": "guides/troubleshooting.md"
     - Reference:
           - MonkScript:
                 - "Overview": monkscript/index.md
@@ -91,7 +90,6 @@ nav:
                 - "monkd": "cli/monkd.md"
           - GUI:
                 - "Overview": "gui/index.md"
-    - "FAQ": "faq.md"
 markdown_extensions:
     - admonition
     - abbr

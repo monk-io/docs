@@ -23,54 +23,60 @@ We will need to port all of YELB deployments first, try to run them first and ch
 
 We will start with UI. YAML spec looks like this:
 
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-    name: yelb-ui
-spec:
-    replicas: 1
-    selector:
-        matchLabels:
-            app: yelb-ui
-            tier: frontend
-    template:
-        metadata:
-            labels:
+=== "Kubernetes"
+
+    ```yaml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+        name: yelb-ui
+    spec:
+        replicas: 1
+        selector:
+            matchLabels:
                 app: yelb-ui
                 tier: frontend
-        spec:
-            containers:
-                - name: yelb-ui
-                  image: mreferre/yelb-ui:0.7
-                  ports:
-                      - containerPort: 80
-```
+        template:
+            metadata:
+                labels:
+                    app: yelb-ui
+                    tier: frontend
+            spec:
+                containers:
+                    - name: yelb-ui
+                    image: mreferre/yelb-ui:0.7
+                    ports:
+                        - containerPort: 80
+    ```
 
 The most interesting part for us will be the container spec:
 
-```yaml
-spec:
-    containers:
-        - name: yelb-ui
-          image: mreferre/yelb-ui:0.7
-          ports:
-              - containerPort: 80
-```
+=== "Kubernetes"
+
+    ```yaml
+    spec:
+        containers:
+            - name: yelb-ui
+            image: mreferre/yelb-ui:0.7
+            ports:
+                - containerPort: 80
+    ```
 
 We need to have something similar in Monk to make application component run. Lets define our [runnable](/monkscript/yaml/runnables/) and put that information in. It will look like this:
 
-```yaml
-namespace: /yelb
+=== "Monk"
 
-ui:
-    defines: runnable
-    containers:
-        defines: containers
-        yelb-ui:
-            image-tag: "0.7"
-            image: mreferre/yelb-ui
-```
+    ```yaml
+    namespace: /yelb
+
+    ui:
+        defines: runnable
+        containers:
+            defines: containers
+            yelb-ui:
+                image-tag: "0.7"
+                image: mreferre/yelb-ui
+    ```
 
 Which is simple as that and should be enough for the following component to start.
 
@@ -82,127 +88,139 @@ Which is simple as that and should be enough for the following component to star
 
 We will do the same with appserver. It's YAML spec looks like:
 
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-    name: yelb-appserver
-spec:
-    replicas: 1
-    selector:
-        matchLabels:
-            app: yelb-appserver
-            tier: middletier
-    template:
-        metadata:
-            labels:
+=== "Kubernetes"
+
+    ```yaml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+        name: yelb-appserver
+    spec:
+        replicas: 1
+        selector:
+            matchLabels:
                 app: yelb-appserver
                 tier: middletier
-        spec:
-            containers:
-                - name: yelb-appserver
-                  image: mreferre/yelb-appserver:0.5
-                  ports:
-                      - containerPort: 4567
-```
+        template:
+            metadata:
+                labels:
+                    app: yelb-appserver
+                    tier: middletier
+            spec:
+                containers:
+                    - name: yelb-appserver
+                    image: mreferre/yelb-appserver:0.5
+                    ports:
+                        - containerPort: 4567
+    ```
 
 Again, we will look at containers spec, and produce similar YAML:
 
-```yaml
-namespace: /yelb
+=== "Monk"
 
-appserver:
-    defines: runnable
-    containers:
-        defines: containers
-        yelb-appserver:
-            image-tag: "0.5"
-            image: mreferre/yelb-appserver
-```
+    ```yaml
+    namespace: /yelb
+
+    appserver:
+        defines: runnable
+        containers:
+            defines: containers
+            yelb-appserver:
+                image-tag: "0.5"
+                image: mreferre/yelb-appserver
+    ```
 
 ### yelb-db
 
 We will do the same with db server. It's YAML spec looks like:
 
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-    name: yelb-db
-spec:
-    replicas: 1
-    selector:
-        matchLabels:
-            app: yelb-db
-            tier: backenddb
-    template:
-        metadata:
-            labels:
+=== "Kubernetes"
+
+    ```yaml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+        name: yelb-db
+    spec:
+        replicas: 1
+        selector:
+            matchLabels:
                 app: yelb-db
                 tier: backenddb
-        spec:
-            containers:
-                - name: yelb-db
-                  image: mreferre/yelb-db:0.5
-                  ports:
-                      - containerPort: 5432
-```
+        template:
+            metadata:
+                labels:
+                    app: yelb-db
+                    tier: backenddb
+            spec:
+                containers:
+                    - name: yelb-db
+                    image: mreferre/yelb-db:0.5
+                    ports:
+                        - containerPort: 5432
+    ```
 
 Again, we will look at containers spec, and produce similar YAML:
 
-```yaml
-namespace: /yelb
+=== "Monk"
 
-db:
-    defines: runnable
-    containers:
-        defines: containers
-        yelb-db:
-            image-tag: "0.5"
-            image: mreferre/yelb-db
-```
+    ```yaml
+    namespace: /yelb
+
+    db:
+        defines: runnable
+        containers:
+            defines: containers
+            yelb-db:
+                image-tag: "0.5"
+                image: mreferre/yelb-db
+    ```
 
 ### redis-server
 
 We will do the same with redis server. It's YAML spec looks like:
 
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-    name: redis-server
-spec:
-    replicas: 1
-    selector:
-        matchLabels:
-            app: redis-server
-            tier: cache
-    template:
-        metadata:
-            labels:
+=== "Kubernetes"
+
+    ```yaml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+        name: redis-server
+    spec:
+        replicas: 1
+        selector:
+            matchLabels:
                 app: redis-server
                 tier: cache
-        spec:
-            containers:
-                - name: redis-server
-                  image: redis:4.0.2
-                  ports:
-                      - containerPort: 6379
-```
+        template:
+            metadata:
+                labels:
+                    app: redis-server
+                    tier: cache
+            spec:
+                containers:
+                    - name: redis-server
+                    image: redis:4.0.2
+                    ports:
+                        - containerPort: 6379
+    ```
 
 Again, we will look at containers spec, and produce similar YAML:
 
-```yaml
-namespace: /yelb
+=== "Monk"
 
-redis:
-    defines: runnable
-    containers:
-        defines: containers
-        redis-server:
-            image-tag: "4.0.2"
-            image: redis
-```
+    ```yaml
+    namespace: /yelb
+
+    redis:
+        defines: runnable
+        containers:
+            defines: containers
+            redis-server:
+                image-tag: "4.0.2"
+                image: redis
+    ```
 
 ## Starting YELB in Monk for the first time
 
@@ -341,41 +359,45 @@ So far we've identified two problems. Both of them are related to UI. First one 
 
 If we will have a look quickly at original YAML for Kubernetes we can see that UI had defined service:
 
-```bash
-apiVersion: v1
-kind: Service
-metadata:
-  name: yelb-ui
-  labels:
-    app: yelb-ui
-    tier: frontend
-spec:
-  type: NodePort
-  ports:
-  - port: 80
-    protocol: TCP
-    targetPort: 80
-    # nodePort: 32777 <- if not specified, the system will generate a nodePort value
-  selector:
-    app: yelb-ui
-    tier: frontend
-```
+=== "Kubernetes"
+
+    ```yaml
+    apiVersion: v1
+    kind: Service
+    metadata:
+    name: yelb-ui
+    labels:
+        app: yelb-ui
+        tier: frontend
+    spec:
+    type: NodePort
+    ports:
+    - port: 80
+        protocol: TCP
+        targetPort: 80
+        # nodePort: 32777 <- if not specified, the system will generate a nodePort value
+    selector:
+        app: yelb-ui
+        tier: frontend
+    ```
 
 We can see that `Service` listens and redirects requests to port 80. Lets amend our `yelb/ui` spec to match that. To do that, we just simply need to add `ports` section to our manifest.
 
-```bash
-namespace: /yelb
+    === "Monk"
 
-ui:
-  defines: runnable
-  containers:
-    defines: containers
-    yelb-ui:
-      image-tag: "0.7"
-      image: mreferre/yelb-ui
-      ports:
-        - 80:80
-```
+    ```yaml
+    namespace: /yelb
+
+    ui:
+    defines: runnable
+    containers:
+        defines: containers
+        yelb-ui:
+        image-tag: "0.7"
+        image: mreferre/yelb-ui
+        ports:
+            - 80:80
+    ```
 
 Now we need to update template and our workload:
 
@@ -450,29 +472,31 @@ We will utilise three of the Monk features here:
 
 Lets combine all of the information into our YAML file:
 
-```bash
-namespace: /yelb
+    === "Monk"
 
-ui:
-  defines: runnable
-  containers:
-    defines: containers
-    yelb-ui:
-      image-tag: "0.7"
-      image: mreferre/yelb-ui
-      ports:
-        - 80:80
-      bash: <- `sed -e "s/yelb-appserver/${yelb-appserver-addr}/g" -i /startup.sh &&
-        /startup.sh`
+    ```yaml
+    namespace: /yelb
 
-  variables:
-    defines: variables
-    port: 80
-    yelb-appserver-addr:
-      type: string
-      # get-hostname syntax is "namespace/runnable", "container_name"
-      value: <- get-hostname("yelb/appserver", "yelb-appserver")
-```
+    ui:
+    defines: runnable
+    containers:
+        defines: containers
+        yelb-ui:
+        image-tag: "0.7"
+        image: mreferre/yelb-ui
+        ports:
+            - 80:80
+        bash: <- `sed -e "s/yelb-appserver/${yelb-appserver-addr}/g" -i /startup.sh &&
+            /startup.sh`
+
+    variables:
+        defines: variables
+        port: 80
+        yelb-appserver-addr:
+        type: string
+        # get-hostname syntax is "namespace/runnable", "container_name"
+        value: <- get-hostname("yelb/appserver", "yelb-appserver")
+    ```
 
 We should update now our template and workload. Lets try to do this:
 
@@ -556,32 +580,34 @@ And unfortunately options that we would like to change are hardcoded into applic
 
 Our YAML should look like:
 
-```yaml
-namespace: /yelb
+=== "Monk"
 
-appserver:
-    defines: runnable
-    containers:
-        defines: containers
-        yelb-appserver:
-            image-tag: "0.5"
-            image: mreferre/yelb-appserver
-            bash:
-                <- `sed -e "s/yelb-db/${yelb-db-addr}/g" -i /app/yelb-appserver.rb &&
-                sed -e "s/redis-server/${yelb-redis-addr}/g" -i /app/yelb-appserver.rb &&
-                /startup.sh`
+    ```yaml
+    namespace: /yelb
 
-    variables:
-        defines: variables
-        port: 4567
-        yelb-db-addr:
-            type: string
-            value: <- get-hostname("yelb/db", "yelb-db")
+    appserver:
+        defines: runnable
+        containers:
+            defines: containers
+            yelb-appserver:
+                image-tag: "0.5"
+                image: mreferre/yelb-appserver
+                bash:
+                    <- `sed -e "s/yelb-db/${yelb-db-addr}/g" -i /app/yelb-appserver.rb &&
+                    sed -e "s/redis-server/${yelb-redis-addr}/g" -i /app/yelb-appserver.rb &&
+                    /startup.sh`
 
-        yelb-redis-addr:
-            type: string
-            value: <- get-hostname("yelb/redis", "redis-server")
-```
+        variables:
+            defines: variables
+            port: 4567
+            yelb-db-addr:
+                type: string
+                value: <- get-hostname("yelb/db", "yelb-db")
+
+            yelb-redis-addr:
+                type: string
+                value: <- get-hostname("yelb/redis", "redis-server")
+    ```
 
 We should update now our template and workload. Lets try to do this:
 
@@ -613,20 +639,22 @@ $ monk purge local/yelb/redis
 
 To define a [process group](/guides/groups/) we will have to create YAML with list of runnables that will be part of our group. It will simply look like:
 
-```yaml
-namespace: /yelb
+=== "Monk"
 
-# We will call our group 'application'
-application:
-    defines: process-group
+    ```yaml
+    namespace: /yelb
 
-    # And we will put a list of runnables that will consist of this group
-    runnable-list:
-        - /yelb/appserver
-        - /yelb/db
-        - /yelb/ui
-        - /yelb/redis
-```
+    # We will call our group 'application'
+    application:
+        defines: process-group
+
+        # And we will put a list of runnables that will consist of this group
+        runnable-list:
+            - /yelb/appserver
+            - /yelb/db
+            - /yelb/ui
+            - /yelb/redis
+    ```
 
 This will create a group called `application` which we will be able to operate just via `yelb/application` syntax.
 
@@ -708,17 +736,19 @@ To spawn another instance of YELB app for example production we will use one of 
 
 We will start simple. We will define our namespace and put our db and redis [runnable](/monkscript/yaml/runnables/) in. We do this by creating template like that:
 
-```yaml
-namespace: /yelb-production
+=== "Monk"
 
-db:
-    defines: runnable
-    inherits: yelb/db
+    ```yaml
+    namespace: /yelb-production
 
-redis:
-    defines: runnable
-    inherits: yelb/redis
-```
+    db:
+        defines: runnable
+        inherits: yelb/db
+
+    redis:
+        defines: runnable
+        inherits: yelb/redis
+    ```
 
 And as we can see we're defining new namespace for it, we're also creating two [runnables](/monkscript/yaml/runnables/) that will inherit from already existing templates. Simple as that.
 
@@ -731,95 +761,101 @@ Lets start with appserver. We need to:
 
 To do that, our `appserver` definition will look like that:
 
-```yaml
-appserver:
-    defines: runnable
-    # We are inheriting main runnable yelb/appserver
-    inherits: yelb/appserver
-    containers:
-        defines: containers
-        # We will overwrite our image-tag here, all other definition of the runnable will stay the same
-        yelb-appserver:
-            image-tag: "0.4"
+=== "Monk"
 
-    # As final thing we will update namespace in our variables and we will change it from yelb to yelb-production(as this is what we will using for prod deployment)
-    variables:
-        defines: variables
-        yelb-db-addr:
-            type: string
-            value: <- get-hostname("yelb-production/db", "yelb-db")
+    ```yaml
+    appserver:
+        defines: runnable
+        # We are inheriting main runnable yelb/appserver
+        inherits: yelb/appserver
+        containers:
+            defines: containers
+            # We will overwrite our image-tag here, all other definition of the runnable will stay the same
+            yelb-appserver:
+                image-tag: "0.4"
 
-        yelb-redis-addr:
-            type: string
-            value: <- get-hostname("yelb-production/redis", "redis-server")
-```
+        # As final thing we will update namespace in our variables and we will change it from yelb to yelb-production(as this is what we will using for prod deployment)
+        variables:
+            defines: variables
+            yelb-db-addr:
+                type: string
+                value: <- get-hostname("yelb-production/db", "yelb-db")
+
+            yelb-redis-addr:
+                type: string
+                value: <- get-hostname("yelb-production/redis", "redis-server")
+    ```
 
 Finally we will look at UI, which will be a little bit less problematic. We just need to update its variables. We will do it similiarly to appserver:
 
-```yaml
-ui:
-    defines: runnable
-    # Inherit yelb/ui
-    inherits: yelb/ui
+=== "Monk"
 
-    variables:
-        defines: variables
-        # Update our appserver hostname here with production version
-        yelb-appserver-addr:
-            type: string
-            value: <- get-hostname("yelb-production/appserver", "yelb-appserver")
-```
+    ```yaml
+    ui:
+        defines: runnable
+        # Inherit yelb/ui
+        inherits: yelb/ui
+
+        variables:
+            defines: variables
+            # Update our appserver hostname here with production version
+            yelb-appserver-addr:
+                type: string
+                value: <- get-hostname("yelb-production/appserver", "yelb-appserver")
+    ```
 
 This should result in final YAML looking like this:
 
-```yaml
-namespace: /yelb-production
+=== "Monk"
 
-db:
-    defines: runnable
-    inherits: yelb/db
+    ```yaml
+    namespace: /yelb-production
 
-redis:
-    defines: runnable
-    inherits: yelb/redis
+    db:
+        defines: runnable
+        inherits: yelb/db
 
-appserver:
-    defines: runnable
-    inherits: yelb/appserver
-    containers:
-        defines: containers
-        yelb-appserver:
-            image-tag: "0.4"
+    redis:
+        defines: runnable
+        inherits: yelb/redis
 
-    variables:
-        defines: variables
-        yelb-db-addr:
-            type: string
-            value: <- get-hostname("yelb-production/db", "yelb-db")
+    appserver:
+        defines: runnable
+        inherits: yelb/appserver
+        containers:
+            defines: containers
+            yelb-appserver:
+                image-tag: "0.4"
 
-        yelb-redis-addr:
-            type: string
-            value: <- get-hostname("yelb-production/redis", "redis-server")
+        variables:
+            defines: variables
+            yelb-db-addr:
+                type: string
+                value: <- get-hostname("yelb-production/db", "yelb-db")
 
-ui:
-    defines: runnable
-    inherits: yelb/ui
+            yelb-redis-addr:
+                type: string
+                value: <- get-hostname("yelb-production/redis", "redis-server")
 
-    variables:
-        defines: variables
-        yelb-appserver-addr:
-            type: string
-            value: <- get-hostname("yelb-production/appserver", "yelb-appserver")
+    ui:
+        defines: runnable
+        inherits: yelb/ui
 
-application:
-    defines: process-group
+        variables:
+            defines: variables
+            yelb-appserver-addr:
+                type: string
+                value: <- get-hostname("yelb-production/appserver", "yelb-appserver")
 
-    runnable-list:
-        - /yelb-production/appserver
-        - /yelb-production/db
-        - /yelb-production/ui
-        - /yelb-production/redis
-```
+    application:
+        defines: process-group
+
+        runnable-list:
+            - /yelb-production/appserver
+            - /yelb-production/db
+            - /yelb-production/ui
+            - /yelb-production/redis
+    ```
 
 As this is our production template it might be good idea to run it on some public cloud services. To do that you need to have cloud provider added, please follow ["Monk in 10 minutes" guide](/monk-in-10/#creating-a-monk-cluster).
 
