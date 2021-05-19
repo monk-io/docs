@@ -2,7 +2,7 @@
 
 ## Launching the GUI
 
-You can launch your self hosted Monk GUI with the simple command line.
+You can launch your self-hosted Monk GUI with a simple command.
 
     $ monk gui
 
@@ -61,7 +61,7 @@ In this mode, you can simply deploy any of the templates by clicking on Runbutto
   <img src="/assets/gui5.png" />
 </figure>
 
-### Wizard mode
+### Wizard Mode
 
 In the Wizard mode, you can select all required components that you would like to deploy as part of a single template.
 
@@ -83,13 +83,13 @@ When you decide your template is ready, you can load your new template to your l
   <img src="/assets/gui8.png" />
 </figure>
 
-After the loading is complete you should be able to see your new components and system under Templates
+After it loads, you should be able to see your new components and system under Templates.
 
 <figure>
   <img src="/assets/gui9.png" />
 </figure>
 
-The final step is to deploy your brand new system by clickingRunand selecting its target environment.
+The final step is to deploy your brand new system by clicking Run and selecting its target environment.
 
 <figure>
   <img src="/assets/gui10.png" />
