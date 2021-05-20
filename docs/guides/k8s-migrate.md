@@ -23,7 +23,7 @@ We'll start with porting the YELB deployments, then try to run them and see what
 ### yelb-ui
 
 We'll start with UI. The YAML spec looks like this:
-
+(k8s)
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -49,7 +49,7 @@ spec:
 ```
 
 The most interesting part for us is the container spec:
-
+(k8s)
 ```yaml
 spec:
     containers:
@@ -60,7 +60,7 @@ spec:
 ```
 
 We need something similar in Monk to run the application component. Lets define our [runnable](/monkscript/yaml/runnables/) and put that information in. It will look like this:
-
+(monk)
 ```yaml
 namespace: /yelb
 
@@ -82,7 +82,7 @@ That should be enough for the component to start.
 ### yelb-appserver
 
 We'll do the same with appserver. It's YAML spec looks like:
-
+(k8s)
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -108,7 +108,7 @@ spec:
 ```
 
 Again, we will look at containers spec, and produce similar YAML:
-
+(monk)
 ```yaml
 namespace: /yelb
 
@@ -124,7 +124,7 @@ appserver:
 ### yelb-db
 
 We'll do the same with db server. It's YAML spec looks like:
-
+(k8s)
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -150,7 +150,7 @@ spec:
 ```
 
 Again, we'll reference the containers spec and produce similar YAML:
-
+(monk)
 ```yaml
 namespace: /yelb
 
@@ -166,7 +166,7 @@ db:
 ### redis-server
 
 We will do the same with redis server. It's YAML spec looks like:
-
+(k8s)
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -192,7 +192,7 @@ spec:
 ```
 
 Referencing the contianer spec, we'll write similar YAML:
-
+(monk)
 ```yaml
 namespace: /yelb
 
@@ -346,7 +346,7 @@ So far we've identified two problems: both related to UI. We can't connect to th
 ### Connectivity
 
 Let's take a quick look at the original YAML for Kubernetes.
-
+(k8s)
 ```bash
 apiVersion: v1
 kind: Service
@@ -368,7 +368,7 @@ spec:
 ```
 
 We can see that `Service` listens and redirects requests to port 80. Lets amend our `yelb/ui` spec to match that. To do that, we simply need to add a `ports` section to our manifest.
-
+(monk)
 ```bash
 namespace: /yelb
 
@@ -455,7 +455,7 @@ We will utilise three the Monk features here:
 3. `variables` [section](/monkscript/yaml/runnables/#variables) of the YAML definition.
 
 Lets combine all the information into our YAML file:
-
+(monk)
 ```bash
 namespace: /yelb
 
@@ -561,7 +561,7 @@ Now we know it basically runs `/app/yelb-appserver.rb`. Again, we will have to c
 Unfortunately, the options we would like to change are hardcoded into application. We need to modify the file again and overwrite `Cmd` in our docker container. Keeping all this in mind, let's prepare our new appserver manifest by using [arrow script](/monkscript/yaml/#arrow-scripts), `get-hostname` [function](/monkscript/operators/network/) and `variables` [section](/monkscript/yaml/runnables/#variables).
 
 Our YAML should look like:
-
+(monk)
 ```yaml
 namespace: /yelb
 
@@ -618,7 +618,7 @@ $ monk purge local/yelb/redis
 ```
 
 To define a [process group](/guides/groups/), we'll have to create YAML with list of runnables that will be part of our group. It will look like:
-
+(monk)
 ```yaml
 namespace: /yelb
 
@@ -715,7 +715,7 @@ We can safely assume that we were working on our development environment. So the
 To spawn another instance of the YELB app for production, we will use Monk's [inheritance](http://localhost:8000/monkscript/yaml/overview/#inheritance) feature. This allows us to inherit a predefined template and only update the parts we want to change.
 
 Let's define our namespace and add our db and redis [runnable](/monkscript/yaml/runnables/) components in the template.
-
+(monk)
 ```yaml
 namespace: /yelb-production
 
@@ -738,7 +738,7 @@ Lets start with appserver. We need to:
 2. Add new `variables` to reflect the proper namespace in our `get-hostname` functions.
 
 Our `appserver` definition will look like that:
-
+(monk)
 ```yaml
 appserver:
     defines: runnable
@@ -763,7 +763,7 @@ appserver:
 ```
 
 Finally, we will look at UI, which will be less problematic. For that, we'll just need to update its varliables.
-
+(monk)
 ```yaml
 ui:
     defines: runnable
@@ -779,7 +779,7 @@ ui:
 ```
 
 The final YAML should look like this:
-
+(monk)
 ```yaml
 namespace: /yelb-production
 
