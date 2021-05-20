@@ -1,4 +1,4 @@
-# Cluster lifecycle
+# Monk Deployments
 
 Monk Engine is a new gen container orchestrator that implements masterless cluster architecture. This means that under any workload you want to deploy, there is a Monk Cluster that talks to the underlying hosts and facilitates orchestration.
 
