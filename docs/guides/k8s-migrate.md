@@ -1,27 +1,28 @@
-Developers are wondering how hard is to port Kubernetes apps to Monk. With this guide we will try to show that's not anything complicated.  
-For this purpose we will use [YELB](https://github.com/mreferre/yelb) which is a simple microservice oriented web application.
+This guide will show you how easy it os to port Kubernetes apps to Monk.
 
-## YELB design
+To demonstrate this, we'll use [YELB](https://github.com/mreferre/yelb), a simple microservice oriented web application.
 
-Design of the application is well documented on its own page [here](https://github.com/mreferre/yelb#yelb-architecture).
+## YELB Design
 
-By quickly looking at the architecture, we can see we will need to create definition for four [runnables](/monkscript/yaml/runnables/) and one [process group](/guides/groups/) to start them/group all of them together.
+YELB's design is well documented [here](https://github.com/mreferre/yelb#yelb-architecture).
 
-## Starting our work
+A quick glance at the architecture tells us we'll need to create definitions for four [runnables](/monkscript/yaml/runnables/) and one [process group](/guides/groups/) group them all together.
 
-To slightly speed things up, we can cheat a little bit. As YELB (and many other Kubernetes applications) provides YAML definitions for the containers and environment configuration. We will use that to our advantage.
+## Digging In
 
-One specific YAML definition that contains all of services definitions and deployments is located on [this page](https://github.com/mreferre/yelb/blob/master/deployments/platformdeployment/Kubernetes/yaml/yelb-k8s-minikube-nodeport.yaml).
+To speed things up, we can cheat a bit since YELB (as with many other Kubernetes applications) provides YAML definitions for the containers and environment configuration.
+
+A specific YAML definition that contains all necessary service definitions and deployments is located on [this page](https://github.com/mreferre/yelb/blob/master/deployments/platformdeployment/Kubernetes/yaml/yelb-k8s-minikube-nodeport.yaml).
 
 ## YELB Deployments
 
-Deployments in Kubernetes are very similar to to Monk [runnables](/monkscript/yaml/runnables/). We have four deployments defined in the Kubernetes YAML, which we will port now to Monk.
+Deployments in Monk are very similar to Kubernetes [(see runnables for more info)](/monkscript/yaml/runnables/). We have four deployments defined in the Kubernetes YAML, which we'll now port to Monk.
 
-We will need to port all of YELB deployments first, try to run them first and check what problems we might need to solve to get it all up and running. Most likely as it is microservice defined app we will have to port Kubernetes Services configuration so app will be able to communicate between each of its components.
+We'll start with porting the YELB deployments, then try to run them and see what problems need to be resolved to get it up and running. With most microservice apps, we will have to port Kubernetes Services configurations so the app can communicate between its components.
 
 ### yelb-ui
 
-We will start with UI. YAML spec looks like this:
+We'll start with UI. The YAML spec looks like this:
 
 ```yaml
 apiVersion: apps/v1
@@ -47,7 +48,7 @@ spec:
                       - containerPort: 80
 ```
 
-The most interesting part for us will be the container spec:
+The most interesting part for us is the container spec:
 
 ```yaml
 spec:
@@ -58,7 +59,7 @@ spec:
               - containerPort: 80
 ```
 
-We need to have something similar in Monk to make application component run. Lets define our [runnable](/monkscript/yaml/runnables/) and put that information in. It will look like this:
+We need something similar in Monk to run the application component. Lets define our [runnable](/monkscript/yaml/runnables/) and put that information in. It will look like this:
 
 ```yaml
 namespace: /yelb
@@ -72,15 +73,15 @@ ui:
             image: mreferre/yelb-ui
 ```
 
-Which is simple as that and should be enough for the following component to start.
+That should be enough for the component to start.
 
 !!! note
 
-    We've deliberately skipped `containerPort`, but we'll get to that part later. For now we want to try to start every single component (or not).
+    We've deliberately skipped `containerPort`, but we'll get to that part later. For now, we want to try to start every single component (or not).
 
 ### yelb-appserver
 
-We will do the same with appserver. It's YAML spec looks like:
+We'll do the same with appserver. It's YAML spec looks like:
 
 ```yaml
 apiVersion: apps/v1
@@ -122,7 +123,7 @@ appserver:
 
 ### yelb-db
 
-We will do the same with db server. It's YAML spec looks like:
+We'll do the same with db server. It's YAML spec looks like:
 
 ```yaml
 apiVersion: apps/v1
@@ -148,7 +149,7 @@ spec:
                       - containerPort: 5432
 ```
 
-Again, we will look at containers spec, and produce similar YAML:
+Again, we'll reference the containers spec and produce similar YAML:
 
 ```yaml
 namespace: /yelb
@@ -190,7 +191,7 @@ spec:
                       - containerPort: 6379
 ```
 
-Again, we will look at containers spec, and produce similar YAML:
+Referencing the contianer spec, we'll write similar YAML:
 
 ```yaml
 namespace: /yelb
@@ -204,16 +205,21 @@ redis:
             image: redis
 ```
 
-## Starting YELB in Monk for the first time
+## Starting YELB in Monk for the First Time
 
-Since we now have all runnable definitions compiled, it's now time to try to run them.
+Since we have all runnable defitions completed, it's time to try to run them.
 
-### Loading templates into Monk
+### Loading Templates into Monk
 
-First we need to load them into monk, we can achieve this by doing(assuming we're in the directory where YAML files are saved):
+First we need to load them into monk, we can achieve this by running:
 
 ```bash
 $ monk load *yaml
+```
+
+If all goes well, we'll see:
+
+```
 ✔ Read files successfully
 ✔ Loaded yelb-appserver.yaml successfully
 ✔ Loaded yelb-db.yaml successfully
@@ -231,13 +237,13 @@ Loaded 4 runnables, 0 process groups and 0 services in 4 files with 0 errors and
 ✔ All templates loaded successfully
 ```
 
-### Running workloads
+### Running Workloads
 
-Now that we have definitions loaded, we will be able to start them individually.
+Since we have the definitions loaded, we can now start them individually.
 
 !!! note
 
-    We will later create a [process group](/guides/groups/) that will allow us to start all of them in one go.
+    Later, we'll create a [process group](/guides/groups/) that will allow us to start all of them at the same time.
 
 ```bash
 $ monk run yelb/appserver
@@ -250,7 +256,7 @@ $ monk run yelb/ui
 (...)
 ```
 
-And we will check status of the workloads:
+Let's check status of the workloads:
 
 ```bash
 $ monk ps
@@ -266,9 +272,9 @@ Group/Runnable/Containers                            Uptime   Peer   Ports
  └─📦 templates-local-yelb-db-yelb-db                2m 25s   local
 ```
 
-### Checking logs
+### Checking Logs
 
-With everything running in we can check logs from running containers by using:
+Once everything is running, we can check logs from the running containers.
 
 ##### yelb-db logs
 
@@ -284,7 +290,7 @@ PostgreSQL init process complete; ready for start up.
 
 ```
 
-We can see `database system is ready to accept connections` message which means everything is fine, and our database is running properly.
+We can see `database system is ready to accept connections` message which means our database is running properly.
 
 ##### yelb-redis logs
 
@@ -297,7 +303,7 @@ $ monk logs yelb/redis
 1:M 15 May 14:42:26.181 * Ready to accept connections
 ```
 
-We can see `Ready to accept connections` message which means everything is fine, and our [Redis](https://redis.io/) is running properly.
+The `Ready to accept connections` message means our [Redis](https://redis.io/) server is running properly.
 
 ##### yelb-ui logs
 
@@ -308,7 +314,7 @@ $ monk logs yelb/ui
 nginx: [emerg] host not found in upstream "yelb-appserver" in /etc/nginx/conf.d/default.conf:5
 ```
 
-As we can see, there's `host not found` that we will have to fix.
+We'll have to fix the `host not found` issue.
 
 ##### yelb-appserver logs
 
@@ -320,26 +326,26 @@ $ monk logs yelb/appserver
 [2021-05-15 14:40:43] INFO  WEBrick::HTTPServer#start: pid=7 port=4567
 ```
 
-We can see `WEBrick::HTTPServer#start` message which means everything is fine, and our application server should be running properly.
+The `WEBrick::HTTPServer#start` message indicates the app server is running properly.
 
-### Checking connectivity
+### Checking Connectivity
 
-And as a final step we will test connectivity and check if we can open our application. Since this is web application it should listen on standard port 80, we can check it by simply doing `curl` test:
+Now we need to check to see if we can open our application. Since this is web app, it should listen on port 80. We can test this with `curl`:
 
 ```bash
 $ curl localhost
 curl: (7) Failed to connect to localhost port 80: Connection refused
 ```
 
-Which might mean that we didn't expose our application properly.
+The connection refused message means we didn't expose our application properly.
 
-## Fixing problems
+## Fixing Problems
 
-So far we've identified two problems. Both of them are related to UI. First one is lack of connectivity to the webpage, second one is a problem with a configuration setting that points towards 'bad' appserver container hostname(we know this because we've seen Service defined called yelb-appserver in Kubernetes manifests).
+So far we've identified two problems: both related to UI. We can't connect to the web page and there's a problem with a configuration setting that points towards an incorrect appserver container hostname. We know this because we've seen a Service defined called `yelb-appserver` in the Kubernetes manifests.
 
 ### Connectivity
 
-If we will have a look quickly at original YAML for Kubernetes we can see that UI had defined service:
+Let's take a quick look at the original YAML for Kubernetes.
 
 ```bash
 apiVersion: v1
@@ -361,7 +367,7 @@ spec:
     tier: frontend
 ```
 
-We can see that `Service` listens and redirects requests to port 80. Lets amend our `yelb/ui` spec to match that. To do that, we just simply need to add `ports` section to our manifest.
+We can see that `Service` listens and redirects requests to port 80. Lets amend our `yelb/ui` spec to match that. To do that, we simply need to add a `ports` section to our manifest.
 
 ```bash
 namespace: /yelb
@@ -377,7 +383,7 @@ ui:
         - 80:80
 ```
 
-Now we need to update template and our workload:
+Now we need to update the template and our workload:
 
 ```bash
 $ monk load yelb-ui.yaml
@@ -410,11 +416,11 @@ $ monk update yelb/ui
        └─🔌 open localhost:80 -> 80
 ```
 
-We can see now that our port redirection definition worked(`open localhost:80 -> 80` message in the output). `curl` test might still fail due to the wrong nginx configuration as we've seen previously.
+Now we can see our port redirection definition worked (via the `open localhost:80 -> 80` message in the output). However, a `curl` test might still fail due to an incorrect nginx configuration as we've seen previously.
 
-### Nginx configuration
+### Nginx Configuration
 
-Application is configured to automatically redirect requests to appserver listening on the `yelb-appserver` address. We can quickly check if there's any chance we can overwrite this by using some environment variables or maybe startup parameter. To check that, we will simply use `docker inspect` command on the image that ui uses.
+The application is configured to automatically redirect requests to appserver listening on the `yelb-appserver` address. We can check if there's any possibility that we can overwrite this by using some environment variables or perhaps a startup parameter. To check that, we will simply use the `docker inspect` command on the image that the ui uses.
 
 ```bash
 $ docker image ls | grep ui
@@ -435,20 +441,20 @@ $ docker inspect 959bb4605293^C
 ...
 ```
 
-We can see unfortunately there's no environment variables that we could overwrite, but we can check what's in startup script. We can check it by simply trying to start container with a command to check the contents of the startup script or just by going to the github repository, and opening corresponding file.
+Unfortunately, in this case, there's no environment variables that we could overwrite. Let's see what's in the startup script. We can check it by trying to start container with a command to check the contents of the startup script or by going to the GitHub repository and opening the corresponding file.
 
 1. Check the file [here](https://github.com/mreferre/yelb/blob/master/yelb-ui/startup.sh).
 2. Run `docker run 959bb4605293 cat /startup.sh` command.
 
-We can see that we need to update `proxy_pass http://yelb-appserver:4567/api;` with the real name of docker container running our `yelb-appserver`.
+We need to update `proxy_pass http://yelb-appserver:4567/api;` with the real name of docker container running our `yelb-appserver`.
 
-We will utilise three of the Monk features here:
+We will utilise three the Monk features here:
 
-1. `bash` [option](/monkscript/yaml/runnables/#container) that will overwrite our docker Cmd.
-2. `get-hostname` [function](/monkscript/operators/network/.#get-hostname-get-container-ip), due to the nature of Monk sometimes name of the container will change.
+1. `bash` [option](/monkscript/yaml/runnables/#container) that will overwrite our docker command.
+2. `get-hostname` [function](/monkscript/operators/network/.#get-hostname-get-container-ip), as Monk sometimes changes the name of the container.
 3. `variables` [section](/monkscript/yaml/runnables/#variables) of the YAML definition.
 
-Lets combine all of the information into our YAML file:
+Lets combine all the information into our YAML file:
 
 ```bash
 namespace: /yelb
@@ -474,7 +480,7 @@ ui:
       value: <- get-hostname("yelb/appserver", "yelb-appserver")
 ```
 
-We should update now our template and workload. Lets try to do this:
+We should now update our template and workload.
 
 ```bash
 $ monk load yelb-ui.yaml
@@ -485,7 +491,7 @@ $ monk logs -f yelb/ui
 (...)
 ```
 
-Last command will tail the logs, open web browser and try open the page, some logs should start appearing.
+The `monk logs -f yelb/ui` will tail the logs. Now, launch a web browser and try open the page. Some logs should start appearing.
 
 ```bash
 (...)
@@ -493,11 +499,11 @@ Last command will tail the logs, open web browser and try open the page, some lo
 192.168.0.90 - - [15/May/2021:15:50:30 +0000] "GET //api/getvotes HTTP/1.1" 500 30 "http://monk03.lan/" "Mozilla/5.0 (X11; Linux x86_64; rv:88.0) Gecko/20100101 Firefox/88.0" "-"
 ```
 
-Judging by the logs and while trying to 'Vote' on the page, we can see that the functionaly is still broken.
+Judging by the logs while trying to 'Vote' on the page, we can see the functionaly is still broken.
 
 ### Fixing appserver
 
-From earlier(we've seen it in the nginx configuration of the ui) we know that /api functionality is being proxied to our yelb-appserver. Lets check its logs:
+We know the /api functionality is being proxied to our yelb-appserver by examining the nginx configuration of the UI. Let's check its logs:
 
 ```bash
 $ monk logs yelb/appserver
@@ -512,7 +518,7 @@ http://monk03.lan/ -> /api/getvotes
 (...)
 ```
 
-We can see that we have similar problem like we had with our UI - application looks for its components on predefined addresses. We will have to update appserver as well, so it can connect to proper containers. Again we will have a look at our container.
+We have similar problem like we had with our UI--the application looks for its components on predefined addresses. We will have to update appserver as well, so it can connect to proper containers. Again, we will have a look at our container.
 
 Let's check our appserver image, similar way like we did with UI:
 
@@ -535,12 +541,12 @@ $ docker inspect 94e995994d78
             ],
 ```
 
-There seems to be nothing that would allow us to change easily those two. Lets check what's in startup.sh script by either:
+There seems to be nothing that would allow us to change easily those two. Let's check what's in the `startup.sh` script by either:
 
-1. Checking its [file in github](https://github.com/mreferre/yelb/blob/master/yelb-appserver/startup.sh).
-2. Doing `docker run 94e995994d78 cat /startup.sh`.
+1. Checking its [file in github](https://github.com/mreferre/yelb/blob/master/yelb-appserver/startup.sh), or
+2. Running `docker run 94e995994d78 cat /startup.sh`.
 
-Now we know that it basically starts up `/app/yelb-appserver.rb`. Again, we will have to check the contents of the file to see if we can somehow sort out the problems we're having. We can see that part of the file consists partially static configuration:
+Now we know it basically runs `/app/yelb-appserver.rb`. Again, we will have to check the contents of the file to see if we can sort out the problems we're having. We can see that part of the file consists partially static configuration:
 
 ```bash
   set :redishost, "redis-server"
@@ -552,7 +558,7 @@ Now we know that it basically starts up `/app/yelb-appserver.rb`. Again, we will
   set :awsregion => ENV['AWS_REGION']
 ```
 
-And unfortunately options that we would like to change are hardcoded into application. We need modify the file again and overwrite `Cmd` in our docker container. Knowing all this let's prepare our new appserver manifest by using [arrow script](/monkscript/yaml/#arrow-scripts), `get-hostname` [function](/monkscript/operators/network/) and `variables` [section](/monkscript/yaml/runnables/#variables).
+Unfortunately, the options we would like to change are hardcoded into application. We need to modify the file again and overwrite `Cmd` in our docker container. Keeping all this in mind, let's prepare our new appserver manifest by using [arrow script](/monkscript/yaml/#arrow-scripts), `get-hostname` [function](/monkscript/operators/network/) and `variables` [section](/monkscript/yaml/runnables/#variables).
 
 Our YAML should look like:
 
@@ -583,7 +589,7 @@ appserver:
             value: <- get-hostname("yelb/redis", "redis-server")
 ```
 
-We should update now our template and workload. Lets try to do this:
+We should update our template and workload.
 
 ```bash
 $ monk load yelb-appserver.yaml
@@ -594,11 +600,11 @@ $ monk logs -f yelb/appserver
 (...)
 ```
 
-We can now open the webpage again - which should now properly work.
+We can now open the webpage again. It should now work correctly.
 
-## Process groups
+## Process Groups
 
-Now since we have everything working all together without any problems, we can 'beutify' it a little bit. We will start by removing our workload to demonstrate how by having predefined templates we can start of our workloads in one go. We will do this by:
+Now that we have everything working together without any problems, we can 'beutify' our configuration a bit. We'll start by removing our workload to demonstrate how having predefined templates lets us start of our workloads all at once. 
 
 ```bash
 $ monk purge local/yelb/db
@@ -611,7 +617,7 @@ $ monk purge local/yelb/redis
 (...)
 ```
 
-To define a [process group](/guides/groups/) we will have to create YAML with list of runnables that will be part of our group. It will simply look like:
+To define a [process group](/guides/groups/), we'll have to create YAML with list of runnables that will be part of our group. It will look like:
 
 ```yaml
 namespace: /yelb
@@ -628,9 +634,9 @@ application:
         - /yelb/redis
 ```
 
-This will create a group called `application` which we will be able to operate just via `yelb/application` syntax.
+This will create a group called `application` which we can operate via `yelb/application` syntax.
 
-As usual we will load and try to start it up:
+Let's load it and try to start it.
 
 ```bash
 $ monk load yelb-group.yaml
@@ -672,7 +678,7 @@ $ monk run yelb/application
 
 💡 You can inspect and manage your above stack with these commands:
         monk logs (-f) yelb/application - Inspect logs
-        monk shell     yelb/application - Connect to the container's shell
+        monk shell     yelb/application - Connect to the container shell
         monk do        yelb/application/action_name - Run defined action (if exists)
 💡 Check monk help for more!
 ```
@@ -692,21 +698,23 @@ Group/Runnable/Containers                               Uptime   Peer   Ports
     └─📦 templates-local-yelb-redis-redis-server        12s      local
 ```
 
-We can see that all of our components have been started with one go! Our application should be running exactly the same as previously, but this gives us more flexibility and less work as we can operate on whole group or individual components.
+All our components have been started at once! 
 
-## Using inheritance to spawn multiple copies of YELB
+Our application should be running exactly the same as previously, but this gives us more flexibility and makes for a lot less work in the future as we can operate on the whole group or individual components.
 
-Monk is very powerful and by using already existing templates we can spawn multiple instances of the same app just by using inheritance.
+## Using Inheritance to Spawn Multiple Copies of YELB
 
-### Our development environment
+Monk is very powerful. We can spawn multiple instances of the same app via inheritence with existing templates.
 
-We can safely assume that during our work here we were working on our development environment. So last command we have executed `monk run yelb/application` spawned our YELB dev app.
+### Our Development Environment
 
-### Moving to production
+We can safely assume that we were working on our development environment. So the last command we have executed `monk run yelb/application` spawned our YELB dev app.
 
-To spawn another instance of YELB app for example production we will use one of Monk features called [inheritance](http://localhost:8000/monkscript/yaml/overview/#inheritance). This allows us to simply inherit already predefined template and update just parts that we want to have changed.
+### Moving to Production
 
-We will start simple. We will define our namespace and put our db and redis [runnable](/monkscript/yaml/runnables/) in. We do this by creating template like that:
+To spawn another instance of the YELB app for production, we will use Monk's [inheritance](http://localhost:8000/monkscript/yaml/overview/#inheritance) feature. This allows us to inherit a predefined template and only update the parts we want to change.
+
+Let's define our namespace and add our db and redis [runnable](/monkscript/yaml/runnables/) components in the template.
 
 ```yaml
 namespace: /yelb-production
@@ -720,16 +728,16 @@ redis:
     inherits: yelb/redis
 ```
 
-And as we can see we're defining new namespace for it, we're also creating two [runnables](/monkscript/yaml/runnables/) that will inherit from already existing templates. Simple as that.
+In this example, we're defining a new namespace for production and adding two [runnables](/monkscript/yaml/runnables/). Each runnable inherits from existing templates via the `inherits` parameter.
 
-Now we will have to add our appserver and ui. With those two we will do a little bit more as they had some workarounds in previously and to demonstrate how we can change few parts of inherited template we will update image-tag too.
+Now we will have to add our appserver and ui. We'll need to do a bit more as we had to use some workarounds in development mode. Fortunately, the inheritance will make this task easier.
 
 Lets start with appserver. We need to:
 
-1. Add `image-tag` option.
-2. Put new `variables` in to reflect proper namespace in our `get-hostname` functions.
+1. Add the `image-tag` option.
+2. Add new `variables` to reflect the proper namespace in our `get-hostname` functions.
 
-To do that, our `appserver` definition will look like that:
+Our `appserver` definition will look like that:
 
 ```yaml
 appserver:
@@ -742,7 +750,7 @@ appserver:
         yelb-appserver:
             image-tag: "0.4"
 
-    # As final thing we will update namespace in our variables and we will change it from yelb to yelb-production(as this is what we will using for prod deployment)
+    # Update the namespace in our variables, changing it from yelb to yelb-production
     variables:
         defines: variables
         yelb-db-addr:
@@ -754,7 +762,7 @@ appserver:
             value: <- get-hostname("yelb-production/redis", "redis-server")
 ```
 
-Finally we will look at UI, which will be a little bit less problematic. We just need to update its variables. We will do it similiarly to appserver:
+Finally, we will look at UI, which will be less problematic. For that, we'll just need to update its varliables.
 
 ```yaml
 ui:
@@ -770,7 +778,7 @@ ui:
             value: <- get-hostname("yelb-production/appserver", "yelb-appserver")
 ```
 
-This should result in final YAML looking like this:
+The final YAML should look like this:
 
 ```yaml
 namespace: /yelb-production
@@ -821,22 +829,24 @@ application:
         - /yelb-production/redis
 ```
 
-As this is our production template it might be good idea to run it on some public cloud services. To do that you need to have cloud provider added, please follow ["Monk in 10 minutes" guide](/monk-in-10/#creating-a-monk-cluster).
+Since this is our production template, it might be good idea to run it on some public cloud services. To do this, you'll need to have a cloud provider added. To learn more, please see ["Monk in 10 minutes" guide](/monk-in-10/#creating-a-monk-cluster).
 
-Assuming we have AWS provider added we can now simply:
+Assuming we have AWS as the provider, we can simply run:
 
-**Grow our cluster**
+**Grow our Cluster**
 
 ```yaml
 $ monk cluster grow -p aws -n monkNode -t aws -i t2.medium -r us-east-1 -d 15 -m 1
 (...)
 ```
 
-**Run our workload**
+**Run our Workload**
 
 ```bash
 $ monk run -t aws yelb-production/application
 (...)
 ```
 
-**Test by opening your browser with address returned by Monk**
+**Testing**
+
+Simply open a browser with the address returned by Monk.
