@@ -19,6 +19,9 @@ This will stop the peer and detach it from the cluster.
     The instance will be terminated.
 
     Monk will not back up the storage of the instances it terminates. Use `peer-remove` with caution and make sure that you've backed up your data first if you'd like to keep it.
+    
+    
+Something somethein
 
 ## Shrinking the cluster
 
