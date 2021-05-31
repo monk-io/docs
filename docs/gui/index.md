@@ -23,6 +23,10 @@ Starting GUI on http://127.0.0.1:44004
 ✔ Moncc GUI started successfully and running on http://127.0.0.1:44004
 ```
 
+!!! note
+
+    Note that if you are doing this on remote server which does not have GUI then you cannot connect to that by opening connection to 44004 port. This only works via local connection.
+
 ## GUI Sections
 
 ### Peers
