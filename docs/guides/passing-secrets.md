@@ -20,6 +20,30 @@ This feature works transparently - if you have an encrypted template, just use:
 
 Monk will decrypt the values passed in that YAML file and then re-encrypt it in its internal database so that your data stays secure at rest.
 
+## Prerequisites
+
+In order to to run SOPS you need to generate your GPG key. You can do it by creating example GPG definition file that might look like this:
+
+```text
+%no-protection
+Key-Type: default
+Subkey-Type: default
+Name-Real: MyApp1
+Name-Email: myapp1@mydomain.local
+Expire-Date: 0
+```
+
+And then issue following command:
+
+```bash
+$ gpg --batch --generate-key < myApp1_key_definition
+```
+
+You can then get your key ID that will be used by SOPS via this command:
+```
+$ gpg --list-keys "myapp1@mydomain.local" | grep pub -A1 | tail -n1
+```
+
 ## Tutorial
 
 Let's suppose we have the following template:
