@@ -29,8 +29,10 @@ theme:
         - navigation.indexes
 extra_css:
     - stylesheets/extra.css
+    - stylesheets/votes.css
 extra_javascript:
     - scripts/chatwoot.js
+    - scripts/votes.js
 nav:
     - About Monk:
           - "Welcome to Monk": "index.md"
