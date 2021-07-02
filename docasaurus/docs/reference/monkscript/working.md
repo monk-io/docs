@@ -1,10 +1,17 @@
+---
+title: Working with MonkScript
+position: 2
+---
+
 # Working with MonkScript
 
 This document describes basic ideas and workflow behind authoring Monk templates. Check the reference in order to understand MonkScript itself.
 
-!!! note ""
+:::note
 
-    See the [MonkScript YAML](/monkscript/yaml) reference.
+See the [MonkScript YAML](/monkscript/yaml) reference.
+
+:::
 
 ## Manifest files and project structure
 

@@ -1,3 +1,8 @@
+---
+title: Arrow Scripts
+position: 1
+---
+
 Any value in YAML can be a script written in Monk's scripting language (Arrow script). The scripts might be as simple as reading a variable, or performing string interpolation, to more complex like making RPC or HTTP calls, performing calculations etc.
 
 An Arrow script start with an arrow symbol `<-` followed by a sequence of variable references, constants and operator calls.
@@ -144,14 +149,16 @@ thing: speedboat
 
 this will evaluate to `"Flipper had a chrome speedboat"`
 
-!!! note
+:::note
 
-    Only variables and literals can be resolved inside `${...}`, putting anything else there will not work.
+Only variables and literals can be resolved inside `${...}`, putting anything else there will not work.
 
-    For example, this is wrong:
-    ```
-    <- `2 + 2 is ${2 2 add}`
-    ```
+For example, this is wrong:
+```
+<- `2 + 2 is ${2 2 add}`
+```
+
+:::
 
 ## Variable scope
 
