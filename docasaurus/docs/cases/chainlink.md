@@ -1,7 +1,5 @@
 ---
-sidebar_position: 1
 title: "Chainlink Nodes"
-slug: /guides/chainlink
 ---
 
 This guide will show you how to easily deploy Chainlink-based system.
