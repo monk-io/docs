@@ -53,7 +53,7 @@ Running one system on multiple clouds has many advantages, some of them being:
 Monk currently supports automatic Cluster provisioning on AWS and GCP. We are working to add more cloud providers in the near future.
 :::
 
-Dive deeper into the provisioning side of things in the [Guides](./guides/running-templates.md).
+Dive deeper into the provisioning side of things in the [Guides](running-templates.md).
 
 ### Programmable Control Plane
 
@@ -73,7 +73,7 @@ Additionally, Templates can describe actions and variables particular to the sof
 
 Think about docker-composing docker-composes, this is what MonkScript is about.
 
-Learn everything about MonkScript in the [Reference](./monkscript/index.md).
+Learn everything about MonkScript in the [Reference](monkscript).
 
 ## Monk Hub
 

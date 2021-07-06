@@ -14,7 +14,7 @@ In order to run a template in a cluster, we need to be in a cluster context. Run
 
     monk cluster info
 
-to check whether you're in a cluster. If not, [create a new cluster](/lifecycle/cluster-create-1) or join an existing one.
+to check whether you're in a cluster. If not, [create a new cluster](./cluster-create-1) or join an existing one.
 
 ## Running a single template
 
@@ -22,7 +22,7 @@ Once you're in a cluster it is almost the same as when [running locally](running
 
     monk run -t mytag mongodb/latest
 
-The `-t` flag tells Monk to only pick cluster members with `mytag` tag. Tags are specified when [growing the cluster](/lifecycle/cluster-create-1).
+The `-t` flag tells Monk to only pick cluster members with `mytag` tag. Tags are specified when [growing the cluster](./cluster-create-1).
 
 :::note
 

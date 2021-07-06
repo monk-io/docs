@@ -24,7 +24,7 @@ group     chainlink/system        moncc       -        -
 
 ## Start
 
-Install Monk with our [quick start guide](../monk-in-10.md).
+Install Monk with our [quick start guide](../monk-in-10).
 
 Then start Monk in a separate terminal with `monkd -d` if it's not running already. The `-d` flag is for debugging, which writes logs to stdout.
 
@@ -93,7 +93,7 @@ If you are using CI pipeline i.e GitLab, you will need to save Monkcode for GitL
 
 #### Prepare cloud credentials
 
-You should already have your cloud credentials ready from the [Monk in 10 minutes](../monk-in-10.md) Guide.
+You should already have your cloud credentials ready from the [Monk in 10 minutes](../monk-in-10) Guide.
 
 -   GCP service account key `/usr/local/etc/key.json` with full Compute access role.
 
@@ -237,4 +237,4 @@ You can also use the embedded GUI and perform the same operations to deploy and 
 
 ![](/img/docs/gui-chainlink.png)
 
-If that looks neat, we and the folks at Chainlink wholeheartedly agree. You can learn more about the [Monk GUI](../gui/index.md), or find more general answers on the next page.
+If that looks neat, we and the folks at Chainlink wholeheartedly agree. You can learn more about the [Monk GUI](gui/index.md), or find more general answers on the next page.

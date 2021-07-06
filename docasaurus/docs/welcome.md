@@ -42,7 +42,7 @@ We're making infra stacks stupid-easy to build and manage. We've built everythin
 These docs should have everything you need to get acquainted with Monk and start using it in minutes. Head out to the next page, [Why Monk](use-cases.md), to ease into the ecosystem, or dive right in:
 
 -   [Install Monk](get-monk.md) and compose your first stack in 10 minutes
--   Learn Monk's inner workings from [Guides](./guides/index.md) and the [Reference](./monkscript/index.md)
+-   Learn Monk's inner workings from [Reference](monkscript/index.md)
 -   Explore templates on [monkhub.io](https://monkhub.io) and learn how and why you may want to [Publish your own](publishers.md)
 
 If at any time you need help or want to share feedback, we'd love to hear from you! Find all our contacts and resources on the [Support](support.md) page to find our contacts, or join us directly on [Discord](https://discord.gg/WxDzaKe).

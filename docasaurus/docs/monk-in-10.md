@@ -265,7 +265,7 @@ DigitalOcean API Token is sensitive information. Take care to store it securely.
 
 :::note
 
-**It's alright if you want to skip cluster creation for now.** You can run things locally and create a cluster later. You can still follow this guide but remember that stuff will happen on your machine and not in the cloud. To skip ahead, head to [Running templates locally](guides/running-templates.md).
+**It's alright if you want to skip cluster creation for now.** You can run things locally and create a cluster later. You can still follow this guide but remember that stuff will happen on your machine and not in the cloud. To skip ahead, head to [Running templates locally](running-templates).
 
 :::
 
@@ -480,4 +480,4 @@ In case you'd like to create another cluster, follow this guide again or see: [C
 
 Our newly formed cluster has 3 machines and can do much more than just running one simple workload. Having your cluster up and running is enough to start trying [everything that Monk has to offer](features.md).
 
-If you'd like to try a more advanced setup including a database, HTTP server, and a self-made service, continue to our first A-Z tutorial: [Running a small system](guides/basic-app.md).
+If you'd like to try a more advanced setup including a database, HTTP server, and a self-made service, continue to our first A-Z tutorial: [Running a small system](basic-app).

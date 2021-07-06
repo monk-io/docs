@@ -67,15 +67,15 @@ group     elk/stack                      monk          -                 -
 ...
 ```
 
-See how it works in this guide: [Running a small system](./guides/basic-app.md).
+See how it works in this guide: [Running a small system](basic-app.md).
 
 ## 3. Manage Infra in One Place
 
-Since Monk sits between your infra and application, the CLI that can communicate directly with your cloud providers. It's packed with functionality, meaning you'll be able to perform the majority of infrastructure-side work without ever leaving Monk. See the [CLI reference](./cli/monk.md).
+Since Monk sits between your infra and application, the CLI that can communicate directly with your cloud providers. It's packed with functionality, meaning you'll be able to perform the majority of infrastructure-side work without ever leaving Monk. See the [CLI reference](cli/monk.md).
 
 More importantly, Monk is multi-cloud by design, enabling you to deploy your application across environment with minimal custom work.
 
-Also note that Monk Engine can take care of [provisioning](./guides/provisioning-via-templates.md) natively, supports [load balancers](./guides/load-balancers.md), integrates with popular [CI/CD platforms](guides/ci-cd.md), and much more.
+Also note that Monk Engine can take care of [provisioning](provisioning-via-templates) natively, supports [load balancers](load-balancers.md), integrates with popular [CI/CD platforms](ci-cd.md), and much more.
 
 ## 4. Share & Maintain Your Stack
 

@@ -7,7 +7,7 @@ Here's how you install, test, and upgrade Monk.
 
 :::note Prerequisites
 
-Monk requires [Docker](https://www.docker.com/) to be present and running on your system. If you don't have Docker installed and running, please refer to ​[https://docs.docker.com/docker-for-mac/install/](​https://docs.docker.com/docker-for-mac/install/) and follow the steps detailed there in order to obtain Docker before installing Monk.
+Monk requires [Docker](https://www.docker.com/) to be present and running on your system. If you don't have Docker installed and running, please refer to [https://docs.docker.com/docker-for-mac/install/](https://docs.docker.com/docker-for-mac/install/) and follow the steps detailed there in order to obtain Docker before installing Monk.
 
 :::
 

@@ -10,7 +10,7 @@ To demonstrate this, we'll use [YELB](https://github.com/mreferre/yelb), a simpl
 
 YELB's design is well documented [here](https://github.com/mreferre/yelb#yelb-architecture).
 
-A quick glance at the architecture tells us we'll need to create definitions for four [runnables](/monkscript/yaml/runnables/) and one [process group](/guides/groups/) group them all together.
+A quick glance at the architecture tells us we'll need to create definitions for four [runnables](monkscript/yaml/runnables/) and one [process group](monkscript/yaml/groups) group them all together.
 
 ## Digging In
 
@@ -20,7 +20,7 @@ A specific YAML definition that contains all necessary service definitions and d
 
 ## YELB Deployments
 
-Deployments in Monk are very similar to Kubernetes [(see runnables for more info)](/monkscript/yaml/runnables/). We have four deployments defined in the Kubernetes YAML, which we'll now port to Monk.
+Deployments in Monk are very similar to Kubernetes [(see runnables for more info)](monkscript/yaml/runnables/). We have four deployments defined in the Kubernetes YAML, which we'll now port to Monk.
 
 We'll start with porting the YELB deployments, then try to run them and see what problems need to be resolved to get it up and running. With most microservice apps, we will have to port Kubernetes Services configurations so the app can communicate between its components.
 
@@ -63,7 +63,7 @@ spec:
             - containerPort: 80
 ```
 
-We need something similar in Monk to run the application component. Lets define our [runnable](/monkscript/yaml/runnables/) and put that information in. It will look like this:
+We need something similar in Monk to run the application component. Lets define our [runnable](monkscript/yaml/runnables/) and put that information in. It will look like this:
 
 ```yaml title="Monk"
 namespace: /yelb
@@ -249,7 +249,7 @@ Since we have the definitions loaded, we can now start them individually.
 
 :::note
 
-Later, we'll create a [process group](/guides/groups/) that will allow us to start all of them at the same time.
+Later, we'll create a [process group](monkscript/yaml/groups) that will allow us to start all of them at the same time.
 
 :::
 
@@ -458,9 +458,9 @@ We need to update `proxy_pass http://yelb-appserver:4567/api;` with the real nam
 
 We will utilise three the Monk features here:
 
-1. `bash` [option](/monkscript/yaml/runnables/#container) that will overwrite our docker command.
-2. `get-hostname` [function](/monkscript/operators/network/.#get-hostname-get-container-ip), as Monk sometimes changes the name of the container.
-3. `variables` [section](/monkscript/yaml/runnables/#variables) of the YAML definition.
+1. `bash` [option](monkscript/yaml/runnables#container) that will overwrite our docker command.
+2. `get-hostname` [function](monkscript/scripting/operators/network#get-hostname-get-container-ip), as Monk sometimes changes the name of the container.
+3. `variables` [section](monkscript/yaml/runnables#variables) of the YAML definition.
 
 Lets combine all the information into our YAML file:
 
@@ -566,7 +566,7 @@ Now we know it basically runs `/app/yelb-appserver.rb`. Again, we will have to c
   set :awsregion => ENV['AWS_REGION']
 ```
 
-Unfortunately, the options we would like to change are hardcoded into application. We need to modify the file again and overwrite `Cmd` in our docker container. Keeping all this in mind, let's prepare our new appserver manifest by using [arrow script](/monkscript/yaml/#arrow-scripts), `get-hostname` [function](/monkscript/operators/network/) and `variables` [section](/monkscript/yaml/runnables/#variables).
+Unfortunately, the options we would like to change are hardcoded into application. We need to modify the file again and overwrite `Cmd` in our docker container. Keeping all this in mind, let's prepare our new appserver manifest by using [arrow script](monkscript/yaml#arrow-scripts), `get-hostname` [function](monkscript/scripting/operators/network/) and `variables` [section](monkscript/yaml/runnables#variables).
 
 Our YAML should look like:
 
@@ -625,7 +625,7 @@ $ monk purge local/yelb/redis
 (...)
 ```
 
-To define a [process group](/guides/groups/), we'll have to create YAML with list of runnables that will be part of our group. It will look like:
+To define a [process group](monkscript/yaml/groups), we'll have to create YAML with list of runnables that will be part of our group. It will look like:
 
 ```yaml title="Monk"
 namespace: /yelb
@@ -720,9 +720,9 @@ We can safely assume that we were working on our development environment. So the
 
 ### Moving to Production
 
-To spawn another instance of the YELB app for production, we will use Monk's [inheritance](http://localhost:8000/monkscript/yaml/overview/#inheritance) feature. This allows us to inherit a predefined template and only update the parts we want to change.
+To spawn another instance of the YELB app for production, we will use Monk's [inheritance](http://localhost:8000monkscript/yaml/overview#inheritance) feature. This allows us to inherit a predefined template and only update the parts we want to change.
 
-Let's define our namespace and add our db and redis [runnable](/monkscript/yaml/runnables/) components in the template.
+Let's define our namespace and add our db and redis [runnable](monkscript/yaml/runnables/) components in the template.
 
 ```yaml title="Monk"
 namespace: /yelb-production
@@ -736,7 +736,7 @@ redis:
     inherits: yelb/redis
 ```
 
-In this example, we're defining a new namespace for production and adding two [runnables](/monkscript/yaml/runnables/). Each runnable inherits from existing templates via the `inherits` parameter.
+In this example, we're defining a new namespace for production and adding two [runnables](monkscript/yaml/runnables/). Each runnable inherits from existing templates via the `inherits` parameter.
 
 Now we will have to add our appserver and ui. We'll need to do a bit more as we had to use some workarounds in development mode. Fortunately, the inheritance will make this task easier.
 
@@ -837,7 +837,7 @@ application:
         - /yelb-production/redis
 ```
 
-Since this is our production template, it might be good idea to run it on some public cloud services. To do this, you'll need to have a cloud provider added. To learn more, please see ["Monk in 10 minutes" guide](/monk-in-10/#creating-a-monk-cluster).
+Since this is our production template, it might be good idea to run it on some public cloud services. To do this, you'll need to have a cloud provider added. To learn more, please see ["Monk in 10 minutes" guide](monk-in-10#creating-a-monk-cluster).
 
 Assuming we have AWS as the provider, we can simply run:
 

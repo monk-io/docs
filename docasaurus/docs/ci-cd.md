@@ -10,7 +10,7 @@ Monk can run as a step in your CI process and push updated templates to an exist
 
 ### A cluster
 
-In order to deploy to a cluster, you will need a running cluster. See: [Creating a cluster](../lifecycle/cluster-create-1.md).
+In order to deploy to a cluster, you will need a running cluster. See: [Creating a cluster](lifecycle/cluster-create-1).
 
 Be sure to note down the Monkcode for the cluster, you can get it by running:
 
@@ -24,7 +24,7 @@ You'll need a template YAML file available to the CI job. It can come from the r
 
 The CI process will need access to your Monk account email and password.
 
-Alternatively, you can [create another account](../acc-and-auth.md) just for your CI and [authorize it against the cluster](../lifecycle/cluster-switch-1.md). This can be done with:
+Alternatively, you can [create another account](acc-and-auth) just for your CI and [authorize it against the cluster](lifecycle/cluster-switch-1). This can be done with:
 
     monk user add
 

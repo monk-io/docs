@@ -4,7 +4,7 @@ title: "Build a Basic App"
 
 Let's see how to create and run a basic app that uses MongoDB and Nginx, entirely from Monk.
 
-This tutorial requires you to have Monk installed locally, which you can do [just like this](../get-monk.md).
+This tutorial requires you to have Monk installed locally, which you can do [just like this](get-monk).
 
 ## What we're building
 
@@ -151,7 +151,7 @@ Here we see a small example of Monk's powerful language. The YAML values startin
 
 :::note
 
-The syntax for string interpolation in MonkScript is inspired by JavaScript's string template literals. Learn more about [Arrow scripts](../monkscript/scripting-index.md).
+The syntax for string interpolation in MonkScript is inspired by JavaScript's string template literals. Learn more about [Arrow scripts](monkscript).
 
 :::
 
@@ -209,7 +209,7 @@ Now it's time to compose our app's template with the third party services, and m
 
 ![Template architecture for the system we're building](/img/docs/system-full.png)
 
-If you were to publish your composed template, other people would also be able to run this same setup in seconds or compose it further with their own services. That's what our [Publisher program](../publishers.md) is there for, by the way.
+If you were to publish your composed template, other people would also be able to run this same setup in seconds or compose it further with their own services. That's what our [Publisher program](publishers) is there for, by the way.
 
 ### Creating a template of templates
 
@@ -347,6 +347,6 @@ To stop it, use:
 
 This concludes our basic app tutorial. We have learned how to compose 3rd party software with our own containerized service and how to run it all as an ensemble using Monk.
 
-The next step would be to run your app on different clouds. To that end, you can head back to the [Creating a cluster](../lifecycle/cluster-create-1.md) and [Running templates in a cluster](running-templates-cluster.md) guides to see them with a fresh perspective.
+The next step would be to run your app on different clouds. To that end, you can head back to the [Creating a cluster](lifecycle/cluster-create-1) and [Running templates in a cluster](lifecycle/running-templates-cluster) guides to see them with a fresh perspective.
 
 Or better yet, continue to [Connecting runnables](connecting-runnables.md) to see how we can make our services talk to each other.

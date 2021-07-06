@@ -14,11 +14,11 @@ Visit [https://monk.io/join](https://monk.io/join) and follow the instructions.
 
 ​Use you email and password in the CLI after successful registration.
 
-Don't worry. We keep identifying information to an absolute minimum. [Read more about how we keep your account safe](monk-privacy.md).
+Don't worry. We keep identifying information to an absolute minimum. [Read more about how we keep your account safe](monk-privacy).
 
 ## Register Using CLI
 
-You are going to need a working Monk installation before proceeding. If you haven't installed Monk yet, see [Getting Monk](get-monk.md).
+You are going to need a working Monk installation before proceeding. If you haven't installed Monk yet, see [Getting Monk](get-monk).
 
 ## Register
 

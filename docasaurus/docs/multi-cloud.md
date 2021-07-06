@@ -10,7 +10,7 @@ Monk clusters are capable of spanning across multiple cloud environments while M
 ## Prerequisites
 
 You need a cluster with at least two cloud providers added.
-See: [how to add cloud providers](01-cloud-provider.md).
+See: [how to add cloud providers](cloud-provider).
 
 Pick a pair of clouds you have credentials for eg. let **cloud A** be **AWS** and **cloud B** be **GCP**. The instructions apply to any pair of clouds and you can always add more than two if you wish.
 

@@ -4,7 +4,7 @@ title: Services
 
 Services are much like [Runnables](runnables.md) but they don't define any containers and associated lifecycle sections. Services are meant to be an abstract counterpart of Runnables that defines 3rd party services existing outside of Monk control. They can be useful for representing external APIs together with associated state, actions and variables.
 
-Services can be composed with other Services and Runnables to form [Groups](/monkscript/yaml/groups).
+Services can be composed with other Services and Runnables to form [Groups](./groups).
 
 ## Minimal example
 

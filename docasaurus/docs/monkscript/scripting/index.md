@@ -13,7 +13,7 @@ For example:
 value: <- `geth --syncmode ${syncmode} ${network} --rpc --rpcaddr 0.0.0.0`
 ```
 
-this script composes a string from constant strings and the contents of `syncmode` and `network` [variables](yaml/runnables.md#variables).
+this script composes a string from constant strings and the contents of `syncmode` and `network` [variables](./yaml/runnables#variables).
 
 ## Evaluation
 
@@ -21,7 +21,7 @@ Arrow script is evaluated at **runtime**, this means that script definitions are
 
 ## Syntax
 
-The language itself is simple, does not contain any general way to loop or branch. Instead, scripts are composed from values and pre-defined operators that take some value and return a new value, optionally taking arguments. This is comparable to stack based languages such as [Forth -->](<https://en.wikipedia.org/wiki/Forth_(programming_language)>).
+The language itself is simple, does not contain any general way to loop or branch. Instead, scripts are composed from values and pre-defined operators that take some value and return a new value, optionally taking arguments. This is comparable to stack based languages such as [Forth -->](<https:/en.wikipedia.org/wiki/Forth_(programming_language)>).
 
 A script is a sequence of [literal values](#values), [variable accesses](#variables) and [calls to operators](#operators). This form is similar to shell scripting with pipes (`|`) but with implicit pipes in between the elements.
 
@@ -65,7 +65,7 @@ Arrow script falls into category of strongly typed dynamic languages meaning tha
 
 ### Variables
 
-Variables in scripts refer to [variables](yaml/runnables.md#variables) defined in YAML. Variables are accessed using `$` sign. Variable names can consist of letters, numbers, hyphens and underscores, as well as other unicode characters except the `$` and as long as a letter is used as the first character.
+Variables in scripts refer to [variables](./yaml/runnables#variables) defined in YAML. Variables are accessed using `$` sign. Variable names can consist of letters, numbers, hyphens and underscores, as well as other unicode characters except the `$` and as long as a letter is used as the first character.
 
 For example:
 
@@ -73,7 +73,7 @@ For example:
 <- $foo $bar add
 ```
 
-Will return `3` as long as it is placed within a [`runnable`](yaml/runnables.md) containing the following definition:
+Will return `3` as long as it is placed within a [`runnable`](./yaml/runnables) containing the following definition:
 
 ```yaml
 variables:
@@ -90,7 +90,7 @@ Variables can be used as parenthesized arguments to operators:
 
 ### Operators
 
-Operators are pre-defined functions which usually take one or more preceding values together with parenthesized arguments and produce another value. Operators can also perform work behind the scenes causing side-effects such as calling HTTP APIs, changing state, communicating with containers. Monk provides a [library of operators](operators.md) that can be used to compose many useful scripts.
+Operators are pre-defined functions which usually take one or more preceding values together with parenthesized arguments and produce another value. Operators can also perform work behind the scenes causing side-effects such as calling HTTP APIs, changing state, communicating with containers. Monk provides a [library of operators](./scripting/operators/HTTP) that can be used to compose many useful scripts.
 
 Operator names can consist of letters, numbers, hyphens and underscores, as well as other unicode characters and as long as a letter is used as the first character. Many operators accept parenthesized arguments in addition to values piped to them from the left. Some will work with both forms.
 

@@ -34,7 +34,7 @@ In order to _grow_ your new cluster onto your cloud(s) you need to add your clou
 
 :::note Info
 
-Follow [How to add cloud provider to monk -->](/guides/01-cloud-provider)
+Follow [How to add cloud provider to monk -->](../cloud-provider)
 
 :::
 
@@ -46,7 +46,7 @@ Obviously, you can try to run your two instances (or any number of them in fact)
 
 :::note Info
 
-See [How to add cloud provider to monk](/guides/03-multi-cloud) to learn how to provision multi-cloud clusters in detail.
+See [How to add cloud provider to monk](../multi-cloud) to learn how to provision multi-cloud clusters in detail.
 
 :::
 
@@ -64,7 +64,7 @@ It sometime takes several minutes to bootstrap a new instance so do not be alarm
 
 :::note Info
 
-Passing the `--tag` flag tags the new peers upon their creation so they can be addressed using their tags later on. See [Running templates in a cluster](/guides/running-templates-cluster) to find out how to use tags to indicate where to run the template.
+Passing the `--tag` flag tags the new peers upon their creation so they can be addressed using their tags later on. See [Running templates in a cluster](running-templates-cluster) to find out how to use tags to indicate where to run the template.
 
 :::
 
@@ -86,7 +86,7 @@ monk cluster peers
 
 :::tip success
 
-You are all set to [Run templates in a cluster](/guides/running-templates-cluster)!
+You are all set to [Run templates in a cluster](running-templates-cluster)!
 
 :::
 
@@ -104,11 +104,11 @@ The process to add new peer is relatively simple thanks to _Monkcodes_ and can b
 
 :::note Info
 
-See [How to add cloud provider to monk](/lifecycle/cluster-switch-1#monkcodes) to learn more about Monkcodes.
+See [How to add cloud provider to monk](./cluster-switch-1#monkcodes) to learn more about Monkcodes.
 
 :::
 
-First, install Monk on a machine of your choice (let's call it **New Machine**). Check [Getting Monk](../get-monk.md) for instructions for **New Machine's** OS.
+First, install Monk on a machine of your choice (let's call it **New Machine**). Check [Getting Monk](get-monk.md) for instructions for **New Machine's** OS.
 
 Assuming you have created your cluster on **Your Machine**, run the following command to get the cluster's _Monkcode_:
 

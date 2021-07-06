@@ -68,6 +68,7 @@ module.exports = {
         'k8s-migrate',
         'ci-cd',
         'multi-cloud',
+        'cloud-provider',
       ],
     },
     {

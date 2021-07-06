@@ -28,9 +28,9 @@ Both Monk and Kubernetes orchestrate containers, provision workloads and reduce 
 
 -   **Low overhead**: lean teams can manage very complex applications. Monk is easy to use, and [developers who maintain templates](publishers.md) significantly reduce overhead for end users.
 
--   **Built-in Engine**: in most use cases, especially for smaller teams, K8s requires managed services such as EKS, AKS or GKE, which add extra steps and scaling pains. Monk Engine, which runs a new kind of [peer-to-peer clusters](./lifecycle/cluster-create-1.md), is a native part of the [ecosystem](key-concepts.md) and offers load balancing, auto-scaling and much more out of the box. See [Features](features.md) for a complete list.
+-   **Built-in Engine**: in most use cases, especially for smaller teams, K8s requires managed services such as EKS, AKS or GKE, which add extra steps and scaling pains. Monk Engine, which runs a new kind of [peer-to-peer clusters](lifecycle/cluster-create-1.md), is a native part of the [ecosystem](key-concepts.md) and offers load balancing, auto-scaling and much more out of the box. See [Features](features.md) for a complete list.
 
-Also note that Monk integrates natively with popular [CI/CD providers](./guides/ci-cd.md). Overall, Monk is meant to be a single solution that maintains the power of K8s where it shines, but without the extra steps of setting up DevOps or using external IaaS, managed engines, or Helm. And speaking of...
+Also note that Monk integrates natively with popular [CI/CD providers](ci-cd). Overall, Monk is meant to be a single solution that maintains the power of K8s where it shines, but without the extra steps of setting up DevOps or using external IaaS, managed engines, or Helm. And speaking of...
 
 ## Helm
 
@@ -38,7 +38,7 @@ You could think of Monk templates as superpowered Helm charts. Yet unlike Helm, 
 
 -   _All in one_: Helm was supposed to be a package manager for K8s definitions, but it also doubles as a templating language. Doing more things at once increases complexity and errors.
 
--   _Better language_: Helm's language relies on imperative templating, which makes it verbose and prone to mistakes. [MonkScript YAML](../monkscript/) is declarative and composable, which makes it less verbose and supportive of the DRY principle. It also has a friendlier syntax.
+-   _Better language_: Helm's language relies on imperative templating, which makes it verbose and prone to mistakes. [MonkScript YAML](monkscript) is declarative and composable, which makes it less verbose and supportive of the DRY principle. It also has a friendlier syntax.
 
 -   _Native package manager_: Artifact Hub is a package manager built on top of Helm, whereas Monk Hub is native to the [ecosystem](key-concepts.md). Our template language is also seamlessly integrated with the rest of the internals and decoupled from package management, which makes Monk templates really portable across workflows and systems.
 
@@ -87,7 +87,7 @@ Terraform specializes in the provisioning/infrastructure level. Monk has that co
 
 -   **Simple and efficient**: Starting a new Monk cluster, without even having Monk installed, only takes three commands: `apt install monk` && `monk cluster new` && `monk provider add`. Even without writing any templates you get to deploy full systems with e.g. `monk run gitlab/latest` pulled straight from the Hub.
 
--   **Declarative templating**: like MonkScript, Terraform uses declarative configuration files that work predictably in testing, staging, and production environments. However, MonkScript is arguably easier to learn than HCL (HashiCorp Configuration Language) and provides a more unified workflow thanks to [scriptable actions](./monkscript/scripting-index.md) and more unique features.
+-   **Declarative templating**: like MonkScript, Terraform uses declarative configuration files that work predictably in testing, staging, and production environments. However, MonkScript is arguably easier to learn than HCL (HashiCorp Configuration Language) and provides a more unified workflow thanks to [scriptable actions](monkscript/scripting) and more unique features.
 
 Therefore, a bit like Nomad, Terraform is a feature-packed solution that offers value at large scale and complexity, while Monk is a leaner out-of-the box solution that offers great efficiency at a much lower threshold of complexity.
 

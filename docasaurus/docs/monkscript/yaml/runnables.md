@@ -2,7 +2,7 @@
 title: Runnables
 ---
 
-Runnables are the most common and basic unit in Monk. They represent a container or multiple containers meant to be standing together on a single node together with all necessary resources and configuration. Runnables can be composed together to form [Groups](/monkscript/yaml/groups).
+Runnables are the most common and basic unit in Monk. They represent a container or multiple containers meant to be standing together on a single node together with all necessary resources and configuration. Runnables can be composed together to form [Groups](./groups).
 
 ## Minimal example
 

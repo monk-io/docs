@@ -25,7 +25,7 @@ Think of Monk templates as no-Kubernetes Helm charts on overdrive, defining enti
 
 * **Portable**: Templates can be reproduced on any cloud or on-premise cluster that runs Monk within minutes.
 
-This means you can tweak and share single components (e.g. Nginx) as easily as an entire off-the-shelf stack (e.g. the entire data science workflow your startup runs on AWS + GCP), or even better, combine these and more to build something entirely new. Here's a [simple example](./guides/basic-app.md).
+This means you can tweak and share single components (e.g. Nginx) as easily as an entire off-the-shelf stack (e.g. the entire data science workflow your startup runs on AWS + GCP), or even better, combine these and more to build something entirely new. Here's a [simple example](basic-app.md).
 
 ## Benefits for Publishers
 
@@ -101,7 +101,7 @@ Creating a template is easy and takes only a few lines of YAML. You decide how m
 
 ![](/img/docs/publishers3.png)
 
-You will feel right at home with MonkScript, YAML inspired by `docker-compose` but with quite a few scriptable tricks up its sleeve. View them all in [Features](features.md) and inside the [Reference](./monkscript/index.md).
+You will feel right at home with MonkScript, YAML inspired by `docker-compose` but with quite a few scriptable tricks up its sleeve. View them all in [Features](features.md) and inside the [Reference](monkscript).
 
 ## How can I join?
 
