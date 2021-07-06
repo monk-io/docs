@@ -1,6 +1,3 @@
----
-slug: /gui
----
 # Monk GUI
 
 ## Launching the GUI
@@ -26,11 +23,9 @@ Starting GUI on http://127.0.0.1:44004
 ✔ Moncc GUI started successfully and running on http://127.0.0.1:44004
 ```
 
-:::note
+!!! note
 
-Note that if you are doing this on remote server which does not have GUI then you cannot connect to that by opening connection to 44004 port. This only works via local connection.
-
-:::
+    Note that if you are doing this on remote server which does not have GUI then you cannot connect to that by opening connection to 44004 port. This only works via local connection.
 
 ## GUI Sections
 
@@ -39,13 +34,11 @@ Note that if you are doing this on remote server which does not have GUI then yo
 This section summarizes all cluster peers that are currently running and their details.
 
 <figure>
-  <img src="/img/docs/gui1.png" />
+  <img src="/assets/gui1.png" />
 </figure>
-
 ---
-
 <figure>
-  <img src="/img/docs/gui2.png" />
+  <img src="/assets/gui2.png" />
 </figure>
 
 ### Workloads
@@ -53,13 +46,11 @@ This section summarizes all cluster peers that are currently running and their d
 This section summarizes all workloads which have been deployed to the cluster.
 
 <figure>
-  <img src="/img/docs/gui3.png" />
+  <img src="/assets/gui3.png" />
 </figure>
-
 ---
-
 <figure>
-  <img src="/img/docs/gui4.png" />
+  <img src="/assets/gui4.png" />
 </figure>
 
 ### Templates
@@ -71,7 +62,7 @@ The Templates section is a UI interface to Monk Hub. You can browse, compose and
 In this mode, you can simply deploy any of the templates by clicking on Runbutton and specifying target such as your local environment or your cluster.
 
 <figure>
-  <img src="/img/docs/gui5.png" />
+  <img src="/assets/gui5.png" />
 </figure>
 
 ### Wizard Mode
@@ -79,13 +70,13 @@ In this mode, you can simply deploy any of the templates by clicking on Runbutto
 In the Wizard mode, you can select all required components that you would like to deploy as part of a single template.
 
 <figure>
-  <img src="/img/docs/gui6.png" />
+  <img src="/assets/gui6.png" />
 </figure>
 
 Once selected, continue to Compose button to open the Wizard for final tweaks.
 
 <figure>
-  <img src="/img/docs/gui7.png" />
+  <img src="/assets/gui7.png" />
 </figure>
 
 The Wizard allows you to quickly design your system, configure its variables and cloud provisioning into Monk manifest yaml.
@@ -93,17 +84,17 @@ The Wizard allows you to quickly design your system, configure its variables and
 When you decide your template is ready, you can load your new template to your local Monk environment.
 
 <figure>
-  <img src="/img/docs/gui8.png" />
+  <img src="/assets/gui8.png" />
 </figure>
 
 After it loads, you should be able to see your new components and system under Templates.
 
 <figure>
-  <img src="/img/docs/gui9.png" />
+  <img src="/assets/gui9.png" />
 </figure>
 
 The final step is to deploy your brand new system by clicking Run and selecting its target environment.
 
 <figure>
-  <img src="/img/docs/gui10.png" />
+  <img src="/assets/gui10.png" />
 </figure>

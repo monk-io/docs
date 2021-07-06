@@ -1,7 +1,3 @@
----
-title: "Switch Clusters"
----
-
 You can have multiple Monk clusters at any given time but you can manage just one at a time. When you're working with a cluster, you're essentially joining the cluster as a member from youor local machine.
 
 Monk introduces `exit` and `switch` commands which make it possible to hop between clusters. You can also join somebody else's cluster if they add you as an admin and as long as you have their _Monkcode_
@@ -21,17 +17,13 @@ Monkcode should look more or less like this:
 
 Monkcodes can be passed around as "invitations" to a cluster, or stored securely as credentials for a number of your own clusters.
 
-:::note info
+!!! info
 
-It's useful to obtain a fresh Monkcode before using it because they might change over time as new nodes are added and removed.
+    It's useful to obtain a fresh Monkcode before using it because they might change over time as new nodes are added and removed.
 
-:::
+!!! warning
 
-:::caution warning
-
-Monkcodes are sensitive information, protect them with great care. Even though it's impossible to join a cluster without being added as an admin, it's still best to keep Monkcodes away from prying eyes.
-
-:::
+    Monkcodes are sensitive information, protect them with great care. Even though it's impossible to join a cluster without being added as an admin, it's still best to keep Monkcodes away from prying eyes.
 
 ## Admin access
 

@@ -2,11 +2,11 @@
 
 Monk is a new infrastructure platform that makes it easy to deploy and manage container-based applications in any environment. It works as a highly customizable abstraction layer between containers and infrastructure, and it's based on three key technologies:
 
-- **Monk Engine** a distributed container engine that runs and manages workloads
+: **Monk Engine**: a distributed container engine that runs and manages workloads
 
-- **MonkScript** composable YAML for describing containers and workloads in one place
+: **MonkScript** composable YAML for describing containers and workloads in one place
 
-- **Monk Hub** a globally accessible repository where templates are stored
+: **Monk Hub** a globally accessible repository where templates are stored
 
 With this "trinity" working together, you can define your entire stack with a single master manifest (_written in MonkScript_) composed from other developers' templates (_on Monk Hub_). You can then deploy said stack on your infrastructure of choice without needing to define provisioning somewhere else (_thanks to Monk Engine_).
 
@@ -48,12 +48,11 @@ Running one system on multiple clouds has many advantages, some of them being:
 -   Ability to optimize costs or performance by easily moving workloads to cheaper or better infrastructure.
 -   Rock-solid reliability in case one of the cloud providers experiences a failure.
 
-:::note note
+!!! note
 
-Monk currently supports automatic Cluster provisioning on AWS and GCP. We are working to add more cloud providers in the near future.
-:::
+    Monk currently supports automatic Cluster provisioning on AWS and GCP. We are working to add more cloud providers in the near future.
 
-Dive deeper into the provisioning side of things in the [Guides](running-templates.md).
+Dive deeper into the provisioning side of things in the [Guides](./guides/running-templates.md).
 
 ### Programmable Control Plane
 
@@ -73,7 +72,7 @@ Additionally, Templates can describe actions and variables particular to the sof
 
 Think about docker-composing docker-composes, this is what MonkScript is about.
 
-Learn everything about MonkScript in the [Reference](monkscript).
+Learn everything about MonkScript in the [Reference](./monkscript/index.md).
 
 ## Monk Hub
 
@@ -83,10 +82,8 @@ Templates on the Hub can be either Components, such as popular databases and ser
 
 Furthermore, thanks to MonkScript, each template can be composed from other templates. The resulting template can be published to the Hub for others to use.
 
-:::note note
+!!! note
 
-Monk Templates can be instantiated from Monk Hub at any moment, without needing to download them, since every Monk Engine knows the contents of the Hub at all times.
-
-:::
+    Monk Templates can be instantiated from Monk Hub at any moment, without needing to download them, since every Monk Engine knows the contents of the Hub at all times.
 
 You'll learn more about how templates can help you improve your workflow in the next section, [Why Monk](use-cases.md). And if you like the idea of publishing entire stack blueprints on a community repo, take a closer look at our [Publisher program](publishers.md) here in the docs.

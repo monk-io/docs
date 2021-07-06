@@ -1,7 +1,3 @@
----
-title: "Support & Resources"
----
-
 # Support & Contact
 
 ## Get Help
@@ -23,4 +19,11 @@ Be sure to check out:
 - [Monk's YouTube channel](https://www.youtube.com/channel/UCtVa9hzta_6huDd7k5D6Cxw) for video tutorials and guides
 - [@monk_io](https://twitter.com/monk_io) on Twitter for news and updates
 
-With that out of the way, we're ready to dig in! Go to the next page for [Guides and tutorials](running-templates.md) in the next page.
+With that out of the way, we're ready to dig in! Go to the next page for [Guides and tutorials](./guides/running-templates.md) in the next page.
+
+
+
+
+
+
+

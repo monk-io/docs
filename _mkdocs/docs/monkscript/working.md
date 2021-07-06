@@ -1,16 +1,10 @@
----
-title: Working with MonkScript
----
-
 # Working with MonkScript
 
 This document describes basic ideas and workflow behind authoring Monk templates. Check the reference in order to understand MonkScript itself.
 
-:::note
+!!! note ""
 
-See the [MonkScript YAML](./yaml) reference.
-
-:::
+    See the [MonkScript YAML](/monkscript/yaml) reference.
 
 ## Manifest files and project structure
 
@@ -22,7 +16,7 @@ Each manifest file must start with a `namespace` declaration - it allows Monk to
 
 ## Picking a namespace
 
-A good name for a [`namespace`](./yaml#namespaces) is unique and short. Suitable candidates are:
+A good name for a [`namespace`](/monkscript/yaml#namespaces) is unique and short. Suitable candidates are:
 
 -   your name,
 -   name of your company,

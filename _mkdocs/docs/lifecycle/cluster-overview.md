@@ -1,24 +1,21 @@
----
-title: "Overview"
----
-
 # Monk Deployments
 
 Monk Engine is a new gen container orchestrator that implements masterless cluster architecture. This means that under any workload you want to deploy, there is a Monk Cluster that talks to the underlying hosts and facilitates orchestration.
 
 ## Monk Clusters
 
-![Example Monk cluster](/img/docs/cluster.png)
+<figure>
+  <img src="/assets/cluster.png" />
+  <figcaption>Example Monk cluster</figcaption>
+</figure>
 
 Monk Clusters work as bunch of `monkd` instances (peers) connected together via P2P network. These instances can reside on any machine, anywhere on the internet.
 
 Peers communicate and coordinate using an encrypted peer-to-peer protocol and, in addition, provide a virtual LAN for the workloads running within the cluster. This way, the workloads can transparently communicate with each other, no matter where they are in the cluster.
 
-:::note Info
+!!! note ""
 
-Learn more about networking here: [Connecting runnables -->](../connecting-runnables.md)
-
-:::
+    Learn more about networking here: [Connecting runnables -->](/guides/connecting-runnables.md)
 
 The Cluster can be automatically grown within cloud environments without any work from its operator. This chapter shows how to create Monk Clusters and manage the peers.
 
@@ -35,25 +32,20 @@ Once created, Monk Clusters can be expanded in two ways:
 
 These two methods can be combined seemlessly: Monk clusters can span across clouds and on-premise machines or other bare metal.
 
-:::note Info
+!!! note ""
 
-See [Create](cluster-create-1.md) to learn how to create a Monk cluster.
-
-:::
+    See [Create](cluster-create-1.md) to learn how to create a Monk cluster.
 
 ### Cluster operations
 
-:::note Info
+!!! note ""
 
-See [Operate](cluster-operate-1.md) to learn how to inspect, troubleshoot, shrirnk and destroy Monk clusters.
+    See [Operate](cluster-operate-1.md) to learn how to inspect, troubleshoot, shrirnk and destroy Monk clusters.
 
-:::
 ### Switching clusters
 
 It is possible to operate an unlimited number of separate Monk clusters at once. In order to assume control of a cluster, operator must join the cluster with their operator machine. This process is called _switching_.
 
-:::note Info
+!!! note ""
 
-See [Switch](cluster-switch-1.md) to learn how to switch between multiple Monk clusters.
-
-:::
+    See [Switch](cluster-switch-1.md) to learn how to switch between multiple Monk clusters.

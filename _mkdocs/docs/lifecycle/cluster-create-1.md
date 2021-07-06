@@ -1,7 +1,3 @@
----
-title: "Create Clusters"
----
-
 ## Cluster creation
 
 Before we can connect other machines to the cluster (or 'grow it', as we say here at Monk), we need to create it first. Start with issuing this command:
@@ -32,11 +28,9 @@ Automatic provisioning is the recommended way of creating your Monk clusters. Cu
 
 In order to _grow_ your new cluster onto your cloud(s) you need to add your cloud credentials to Monk first.
 
-:::note Info
+!!! note ""
 
-Follow [How to add cloud provider to monk -->](../cloud-provider)
-
-:::
+    Follow [How to add cloud provider to monk -->](/guides/01-cloud-provider)
 
 ### Growing the cluster
 
@@ -44,29 +38,23 @@ We'll now create two instances on GCP to demonstrate how easy it is to grow a Mo
 
 Obviously, you can try to run your two instances (or any number of them in fact) in multiple clouds.
 
-:::note Info
+!!! note ""
 
-See [How to add cloud provider to monk](../multi-cloud) to learn how to provision multi-cloud clusters in detail.
-
-:::
+    See [How to add cloud provider to monk](/guides/03-multi-cloud) to learn how to provision multi-cloud clusters in detail.
 
 Let's create a new **GCP** instance. Monk has an aptly named `grow` command for doing this:
 
     monk cluster grow --provider=gcp --name=my-gcp-instance --tag=mytag --instance-type=g1-small --region=europe-west4 -m 2
 
-:::note Info
+!!! note
 
-If you omit flags, `monk cluster grow` will ask you interactively for all the required details.
-
-:::
+    If you omit flags, `monk cluster grow` will ask you interactively for all the required details.
 
 It sometime takes several minutes to bootstrap a new instance so do not be alarmed if the command takes some time to execute.
 
-:::note Info
+!!! note
 
-Passing the `--tag` flag tags the new peers upon their creation so they can be addressed using their tags later on. See [Running templates in a cluster](running-templates-cluster) to find out how to use tags to indicate where to run the template.
-
-:::
+    Passing the `--tag` flag tags the new peers upon their creation so they can be addressed using their tags later on. See [Running templates in a cluster](/guides/running-templates-cluster) to find out how to use tags to indicate where to run the template.
 
 Running the above commands will create two new peers on GCP:
 
@@ -84,17 +72,13 @@ monk cluster peers
     ...           my-gcp-instance-1  gcp         0              ...           true
     ...           my-gcp-instance-2  gcp         0              ...           true
 
-:::tip success
+!!! success
 
-You are all set to [Run templates in a cluster](running-templates-cluster)!
+    You are all set to [Run templates in a cluster](/guides/running-templates-cluster)!
 
-:::
+!!! warning
 
-:::caution warning
-
-The instances created by Monk using `grow` are essentially black boxes - the user is not supposed to change their configuration by hand or even log into them via ssh. Attempting to reconfigure such instance by other means than Monk may render it unstable or unusable.
-
-:::
+    The instances created by Monk using `grow` are essentially black boxes - the user is not supposed to change their configuration by hand or even log into them via ssh. Attempting to reconfigure such instance by other means than Monk may render it unstable or unusable.
 
 ## Adding peers manually
 
@@ -102,13 +86,11 @@ In addition to recommended Automatic provisioning, there is an option to add new
 
 The process to add new peer is relatively simple thanks to _Monkcodes_ and can be used to put almost any linux machine under Monk's control.
 
-:::note Info
+!!! note ""
 
-See [How to add cloud provider to monk](./cluster-switch-1#monkcodes) to learn more about Monkcodes.
+    See [How to add cloud provider to monk](/lifecycle/cluster-switch-1#monkcodes) to learn more about Monkcodes.
 
-:::
-
-First, install Monk on a machine of your choice (let's call it **New Machine**). Check [Getting Monk](get-monk.md) for instructions for **New Machine's** OS.
+First, install Monk on a machine of your choice (let's call it **New Machine**). Check [Getting Monk](../get-monk.md) for instructions for **New Machine's** OS.
 
 Assuming you have created your cluster on **Your Machine**, run the following command to get the cluster's _Monkcode_:
 
@@ -135,11 +117,9 @@ Your Monkcode should look more or less like this:
 
 It can be longer or shorter based on how big your cluster is - that's because the Monkcode is just a minified set of credentials and node addresses that allow new peers find your cluster on the Internet.
 
-:::caution warning
+!!! warning
 
-Monkcodes are sensitive information, protect them with great care. Even though it's impossible to join a cluster without being added as an admin, it's still best to keep Monkcodes away from prying eyes.
-
-:::
+    Monkcodes are sensitive information, protect them with great care. Even though it's impossible to join a cluster without being added as an admin, it's still best to keep Monkcodes away from prying eyes.
 
 Then, on the **New Machine** run the following command:
 
