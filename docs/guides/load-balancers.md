@@ -74,7 +74,7 @@ Running this group will show the load balancer in the run output together with i
 
 !!! warning
 
-    For a load balancer to work a healthcheck against the runnable needs to pass. By default the `/` endpoint is called and `200` status code is expected in return. If your services handle healthchecks differently you can override it using [custom healthchecks](#custom-health-checks).
+    For a `http` load balancer to work a healthcheck against the runnable needs to pass. By default the `/` endpoint is called and `200` status code is expected in return. If your services handle healthchecks differently you can override it using [custom healthchecks](#custom-health-checks).
 
 ### HTTPS
 
@@ -149,6 +149,10 @@ A TCP and UDP load balancers can be used to balance TCP and UDP connections over
             - lbs/service-2
     ```
 
+!!! warning
+
+    For a `tcp` load balancer to work a healthcheck against the runnable needs to pass. By default it just tries to open connection to the `port`. If your services handle healthchecks differently you can override it using [custom healthchecks](#custom-health-checks).
+
 === "UDP"
 
     ```yaml linenums="1"
@@ -204,7 +208,7 @@ Monk can configure the load balancers to perform custom health checks on the tar
 
 ### HTTP
 
-HTTP health checks are GET requests sent to at the specified `interval` to the `url` with specified `request` contents. The `response` field specifies the contents of the expected response. If the service fails to respond or the contents of the response are not matching - the balancer will mark that service as faulty and route traffic to its other instances.
+HTTP health checks are GET requests sent to at the specified `interval` (in seconds) to the `url` with specified `request` contents. The `response` field specifies the contents of the expected response. If the service fails to respond or the contents of the response are not matching - the balancer will mark that service as faulty and route traffic to its other instances.
 
 ```yaml linenums="1"
 namespace: /lbs
