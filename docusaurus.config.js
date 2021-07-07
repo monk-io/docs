@@ -14,10 +14,11 @@ module.exports = {
   projectName: 'monk-io/docs', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'monk Docs',
+      // title: 'monk Docs',
       logo: {
         alt: 'monk Docs Logo',
         src: 'img/monk-dolphin-full.svg',
+        srcDark: 'img/monk-dolphin-full-dark.svg',
       },
       items: [
         {
