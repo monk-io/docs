@@ -55,7 +55,7 @@ Assuming you have a project that contains a template, all you need to do is crea
                 - run:
                     command: |
                         MONK="monk -s monkcode://<cluster-monkcode> --nofancy --nocolor"
-                        $MONK login --email <your-email> --password <your-password>
+                        $MONK --nofancy login --email <your-email> --password <your-password>
                         $MONK load <your-template-file.yaml>
                         $MONK update -t <yourtag> <your/runnable>
     workflows:
