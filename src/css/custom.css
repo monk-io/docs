@@ -6,6 +6,96 @@
  */
 
 /* You can override the default Infima variables here. */
+
+@font-face {
+  font-family: "Lineto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/Lineto/Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Visuelt";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/Visuelt/Regular.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Visuelt";
+  font-style: normal;
+  font-weight: 200;
+  src: url("../assets/fonts/Visuelt/Light.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Visuelt";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../assets/fonts/Visuelt/Medium.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Visuelt";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/Visuelt/Bold.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Visuelt";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../assets/fonts/Visuelt/Black.woff") format("woff");
+}
+
+
+
+
+@font-face {
+  font-family: "Aeonik";
+  font-style: normal;
+  font-weight: 200;
+  src: url("../assets/fonts/Aeonik/Aeonik-Light.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/Aeonik/Aeonik-Regular.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../assets/fonts/Aeonik/Aeonik-Medium.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/Aeonik/Aeonik-Bold.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../assets/fonts/Aeonik/Aeonik-Black.woff") format("woff");
+}
+
 :root {
   --ifm-color-primary: #0315f9;
   --ifm-color-primary-dark: #0313e0;
@@ -17,6 +107,9 @@
   --ifm-code-font-size: 95%;
 
   --ifm-navbar-height: 70px;
+
+  --ifm-font-family-base: "Aeonik";
+  --ifm-font-family-monospace: "Lineto";
 }
 
 .docusaurus-highlight-code-line {
@@ -36,4 +129,8 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 .navbar__brand {
   height: 50px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Visuelt;
 }
