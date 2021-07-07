@@ -72,6 +72,10 @@ This defines the `app-balancer` - a `http` load balancer that targets port `8080
 
 Running this group will show the load balancer in the run output together with its IP address. The HTTP load balancer listens on the port `80` by default. You can point your domain to its IP address and clients will reach either `service-1` or `service-2`.
 
+!!! warning
+
+    For a load balancer to work a healthcheck against the runnable needs to pass. By default the `/` endpoint is called and `200` status code is expected in return. If your services handle healthchecks differently you can override it using [custom healthchecks](#custom-health-checks).
+
 ### HTTPS
 
 Load balancers are often used to terminate TLS so that the underlying services aren't concerned by such matters. Upgrading an HTTP balancer to an HTTPS-enabled balancer is very simple with Monk.
