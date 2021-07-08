@@ -82,13 +82,13 @@ module.exports = {
           ],
         },
       ],
-      copyright: `© ${new Date().getFullYear()} OakDS Inc.`,
     },
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
     },
   },
+  plugins: ['docusaurus-plugin-sass'],
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -106,7 +106,10 @@ module.exports = {
         //     'https://github.com/facebook/docusaurus/edit/master/website/blog/',
         // },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: [
+            require.resolve('./src/stylesheet/custom.css'),
+            require.resolve('./src/stylesheet/footer.scss'),
+          ]
         },
       },
     ],
