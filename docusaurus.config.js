@@ -34,6 +34,10 @@ module.exports = {
           position: 'right',
         },
       ],
+      // algolia: {
+      //   indexName: 'monk-docs',
+      //   apiKey: 'fd80626beb26ac2e5ace88192dd0c7a1',
+      // },
     },
     footer: {
       style: 'dark',
