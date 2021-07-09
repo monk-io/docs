@@ -91,6 +91,11 @@ module.exports = {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
     },
+    algolia: {
+      apiKey: 'efc6955c2b35adfd7fffb355249adda8',
+      indexName: 'monk-docs',
+      appId: 'JMJR6P1AKQ',
+    },
   },
   plugins: ['docusaurus-plugin-sass'],
   presets: [
