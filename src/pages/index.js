@@ -1,55 +1,57 @@
-import React from 'react';
-import Layout from '@theme/Layout';
+import React from "react";
+import Layout from "@theme/Layout";
 
-import './index.scss';
-import BigNavItem from '../components/bigNavItem';
+import "./index.scss";
+import BigNavItem from "../components/bigNavItem";
 
 export default function Home() {
-  const navItems = [
-    {
-      to: '/docs',
-      title: 'Doc link 1',
-      desc: 'Doc link 1 desc'
-    },
-    {
-      to: '/docs',
-      title: 'Doc link 2',
-      desc: 'Doc link 2 desc'
-    },
-    {
-      to: '/docs',
-      title: 'Doc link 3',
-      desc: 'Doc link 3 desc'
-    },
-    {
-      to: '/docs',
-      title: 'Doc link 4',
-      desc: 'Doc link 4 desc'
-    },
-    {
-      to: '/docs',
-      title: 'Doc link 5',
-      desc: 'Doc link 5 desc'
-    },
-    {
-      to: '/docs',
-      title: 'Doc link 6',
-      desc: 'Doc link 6 desc'
-    },
-  ];
-  return (
-    <Layout
-      // title={`Hello from ${siteConfig.title}`}
-      // description="Description will go into a meta tag in <head />"
-    >
-      <div className="main-page">
-        <div className="container">
-          <h1 className="main-title">Lorem ipsum dolor sit amet consectetur</h1>
-          <div className="row">
-            {navItems.map(i => <BigNavItem key={i.title} {...i} />)}
-          </div>
-        </div>
-      </div>
-    </Layout>
-  )
+    const navItems = [
+        {
+            to: "/docs",
+            title: "About Monk",
+            desc: "Learn about Monk and its features.",
+        },
+        {
+            to: "/docs/monk-in-10",
+            title: "Monk Basics",
+            desc: "From zero to cluster in 10 min.",
+        },
+        {
+            to: "/docs/get-monk",
+            title: "Install Monk",
+            desc: "Download, install and update Monk.",
+        },
+        {
+            to: "/docs/lifecycle/cluster-overview",
+            title: "Guides",
+            desc: "Learn Monk hands on.",
+        },
+        {
+            to: "/docs/support",
+            title: "Support & Contact",
+            desc: "Join the community, get in touch.",
+        },
+        {
+            to: "/docs/monkscript",
+            title: "MonkScript Reference",
+            desc: "Monk templating language in detail.",
+        },
+    ];
+    return (
+        <Layout
+        // title={`Hello from ${siteConfig.title}`}
+        // description="Description will go into a meta tag in <head />"
+        >
+            <div className="main-page">
+                <div className="container">
+                    <h1 className="main-title">Explore Monk Docs</h1>
+                    <div className="row">
+                        {navItems.map((i) => (
+                            <BigNavItem key={i.title} {...i} />
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </Layout>
+    );
 }

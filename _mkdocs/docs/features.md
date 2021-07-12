@@ -15,7 +15,8 @@ This page describes primary Monk features and points to relevant resources for e
 
 ## MonkScript
 
-Our language allows you to specify your entire stack needs in a simple, reusable way. MonkScript is a primary user interface for controlling Monk's Programmable Control Plane. [Here's a primer -->](./monkscript/index.md)
+Our language allows you to specify your entire stack needs in a simple, reusable way. MonkScript is a primary user interface for controlling Monk's Programmable Control Plane. [Here's a primer &#8594;
+](./monkscript/index.md)
 
 ### Programmable Control Plane
 
@@ -23,11 +24,13 @@ Monk understands your workloads by constantly tracking and computing values asso
 
 ### Custom Variables
 
-Expose your container environment variables through dynamically computed variables, add and edit as required to extend your component functionality. [Read more -->](/monkscript/yaml/runnables/#variables)​
+Expose your container environment variables through dynamically computed variables, add and edit as required to extend your component functionality. [Read more &#8594;
+](/monkscript/yaml/runnables/#variables)​
 
 ### Actions
 
-Abstract any of your containerized software functionalities through our unique actions within the same template. [Read more​ -->](/monkscript/yaml/runnables/#actions)
+Abstract any of your containerized software functionalities through our unique actions within the same template. [Read more​ &#8594;
+](/monkscript/yaml/runnables/#actions)
 
 ### Health Checks
 
@@ -51,7 +54,8 @@ Define explicit deployment of your architecture. Depending on your architecture,
 
 ### 🧪 Encrypted at Rest
 
-No need for special handling when it comes to secrets. Monk will load SOPS-encrypted YAML and store all the values re-encrypted in a cluster-wide vault by default. [SOPS guide -->](./guides/passing-secrets.md)
+No need for special handling when it comes to secrets. Monk will load SOPS-encrypted YAML and store all the values re-encrypted in a cluster-wide vault by default. [SOPS guide &#8594;
+](./guides/passing-secrets.md)
 
 ## Interfaces: CLI / GUI
 
@@ -97,7 +101,8 @@ Automatic provisioning of resources such as instances, EBS-type volumes, load ba
 
 ### Cloud Load Balancers
 
-Utilize the most popular load balancers (HTTP(s) and ElasticIP) natively baked in and easily definable by our language. [Load balancers -->](./guides/load-balancers.md)
+Utilize the most popular load balancers (HTTP(s) and ElasticIP) natively baked in and easily definable by our language. [Load balancers &#8594;
+](./guides/load-balancers.md)
 
 ### 🧪 3rd Party Service Abstraction
 
@@ -107,13 +112,15 @@ Include any 3rd party services such as specific Cloud APIs in templates with sim
 
 Encrypted overlay network between the containers with fully automated internet-facing firewall control.
 
-Our orchestration comes with security baked in. Containers can securely communicate with each other, as per your defined criteria, and all secrets all encrypted except when needed. [Connecting runnables -->](./guides/connecting-runnables.md)
+Our orchestration comes with security baked in. Containers can securely communicate with each other, as per your defined criteria, and all secrets all encrypted except when needed. [Connecting runnables &#8594;
+](./guides/connecting-runnables.md)
 
 ## Access Control
 
 ### Multiple Users Cluster Access
 
-Allow multiple users within your organization to perform operations on your running clusters. Regulate types of access to running Monk clusters resources based on the roles of individual users within your organization. [Contact us -->](https://monk-io.typeform.com/to/Wd9BokCb)
+Allow multiple users within your organization to perform operations on your running clusters. Regulate types of access to running Monk clusters resources based on the roles of individual users within your organization. [Contact us &#8594;
+](https://monk-io.typeform.com/to/Wd9BokCb)
 
 ## CI/CD support
 
@@ -123,4 +130,5 @@ Integrate your stack deployment with your favorite CI/CD tools and deploy to you
 -   Github Actions
 -   GitLab CI
 
-See the [CI/CD Guide-->](./guides/ci-cd.md)
+See the [CI/CD Guide&#8594;
+](./guides/ci-cd.md)

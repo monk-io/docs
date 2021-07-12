@@ -5,11 +5,11 @@ slug: /
 
 # Welcome to Monk
 
-Welcome to [Monk](https://monk.io), the stack orchestration platform. 
+Welcome to [Monk](https://monk.io), the stack orchestration platform.
 
-Monk lets you compose, deploy, and manage your entire stack, on your own infrastructure, with nearly zero DevOps overhead. 
+Monk lets you compose, deploy, and manage your entire stack, on your own infrastructure, with nearly zero DevOps overhead.
 
-Think of Monk as a Kubernetes and Terraform rolled into one tool. Monk is **a new orchestrator that lets you take control of both the application and provisioning layers in one place** by (1) writing feature-packed YAML manifests, and (2) using the CLI to interact directly with your containers and cloud provider(s) of choice. 
+Think of Monk as a Kubernetes and Terraform rolled into one tool. Monk is **a new orchestrator that lets you take control of both the application and provisioning layers in one place** by (1) writing feature-packed YAML manifests, and (2) using the CLI to interact directly with your containers and cloud provider(s) of choice.
 
 [Download Monk](get-monk.md) and [get started in ten minutes or less](monk-in-10.md).
 
@@ -35,7 +35,7 @@ Explore all features on the [Features](features.md) page.
 
 ## Our Mission
 
-We're making infra stacks stupid-easy to build and manage. We've built everything from scratch, engine included, and don't rely on any 3rd party platforms except Docker. 
+We're making infra stacks stupid-easy to build and manage. We've built everything from scratch, engine included, and don't rely on any 3rd party platforms except Docker.
 
 ## Docs Overview
 
@@ -47,7 +47,8 @@ These docs should have everything you need to get acquainted with Monk and start
 
 If at any time you need help or want to share feedback, we'd love to hear from you! Find all our contacts and resources on the [Support](support.md) page to find our contacts, or join us directly on [Discord](https://discord.gg/WxDzaKe).
 
-**The best way to experience what Monk has to offer is to dive in and try it. We put great care into making everything simple and efficient. You should be able to get some containers running in a cluster, on a cloud, within 10 minutes from reading this sentence. [See for yourself -->](monk-in-10.md)**
+**The best way to experience what Monk has to offer is to dive in and try it. We put great care into making everything simple and efficient. You should be able to get some containers running in a cluster, on a cloud, within 10 minutes from reading this sentence. [See for yourself &#8594;
+](monk-in-10.md)**
 
 ## Experimental Features
 

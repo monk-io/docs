@@ -26,13 +26,12 @@ Monk currently won't work without an account, but it takes a grand total of 10 s
 Install Monk for your OS. For more detailed instructions see [Getting Monk](get-monk.md).
 
 <Tabs
-  defaultValue="macOS"
-  values={[
-    {label: 'macOS', value: 'macOS'},
-    {label: 'Ubuntu and Debian', value: 'mainLinux'},
-    {label: 'Other Linux Systems', value: 'otherLinux'},
-  ]}
->
+defaultValue="macOS"
+values={[
+{label: 'macOS', value: 'macOS'},
+{label: 'Ubuntu and Debian', value: 'mainLinux'},
+{label: 'Other Linux Systems', value: 'otherLinux'},
+]}>
 
 <TabItem value="macOS">
 
@@ -68,13 +67,12 @@ If you're running Linux that does not have APT see [Getting Monk](get-monk.md) a
 Ensure that Docker is running on your system. Both Docker and `monkd` have to be running when using Monk.
 
 <Tabs
-  defaultValue="macOS"
-  values={[
-    {label: 'macOS', value: 'macOS'},
-    {label: 'Ubuntu and Debian', value: 'mainLinux'},
-    {label: 'Other Linux Systems', value: 'otherLinux'},
-  ]}
->
+defaultValue="macOS"
+values={[
+{label: 'macOS', value: 'macOS'},
+{label: 'Ubuntu and Debian', value: 'mainLinux'},
+{label: 'Other Linux Systems', value: 'otherLinux'},
+]}>
 
 <TabItem value="macOS">
 
@@ -136,7 +134,6 @@ Run monkd in a new Terminal window and don't close it:
 
 Wait for it to initialize, you should see this:
 
-
     Monk v2.4.3
     © 2018-2020 OAKds Inc. All rights reserved.
     https://monk.io
@@ -179,19 +176,18 @@ Now to the exciting part! Monk cluster is where your workloads will run. Cluster
 You'll need your service account credentials handy. Here's a reminder on how to get them:
 
 <Tabs
-  defaultValue="gcp"
-  values={[
-    {label: 'GCP', value: 'gcp'},
-    {label: 'AWS', value: 'aws'},
-    {label: 'Azure', value: 'azure'},
-    {label: 'Digital Ocean', value: 'do'},
-  ]}
->
+defaultValue="gcp"
+values={[
+{label: 'GCP', value: 'gcp'},
+{label: 'AWS', value: 'aws'},
+{label: 'Azure', value: 'azure'},
+{label: 'Digital Ocean', value: 'do'},
+]}>
 
 <TabItem value="gcp">
 
 1. Create a new project in your GCP console,
-2. In the new project, go to `IAM --> Service Accounts --> CREATE SERVICE ACCOUNT`
+2. In the new project, go to `IAM &#8594; Service Accounts &#8594; CREATE SERVICE ACCOUNT`
 3. Assign the **Admin** role on the project to the account,
 4. On the account list, click **three dots** and create a **JSON Key** for the account,
 5. Save the file on your machine eg. in `key.json`
@@ -276,14 +272,13 @@ To create a new cluster:
 You'll be asked to choose a name for the new cluster. Now we'll attach your cloud credentials to the new cluster:
 
 <Tabs
-  defaultValue="gcp"
-  values={[
-    {label: 'GCP', value: 'gcp'},
-    {label: 'AWS', value: 'aws'},
-    {label: 'Azure', value: 'azure'},
-    {label: 'Digital Ocean', value: 'do'},
-  ]}
->
+defaultValue="gcp"
+values={[
+{label: 'GCP', value: 'gcp'},
+{label: 'AWS', value: 'aws'},
+{label: 'Azure', value: 'azure'},
+{label: 'Digital Ocean', value: 'do'},
+]}>
 
 <TabItem value="gcp">
 
@@ -336,7 +331,7 @@ In order to add your SDK authentication JSON file to Monk do:
 
     monk cluster provider add -p azure -f <<path/to/your-sdk-file.json>>
 
-where `<<path/to/your-sdk-file.json>>` is an absolute path to your  SDK authentication file in JSON format.
+where `<<path/to/your-sdk-file.json>>` is an absolute path to your SDK authentication file in JSON format.
 
 For example:
 

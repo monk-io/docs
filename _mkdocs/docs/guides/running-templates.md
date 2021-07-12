@@ -1,6 +1,7 @@
 Running existing templates with Monk is very straightforward. Running them locally is useful for testing and one-off deployments on single machines.
 
-This short tutorial shows how to run templates locally. We'll run MongoDB on Monk. Make sure you have Monk installed and `monkd` running. If not, follow [this guide -->](../get-monk.md)
+This short tutorial shows how to run templates locally. We'll run MongoDB on Monk. Make sure you have Monk installed and `monkd` running. If not, follow [this guide &#8594;
+](../get-monk.md)
 
 ---
 

@@ -16,7 +16,8 @@ Peers communicate and coordinate using an encrypted peer-to-peer protocol and, i
 
 :::note Info
 
-Learn more about networking here: [Connecting runnables -->](../connecting-runnables.md)
+Learn more about networking here: [Connecting runnables &#8594;
+](../connecting-runnables.md)
 
 :::
 
@@ -48,6 +49,7 @@ See [Create](cluster-create-1.md) to learn how to create a Monk cluster.
 See [Operate](cluster-operate-1.md) to learn how to inspect, troubleshoot, shrirnk and destroy Monk clusters.
 
 :::
+
 ### Switching clusters
 
 It is possible to operate an unlimited number of separate Monk clusters at once. In order to assume control of a cluster, operator must join the cluster with their operator machine. This process is called _switching_.
