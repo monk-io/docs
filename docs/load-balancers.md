@@ -1,6 +1,7 @@
 ---
 title: "Add Load Balancers"
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -48,7 +49,7 @@ services:
 
 `service-1` and `service-2` are identical web services listening on port 8080 for incoming HTTP traffic.
 
-:::info
+:::warning
 
 We're just using `nginx/latest` here to illustrate the point. There is little sense in load balancing a bunch of nginx instances but the methods apply to any kind of service.
 
@@ -81,6 +82,12 @@ services:
 This defines the `app-balancer` - a `http` load balancer that targets port `8080` on the instances, which are members of the `services` group.
 
 Running this group will show the load balancer in the run output together with its IP address. The HTTP load balancer listens on the port `80` by default. You can point your domain to its IP address and clients will reach either `service-1` or `service-2`.
+
+:::warning
+
+For a `http` load balancer to work a healthcheck against the runnable needs to pass. By default the `/` endpoint is called and `200` status code is expected in return. If your services handle healthchecks differently you can override it using [custom healthchecks](#custom-health-checks).
+
+:::
 
 ### HTTPS
 
@@ -136,12 +143,11 @@ The `app-balancer` will listen on both port `80` and port `443` by default. It b
 A TCP and UDP load balancers can be used to balance TCP and UDP connections over a group of services.
 
 <Tabs
-  defaultValue="tcp"
-  values={[
-    {label: 'TCP', value: 'tcp'},
-    {label: 'UDP', value: 'udp'},
-  ]}
->
+defaultValue="tcp"
+values={[
+{label: 'TCP', value: 'tcp'},
+{label: 'UDP', value: 'udp'},
+]}>
 
 <TabItem value="tcp">
 
@@ -164,6 +170,12 @@ services:
         - lbs/service-1
         - lbs/service-2
 ```
+
+:::warning
+
+For a `tcp` load balancer to work a healthcheck against the runnable needs to pass. By default it just tries to open connection to the `port`. If your services handle healthchecks differently you can override it using [custom healthchecks](#custom-health-checks).
+
+:::
 
 </TabItem>
 
@@ -226,7 +238,7 @@ Monk can configure the load balancers to perform custom health checks on the tar
 
 ### HTTP
 
-HTTP health checks are GET requests sent to at the specified `interval` to the `url` with specified `request` contents. The `response` field specifies the contents of the expected response. If the service fails to respond or the contents of the response are not matching - the balancer will mark that service as faulty and route traffic to its other instances.
+HTTP health checks are GET requests sent to at the specified `interval` (in seconds) to the `url` with specified `request` contents. The `response` field specifies the contents of the expected response. If the service fails to respond or the contents of the response are not matching - the balancer will mark that service as faulty and route traffic to its other instances.
 
 ```yaml linenums="1"
 namespace: /lbs
