@@ -5,6 +5,7 @@ Orchestrating containers and infrastructure together gets tedious really quick. 
 This page will give you an idea of what you can accomplish with Monk, and hopefully give you a nudge towards [giving it a try](get-monk.md).
 
 ---
+
 ## The Problem Monk Solves
 
 As software becomes more sophisticated and performance requirements get steeper, container orchestration is becoming increasingly complex, time-consuming, and mission critical.
@@ -13,16 +14,22 @@ Developer teams are spending a lot of time managing (a.k.a. de-spaghettifying) i
 
 Monk removes most of the overhead, scope and headaches from today's orchestration:
 
-- **Months of DevOps**, From hiring specialists to DIYing an efficient CI/CD pipeline.
-<br>--> _With Monk you can get well-configured stacks up & runnuing in minutes_. See [Monk in 10 minutes -->](monk-in-10.md)
+-   **Months of DevOps**, From hiring specialists to DIYing an efficient CI/CD pipeline.
+    <br>&#8594;
+    _With Monk you can get well-configured stacks up & runnuing in minutes_. See [Monk in 10 minutes &#8594;
+    ](monk-in-10.md)
 
-- **Devtools creep**: Using Kubernetes? Brush up on your Helm syntax, sign up to Terraform and get their EKS module, then repeat for the GCP portion of your app.
-<br>--> _Monk is one solution: compose with Hub templates, deploy from a single manifest, manage with the built-in Engine_. See [Monk ecosystem -->](key-concepts.md)
+-   **Devtools creep**: Using Kubernetes? Brush up on your Helm syntax, sign up to Terraform and get their EKS module, then repeat for the GCP portion of your app.
+    <br>&#8594;
+    _Monk is one solution: compose with Hub templates, deploy from a single manifest, manage with the built-in Engine_. See [Monk ecosystem &#8594;
+    ](key-concepts.md)
 
-- **Cloud provider lock-in**: Managed services or manual deployments force you into specific providers, make future migration a pain, or make multi-cloud deployments simply too much of a hassle.
-<br>--> _Monk lets you use any combination of infrastructure and switch gears whenever you want.
+-   **Cloud provider lock-in**: Managed services or manual deployments force you into specific providers, make future migration a pain, or make multi-cloud deployments simply too much of a hassle.
+    <br>&#8594;
+    \_Monk lets you use any combination of infrastructure and switch gears whenever you want.
 
-- **Moving clouds?** Simply add your new cloud's credentials with_ `monk cluster provider add --provider=` _and run your templates there._ See [Monk vs. other software -->](comparison.md)
+-   **Moving clouds?** Simply add your new cloud's credentials with* `monk cluster provider add --provider=` \_and run your templates there.* See [Monk vs. other software &#8594;
+    ](comparison.md)
 
 ## 1. Find Inspiration for Your Stack
 

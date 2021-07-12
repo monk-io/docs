@@ -30,7 +30,9 @@ In order to _grow_ your new cluster onto your cloud(s) you need to add your clou
 
 !!! note ""
 
-    Follow [How to add cloud provider to monk -->](/guides/01-cloud-provider)
+    Follow [How to add cloud provider to monk &#8594;
+
+](/guides/01-cloud-provider)
 
 ### Growing the cluster
 

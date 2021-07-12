@@ -25,8 +25,10 @@ bar: ...
 
 Loading this snippet will put both `foo` and `bar` under `/hello-world` so that they can be later referred to as:
 
--   `foo` --> `hello-world/foo`
--   `bar` --> `hello-world/bar`
+-   `foo` &#8594;
+    `hello-world/foo`
+-   `bar` &#8594;
+    `hello-world/bar`
 
 ## Arrow scripts
 
@@ -46,7 +48,8 @@ quux:
 
 :::note
 
-Learn more about [Arrow script -->](./scripting)
+Learn more about [Arrow script &#8594;
+](./scripting)
 
 :::
 
@@ -131,7 +134,8 @@ Runnables are the basic unit in Monk. A `runnable` is essentially something that
 
 :::note
 
-Learn more about [Runnables -->](./yaml/runnables)
+Learn more about [Runnables &#8594;
+](./yaml/runnables)
 
 :::
 
@@ -141,15 +145,18 @@ Groups (or `process-group`s) are compositions of multiple [runnables](#runnable)
 
 :::note
 
-Learn more about [Groups -->](./yaml/groups)
+Learn more about [Groups &#8594;
+](./yaml/groups)
 
 :::
+
 ### `service`
 
 Services are like [runnables](#runnable) but don't define containers. They can be used to represent services external to Monk which can't be managed directly.
 
 :::note
 
-Learn more about [Services -->](./yaml/services)
+Learn more about [Services &#8594;
+](./yaml/services)
 
 :::

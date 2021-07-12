@@ -16,7 +16,8 @@ Arrow script is evaluated at **runtime**, this means that script definitions are
 
 ## Syntax
 
-The language itself is simple, does not contain any general way to loop or branch. Instead, scripts are composed from values and pre-defined operators that take some value and return a new value, optionally taking arguments. This is comparable to stack based languages such as [Forth -->](<https://en.wikipedia.org/wiki/Forth_(programming_language)>).
+The language itself is simple, does not contain any general way to loop or branch. Instead, scripts are composed from values and pre-defined operators that take some value and return a new value, optionally taking arguments. This is comparable to stack based languages such as [Forth &#8594;
+](<https://en.wikipedia.org/wiki/Forth_(programming_language)>).
 
 A script is a sequence of [literal values](#values), [variable accesses](#variables) and [calls to operators](#operators). This form is similar to shell scripting with pipes (`|`) but with implicit pipes in between the elements.
 

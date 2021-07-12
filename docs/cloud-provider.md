@@ -1,6 +1,7 @@
 ---
 title: Add cloud provider
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -21,19 +22,18 @@ Monk will only accept one provider of each kind per cluster. This means that you
 ## Step 1: Obtaining cloud credentials
 
 <Tabs
-  defaultValue="gcp"
-  values={[
-    {label: 'GCP', value: 'gcp'},
-    {label: 'AWS', value: 'aws'},
-    {label: 'Azure', value: 'azure'},
-    {label: 'Digital Ocean', value: 'do'},
-  ]}
->
+defaultValue="gcp"
+values={[
+{label: 'GCP', value: 'gcp'},
+{label: 'AWS', value: 'aws'},
+{label: 'Azure', value: 'azure'},
+{label: 'Digital Ocean', value: 'do'},
+]}>
 
 <TabItem value="gcp">
 
 1. Create a new project in your GCP console,
-2. In the new project, go to ==IAM --> Service Accounts --> CREATE SERVICE ACCOUNT==
+2. In the new project, go to **IAM &#8594; Service Accounts &#8594; CREATE SERVICE ACCOUNT**
 3. Assign the **Admin** role on the project to the account,
 4. On the account list, click **three dots** and create a **JSON Key** for the account,
 5. Save the file on your machine eg. in `key.json`
@@ -118,14 +118,13 @@ DigitalOcean API Token is sensitive information. Take care to store it securely.
 ## Step 2: Adding the provider
 
 <Tabs
-  defaultValue="gcp"
-  values={[
-    {label: 'GCP', value: 'gcp'},
-    {label: 'AWS', value: 'aws'},
-    {label: 'Azure', value: 'azure'},
-    {label: 'Digital Ocean', value: 'do'},
-  ]}
->
+defaultValue="gcp"
+values={[
+{label: 'GCP', value: 'gcp'},
+{label: 'AWS', value: 'aws'},
+{label: 'Azure', value: 'azure'},
+{label: 'Digital Ocean', value: 'do'},
+]}>
 
 <TabItem value="gcp">
 
@@ -178,7 +177,7 @@ In order to add your SDK authentication JSON file to Monk do:
 
     monk cluster provider add -p azure -f <<path/to/your-sdk-file.json>>
 
-where `<<path/to/your-sdk-file.json>>` is an absolute path to your  SDK authentication file in JSON format.
+where `<<path/to/your-sdk-file.json>>` is an absolute path to your SDK authentication file in JSON format.
 
 For example:
 
