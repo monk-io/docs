@@ -96,6 +96,12 @@ module.exports = {
       indexName: 'monk-docs',
       appId: 'JMJR6P1AKQ',
     },
+    googleAnalytics: {
+      trackingID: 'UA-188474701-2'
+    },
+    gtag: {
+      trackingID: 'UA-188474701-2'
+    },
   },
   plugins: ['docusaurus-plugin-sass'],
   presets: [
