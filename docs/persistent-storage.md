@@ -46,7 +46,7 @@ database:
         important-data:
             size: 60
             kind: SSD
-            path: `/tmp/important-data`
+            path: "/tmp/important-data"
 ```
 
 We've added a volume named `important-data` in the new `volumes` section. The `size` is expressed in Gigabytes so our new volume will have 60GB. The `kind` is `SSD` - you can pick between `HDD` or `SSD` depending on your needs.

@@ -22,7 +22,8 @@ my-service:
             environment:
                 - <- `DB_ADDR=${db-addr}`
                 - <- `DB_PORT=${db-port}`
-            bash: echo "db at ${DB_ADDR}:${DB_PORT}" ; sleep 3600
+            bash: <- `echo db at $DB_ADDR:$DB_PORT ; sleep 3600`
+
     variables:
         defines: variables
         db-addr:
@@ -71,7 +72,7 @@ my-service:
             environment:
                 - <- `DB_ADDR=${db-addr}`
                 - <- `DB_PORT=${db-port}`
-            bash: echo "db at ${DB_ADDR}:${DB_PORT}" ; sleep 3600
+            bash: <- `echo db at $DB_ADDR:$DB_PORT ; sleep 3600`
     variables:
         defines: variables
         db-addr:

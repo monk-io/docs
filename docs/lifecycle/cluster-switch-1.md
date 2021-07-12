@@ -2,7 +2,7 @@
 title: "Switch Clusters"
 ---
 
-You can have multiple Monk clusters at any given time but you can manage just one at a time. When you're working with a cluster, you're essentially joining the cluster as a member from youor local machine.
+You can have multiple Monk clusters at any given time but you can manage just one at a time. When you're working with a cluster, you're essentially joining the cluster as a member from your local machine.
 
 Monk introduces `exit` and `switch` commands which make it possible to hop between clusters. You can also join somebody else's cluster if they add you as an admin and as long as you have their _Monkcode_
 
