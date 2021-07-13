@@ -457,9 +457,11 @@ Skip `-t <your-cluster-tag>` if you skipped the cluster creation step. The invoc
 
 Monk will work for a moment and then display a summary showing the current workload layout and some useful hints.
 
-!!! success
+:::success
 
-    That's it! You're now running stuff, in the cloud, with Monk 🎉
+That's it! You're now running stuff, in the cloud, with Monk 🎉
+
+:::
 
 ## Cleaning Up
 
