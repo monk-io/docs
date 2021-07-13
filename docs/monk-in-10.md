@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Monk in 10 Minutes
 
 This is a super-quick guide to get some containers running within your own Monk cluster, from start to finish.
@@ -22,95 +25,131 @@ Monk currently won't work without an account, but it takes a grand total of 10 s
 
 Install Monk for your OS. For more detailed instructions see [Getting Monk](get-monk.md).
 
-=== "macOS"
+<Tabs
+defaultValue="macOS"
+values={[
+{label: 'macOS', value: 'macOS'},
+{label: 'Ubuntu and Debian', value: 'mainLinux'},
+{label: 'Other Linux Systems', value: 'otherLinux'},
+]}>
 
-        brew install monk-io/monk/monk
+<TabItem value="macOS">
 
-=== "Ubuntu/Debian"
+    brew install monk-io/monk/monk
 
-        curl -s https://apt.monk.io/Release.gpg | sudo apt-key add -
-        sudo echo "deb [arch=amd64] https://apt.monk.io/ stable main" | sudo tee /etc/apt/sources.list.d/monk.list
-        sudo apt update
-        sudo apt install monk
+</TabItem>
 
-    !!! note
-        You might need to log out and log back in on your system to be able to use `monk` without `sudo`. Alternatively, use `su - <your-username>`.
+<TabItem value="mainLinux">
 
-=== "Other Linux Distros"
+    curl -s https://apt.monk.io/Release.gpg | sudo apt-key add -
+    sudo echo "deb [arch=amd64] https://apt.monk.io/ stable main" | sudo tee /etc/apt/sources.list.d/monk.list
+    sudo apt update
+    sudo apt install monk
 
-    If you're running Linux that does not have APT see [Getting Monk](get-monk.md) and come back ⏪
+:::note
+
+You might need to log out and log back in on your system to be able to use `monk` without `sudo`. Alternatively, use `su - <your-username>`.
+
+:::
+
+</TabItem>
+
+<TabItem value="otherLinux">
+
+If you're running Linux that does not have APT see [Getting Monk](get-monk.md) and come back ⏪
+
+</TabItem>
+
+</Tabs>
 
 ## Running Monk
 
 Ensure that Docker is running on your system. Both Docker and `monkd` have to be running when using Monk.
 
-=== "macOS"
+<Tabs
+defaultValue="macOS"
+values={[
+{label: 'macOS', value: 'macOS'},
+{label: 'Ubuntu and Debian', value: 'mainLinux'},
+{label: 'Other Linux Systems', value: 'otherLinux'},
+]}>
 
-    Run `monkd` in a new Terminal window and don't close it:
+<TabItem value="macOS">
 
-        monkd
+Run `monkd` in a new Terminal window and don't close it:
 
-    Wait for it to initialize, and you should get this output:
+    monkd
 
-        Monkd v2.4.4
-        © 2018-2021 OAKds Inc. All rights reserved.
-        https://monk.io
+Wait for it to initialize, and you should get this output:
 
-        Please stand by while monkd is starting...
-        Initialization complete. monkd is ready
+    Monkd v2.4.4
+    © 2018-2021 OAKds Inc. All rights reserved.
+    https://monk.io
 
-=== "Ubuntu/Debian"
+    Please stand by while monkd is starting...
+    Initialization complete. monkd is ready
 
-    If you installed `monkd` using apt it should be running after installation.
+</TabItem>
 
-    You can confirm that `monkd` is running by using this command:
+<TabItem value="mainLinux">
 
-        systemctl status monkd.service
+If you installed `monkd` using apt it should be running after installation.
 
-    The output should be similar to:
+You can confirm that `monkd` is running by using this command:
 
-        ● monkd.service - Monk daemon
-        Loaded: loaded (/lib/systemd/system/monk.service; enabled; vendor preset: enabled)
-        Active: active (running) since Wed 2020-10-07 17:53:20 CEST; 10s ago
-        Main PID: 10526 (monccd)
-            Tasks: 16 (limit: 4667)
-        CGroup: /system.slice/monkd.service
-                └─10526 /usr/bin/monkd
-        oct 07 17:53:20 foo systemd[1]: Started Monk daemon.
-        oct 07 17:53:20 foo monccd[10526]:    Monk v2.4.3
-        oct 07 17:53:20 foo monccd[10526]:    © 2018-2020 OAKds Inc. All rights reserved.
-        oct 07 17:53:20 foo monccd[10526]:    https://monk.io
-        oct 07 17:53:20 foo monccd[10526]: Please stand by while monccd is starting...
-        oct 07 17:53:20 foo monccd[10526]: generating 2048-bit RSA keypair...done
-        oct 07 17:53:20 foo monccd[10526]: peer identity: Qmch66W2sJPTvchcFAVwHR57HyAPA927s3327
-        oct 07 17:53:23 foo monccd[10526]: Local containers will not be broadcasted to the clus
-        oct 07 17:53:23 foo monccd[10526]: Initialization complete. monccd is ready
+    systemctl status monkd.service
 
-    If for some reason it's not running - just start it with the following command:
+The output should be similar to:
 
-        monkd
+    ● monkd.service - Monk daemon
+    Loaded: loaded (/lib/systemd/system/monk.service; enabled; vendor preset: enabled)
+    Active: active (running) since Wed 2020-10-07 17:53:20 CEST; 10s ago
+    Main PID: 10526 (monccd)
+        Tasks: 16 (limit: 4667)
+    CGroup: /system.slice/monkd.service
+            └─10526 /usr/bin/monkd
+    oct 07 17:53:20 foo systemd[1]: Started Monk daemon.
+    oct 07 17:53:20 foo monccd[10526]:    Monk v2.4.3
+    oct 07 17:53:20 foo monccd[10526]:    © 2018-2020 OAKds Inc. All rights reserved.
+    oct 07 17:53:20 foo monccd[10526]:    https://monk.io
+    oct 07 17:53:20 foo monccd[10526]: Please stand by while monccd is starting...
+    oct 07 17:53:20 foo monccd[10526]: generating 2048-bit RSA keypair...done
+    oct 07 17:53:20 foo monccd[10526]: peer identity: Qmch66W2sJPTvchcFAVwHR57HyAPA927s3327
+    oct 07 17:53:23 foo monccd[10526]: Local containers will not be broadcasted to the clus
+    oct 07 17:53:23 foo monccd[10526]: Initialization complete. monccd is ready
 
-    Keep the terminal open.
+If for some reason it's not running - just start it with the following command:
 
-=== "Other Linux Distros"
+    monkd
 
-    Run monkd in a new Terminal window and don't close it:
+Keep the terminal open.
 
-        monkd
+</TabItem>
 
-    Wait for it to initialize, you should see this:
+<TabItem value="otherLinux">
 
+Run monkd in a new Terminal window and don't close it:
 
-        Monk v2.4.3
-        © 2018-2020 OAKds Inc. All rights reserved.
-        https://monk.io
+    monkd
 
-        Please stand by while monkd is starting...
-        Initialization complete. monkd is ready
+Wait for it to initialize, you should see this:
 
-!!! warning
+    Monk v2.4.3
+    © 2018-2020 OAKds Inc. All rights reserved.
+    https://monk.io
 
-    **You always need to have `monkd` running in order to use Monk CLI. Fire it up to continue this guide.**
+    Please stand by while monkd is starting...
+    Initialization complete. monkd is ready
+
+</TabItem>
+
+</Tabs>
+
+:::caution warning
+
+**You always need to have `monkd` running in order to use Monk CLI. Fire it up to continue this guide.**
+
+:::
 
 ## Signing In
 
@@ -124,9 +163,11 @@ Use your Monk account email and password:
     ? Password ***** ***
     ✔ Logged in.
 
-!!! success
+:::success
 
-    **Monk is 100% ready to roll at this point.** You will not be asked to log in very often but some commands will require your Monk account credentials.
+**Monk is 100% ready to roll at this point.** You will not be asked to log in very often but some commands will require your Monk account credentials.
+
+:::
 
 ## Creating a Monk Cluster
 
@@ -134,64 +175,95 @@ Now to the exciting part! Monk cluster is where your workloads will run. Cluster
 
 You'll need your service account credentials handy. Here's a reminder on how to get them:
 
-=== "GCP"
+<Tabs
+defaultValue="gcp"
+values={[
+{label: 'GCP', value: 'gcp'},
+{label: 'AWS', value: 'aws'},
+{label: 'Azure', value: 'azure'},
+{label: 'Digital Ocean', value: 'do'},
+]}>
 
-    1. Create a new project in your GCP console,
-    2. In the new project, go to ==IAM --> Service Accounts --> CREATE SERVICE ACCOUNT==
-    3. Assign the **Admin** role on the project to the account,
-    4. On the account list, click **three dots** and create a **JSON Key** for the account,
-    5. Save the file on your machine eg. in `key.json`
+<TabItem value="gcp">
 
-    !!! warning
+1. Create a new project in your GCP console,
+2. In the new project, go to `IAM &#8594; Service Accounts &#8594; CREATE SERVICE ACCOUNT`
+3. Assign the **Admin** role on the project to the account,
+4. On the account list, click **three dots** and create a **JSON Key** for the account,
+5. Save the file on your machine eg. in `key.json`
 
-        Make sure that the account has **compute resources admin access**.
+:::caution warning
 
-    !!! warning
+Make sure that the account has **compute resources admin access**.
 
-        Make sure that **Compute Engine is enabled on your project**.
-        See [https://cloud.google.com/apis/docs/getting-started#enabling_apis](https://cloud.google.com/apis/docs/getting-started#enabling_apis) if you're not sure how.
+:::
 
-=== "AWS"
+:::caution warning
 
-    If you're running the AWS CLI, you should be able to locate the credentials in the `~/.aws/credentials` on your machine, i.e.:
+    Make sure that **Compute Engine is enabled on your project**.
+    See [https://cloud.google.com/apis/docs/getting-started#enabling_apis](https://cloud.google.com/apis/docs/getting-started#enabling_apis) if you're not sure how.
 
-        [default]
-        aws_access_key_id=F0FADIOSFODNN7EXAMPLE
-        aws_secret_access_key=wJalrUUtnEEMI/K7MEDNG/bPxRfiCYEXAMPLEKEY
+:::
 
-    Note those values down.
+</TabItem>
 
-    If you don't have that file, consult the [AWS Documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html).
+<TabItem value="aws">
 
-    !!! warning
+If you're running the AWS CLI, you should be able to locate the credentials in the `~/.aws/credentials` on your machine, i.e.:
 
-        Make sure that the account has **AmazonEC2FullAccess policy**.
+    [default]
+    aws_access_key_id=F0FADIOSFODNN7EXAMPLE
+    aws_secret_access_key=wJalrUUtnEEMI/K7MEDNG/bPxRfiCYEXAMPLEKEY
 
-=== "Azure"
+Note those values down.
 
-    Assuming you're using Azure CLI, issue the following command:
+If you don't have that file, consult the [AWS Documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html).
 
-        az ad sp create-for-rbac --sdk-auth > azurekey.json
+:::caution warning
 
-    This will produce JSON file containing your access key.
+Make sure that the account has **AmazonEC2FullAccess policy**.
 
-    !!! warning
+:::
 
-        Azure Access Key is sensitive information. You can remove the file from your machine once you configure Monk. The credentials are now stored in an encrypted storage in the `monkd` database.
+</TabItem>
 
-=== "Digital Ocean"
+<TabItem value="azure">
 
-    1. Go to [https://cloud.digitalocean.com/account/api/tokens](https://cloud.digitalocean.com/account/api/tokens)
-    2. Create a new Personal Access Token
-    3. Note down the Token for future use
+Assuming you're using Azure CLI, issue the following command:
 
-    !!! warning
+    az ad sp create-for-rbac --sdk-auth > azurekey.json
 
-        DigitalOcean API Token is sensitive information. Take care to store it securely.
+This will produce JSON file containing your access key.
 
-!!! note
+:::caution warning
 
-    **It's alright if you want to skip cluster creation for now.** You can run things locally and create a cluster later. You can still follow this guide but remember that stuff will happen on your machine and not in the cloud. To skip ahead, head to [Running templates locally](guides/running-templates.md).
+Azure Access Key is sensitive information. You can remove the file from your machine once you configure Monk. The credentials are now stored in an encrypted storage in the `monkd` database.
+
+:::
+
+</TabItem>
+
+<TabItem value="do">
+
+1. Go to [https://cloud.digitalocean.com/account/api/tokens](https://cloud.digitalocean.com/account/api/tokens)
+2. Create a new Personal Access Token
+3. Note down the Token for future use
+
+:::caution warning
+
+DigitalOcean API Token is sensitive information. Take care to store it securely.
+
+:::
+
+</TabItem>
+
+</Tabs>
+
+:::note
+
+**It's alright if you want to skip cluster creation for now.** You can run things locally and create a cluster later. You can still follow this guide but remember that stuff will happen on your machine and not in the cloud. To skip ahead, head to [Running templates locally](running-templates).
+
+:::
 
 To create a new cluster:
 
@@ -199,88 +271,115 @@ To create a new cluster:
 
 You'll be asked to choose a name for the new cluster. Now we'll attach your cloud credentials to the new cluster:
 
-=== "GCP"
+<Tabs
+defaultValue="gcp"
+values={[
+{label: 'GCP', value: 'gcp'},
+{label: 'AWS', value: 'aws'},
+{label: 'Azure', value: 'azure'},
+{label: 'Digital Ocean', value: 'do'},
+]}>
 
-    In order to add your Service Account key to Monk do:
+<TabItem value="gcp">
 
-        monk cluster provider add -p gcp -f <<path/to/your-key.json>>
+In order to add your Service Account key to Monk do:
 
-    where `<<path/to/your-key.json>>` is an absolute path to your Service Account **JSON Key**.
+    monk cluster provider add -p gcp -f <<path/to/your-key.json>>
 
-    For example:
+where `<<path/to/your-key.json>>` is an absolute path to your Service Account **JSON Key**.
 
-        monk cluster provider add -p gcp -f ~/myproject/key.json
+For example:
 
-    Successful invocation will result in:
+    monk cluster provider add -p gcp -f ~/myproject/key.json
 
-        ✔ Provider added successfully
+Successful invocation will result in:
 
-=== "AWS"
+    ✔ Provider added successfully
 
-    In order to add your AWS credentials to Monk do:
+</TabItem>
 
-        monk cluster provider add -p aws
+<TabItem value="aws">
 
-    Monk will look for AWS credentials in your AWS CLI config folder `~/.aws/credentials`:
+In order to add your AWS credentials to Monk do:
 
-        AWS config /Users/me/.aws/credentials detected, multiple profiles present - pick one.
-        ? AWS profile  [Use arrows to move, type to filter]
-        > default
-          profile eb-cli
+    monk cluster provider add -p aws
 
-    !!! info
+Monk will look for AWS credentials in your AWS CLI config folder `~/.aws/credentials`:
 
-        If `~/.aws/credentials` file is not present, Monk will prompt you for **Access** and **Secret Keys**.
+    AWS config /Users/me/.aws/credentials detected, multiple profiles present - pick one.
+    ? AWS profile  [Use arrows to move, type to filter]
+    > default
+        profile eb-cli
 
-    Select or enter the credentials and confirm with ENTER.
+:::info
 
-    Successful invocation will result in:
+If `~/.aws/credentials` file is not present, Monk will prompt you for **Access** and **Secret Keys**.
 
-        ✔ Provider added successfully
+:::
 
-=== "Azure"
+Select or enter the credentials and confirm with ENTER.
 
-    In order to add your SDK authentication JSON file to Monk do:
+Successful invocation will result in:
 
-        monk cluster provider add -p azure -f <<path/to/your-sdk-file.json>>
+    ✔ Provider added successfully
 
-    where `<<path/to/your-sdk-file.json>>` is an absolute path to your  SDK authentication file in JSON format.
+</TabItem>
 
-    For example:
+<TabItem value="azure">
 
-        monk cluster provider add -p azure -f ~/myproject/azure.json
+In order to add your SDK authentication JSON file to Monk do:
 
-    Successful invocation will result in:
+    monk cluster provider add -p azure -f <<path/to/your-sdk-file.json>>
 
-        ✔ Provider added successfully
+where `<<path/to/your-sdk-file.json>>` is an absolute path to your SDK authentication file in JSON format.
 
-=== "Digital Ocean"
+For example:
 
-    In order to add your Digital Ocean Personal Access Token to Monk do:
+    monk cluster provider add -p azure -f ~/myproject/azure.json
 
-        monk cluster provider add -p digitalocean
+Successful invocation will result in:
 
-    You will be prompted for your Digital Ocean Personal Access Token:
+    ✔ Provider added successfully
 
-        ? Digitalocean Token *******************
+</TabItem>
 
-    Enter or paste your token and confirm with ENTER.
+<TabItem value="do">
 
-    Successful invocation will result in:
+In order to add your Digital Ocean Personal Access Token to Monk do:
 
-        ✔ Provider added successfully
+    monk cluster provider add -p digitalocean
 
-!!! note
+You will be prompted for your Digital Ocean Personal Access Token:
 
-    If you have more cloud accounts you can add all of them. Monk is great at managing singular clusters across cloud providers out of the box.
+    ? Digitalocean Token *******************
 
-!!! important
+Enter or paste your token and confirm with ENTER.
 
-    You don't need to touch, or even have your `gcloud` or `aws` CLI installed locally. Monk will work without them being present.
+Successful invocation will result in:
 
-!!! success
+    ✔ Provider added successfully
 
-    **That's it!** We now have a brand new cluster. Its only member is your own machine at the moment.
+</TabItem>
+
+</Tabs>
+
+:::note
+
+If you have more cloud accounts you can add all of them. Monk is great at managing singular clusters across cloud providers out of the box.
+
+:::
+
+:::important
+
+You don't need to touch, or even have your `gcloud` or `aws` CLI installed locally. Monk will work without them being present.
+
+:::
+
+:::success
+
+**That's it!** We now have a brand new cluster. Its only member is your own machine at the moment.
+
+:::
 
 ## Growing Your New Cluster
 
@@ -304,9 +403,11 @@ Next up, you will be prompted for some information. All fields are required:
 **`Tag` is important** – replace `<your-cluster-tag>` with a name of your choice and write it down.
 **Monk requires all machines in the cluster to be tagged with at least one tag.** We will be referring to the new machines by their tag shortly.
 
-!!! warning
+:::caution warning
 
-    Your cloud account may have some quotas on CPU and instance types depending on the region. You may see an error if you hit a quota or choose an unavailable instance-region combination. Try choosing a different region or machine type.
+Your cloud account may have some quotas on CPU and instance types depending on the region. You may see an error if you hit a quota or choose an unavailable instance-region combination. Try choosing a different region or machine type.
+
+:::
 
 It should take 1–3 minutes to bootstrap all 3 instances. After `grow` is done, check with:
 
@@ -320,13 +421,17 @@ You should get a similar output:
     ...    foobar-2                 gcp       0           ...        2m 53s      true
     ...    foobar-3                 gcp       0           ...        3m 1s       true
 
-!!! note
+:::note
 
-    Sometimes, depending on your network conditions, the peers might appear on the list with a slight delay. Repeat `monk cluster peers` if you don't see all 3 instances immediately.
+Sometimes, depending on your network conditions, the peers might appear on the list with a slight delay. Repeat `monk cluster peers` if you don't see all 3 instances immediately.
 
-!!! success
+:::
 
-    You now have a fully operational 3 machine Monk cluster running in your cloud 🎉
+:::success
+
+You now have a fully operational 3 machine Monk cluster running in your cloud 🎉
+
+:::
 
 ## Deploying a Template
 
@@ -342,11 +447,13 @@ Then just pick one of those templates, or just try with `mongodb/latest`:
 
 Remember to replace `<your-cluster-tag>` with the one you've chosen during `monk cluster new`!
 
-!!! note
+:::note
 
-    Skip `-t <your-cluster-tag>` if you skipped the cluster creation step. The invocation will look like this:
+Skip `-t <your-cluster-tag>` if you skipped the cluster creation step. The invocation will look like this:
 
-        monk run mongodb/latest
+    monk run mongodb/latest
+
+:::
 
 Monk will work for a moment and then display a summary showing the current workload layout and some useful hints.
 
@@ -368,4 +475,4 @@ In case you'd like to create another cluster, follow this guide again or see: [C
 
 Our newly formed cluster has 3 machines and can do much more than just running one simple workload. Having your cluster up and running is enough to start trying [everything that Monk has to offer](features.md).
 
-If you'd like to try a more advanced setup including a database, HTTP server, and a self-made service, continue to our first A-Z tutorial: [Running a small system](guides/basic-app.md).
+If you'd like to try a more advanced setup including a database, HTTP server, and a self-made service, continue to our first A-Z tutorial: [Running a small system](basic-app).

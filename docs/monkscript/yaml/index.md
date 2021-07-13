@@ -1,6 +1,11 @@
+---
+title: Monk YAML
+slug: /monkscript/yaml
+---
+
 Monk uses YAML to express templates. One of our design goals was to make YAML manageable and eliminate the need for pre-processing using external tools. In order to achieve succinct definitions and composability, we've defined three special keys on top of standard YAML: `namespace`, `defines` and `inherits`.
 
-Additionally, Monk provides a `<-` macro that denotes an [Arrow script](/monkscript/scripting-index) which can be used in place of _any_ value in YAML.
+Additionally, Monk provides a `<-` macro that denotes an [Arrow script](./scripting) which can be used in place of _any_ value in YAML.
 
 It's important to understand how they work before working with MonkScript in order to avoid confusion.
 
@@ -20,8 +25,10 @@ bar: ...
 
 Loading this snippet will put both `foo` and `bar` under `/hello-world` so that they can be later referred to as:
 
--   `foo` --> `hello-world/foo`
--   `bar` --> `hello-world/bar`
+-   `foo` &#8594;
+    `hello-world/foo`
+-   `bar` &#8594;
+    `hello-world/bar`
 
 ## Arrow scripts
 
@@ -39,9 +46,12 @@ quux:
     bar: 127.0.0.1:8080
 ```
 
-!!! note ""
+:::note
 
-    Learn more about [Arrow script -->](/monkscript/scripting-index)
+Learn more about [Arrow script &#8594;
+](./scripting)
+
+:::
 
 ## Inheritance
 
@@ -110,9 +120,11 @@ By not deciding the meaning based on names, MonkScript allows for custom naming 
 
 Not relying on key names allows MonkScript to be extended with every new release without affecting the existing templates.
 
-!!! info
+:::info
 
-    Be sure to remember about assigning proper descriptors to the relevant sections as Monk will not interpret them without it.
+Be sure to remember about assigning proper descriptors to the relevant sections as Monk will not interpret them without it.
+
+:::
 
 Currently Monk recognizes several "special" sections, or definition classes higlighted below.
 
@@ -120,22 +132,31 @@ Currently Monk recognizes several "special" sections, or definition classes higl
 
 Runnables are the basic unit in Monk. A `runnable` is essentially something that Monk can run, manage and then stop. This can be viewed as one or more containers meant to be standing together, plus associated resource definitions, variables etc.
 
-!!! note ""
+:::note
 
-    Learn more about [Runnables -->](/monkscript/yaml/runnables)
+Learn more about [Runnables &#8594;
+](./yaml/runnables)
+
+:::
 
 ### `process-group`
 
 Groups (or `process-group`s) are compositions of multiple [runnables](#runnable) and other `groups` plus associated resources and state. This construct is used to compose other templates in Monk.
 
-!!! note ""
+:::note
 
-    Learn more about [Groups -->](/monkscript/yaml/groups)
+Learn more about [Groups &#8594;
+](./yaml/groups)
+
+:::
 
 ### `service`
 
 Services are like [runnables](#runnable) but don't define containers. They can be used to represent services external to Monk which can't be managed directly.
 
-!!! note ""
+:::note
 
-    Learn more about [Services -->](/monkscript/yaml/services)
+Learn more about [Services &#8594;
+](./yaml/services)
+
+:::

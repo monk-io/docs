@@ -1,3 +1,6 @@
+---
+title: Publish your templates
+---
 # Publisher & Certified Content Program (Alpha)
 
 Monk is a new alternative to Kubernetes and Terraform-based deployment flows. We make it possible to orchestrate entire stacks, rather than just containers, on any cloud or on-premise cluster, saving months of DevOps overhead.
@@ -16,13 +19,13 @@ Templates are released on [MonkHub.io](https://monkhub.io) by community Publishe
 
 Think of Monk templates as no-Kubernetes Helm charts on overdrive, defining entire system requirements from machines to workload provisioning. They’re written in Monk Script, an easy and powerful flavor of YAML that is:
 
-: **Composable**: Import, reuse and modify existing configurations as you would with regular code libraries.
+* **Composable**: Import, reuse and modify existing configurations as you would with regular code libraries.
 
-: **Scriptable**: Extend the capabilities of the containers and your system with our programmable control plane.
+* **Scriptable**: Extend the capabilities of the containers and your system with our programmable control plane.
 
-: **Portable**: Templates can be reproduced on any cloud or on-premise cluster that runs Monk within minutes.
+* **Portable**: Templates can be reproduced on any cloud or on-premise cluster that runs Monk within minutes.
 
-This means you can tweak and share single components (e.g. Nginx) as easily as an entire off-the-shelf stack (e.g. the entire data science workflow your startup runs on AWS + GCP), or even better, combine these and more to build something entirely new. Here's a [simple example](./guides/basic-app.md).
+This means you can tweak and share single components (e.g. Nginx) as easily as an entire off-the-shelf stack (e.g. the entire data science workflow your startup runs on AWS + GCP), or even better, combine these and more to build something entirely new. Here's a [simple example](basic-app.md).
 
 ## Benefits for Publishers
 
@@ -32,39 +35,41 @@ Monk is a new paradigm in orchestration. It makes it easy for your users to run 
 
 ### Grow your software
 
-**Reduced barrier of entry for your users**
-: Your users can deploy and operate your software with just a few commands, on their own cloud of choice.
+* **Reduced barrier of entry for your users**<br/>
+Your users can deploy and operate your software with just a few commands, on their own cloud of choice.
 
-**New distribution channel for your software**
-: Gain exposure to Monk’s rapidly growing user base, increase visibility with Monk Hub, and reduce friction.
+* **New distribution channel for your software**<br/>
+Gain exposure to Monk’s rapidly growing user base, increase visibility with Monk Hub, and reduce friction.
 
-**Offer seamless updates and upgrades**
-: Monk users can subscribe to your releases and update their current stack with a simple `monk update your-stack/latest`
+* **Offer seamless updates and upgrades**<br/>
+Monk users can subscribe to your releases and update their current stack with a simple `monk update your-stack/latest`
 
-**Rich adoption metrics**
-: Go beyond download count and GitHub stars. See how many CPUs your software runs on at any given moment, across cloud providers and cluster sizes. Learn how developers are composing your software within their stacks (e.g. which databases they use it with) and get a clear picture of Cloud Native industry trends.
+* **Rich adoption metrics**<br/>
+Go beyond download count and GitHub stars. See how many CPUs your software runs on at any given moment, across cloud providers and cluster sizes. Learn how developers are composing your software within their stacks (e.g. which databases they use it with) and get a clear picture of Cloud Native industry trends.
 
-!!!note
+:::note
 
-    The architecture of Monk and Monk Hub is primed for visibility. We're exploring, building and testing these and more models for adoption metrics.
+The architecture of Monk and Monk Hub is primed for visibility. We're exploring, building and testing these and more models for adoption metrics.
+
+:::
 
 ### Grow as a developer
 
-**Share the love**
-: Be one of the pioneers of entire-stack orchestration
+* **Share the love** <br/>
+Be one of the pioneers of entire-stack orchestration
 
-**Contribute to your community**
-: Become a core maintainer of the official Monk template for your favorite open-source software.
+* **Contribute to your community** <br/>
+Become a core maintainer of the official Monk template for your favorite open-source software.
 
 ### Unlock new revenue
 
 We are in the early stages of exploring these revenue models for our publishers, and would love your opinion!
 
-**Template marketplace**
-: Sell your own software or build in-demand stack templates.
+* **Template marketplace** <br/>
+Sell your own software or build in-demand stack templates.
 
-**On-demand stacks**
-: Build and maintain specific stacks for enterprises on request, sometimes alongside the Monk team.
+* **On-demand stacks** <br/>
+Build and maintain specific stacks for enterprises on request, sometimes alongside the Monk team.
 
 ## How to become a Publisher?
 
@@ -80,15 +85,9 @@ Once your application is successful and you are onboarded as a Publisher you can
 
 Your published templates will appear in the Monk Hub and the stack wizard, as well as by running `monk list` in the CLI.
 
-<figure>
-  <img src="/assets/publishers1.png" />
-  <figcaption>Monk Hub Website view</figcaption>
-</figure>
+![Monk Hub Website view](/img/docs/publishers1.png)
 
-<figure>
-  <img src="/assets/publishers2.png" />
-  <figcaption>Monk Hub CLI view</figcaption>
-</figure>
+![Monk Hub CLI view](/img/docs/publishers2.png)
 
 Each change to your Monk template triggers our deployment pipeline and publishes an updated or new version of your components to Monk Hub.
 
@@ -100,11 +99,9 @@ Creating a template is easy and takes only a few lines of YAML. You decide how m
 -   instance provisioning and affinity if you want to make the system cloud (or multi-cloud) provider-specific. Monk currently supports GCP, AWS, Azure and Digital Ocean with more coming soon
 -   additional cloud resources such as volume claims, cloud load balancers, etc.
 
-<figure>
-  <img src="/assets/publishers3.png" />
-</figure>
+![](/img/docs/publishers3.png)
 
-You will feel right at home with MonkScript, YAML inspired by `docker-compose` but with quite a few scriptable tricks up its sleeve. View them all in [Features](features.md) and inside the [Reference](./monkscript/index.md).
+You will feel right at home with MonkScript, YAML inspired by `docker-compose` but with quite a few scriptable tricks up its sleeve. View them all in [Features](features.md) and inside the [Reference](monkscript).
 
 ## How can I join?
 

@@ -1,74 +1,94 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Getting Monk
 
 Here's how you install, test, and upgrade Monk.
 
-!!!prerequisites
+:::note Prerequisites
 
-    Monk requires [Docker](https://www.docker.com/) to be present and running on your system. If you don't have Docker installed and running, please refer to ​[https://docs.docker.com/docker-for-mac/install/](​https://docs.docker.com/docker-for-mac/install/) and follow the steps detailed there in order to obtain Docker before installing Monk.
+Monk requires [Docker](https://www.docker.com/) to be present and running on your system. If you don't have Docker installed and running, please refer to [https://docs.docker.com/docker-for-mac/install/](https://docs.docker.com/docker-for-mac/install/) and follow the steps detailed there in order to obtain Docker before installing Monk.
 
----
+:::
 
 ## Installing Monk
 
-=== "macOS"
+<Tabs
+  defaultValue="macOS"
+  values={[
+    {label: 'macOS', value: 'macOS'},
+    {label: 'Ubuntu and Debian', value: 'mainLinux'},
+    {label: 'Other Linux Systems', value: 'otherLinux'},
+  ]}
+>
+<TabItem value="macOS">
 
-    **Installing with Homebrew**
+**Installing with Homebrew**
 
-    We provide a Homebrew repository containing official releases of Monk. You can obtain the latest stable version of Monk from this repository by running the following command:
+We provide a Homebrew repository containing official releases of Monk. You can obtain the latest stable version of Monk from this repository by running the following command:
 
-        brew install monk-io/monk/monk
+    brew install monk-io/monk/monk
 
-    Now run the Monk daemon in a fresh terminal:
-
-        monkd
-
-    !!! note
-
-        `monkd` has to be running at all times when using `monk` or running any workloads via Monk. You might consider adding `monkd` to your `launchctl` configuration so that it stays running as a service. See [Running `monkd` as a service](./cli/monkd.md).
-
-=== "Ubuntu and Debian"
-
-    We run an APT repository containing official releases of Monk. You can obtain the latest stable version of Monk from this repository in two steps.
-
-    Add Monk repository to your sources list:
-
-        curl -s https://apt.monk.io/Release.gpg | sudo apt-key add -
-        sudo echo "deb [arch=amd64] https://apt.monk.io/ stable main" | sudo tee /etc/apt/sources.list.d/monk.list
-        sudo apt update
-
-    Install `monkd` and `monk`:
-
-        sudo apt install monk
-
-    After this, `monkd` service will be started and added to your systemd configuration so that it stays running in the background.
-
-    !!! note
-
-        You might need to log out and log back in on your system to be able to use `monk` without `sudo`. Alternatively, use `su - <your-username>`.
-
-=== "Other Linux Systems"
-
-    Download the latest stable binary distribution of Monk for Linux:
-
-        wget https://get.monk.io/stable/linux/monk-amd64-latest.tar.gz
-
-    Unpack the zip file and move both `monk` and `monkd` into a folder that is on your `PATH`:
-
-        tar -xvf monk-amd64-latest.tar.gz
-        cd monk-amd64-latest
-        cp monkd monk /usr/local/bin
-
-    Open a fresh terminal and run `monkd`:
+Now run the Monk daemon in a fresh terminal:
 
         monkd
 
-    !!! note
+:::note
 
-        `monkd` has to be running at all times when using `monk` or running any workloads via Monk. You might consider adding monkd to your service management daemon configuration so that it stays running as a service.
+`monkd` has to be running at all times when using `monk` or running any workloads via Monk. You might consider adding `monkd` to your `launchctl` configuration so that it stays running as a service. See [Running `monkd` as a service](./cli/monkd.md).
 
-!!! success
+:::
+</TabItem>
+<TabItem value="mainLinux">
+We run an APT repository containing official releases of Monk. You can obtain the latest stable version of Monk from this repository in two steps.
 
-    All done! Go to [Testing the installation](#testing-your-setup) to try it out.
+Add Monk repository to your sources list:
+
+    curl -s https://apt.monk.io/Release.gpg | sudo apt-key add -
+    sudo echo "deb [arch=amd64] https://apt.monk.io/ stable main" | sudo tee /etc/apt/sources.list.d/monk.list
+    sudo apt update
+
+Install `monkd` and `monk`:
+
+    sudo apt install monk
+
+After this, `monkd` service will be started and added to your systemd configuration so that it stays running in the background.
+
+:::note
+
+You might need to log out and log back in on your system to be able to use `monk` without `sudo`. Alternatively, use `su - <your-username>`.
+
+:::
+</TabItem>
+<TabItem value="otherLinux">
+
+Download the latest stable binary distribution of Monk for Linux:
+
+    wget https://get.monk.io/stable/linux/monk-amd64-latest.tar.gz
+
+Unpack the zip file and move both `monk` and `monkd` into a folder that is on your `PATH`:
+
+    tar -xvf monk-amd64-latest.tar.gz
+    cd monk-amd64-latest
+    cp monkd monk /usr/local/bin
+
+Open a fresh terminal and run `monkd`:
+
+    monkd
+
+:::note
+
+`monkd` has to be running at all times when using `monk` or running any workloads via Monk. You might consider adding monkd to your service management daemon configuration so that it stays running as a service.
+
+:::
+</TabItem>
+</Tabs>
+
+:::success
+
+All done! Go to [Testing the installation](#testing-your-setup) to try it out.
+
+:::
 
 ## Testing Your Setup
 
@@ -91,28 +111,44 @@ The command should return available templates if the installation was successful
 
 If you see similar output it means that the installation was successful and you may now start using Monk on your system 🎉
 
-Continue to the [Guides section](guides/running-templates.md) to see how you can use Monk.
+Continue to the [Guides section](/) to see how you can use Monk.
 
 If for some reason the command didn't work, please check if you have followed all instructions.
 
 ## Upgrading Monk
 
 Upgrading your local Monk to the newest version is simple.
+<Tabs
+  defaultValue="macOS"
+  values={[
+    {label: 'macOS', value: 'macOS'},
+    {label: 'Ubuntu and Debian', value: 'mainLinux'},
+    {label: 'Other Linux Systems', value: 'otherLinux'},
+  ]}
+>
 
-=== "macOS"
+<TabItem value="macOS">
 
-        brew upgrade monk
+    brew upgrade monk
 
-=== "Ubuntu and Debian"
+</TabItem>
 
-        sudo apt update
-        sudo apt upgrade monkd monk
+<TabItem value="mainLinux">
 
-=== "Other Linux systems"
+    sudo apt update
+    sudo apt upgrade monkd monk
 
-    1. Follow the steps in [Installing Monk](get-monk.md) to obtain the latest binaries.
-    2. Replace the old binaries with the latest binaries.
-    3. Restart `monkd`
+</TabItem>
+
+<TabItem value="otherLinux">
+
+1. Follow the steps in [Installing Monk](get-monk.md) to obtain the latest binaries.
+2. Replace the old binaries with the latest binaries.
+3. Restart `monkd`
+
+</TabItem>
+
+</Tabs>
 
 If you have a cluster running:
 

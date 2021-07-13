@@ -1,9 +1,6 @@
 # `monk`
 
-<figure>
-  <img src="/assets/monk-cli.png" />
-  <figcaption>`monk` CLI displaying help</figcaption>
-</figure>
+![`monk` CLI displaying help](/img/docs/monk-cli.png)
 
 ## Description
 
@@ -43,9 +40,11 @@ You can set these environment variables in your shell's environment file (i.e. `
 
 `monk` prints the final output to `stdout` and messages intended for humans go to `stderr`. If you wish to parse `monk` output, you just need to read `stdout`.
 
-!!!hint
+:::info Hint
 
-    Using `--nocolor` or `--nofancy` flags or setting their equivalent environment variables might make it easier to parse the output.
+Using `--nocolor` or `--nofancy` flags or setting their equivalent environment variables might make it easier to parse the output.
+
+:::
 
 ## Argument-flag Order is Important
 
@@ -57,6 +56,8 @@ In this case, Monk will ignore the `--tag` flag since it is after after the argu
 
     monk run --tag=quux foo/bar
 
-!!!note
+:::note
 
-    This will be fixed in future versions but please remember it for now 😅
+This will be fixed in future versions but please remember it for now 😅
+
+:::

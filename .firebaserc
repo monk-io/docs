@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "oak-hub_NOT_SURE_ABOUT_THIS"
+  },
+  "targets": {
+    "oak-hub_NOT_SURE_ABOUT_THIS": {
+      "hosting": {
+        "prod": [
+          "CHANGE_THIS"
+        ],
+        "preprod": [
+          "CHANGE_THIS"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,136 @@
+/* stylelint-disable docusaurus/copyright-header */
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+
+@font-face {
+  font-family: "Lineto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/Lineto/Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Visuelt";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/Visuelt/Regular.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Visuelt";
+  font-style: normal;
+  font-weight: 200;
+  src: url("../assets/fonts/Visuelt/Light.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Visuelt";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../assets/fonts/Visuelt/Medium.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Visuelt";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/Visuelt/Bold.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Visuelt";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../assets/fonts/Visuelt/Black.woff") format("woff");
+}
+
+
+
+
+@font-face {
+  font-family: "Aeonik";
+  font-style: normal;
+  font-weight: 200;
+  src: url("../assets/fonts/Aeonik/Aeonik-Light.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/Aeonik/Aeonik-Regular.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../assets/fonts/Aeonik/Aeonik-Medium.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/Aeonik/Aeonik-Bold.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../assets/fonts/Aeonik/Aeonik-Black.woff") format("woff");
+}
+
+:root {
+  --ifm-color-primary: #0315f9;
+  --ifm-color-primary-dark: #0313e0;
+  --ifm-color-primary-darker: #0312d4;
+  --ifm-color-primary-darkest: #020fae;
+  --ifm-color-primary-light: #192afc;
+  --ifm-color-primary-lighter: #2535fc;
+  --ifm-color-primary-lightest: #4b58fd;
+  --ifm-code-font-size: 95%;
+
+  --ifm-navbar-height: 70px;
+
+  --ifm-font-family-base: "Aeonik";
+  --ifm-font-family-monospace: "Lineto";
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] {
+  --ifm-color-primary: #0072ff; /* not final */
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.navbar__brand {
+  height: 50px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Visuelt;
+}

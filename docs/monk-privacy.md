@@ -14,15 +14,10 @@ Each monkd instance periodically sends telemetry signals to our servers to help 
 
 Your data, code, and infrastructure are yours and Monk helps it stay that way. It's really that simple.
 
-Now that the basics are out of the way, you can always [read the full policy](https://monk.io/privacy-policy). 
+Now that the basics are out of the way, you can always [read the full policy](https://monk.io/privacy-policy).
 
 ## Questions?
 
-Join [Monk at Discord](https://discord.gg/WxDzaKe) to get real-time support or to discuss all things Monk. 
+Join [Monk at Discord](https://discord.gg/WxDzaKe) to get real-time support or to discuss all things Monk.
 
 Or feel free to drop us a line at <hello@monk.io>.
-
-
-
-
-

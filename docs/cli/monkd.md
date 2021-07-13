@@ -1,9 +1,6 @@
 # `monkd`
 
-<figure>
-  <img src="/assets/monkd-cli.png" />
-  <figcaption>`monkd` displaying help</figcaption>
-</figure>
+![`monkd` displaying help](/img/docs/monkd-cli.png)
 
 ---
 
@@ -150,9 +147,11 @@ Then load it with `launchctl`:
 
     launchctl load -w $HOME/Library/LaunchAgents/com.monkd.daemon.plist
 
-!!!success
+:::success
 
-    `monkd` will start and will be automatically started on boot.
+`monkd` will start and will be automatically started on boot.
+
+:::
 
 ## Troubleshooting
 

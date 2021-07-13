@@ -8,13 +8,13 @@ We welcome all Issues and Pull Requests.
 
 ## Development
 
-The docs are in Markdown format, we use [MkDocs-Material](https://github.com/squidfunk/mkdocs-material) to render the final result at [docs.monk.io](https://docs.monk.io).
+The docs are in Markdown format, we use [Docusaurus](https://docusaurus.io/docs) to render the final result at [docs.monk.io](https://docs.monk.io).
 
 In order to preview your changes locally:
 
-1. [Install MkDocs-Material on your machine](https://github.com/squidfunk/mkdocs-material#quick-start),
-2. Run `mkdocs serve` in the main directory of this repo,
-3. Navigate to [http://127.0.0.1:8000](http://127.0.0.1:8000) to see live preview while you're making changes.
+1. Install `yarn install`,
+2. Run `yarn start`,
+3. Navigate to [http://127.0.0.1:3000](http://127.0.0.1:3000) to see live preview while you're making changes.
 
 ## License
 
