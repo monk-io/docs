@@ -2,7 +2,7 @@
 title: "Add Persistent Storage"
 ---
 
-Monk is capable of creating and maintaining persistent volumes in your cloud environment. For example, you can create an EBS volume usable by all containers in its region. This guide shows how to provision and mount such volume.
+Monk is capable of creating and maintaining persistent volumes in your cloud environment. For example, you can create a volume usable by all containers in its region. This guide shows how to provision and mount such volume.
 
 Persistent volumes are created close to the workloads, meaning that they will end up in the same region as the Monk node running the runnable or group in which the volume was specified.
 
