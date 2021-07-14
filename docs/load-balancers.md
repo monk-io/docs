@@ -207,6 +207,13 @@ services:
 
 Such balancers are listening on the specified port and are connecting on the same port to the underlying services.
 
+:::warning
+
+UDP load balancers are not available for Digital Ocean, since Digital Ocean is not supporting that service.
+
+:::
+
+
 ### Elastic IP
 
 The Elastic IP type of balancer creates a static IP address and attaches it to a healthy instance carrying the target service. Once the instance becomes unavailable due to a failure, the balancer will attach the static IP to another healthy instance until the primary one comes back.
