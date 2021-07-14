@@ -209,7 +209,7 @@ Such balancers are listening on the specified port and are connecting on the sam
 
 :::warning
 
-UDP load balancers are not available for Digital Ocean, since they are not supporting that service.
+UDP load balancers are not available for Digital Ocean, since Digital Ocean is not supporting that service.
 
 :::
 
