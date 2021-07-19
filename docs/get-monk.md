@@ -31,7 +31,7 @@ We provide a Homebrew repository containing official releases of Monk. You can o
 
 Now run the Monk daemon in a fresh terminal:
 
-        monkd
+    monkd
 
 :::note
 
