@@ -102,6 +102,9 @@ module.exports = {
             trackingID: "UA-188474701-2",
         },
     },
+    scripts: [
+        '/js/chatwoot.js',
+    ],
     plugins: ["docusaurus-plugin-sass"],
     presets: [
         [
