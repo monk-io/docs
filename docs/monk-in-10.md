@@ -15,12 +15,6 @@ This is a super-quick guide to get some containers running within your own Monk 
 -   An account with your favorite **cloud provider**
 -   **10 minutes** of your time
 
-## Creating a Monk Account
-
-Chances are that you already have one but in case you don't, [sign up on our website](https://monk.io/join) now.
-
-Monk currently won't work without an account, but it takes a grand total of 10 seconds to get one. We use accounts to match users with their Monk setups and for licensing and analytics purposes. We are very privacy-focused and only use telemetry data for product improvement. This data never includes your proprietary information. You can [learn more about the privacy of Monk accounts](monk-privacy.md).
-
 ## Getting Monk
 
 Install Monk for your OS. For more detailed instructions see [Getting Monk](get-monk.md).
@@ -151,9 +145,19 @@ Wait for it to initialize, you should see this:
 
 :::
 
+## Creating Your Monk Account
+
+Monk currently won't work without an account, but it takes a grand total of 10 seconds to get one. We use accounts to match users with their Monk setups and for licensing and analytics purposes. We are very privacy-focused and only use telemetry data for product improvement. This data never includes your proprietary information. You can [learn more about the privacy of Monk accounts](monk-privacy.md).
+
+Use this command to create your Monk account:
+
+    monk register
+
+You will be asked to verify your email address before logging in. Check your email!
+
 ## Signing In
 
-Once `monkd` is running:
+Once `monkd` is running and you have confirmed your email address do:
 
     monk login
 
