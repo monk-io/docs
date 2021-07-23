@@ -1,5 +1,6 @@
 ---
 id: welcome
+description: Welcome to Monk , an alternative to K8s.
 slug: /
 ---
 
@@ -12,12 +13,6 @@ Monk lets you compose, deploy, and manage your entire stack, on your own infrast
 Think of Monk as a Kubernetes and Terraform rolled into one tool. Monk is **a new orchestrator that lets you take control of both the application and provisioning layers in one place** by (1) writing feature-packed YAML manifests, and (2) using the CLI to interact directly with your containers and cloud provider(s) of choice.
 
 [Download Monk](get-monk.md) and [get started in ten minutes or less](monk-in-10.md).
-
-:::note note
-
-Monk was formerly known as Moncc (moncc.io). Same power, better name.
-
-:::
 
 ## Key Features at a Glance
 
