@@ -8,14 +8,6 @@ You need an account in order to use Monk. Getting one is free, straightforward, 
 
 ---
 
-## Register at monk.io
-
-Visit [https://monk.io/join](https://monk.io/join) and follow the instructions.
-
-​Use you email and password in the CLI after successful registration.
-
-Don't worry. We keep identifying information to an absolute minimum. [Read more about how we keep your account safe](monk-privacy).
-
 ## Register Using CLI
 
 You are going to need a working Monk installation before proceeding. If you haven't installed Monk yet, see [Getting Monk](get-monk).
@@ -32,13 +24,14 @@ You will be asked for:
 -   new password
 -   password confirmation
 
-You will be logged in automatically after a successful registration.
+You will be asked to verify your email address before logging in. Check your email!
 
 :::warning
 
 Choose a strong password to secure your Monk account. We recommend passwords longer than 12 characters.
 
 :::
+
 ## Log In
 
 While using Monk tools, you will be asked to log in while performing various actions. In order to log in permanently, do the following:
@@ -58,9 +51,7 @@ If your work with the CLI is finished you might choose to log out. Here is how:
 
 ## Forgotten Password?
 
-If you have forgotten your password, go to [https://monk.io/restore](https://monk.io/restore) and follow the instructions to choose a new one.
-
-Alternatively, you can use the following command:
+To reset your password, you can use the following command:
 
     monk reset
 
