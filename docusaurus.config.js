@@ -101,7 +101,24 @@ module.exports = {
         gtag: {
             trackingID: "UA-188474701-2",
         },
+        metadatas: [
+            {
+                property: 'image',
+                content: 'https://monk.io/media-dolphin-monk.png',
+              },
+            {
+              property: 'og:image',
+              content: 'https://monk.io/media-dolphin-monk.png',
+            },
+            {
+              name: 'twitter:image',
+              content: 'https://reactnative.dev/img/logo-og.png',
+            },
+        ],
     },
+    scripts: [
+        '/js/chatwoot.js',
+    ],
     plugins: ["docusaurus-plugin-sass"],
     presets: [
         [
