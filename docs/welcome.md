@@ -1,6 +1,6 @@
 ---
 id: welcome
-description: Welcome to Monk , an alternative to K8s.
+description: Welcome to Monk, an alternative to K8s.
 slug: /
 ---
 
