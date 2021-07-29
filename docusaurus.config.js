@@ -95,11 +95,8 @@ module.exports = {
             indexName: "monk-docs",
             appId: "JMJR6P1AKQ",
         },
-        googleAnalytics: {
-            trackingID: "UA-188474701-2",
-        },
         gtag: {
-            trackingID: "UA-188474701-2",
+            trackingID: "G-8G90Y8YY1W",
         },
         metadatas: [
             {
