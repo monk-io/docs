@@ -4,7 +4,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 module.exports = {
     title: "monk Docs",
     tagline: "Make DevOps fun again with the p2p alternative to Kubernetes",
-    url: "https://monk.io",
+    url: "https://docs.monk.io",
     baseUrl: "/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
