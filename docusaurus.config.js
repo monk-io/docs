@@ -109,7 +109,7 @@ module.exports = {
             },
             {
               name: 'twitter:image',
-              content: 'https://reactnative.dev/img/logo-og.png',
+              content: 'https://monk.io/media-dolphin-monk.png',
             },
         ],
     },
