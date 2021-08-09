@@ -51,6 +51,6 @@ As it goes with any software, you might encounter some bugs, but the core functi
 
 :::warning important
 
-We invite you to try everything, but remember that using the experimental features in production might not be a good idea at this point. Check back anytime to see which features are being promoted to stable.
+We invite you to try everything, but remember that using the experimental features in production might not be a good idea at this point. Check back anytime to see which features are being promoted to stabl.
 
 :::
