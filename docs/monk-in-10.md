@@ -204,8 +204,8 @@ Make sure that the account has **compute resources admin access**.
 
 :::caution warning
 
-    Make sure that **Compute Engine is enabled on your project**.
-    See [https://cloud.google.com/apis/docs/getting-started#enabling_apis](https://cloud.google.com/apis/docs/getting-started#enabling_apis) if you're not sure how.
+Make sure that **Compute Engine is enabled on your project**.
+See [https://cloud.google.com/apis/docs/getting-started#enabling_apis](https://cloud.google.com/apis/docs/getting-started#enabling_apis) if you're not sure how.
 
 :::
 
