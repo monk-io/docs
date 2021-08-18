@@ -36,10 +36,9 @@ my-service:
 
 Let's assume that the `ubuntu:latest` image expects environment variables `DB_ADDR` and `DB_PORT` to be set. We are setting those environment variables based on control plane variables `db-addr` and `db-port`.
 
-Whenever we run `mystuff/my-service` it will assume that the database is at `localhost:21721`. Though, in most cases, the database will not be at localhostand running this template as it is will end in an error.
-The provider
+Whenever we run `mystuff/my-service` it will assume that the database is at `localhost:21721`. Though, in most cases, the database will not be at localhost and running this template as it is will end in an error.
 
-`mystuff/my-service` expects a MongoDB database. Monk provides a template for this. So we don't really need to define it here. It's on the Hub.
+The provider `mystuff/my-service` expects a MongoDB database. Monk provides a template for this. So we don't really need to define it here. It's on the Hub.
 
 Run MongoDB with:
 
