@@ -204,8 +204,8 @@ Make sure that the account has **compute resources admin access**.
 
 :::caution warning
 
-    Make sure that **Compute Engine is enabled on your project**.
-    See [https://cloud.google.com/apis/docs/getting-started#enabling_apis](https://cloud.google.com/apis/docs/getting-started#enabling_apis) if you're not sure how.
+Make sure that **Compute Engine is enabled on your project**.
+See [https://cloud.google.com/apis/docs/getting-started#enabling_apis](https://cloud.google.com/apis/docs/getting-started#enabling_apis) if you're not sure how.
 
 :::
 
@@ -481,4 +481,4 @@ In case you'd like to create another cluster, follow this guide again or see: [C
 
 Our newly formed cluster has 3 machines and can do much more than just running one simple workload. Having your cluster up and running is enough to start trying [everything that Monk has to offer](features.md).
 
-If you'd like to try a more advanced setup including a database, HTTP server, and a self-made service, continue to our first A-Z tutorial: [Running a small system](basic-app).
+If you'd like to try a more advanced setup including a database, HTTP server, and a self-made service, continue to our first A-Z tutorial: [Running a small system](basic-app.md).
