@@ -265,7 +265,7 @@ DigitalOcean API Token is sensitive information. Take care to store it securely.
 
 :::note
 
-**It's alright if you want to skip cluster creation for now.** You can run things locally and create a cluster later. You can still follow this guide but remember that stuff will happen on your machine and not in the cloud. To skip ahead, head to [Running templates locally](running-templates).
+**It's alright if you want to skip cluster creation for now.** You can run things locally and create a cluster later. You can still follow this guide but remember that stuff will happen on your machine and not in the cloud. To skip ahead, head to [Running templates locally](running-templates.md).
 
 :::
 
