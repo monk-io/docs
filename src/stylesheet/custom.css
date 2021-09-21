@@ -135,8 +135,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: Visuelt;
 }
 
-.backToTopButton_node_modules-\@docusaurus-theme-classic-lib-next-theme-BackToTopButton-styles-module,
-.backToTopButtonShow_node_modules-\@docusaurus-theme-classic-lib-next-theme-BackToTopButton-styles-module {
+button[class^='backToTopButton_'], button[class*=' backToTopButton_'] {
   bottom: 6.3rem !important;
   right: 1.8rem !important;
 }
