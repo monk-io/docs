@@ -8,12 +8,11 @@ import TabItem from '@theme/TabItem';
 ## `and`
 
 <Tabs
-  defaultValue="signature"
-  values={[
-    {label: 'Signature', value: 'signature'},
-    {label: 'Example', value: 'example'},
-  ]}
->
+defaultValue="signature"
+values={[
+{label: 'Signature', value: 'signature'},
+{label: 'Example', value: 'example'},
+]}>
 
 <TabItem value="signature">
 
@@ -38,12 +37,11 @@ Boolean AND.
 ## `contains?`, `has?`
 
 <Tabs
-  defaultValue="signature"
-  values={[
-    {label: 'Signature', value: 'signature'},
-    {label: 'Example', value: 'example'},
-  ]}
->
+defaultValue="signature"
+values={[
+{label: 'Signature', value: 'signature'},
+{label: 'Example', value: 'example'},
+]}>
 
 <TabItem value="signature">
 
@@ -68,12 +66,11 @@ Boolean NOT.
 ## `eq?`, `equal?`
 
 <Tabs
-  defaultValue="signature"
-  values={[
-    {label: 'Signature', value: 'signature'},
-    {label: 'Example', value: 'example'},
-  ]}
->
+defaultValue="signature"
+values={[
+{label: 'Signature', value: 'signature'},
+{label: 'Example', value: 'example'},
+]}>
 
 <TabItem value="signature">
 
@@ -85,11 +82,11 @@ Boolean NOT.
 
 <TabItem value="example">
 
-</TabItem>
-
 ```clojure
 true eq? => false
 ```
+
+</TabItem>
 
 </Tabs>
 
@@ -98,12 +95,11 @@ Boolean NOT.
 ## `not`
 
 <Tabs
-  defaultValue="signature"
-  values={[
-    {label: 'Signature', value: 'signature'},
-    {label: 'Example', value: 'example'},
-  ]}
->
+defaultValue="signature"
+values={[
+{label: 'Signature', value: 'signature'},
+{label: 'Example', value: 'example'},
+]}>
 
 <TabItem value="signature">
 
@@ -128,12 +124,11 @@ Boolean NOT.
 ## `not-equal?`, `not-eq?`
 
 <Tabs
-  defaultValue="signature"
-  values={[
-    {label: 'Signature', value: 'signature'},
-    {label: 'Example', value: 'example'},
-  ]}
->
+defaultValue="signature"
+values={[
+{label: 'Signature', value: 'signature'},
+{label: 'Example', value: 'example'},
+]}>
 
 <TabItem value="signature">
 
@@ -158,12 +153,11 @@ Boolean NOT.
 ## `or`
 
 <Tabs
-  defaultValue="signature"
-  values={[
-    {label: 'Signature', value: 'signature'},
-    {label: 'Example', value: 'example'},
-  ]}
->
+defaultValue="signature"
+values={[
+{label: 'Signature', value: 'signature'},
+{label: 'Example', value: 'example'},
+]}>
 
 <TabItem value="signature">
 
@@ -188,12 +182,11 @@ Boolean OR.
 ## `xor`
 
 <Tabs
-  defaultValue="signature"
-  values={[
-    {label: 'Signature', value: 'signature'},
-    {label: 'Example', value: 'example'},
-  ]}
->
+defaultValue="signature"
+values={[
+{label: 'Signature', value: 'signature'},
+{label: 'Example', value: 'example'},
+]}>
 
 <TabItem value="signature">
 
