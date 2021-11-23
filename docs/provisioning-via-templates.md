@@ -46,7 +46,7 @@ foo:
             image-tag: latest
 ```
 
-When running `foos/foo`, Monk will create an instance named `my-node` using the GCP provider is it's available. The `some-service` container will be then scheduled to run on that new instance thanks to the `affinity` directive.
+When running `foos/foo`, Monk will create an instance named `my-node` using the GCP provider if it's available. The `some-service` container will be then scheduled to run on that new instance thanks to the `affinity` directive.
 
 ### Nodes section
 
