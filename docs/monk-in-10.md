@@ -235,7 +235,7 @@ Make sure that the account has **AmazonEC2FullAccess policy**.
 
 Assuming you're using Azure CLI, issue the following command:
 
-    az ad sp create-for-rbac --sdk-auth > azurekey.json
+    az ad sp create-for-rbac --role Contributor --sdk-auth > azurekey.json
 
 This will produce JSON file containing your access key.
 

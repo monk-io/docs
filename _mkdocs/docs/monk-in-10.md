@@ -171,7 +171,7 @@ CREATE SERVICE ACCOUNT== 3. Assign the **Admin** role on the project to the acco
 
     Assuming you're using Azure CLI, issue the following command:
 
-        az ad sp create-for-rbac --sdk-auth > azurekey.json
+        az ad sp create-for-rbac --role Contributor --sdk-auth > azurekey.json
 
     This will produce JSON file containing your access key.
 
