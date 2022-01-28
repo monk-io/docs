@@ -158,6 +158,31 @@ There should be some files present there already, check with:
 
 If you see similar output, it means that the cloud provided volume is mounted to the container ans stores the database.
 
+## Volume backups
+
+Monk can back up any defined volume using cloud volume snapshots. To enable backups at any point you can add the following definition inside your volume (here `important-data`):
+
+```
+backup:
+    rotation-days: 10
+    every: 1
+    kind: week
+    start-time: 00:00
+    start-day: MONDAY
+```
+
+This can be read as follows: _At all times keep backups from last 10 days making a backup every week at midnight on Monday._
+
+Times must be in `HH:MM` format, weekdays are one of `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, `SUNDAY`. The field `kind` sets the interval and can be one of `day`, `hour`, `week`.
+
+Monk delegates the backup process to the cloud it's running on and the backups can be managed via the cloud console and won't disappear even if Monk fails or gets removed from your cloud account.
+
+:::note
+
+Volume backups are released as canary feature in v3.2.0. They only work on GCP for now. Please confirm creation of the backups in your cloud console before assuming they are present.
+
+:::
+
 ## Conclusion
 
 You are now running a MongoDB database which stores its data on a persistent volume. In case the workload fails or the instance running the database container ceases to exist your database contents will be safe on the persistent volume. This mechanism can be applied to any workload or group of workloads with one or many separate volumes.
