@@ -1,5 +1,7 @@
 # Monk vs Other Software
 
+import ComparisonTable from "../src/components/comparisonTable";
+
 As a new startup kid on the stack block, we often get compared to other services. Those who ask usually have their assumptions all wrong 🚨
 
 Let's fix that, starting with two common misconceptions:
@@ -98,3 +100,5 @@ Therefore, a bit like Nomad, Terraform is a feature-packed solution that offers 
 Monk pushes forward a new paradigm in orchestration. Main functionalities are comparable to popular solutions you might be familiar with, but the whole package is more complete and straightforward than any other piece of software that's currently out there.
 
 If you haven't already, [get Monk](get-monk.md) to see it in action, or dive into [Features](features.md) to see what's on the plate.
+
+<ComparisonTable />
