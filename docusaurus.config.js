@@ -96,10 +96,7 @@ module.exports = {
             appId: "JMJR6P1AKQ",
             contextualSearch: true
         },
-        gtag: {
-            trackingID: "G-8G90Y8YY1W",
-        },
-        metadatas: [
+        metadata: [
             {
                 property: 'image',
                 content: 'https://monk.io/media-dolphin-monk.png',
@@ -138,6 +135,9 @@ module.exports = {
                         require.resolve("./src/stylesheet/custom.css"),
                         require.resolve("./src/stylesheet/footer.scss"),
                     ],
+                },
+                gtag: {
+                    trackingID: "G-8G90Y8YY1W",
                 },
             },
         ],
