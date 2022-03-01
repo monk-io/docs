@@ -5,6 +5,36 @@ title: Network
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## `peer-ip-address`
+
+<Tabs
+  defaultValue="signature"
+  values={[
+    {label: 'Signature', value: 'signature'},
+    {label: 'Example', value: 'example'},
+  ]}
+>
+
+<TabItem value="signature">
+
+```clojure
+| peer-ip-address("namespace/runnable-path", String)
+```
+
+</TabItem>
+
+<TabItem value="example">
+
+```clojure
+peer-ip-address("hello/world") => "1.2.3.4"
+```
+
+</TabItem>
+
+</Tabs>
+
+Returns external IP of the node that the runnable is running on.
+
 ## `get-hostname`, `get-container-ip`
 
 <Tabs
