@@ -41,26 +41,26 @@ jobs:
       - image: node:16.14.0
     steps:
       - attach_workspace:
-          at: dash
+          at: docs
       - run:
           name: Install Firebase
           command: npm install -g firebase-tools
       - run:
           name: Deploy website
-          command: firebase deploy --only hosting:prod --non-interactive
+          command: cd docs && firebase deploy --only hosting:prod --non-interactive
 
   deploy_preprod:
     docker:
       - image: node:16.14.0
     steps:
       - attach_workspace:
-          at: dash
+          at: docs
       - run:
           name: Install Firebase
           command: npm install -g firebase-tools
       - run:
           name: Deploy website to preprod
-          command: firebase deploy --only hosting:preprod --non-interactive
+          command: cd docs && firebase deploy --only hosting:preprod --non-interactive
 
 workflows:
   version: 2
