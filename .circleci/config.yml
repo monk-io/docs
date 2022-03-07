@@ -7,11 +7,11 @@ jobs:
       - checkout
       - run:
           name: deps
-          command: npm install
+          command: yarn install
 
       - run:
           name: build
-          command: npm run build
+          command: yarn build
 
       - persist_to_workspace:
           root: .
@@ -25,11 +25,11 @@ jobs:
       - checkout
       - run:
           name: deps
-          command: npm install
+          command: yarn install
 
       - run:
           name: build
-          command: npm run build
+          command: yarn build
 
       - persist_to_workspace:
           root: .
