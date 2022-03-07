@@ -1,15 +1,15 @@
 {
   "projects": {
-    "default": "oak-hub_NOT_SURE_ABOUT_THIS"
+    "default": "oak-hub"
   },
   "targets": {
-    "oak-hub_NOT_SURE_ABOUT_THIS": {
+    "oak-hub": {
       "hosting": {
         "prod": [
-          "CHANGE_THIS"
+          "monk-docs"
         ],
         "preprod": [
-          "CHANGE_THIS"
+          "monk-docs-preprod"
         ]
       }
     }

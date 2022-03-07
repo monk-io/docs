@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: node:12
+      - image: node:16.14.0
     steps:
       - checkout
       - run:
@@ -20,7 +20,7 @@ jobs:
 
   build_staging:
     docker:
-      - image: node:12
+      - image: node:16.14.0
     steps:
       - checkout
       - run:
@@ -38,7 +38,7 @@ jobs:
 
   deploy_prod:
     docker:
-      - image: node:12
+      - image: node:16.14.0
     steps:
       - attach_workspace:
           at: dash
@@ -47,11 +47,11 @@ jobs:
           command: npm install -g firebase-tools
       - run:
           name: Deploy website
-          command: cd dash && firebase deploy --only hosting:prod --non-interactive
+          command: firebase deploy --only hosting:prod --non-interactive
 
   deploy_preprod:
     docker:
-      - image: node:12
+      - image: node:16.14.0
     steps:
       - attach_workspace:
           at: dash
@@ -60,7 +60,7 @@ jobs:
           command: npm install -g firebase-tools
       - run:
           name: Deploy website to preprod
-          command: cd dash && firebase deploy --only hosting:preprod --non-interactive
+          command: firebase deploy --only hosting:preprod --non-interactive
 
 workflows:
   version: 2
@@ -73,7 +73,7 @@ workflows:
       - deploy_prod:
           requires:
             - build
-          context: "website release"
+          context: "firebase-deployments"
           filters:
             branches:
               only: main
@@ -84,7 +84,7 @@ workflows:
       - deploy_preprod:
           requires:
             - build_staging
-          context: "website release"
+          context: "firebase-deployments"
           filters:
             branches:
               only: development
