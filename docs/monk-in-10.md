@@ -191,21 +191,17 @@ values={[
 <TabItem value="gcp">
 
 1. Create a new project in your GCP console,
-2. In the new project, go to `IAM &#8594; Service Accounts &#8594; CREATE SERVICE ACCOUNT`
+2. In the new project, go to **IAM** &#8594; **Service Accounts** &#8594; **CREATE SERVICE ACCOUNT**,
 3. Assign the **Admin** role on the project to the account,
 4. On the account list, click **three dots** and create a **JSON Key** for the account,
 5. Save the file on your machine eg. in `key.json`
 
 :::caution warning
 
-Make sure that the account has **compute resources admin access**.
-
-:::
-
-:::caution warning
-
 Make sure that **Compute Engine is enabled on your project**.
 See [https://cloud.google.com/apis/docs/getting-started#enabling_apis](https://cloud.google.com/apis/docs/getting-started#enabling_apis) if you're not sure how.
+
+Make sure that your account has **compute resources admin access**.
 
 :::
 
@@ -225,7 +221,7 @@ If you don't have that file, consult the [AWS Documentation](https://docs.aws.am
 
 :::caution warning
 
-Make sure that the account has **AmazonEC2FullAccess policy**.
+Make sure that your account has **AmazonEC2FullAccess policy**.
 
 :::
 

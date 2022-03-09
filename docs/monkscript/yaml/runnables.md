@@ -99,7 +99,7 @@ variables:
 
 :::
 
-Variables section is a map of [`variable`](#variable), each container is named by its key (`variable-a`, `variable-b` in above example). Names can be any valid YAML key.
+Variables section is a map of [`variable`](#variable), each variable is named by its key (`variable-a`, `variable-b` in above example). Names can be any valid YAML key.
 
 :::info
 
@@ -128,11 +128,11 @@ variable-name: variable value
 
 A variable can either just specify the value - in which case the type is inferred automatically, or specify its type and value.
 
-| Field   | Value                            | Purpose                                                                               | Required |
-| ------- | -------------------------------- | ------------------------------------------------------------------------------------- | -------- |
-| `type`  | one of: `string`, `int`, `float` | Type of the variable                                                                  | yes      |
-| `value` | anything                         | Initial value of the variable                                                         | yes      |
-| `env`   | `VAIRABLE_NAME`                  | Name of environment variable that will receive the variable's value in all containers | no       |
+| Field   | Value                                              | Purpose                                                                               | Required |
+| ------- | -------------------------------------------------- | ------------------------------------------------------------------------------------- | -------- |
+| `type`  | one of: `string`, `int`, `float`, `bool`, `bigint` | Type of the variable                                                                  | yes      |
+| `value` | anything                                           | Initial value of the variable                                                         | yes      |
+| `env`   | `VAIRABLE_NAME`                                    | Name of environment variable that will receive the variable's value in all containers | no       |
 
 ### `actions`
 
@@ -287,6 +287,21 @@ files:
 ### `checks`
 
 Each runnable can contain status checks. Currently the only supported check is `readiness`.
+
+::: info
+
+**Applicable to:** [`runnable`](#runnable)
+
+**Required:** no
+
+:::
+
+| Field          | Value             | Purpose                                                                                                     | Required |
+| -------------- | ----------------- | ----------------------------------------------------------------------------------------------------------- | -------- |
+| `code`         | arrow script code | code to be run to perform the check, truthy return value indicates success, anything else indicates failure | yes      |
+| `period`       | int (seconds)     | time period (in seconds) until Monk decides that application didn't start properly                          | no       |
+| `initialDelay` | int (seconds)     | initial delay (in seconds) before Monk will start checking application health                               | no       |
+| `interval`     | int (seconds)     | specifies how often (in seconds) Monk will perform this check                                               | no       |
 
 #### Example
 
