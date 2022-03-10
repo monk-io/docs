@@ -53,13 +53,13 @@ This section summarizes all workloads which have been deployed to the cluster.
   <img src="/assets/gui4.png" />
 </figure>
 
-### Templates
+### Kits
 
-The Templates section is a UI interface to Monk Hub. You can browse, compose and deploy any of the available public templates.
+The Kits section is a UI interface to Monk Hub. You can browse, compose and deploy any of the available public Kits.
 
 ### Select and Run
 
-In this mode, you can simply deploy any of the templates by clicking on Runbutton and specifying target such as your local environment or your cluster.
+In this mode, you can simply deploy any of the Kits by clicking on Runbutton and specifying target such as your local environment or your cluster.
 
 <figure>
   <img src="/assets/gui5.png" />
@@ -67,7 +67,7 @@ In this mode, you can simply deploy any of the templates by clicking on Runbutto
 
 ### Wizard Mode
 
-In the Wizard mode, you can select all required components that you would like to deploy as part of a single template.
+In the Wizard mode, you can select all required components that you would like to deploy as part of a single Kit.
 
 <figure>
   <img src="/assets/gui6.png" />
@@ -81,13 +81,13 @@ Once selected, continue to Compose button to open the Wizard for final tweaks.
 
 The Wizard allows you to quickly design your system, configure its variables and cloud provisioning into Monk manifest yaml.
 
-When you decide your template is ready, you can load your new template to your local Monk environment.
+When you decide your Kit is ready, you can load your new Kit to your local Monk environment.
 
 <figure>
   <img src="/assets/gui8.png" />
 </figure>
 
-After it loads, you should be able to see your new components and system under Templates.
+After it loads, you should be able to see your new components and system under Kits.
 
 <figure>
   <img src="/assets/gui9.png" />

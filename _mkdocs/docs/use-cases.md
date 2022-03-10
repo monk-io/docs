@@ -21,29 +21,29 @@ Monk removes most of the overhead, scope and headaches from today's orchestratio
 
 -   **Devtools creep**: Using Kubernetes? Brush up on your Helm syntax, sign up to Terraform and get their EKS module, then repeat for the GCP portion of your app.
     <br>&#8594;
-    _Monk is one solution: compose with Hub templates, deploy from a single manifest, manage with the built-in Engine_. See [Monk ecosystem &#8594;
+    _Monk is one solution: compose with Hub Kits, deploy from a single manifest, manage with the built-in Engine_. See [Monk ecosystem &#8594;
     ](key-concepts.md)
 
 -   **Cloud provider lock-in**: Managed services or manual deployments force you into specific providers, make future migration a pain, or make multi-cloud deployments simply too much of a hassle.
     <br>&#8594;
     \_Monk lets you use any combination of infrastructure and switch gears whenever you want.
 
--   **Moving clouds?** Simply add your new cloud's credentials with* `monk cluster provider add --provider=` \_and run your templates there.* See [Monk vs. other software &#8594;
+-   **Moving clouds?** Simply add your new cloud's credentials with* `monk cluster provider add --provider=` \_and run your Kits there.* See [Monk vs. other software &#8594;
     ](comparison.md)
 
 ## 1. Find Inspiration for Your Stack
 
 Whatever you're building, there's a chance someone somewhere made a similar stack work for them in the past. Why not piggyback on their experience and build on more solid ground?
 
-That's the idea behind Monk Templates: infinitely composable system blueprints, complete with provisioning instructions, that can get entire systems up and running anywhere.
+That's the idea behind Monk Kits: infinitely composable system blueprints, complete with provisioning instructions, that can get entire systems up and running anywhere.
 
 We're growing [Monk Hub](https://monkhub.io) into a repository not only for containers and components, but entire systems you can pick, tweak and make yours.
 
 ## 2. Build Your Stack with Ready Components
 
-Templates are written in MonkScript, a composable and scriptable flavor of YAML that lets you define your stack at any complexity level, with just a few lines of code:
+Kits are written in MonkScript, a composable and scriptable flavor of YAML that lets you define your stack at any complexity level, with just a few lines of code:
 
-: **Single containers**: pick ready-to-compose databases, APIs and services from the Hub. These are classified as `runnable` templates:
+: **Single containers**: pick ready-to-compose databases, APIs and services from the Hub. These are classified as `runnable` Kits:
 
 ```
 ❯ monk list | grep runnable
@@ -66,7 +66,7 @@ group     apache-kafka/cluster-1-zookeeper-2-brokers  monk          -           
 ...
 ```
 
-: **Entire off-the-shelf stacks**: plug and play an entire application, extend it with third party components and tune functionalities with custom overrides. All template definitions are composable.
+: **Entire off-the-shelf stacks**: plug and play an entire application, extend it with third party components and tune functionalities with custom overrides. All Kit definitions are composable.
 
 ```
 ❯ monk list | grep elk
@@ -91,10 +91,10 @@ Also note that Monk Engine can take care of [provisioning](./guides/provisioning
 
 Monk Hub is a new distribution system for open-source components and pre-build stacks. It features over 300 entries, with more being added constantly by our team and the community.
 
-You could help your favorite software gain traction by becoming a maintainer of the Hub repo. Or you could share your application's templates for stars, exposure, and possibly revenue (we're exploring a marketplace model for paid templates). Learn more about our [Publisher program](publishers.md).
+You could help your favorite software gain traction by becoming a maintainer of the Hub repo. Or you could share your application's Kits for stars, exposure, and possibly revenue (we're exploring a marketplace model for paid Kits). Learn more about our [Publisher program](publishers.md).
 
 ## 5. Save Time and Sanity
 
-Our mission is to make composing, deploying, and managing applications almost as easy as installing mobile apps. With Monk, you can save time to market by starting from ready-made stack templates. Your life will be much easier because you'll be able to keep deployments inside a single workflow.
+Our mission is to make composing, deploying, and managing applications almost as easy as installing mobile apps. With Monk, you can save time to market by starting from ready-made stack Kits. Your life will be much easier because you'll be able to keep deployments inside a single workflow.
 
 Scroll to the next page to learn about Monk's key technologies – the "trinity" of Engine, Script and Hub – or [Install Monk](get-monk.md) to see them in action.

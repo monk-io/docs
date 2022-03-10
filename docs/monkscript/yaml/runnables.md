@@ -258,9 +258,9 @@ file-a:
 | `container` | name of existing container | the name of the container sub-section describing the container that the file is to be created in                      | yes      |
 | `chmod`     | octal number               | an octal numeral representing the file permissions (defaults to `0600` if omited).                                    | no       |
 | `raw`       | `true` or `false`          | if set to `true`, the contents will not be interpreted as a Golang `text/template`, if `false` or omitted, they will  | no       |
-| `contents`  | any text                   | the file contents. If `raw` is `false`, interpreted as a template. See [docs](https://golang.org/pkg/text/template/). | yes      |
+| `contents`  | any text                   | the file contents. If `raw` is `false`, interpreted as a Kit. See [docs](https://golang.org/pkg/text/template/). | yes      |
 
-The `contents` of the file can be either literal, or rendered by Golang's `text/template`. In the `contents`, if `raw` is not set to `true`, you can use the following to access the template variables:
+The `contents` of the file can be either literal, or rendered by Golang's `text/template`. In the `contents`, if `raw` is not set to `true`, you can use the following to access the Kit variables:
 
 ```
 {{ v "foo-bar" }} or {{ var "foo-bar" }}

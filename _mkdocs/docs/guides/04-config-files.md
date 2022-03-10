@@ -1,8 +1,8 @@
-Monk offers a convenient way to pass arbitrary text files (such as config files) to any container from the template level. Such files can be generated on the fly at container startup making it easy to create dynamic configuration for services based on Monk variables.
+Monk offers a convenient way to pass arbitrary text files (such as config files) to any container from the Kit level. Such files can be generated on the fly at container startup making it easy to create dynamic configuration for services based on Monk variables.
 
 ## Nginx example
 
-Let's take an nginx template as an example an analyze how nginx configuration is passed to the container:
+Let's take an nginx Kit as an example an analyze how nginx configuration is passed to the container:
 
 === "nginx.yaml"
 
@@ -84,7 +84,7 @@ as the `listen-port` variable specified in the `variables` section of the runnab
 
 ## Overriding configuration contents
 
-### Re-using the templated contents
+### Re-using the Kitd contents
 
 Assuming you'd like to run nginx reverse proxy with custom settings, you could just override variables like so:
 
@@ -102,7 +102,7 @@ Assuming you'd like to run nginx reverse proxy with custom settings, you could j
             proxy-target-port: 9090
     ```
 
-Running this template would result in having an nginx container with the following configuration in its `reverse_proxy.conf`:
+Running this Kit would result in having an nginx container with the following configuration in its `reverse_proxy.conf`:
 
 === "reverse_proxy.conf"
 
@@ -114,13 +114,13 @@ Running this template would result in having an nginx container with the followi
             }
         }
 
-Notice how the proxy target address was computed dynamically and placed into the right place in the configuration. This is a very powerful feature allowing for re-use of config files at the template level.
+Notice how the proxy target address was computed dynamically and placed into the right place in the configuration. This is a very powerful feature allowing for re-use of config files at the Kit level.
 
 ### Re-defining the contents
 
 Let's say you need to provide more tweaks to the provided reverse-proxy config file. It can be easily achieved by overriding the `contents` field.
 
-Let's add websocket support to the reverse proxy template we have:
+Let's add websocket support to the reverse proxy Kit we have:
 
 === "my-nginx.yaml"
 
@@ -152,4 +152,4 @@ We've just extended the configuration by replacing the file contents with new co
 
 ## Conclusion
 
-Working with configuration files at template level gives a lot of control over configuration contents and enables re-use of common configuration patterns.
+Working with configuration files at Kit level gives a lot of control over configuration contents and enables re-use of common configuration patterns.

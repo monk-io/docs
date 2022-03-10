@@ -38,7 +38,7 @@ foo:
 
 The container itself will just hang out and wait but this is perfect for us since we'll be inspecting its filesystem contents.
 
-Run the template with:
+Run the Kit with:
 
     monk load basic.yaml
     monk run foobars/foo

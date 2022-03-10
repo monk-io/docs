@@ -4,7 +4,7 @@ title: "Chainlink Nodes"
 
 This guide will show you how to easily deploy Chainlink-based system.
 
-## Templates
+## Kits
 
 Each of the components is published in Monk Hub (<https://monkhub.io/>) or can be loaded locally from the repository.
 
@@ -155,7 +155,7 @@ local                                           local                      unkno
 
 #### Deploy
 
-To deploy select chosen template and specify your tag in cluster created above.
+To deploy select chosen Kit and specify your tag in cluster created above.
 
 ```
 ➜ monk run chainlink/system

@@ -125,4 +125,4 @@ Note the contents of `Provider` column, both **cloud A** and **cloud B** should 
 
 ## Conclusion
 
-You are now running a Monk cluster spanning across two clouds. This cluster will behave as any other Monk cluster as Monk manages all supported cloud environments in a transparent manner. This new cluster is capable of running any Monk template and the workloads will be distributed to all instances available.
+You are now running a Monk cluster spanning across two clouds. This cluster will behave as any other Monk cluster as Monk manages all supported cloud environments in a transparent manner. This new cluster is capable of running any Monk Kit and the workloads will be distributed to all instances available.

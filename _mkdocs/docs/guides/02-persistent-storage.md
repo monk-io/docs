@@ -6,11 +6,11 @@ Persistent volumes are created close to the workloads, meaning that they will en
 
 You need a Monk cluster with at least two nodes running in your chosen cloud to be able to try this out.
 
-## Step 1: Preparing the template
+## Step 1: Preparing the Kit
 
-We will use a simple `mongodb` template to illustrate how the database could be stored on a persistent volume.
+We will use a simple `mongodb` Kit to illustrate how the database could be stored on a persistent volume.
 
-### Basic template
+### Basic Kit
 
 === "database.yaml"
 
@@ -27,9 +27,9 @@ It is perfectly fine to run with:
     monk load database.yaml
     monk run guides/database
 
-The MongoDB database will use its default local volume to store the data. This means that the data will be stored on the disk of the instance that is running this template.
+The MongoDB database will use its default local volume to store the data. This means that the data will be stored on the disk of the instance that is running this Kit.
 
-### Extended template
+### Extended Kit
 
 Let's extend `database.yaml` with a `volume` definition:
 
@@ -53,7 +53,7 @@ We've added a volume named `important-data` in the new `volumes` section. The `s
 
 The `path` tells Monk where to mount the volume on **host** meaning that the instance with this volume attached will see the persistent volume under the path specified here. In this case, the host will mount the volume in `/tmp/important-data`.
 
-Since we have the volume defined, now it's time to mount it inside the container. Let's extend the template again:
+Since we have the volume defined, now it's time to mount it inside the container. Let's extend the Kit again:
 
 === "database.yaml"
 
@@ -71,7 +71,7 @@ Since we have the volume defined, now it's time to mount it inside the container
                 path: <- $volume-data
     ```
 
-We have just replaced the `/tmp/important-data` because `database` inherits from `mopngodb/latest` which defines a variable `volume-data`. By looking at the `mongodb/latest` template we can see that the database container mounts `$volume-data` in `/data/db`:
+We have just replaced the `/tmp/important-data` because `database` inherits from `mopngodb/latest` which defines a variable `volume-data`. By looking at the `mongodb/latest` Kit we can see that the database container mounts `$volume-data` in `/data/db`:
 
 === "mongodb/latest"
 
@@ -86,7 +86,7 @@ We have just replaced the `/tmp/important-data` because `database` inherits from
 
 This means it is sufficient to just provide the `volume-data` in the `volumes` section so that `important-data` will get mounted in a place where the mongodb container expects to save its state.
 
-## Step 2: Running the template
+## Step 2: Running the Kit
 
 === "database.yaml"
 

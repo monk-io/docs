@@ -191,7 +191,7 @@ CREATE SERVICE ACCOUNT== 3. Assign the **Admin** role on the project to the acco
 
 !!! note
 
-    **It's alright if you want to skip cluster creation for now.** You can run things locally and create a cluster later. You can still follow this guide but remember that stuff will happen on your machine and not in the cloud. To skip ahead, head to [Running templates locally](guides/running-templates.md).
+    **It's alright if you want to skip cluster creation for now.** You can run things locally and create a cluster later. You can still follow this guide but remember that stuff will happen on your machine and not in the cloud. To skip ahead, head to [Running Kits locally](guides/running-Kits.md).
 
 To create a new cluster:
 
@@ -328,7 +328,7 @@ You should get a similar output:
 
     You now have a fully operational 3 machine Monk cluster running in your cloud 🎉
 
-## Deploying a Template
+## Deploying a Kit
 
 Now that we have a working cluster, it's high time to run something on it.
 
@@ -336,7 +336,7 @@ Use the following command to see what's immediately available:
 
     monk list
 
-Then just pick one of those templates, or just try with `mongodb/latest`:
+Then just pick one of those Kits, or just try with `mongodb/latest`:
 
     monk run -t <your-cluster-tag> mongodb/latest
 

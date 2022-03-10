@@ -69,7 +69,7 @@ If for some reason you didn't hear from us, in order to claim your rewards reach
 - [Monk Discord Server](https://discord.gg/2YGryc5), channel: **[#bugs-and-fixes](https://discord.com/channels/760852235000348703/760855409992531998)**
 - Email: [rewards@monk.io](mailto:rewards@monk.io)
 
-We are obligated to verify your identity and authorship of the templates before making any payments.
+We are obligated to verify your identity and authorship of the Kits before making any payments.
 
 :::caution The reward amounts may change without notice
 

@@ -96,11 +96,11 @@ In a new terminal, run:
 
     monk login
 
-After logging in, you should be able to list the available templates like so:
+After logging in, you should be able to list the available Kits like so:
 
     monk list
 
-The command should return available templates if the installation was successful, but sometimes it may take up to 30 seconds to sync the templates. If you don't see a list at first, just retry in a few seconds.
+The command should return available Kits if the installation was successful, but sometimes it may take up to 30 seconds to sync the Kits. If you don't see a list at first, just retry in a few seconds.
 
     Type      Template              Repository    Version   Tags
     runnable  chatwoot/chatwoot     local         latest    self hosted, messaging, communication

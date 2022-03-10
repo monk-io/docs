@@ -1,6 +1,6 @@
 This guide will show you how to easily deploy Chainlink-based system.
 
-## Templates
+## Kits
 
 Each of the components is published in Monk Hub (<https://monkhub.io/>) or can be loaded locally from the repository.
 

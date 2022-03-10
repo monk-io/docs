@@ -8,7 +8,7 @@ Getting services up and running isn't everything - they also need to talk to eac
 
 ## The consumer
 
-Consider the following template:
+Consider the following Kit:
 
 ```yaml title="my stuff.yaml" linenums="1"
 namespace: mystuff
@@ -36,9 +36,9 @@ my-service:
 
 Let's assume that the `ubuntu:latest` image expects environment variables `DB_ADDR` and `DB_PORT` to be set. We are setting those environment variables based on control plane variables `db-addr` and `db-port`.
 
-Whenever we run `mystuff/my-service` it will assume that the database is at `localhost:21721`. Though, in most cases, the database will not be at localhost and running this template as it is will end in an error.
+Whenever we run `mystuff/my-service` it will assume that the database is at `localhost:21721`. Though, in most cases, the database will not be at localhost and running this Kit as it is will end in an error.
 
-The provider `mystuff/my-service` expects a MongoDB database. Monk provides a template for this. So we don't really need to define it here. It's on the Hub.
+The provider `mystuff/my-service` expects a MongoDB database. Monk provides a Kit for this. So we don't really need to define it here. It's on the Hub.
 
 Run MongoDB with:
 
@@ -57,7 +57,7 @@ Before running mystuff/my-service we need to tell it where to find the database 
 1.  The path of the target runnable and,
 2.  the name of the container within that runnable.
 
-The template should now look like this:
+The Kit should now look like this:
 
 ```yaml title="mystuff.yaml" linenums="1"
 namespace: mystuff
@@ -84,7 +84,7 @@ my-service:
 
 ## The result
 
-Run the new template with:
+Run the new Kit with:
 
     monk load mystuff.yaml
     monk run mystuff/my-service

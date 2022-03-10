@@ -13,7 +13,7 @@ Monk is a new paradigm and approach to orchestration: a control plane sitting be
 
 :::note Paradigm
 
-No matter how complex they get, stacks should be as easy to 'install' and 'run' as mobile apps. Since Monk templates work seamlessly everywhere, **you as a developer offload all undue complexity** to (1) us, who make sure `monk` and `monkd` work with both infra and containers, and to (2) template publishers, who optimize stacks and components for particular app/infra combinations.
+No matter how complex they get, stacks should be as easy to 'install' and 'run' as mobile apps. Since Monk Kits work seamlessly everywhere, **you as a developer offload all undue complexity** to (1) us, who make sure `monk` and `monkd` work with both infra and containers, and to (2) Kitpublishers, who optimize stacks and components for particular app/infra combinations.
 :::
 
 ---
@@ -24,11 +24,11 @@ Monk was built to be the next-gen Kubernetes alternative. We realized that with 
 
 Both Monk and Kubernetes orchestrate containers, provision workloads and reduce hardware footprint. However, Kubernetes being a monumental solution, requires highly specialized engineers and a sophisticated DevOps setup. Monk bypasses this complexity by abstracting the vast majority of orchestration and infrastructure-side operations into an efficient single workflow.
 
--   **Fast onboarding**: familiar YAML, easy to customize templates and a logic mimicking `docker-compose` make it easy to deploy your first app with Monk in less than 2 hours.
+-   **Fast onboarding**: familiar YAML, easy to customize Kits and a logic mimicking `docker-compose` make it easy to deploy your first app with Monk in less than 2 hours.
 
--   **Seamless production flow**: develop locally and move to staging and production with zero friction. Monk templates work the same anywhere there's a `monkd` instance running.
+-   **Seamless production flow**: develop locally and move to staging and production with zero friction. Monk Kits work the same anywhere there's a `monkd` instance running.
 
--   **Low overhead**: lean teams can manage very complex applications. Monk is easy to use, and [developers who maintain templates](publishers.md) significantly reduce overhead for end users.
+-   **Low overhead**: lean teams can manage very complex applications. Monk is easy to use, and [developers who maintain Kits](publishers.md) significantly reduce overhead for end users.
 
 -   **Built-in Engine**: in most use cases, especially for smaller teams, K8s requires managed services such as EKS, AKS or GKE, which add extra steps and scaling pains. Monk Engine, which runs a new kind of [peer-to-peer clusters](lifecycle/cluster-create-1.md), is a native part of the [ecosystem](key-concepts.md) and offers load balancing, auto-scaling and much more out of the box. See [Features](features.md) for a complete list.
 
@@ -36,15 +36,15 @@ Also note that Monk integrates natively with popular [CI/CD providers](ci-cd). O
 
 ## Helm
 
-You could think of Monk templates as superpowered Helm charts. Yet unlike Helm, Monk is built from the ground up to integrate template language and package management into one.
+You could think of Monk Kits as superpowered Helm charts. Yet unlike Helm, Monk is built from the ground up to integrate Kitlanguage and package management into one.
 
 -   _All in one_: Helm was supposed to be a package manager for K8s definitions, but it also doubles as a templating language. Doing more things at once increases complexity and errors.
 
 -   _Better language_: Helm's language relies on imperative templating, which makes it verbose and prone to mistakes. [MonkScript YAML](monkscript) is declarative and composable, which makes it less verbose and supportive of the DRY principle. It also has a friendlier syntax.
 
--   _Native package manager_: Artifact Hub is a package manager built on top of Helm, whereas Monk Hub is native to the [ecosystem](key-concepts.md). Our template language is also seamlessly integrated with the rest of the internals and decoupled from package management, which makes Monk templates really portable across workflows and systems.
+-   _Native package manager_: Artifact Hub is a package manager built on top of Helm, whereas Monk Hub is native to the [ecosystem](key-concepts.md). Our Kitlanguage is also seamlessly integrated with the rest of the internals and decoupled from package management, which makes Monk Kits really portable across workflows and systems.
 
--   _Unified Execution_: in Helm, composition happens at compile-time, and runtime scripting happens through other mechanisms that depend on k8s, which complicates workflow and troubleshooting. Monk presents a unified execution model for template programming, so all scripts and one-liners execute at the time when they're needed without a pre-processing phase. It's much simpler and more powerful to have everything under control using a single grammar.
+-   _Unified Execution_: in Helm, composition happens at compile-time, and runtime scripting happens through other mechanisms that depend on k8s, which complicates workflow and troubleshooting. Monk presents a unified execution model for Kitprogramming, so all scripts and one-liners execute at the time when they're needed without a pre-processing phase. It's much simpler and more powerful to have everything under control using a single grammar.
 
 In short, Monk offers a similar value proposition to Helm, but it's easier to use, implemented better, and ready to go out of the box.
 
@@ -69,7 +69,7 @@ In general principle and syntax, Monk is similar to Docker Compose: you define a
 However, Monk adds an invaluable extra layer of control to your manifests, making them truly independent of environment, and bypassing the need for a Dockerfile in most cases.
 
 -   **Environment definition**: With Compose, you need to specify a particular environment in your Dockerfile, and make manual changes to it when needed. Monk lets you do that inside your single MonkScript manifest, and switch environments (staging, production, CI/CD etc.) and infrastructure (cloud, multi-cloud or bare metal) in one place with just a few lines of code.
--   **Scriptable actions**: You can execute code in your containers and communicate with your cloud provider directly from Monk, without a Dockerfile or even your cloud CLI. All you need is your template's manifest and the Monk [command line](cli/monk.md).
+-   **Scriptable actions**: You can execute code in your containers and communicate with your cloud provider directly from Monk, without a Dockerfile or even your cloud CLI. All you need is your Kit's manifest and the Monk [command line](cli/monk.md).
 
 Think of Monk as a docker-compose for herds of docker-composes, which also sets up and manages your infra in addition to containers.
 
@@ -83,11 +83,11 @@ Monk works seamlessly with Docker, and in fact to [install Monk](get-monk.md) at
 
 Terraform specializes in the provisioning/infrastructure level. Monk has that covered, but also deals with the application side of things. Think of it as if Kubernetes and Terraform had a baby, with much nicer syntax:
 
--   **More than provisioning**: Monk templates can contain both infrastructure elements and service definitions (containers).
+-   **More than provisioning**: Monk Kits can contain both infrastructure elements and service definitions (containers).
 
 -   **Complete system definitions**: Since infrastructure components and service components are unified on Monk, it's possible to share a complete system – e.g. a Kafka cluster with a lot of moving parts – and put it on any Monk cluster in the world. All with a single YAML file.
 
--   **Simple and efficient**: Starting a new Monk cluster, without even having Monk installed, only takes three commands: `apt install monk` && `monk cluster new` && `monk provider add`. Even without writing any templates you get to deploy full systems with e.g. `monk run gitlab/latest` pulled straight from the Hub.
+-   **Simple and efficient**: Starting a new Monk cluster, without even having Monk installed, only takes three commands: `apt install monk` && `monk cluster new` && `monk provider add`. Even without writing any Kits you get to deploy full systems with e.g. `monk run gitlab/latest` pulled straight from the Hub.
 
 -   **Declarative templating**: like MonkScript, Terraform uses declarative configuration files that work predictably in testing, staging, and production environments. However, MonkScript is arguably easier to learn than HCL (HashiCorp Configuration Language) and provides a more unified workflow thanks to [scriptable actions](monkscript/scripting) and more unique features.
 

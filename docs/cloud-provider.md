@@ -5,7 +5,7 @@ title: Add cloud provider
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Monk requires access to your cloud account in order to be able to provision cloud resources on your behalf. Before running a template that provisions instances, load-balancers, volumes etc. you will have to add your cloud provider to Monk.
+Monk requires access to your cloud account in order to be able to provision cloud resources on your behalf. Before running a Kitthat provisions instances, load-balancers, volumes etc. you will have to add your cloud provider to Monk.
 
 :::note
 

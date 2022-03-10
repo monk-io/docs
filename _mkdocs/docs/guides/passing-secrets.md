@@ -1,4 +1,4 @@
-Some information passed in the templates should be hidden from prying eyes. Fortunately, your database passwords, keys, secret tokens, and other sensitive information can be stored safely in encrypted form before being passed to Monk.
+Some information passed in the Kits should be hidden from prying eyes. Fortunately, your database passwords, keys, secret tokens, and other sensitive information can be stored safely in encrypted form before being passed to Monk.
 
 This tutorial also has a short video! Stream away:
 
@@ -12,9 +12,9 @@ This tutorial also has a short video! Stream away:
 
 Mozilla Secrets OPerationS (SOPS) is a popular editor for encrypted files, supporting many popular formats including JSON and YAML. See: [https://github.com/mozilla/sops](https://github.com/mozilla/sops).
 
-You can encrypt your templates with SOPS for storage or for putting them under version control. Monk is able to `load` SOPS encrypted YAML files in a transparent manner as long as it has access to the key store that was used to encrypt them.
+You can encrypt your Kits with SOPS for storage or for putting them under version control. Monk is able to `load` SOPS encrypted YAML files in a transparent manner as long as it has access to the key store that was used to encrypt them.
 
-This feature works transparently - if you have an encrypted template, just use:
+This feature works transparently - if you have an encrypted Kit, just use:
 
     monk load myencrypted.yaml
 
@@ -46,7 +46,7 @@ $ gpg --list-keys "myapp1@mydomain.local" | grep pub -A1 | tail -n1
 
 ## Tutorial
 
-Let's suppose we have the following template:
+Let's suppose we have the following Kit:
 
 === "mystuff.yaml"
 
@@ -120,19 +120,19 @@ The `mystuff-secure.yaml` should look similar to this:
         version: 3.6.0
     ```
 
-As you can see, `1234-VERY-SECRET-KEY-ABC `is nowhere to be found. In fact, SOPS encrypted all the values so the purpose of this template is now impossible to decipher without decrypting the file.
+As you can see, `1234-VERY-SECRET-KEY-ABC `is nowhere to be found. In fact, SOPS encrypted all the values so the purpose of this Kit is now impossible to decipher without decrypting the file.
 
 ## Loading
 
-To `load` such template file:
+To `load` such Kit file:
 
     monk load mystuff-secure.yaml
 
-And that's it! Monk will load this file like any other cleartext template.
+And that's it! Monk will load this file like any other cleartext Kit.
 
-## Further edits to the template
+## Further edits to the Kit
 
-This template can now be edited by using:
+This Kit can now be edited by using:
 
     sops mystuff-secure.yaml
 
