@@ -111,6 +111,9 @@ module.exports = {
             },
         ],
     },
+    stylesheets: [
+        'https://at-ui.github.io/feather-font/css/iconfont.css'
+    ],
     scripts: [
         '/js/chatwoot.js',
     ],
