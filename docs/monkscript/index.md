@@ -10,7 +10,7 @@ MonkScript is Monk's composable definition language with runtime scripting abili
 :::note
 
 Start [Working with MonkScript &#8594;
-](monkscript/working)
+](monkscript/working.md)
 
 :::
 
