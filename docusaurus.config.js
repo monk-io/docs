@@ -11,7 +11,7 @@ module.exports = {
     favicon: "img/monk-dolphin-small.svg",
     organizationName: "OakDS Inc.", // Usually your GitHub org/user name.
     projectName: "monk-io/docs", // Usually your repo name.
-    trailingSlash: true,
+    trailingSlash: false,
     themeConfig: {
         navbar: {
             // title: 'monk Docs',
