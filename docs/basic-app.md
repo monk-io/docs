@@ -4,7 +4,7 @@ title: "Build a Basic App"
 
 Let's see how to create and run a basic app that uses MongoDB and Nginx, entirely from Monk.
 
-This tutorial requires you to have Monk installed locally, which you can do [just like this](get-monk).
+This tutorial requires you to have Monk installed locally, which you can do [just like this](get-monk.md).
 
 ## What we're building
 
