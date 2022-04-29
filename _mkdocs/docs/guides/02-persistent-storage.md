@@ -46,12 +46,12 @@ Let's extend `database.yaml` with a `volume` definition:
             important-data:
                 size: 60
                 kind: SSD
-                path: `/tmp/important-data`
+                path: <- `${monk-volume-path}/mongodb`
     ```
 
 We've added a volume named `important-data` in the new `volumes` section. The `size` is expressed in Gigabytes so our new volume will have 60GB. The `kind` is `SSD` - you can pick between `HDD` or `SSD` depending on your needs.
 
-The `path` tells Monk where to mount the volume on **host** meaning that the instance with this volume attached will see the persistent volume under the path specified here. In this case, the host will mount the volume in `/tmp/important-data`.
+The `path` tells Monk where to mount the volume on **host** meaning that the instance with this volume attached will see the persistent volume under the path specified here. In this case, the host will mount the volume in `${monk-volume-path}/mongodb`.
 
 Since we have the volume defined, now it's time to mount it inside the container. Let's extend the template again:
 
@@ -71,7 +71,7 @@ Since we have the volume defined, now it's time to mount it inside the container
                 path: <- $volume-data
     ```
 
-We have just replaced the `/tmp/important-data` because `database` inherits from `mopngodb/latest` which defines a variable `volume-data`. By looking at the `mongodb/latest` template we can see that the database container mounts `$volume-data` in `/data/db`:
+We have just replaced the `${monk-volume-path}/mongodb` because `database` inherits from `mongodb/latest` which defines a variable `volume-data`. By looking at the `mongodb/latest` template we can see that the database container mounts `$volume-data` in `/data/db`:
 
 === "mongodb/latest"
 
