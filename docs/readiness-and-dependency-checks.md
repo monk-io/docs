@@ -29,10 +29,10 @@ readiness:
     interval: <time in seconds>
 ```
 
-`code` - is the place where we will put our Arrow script to check readiness  
-`period` - is the value that defines how long Monk will perform checks until it decides that application didn't start properly  
-`initialDelay` - specified initial delay before Monk will start checking application health  
-`interval` - specifies how often Monk will perform this check
+`code` - is the place where we will put our Arrow script to check readiness, 
+`period` - is the time period (in seconds) until Monk decides that application didn't start properly,  
+`initialDelay` - initial delay (in seconds) before Monk will start checking application health,
+`interval` - specifies how often (in seconds) Monk will perform this check.
 
 ### Example
 

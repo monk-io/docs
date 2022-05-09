@@ -87,7 +87,7 @@ monk cluster peers
 
 :::tip success
 
-You are all set to [Run templates in a cluster](running-templates-cluster)!
+You are all set to [Run Kits in a cluster](running-templates-cluster)!
 
 :::
 
@@ -152,4 +152,4 @@ The Monkcode can be reused to add more machines in the same manner as long as th
 
 ## Conclusion
 
-We have learned how to create and grow a cluster. The whole point of having a Monk cluster is being able to run templates on it. Continue to the next guide to see how to run a template in your new cluster.
+We have learned how to create and grow a cluster. The whole point of having a Monk cluster is being able to run Kits on it. Continue to the next guide to see how to run a Kit in your new cluster.

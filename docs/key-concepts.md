@@ -6,9 +6,9 @@ Monk is a new infrastructure platform that makes it easy to deploy and manage co
 
 - **MonkScript** composable YAML for describing containers and workloads in one place
 
-- **Monk Hub** a globally accessible repository where templates are stored
+- **Monk Hub** a globally accessible repository where Kits are stored
 
-With this "trinity" working together, you can define your entire stack with a single master manifest (_written in MonkScript_) composed from other developers' templates (_on Monk Hub_). You can then deploy said stack on your infrastructure of choice without needing to define provisioning somewhere else (_thanks to Monk Engine_).
+With this "trinity" working together, you can define your entire stack with a single master manifest (_written in MonkScript_) composed from other developers' Kits (_on Monk Hub_). You can then deploy said stack on your infrastructure of choice without needing to define provisioning somewhere else (_thanks to Monk Engine_).
 
 Pretty nifty, right? Let's take a closer look at each component.
 
@@ -65,11 +65,11 @@ This mechanism can be used to abstract away any workload-specific task or enhanc
 
 ## MonkScript
 
-_MonkScript_ is Monk's Template definition language. It is easy to understand as it takes inspiration from well-known products like [docker-compose](https://docs.docker.com/compose/). At the same time, MonkScript is more expressive than similar definition languages thanks to inline scripting and composability.
+_MonkScript_ is Monk's Kit definition language. It is easy to understand as it takes inspiration from well-known products like [docker-compose](https://docs.docker.com/compose/). At the same time, MonkScript is more expressive than similar definition languages thanks to inline scripting and composability.
 
-The Templates are not just Docker Images, they are defined in MonkScript and contain all the information that is needed to obtain, configure, and run described software in one command.
+The Kits are not just Docker Images, they are defined in MonkScript and contain all the information that is needed to obtain, configure, and run described software in one command.
 
-Additionally, Templates can describe actions and variables particular to the software they describe, making it easy to define custom strategies for custom software.
+Additionally, Kits can describe actions and variables particular to the software they describe, making it easy to define custom strategies for custom software.
 
 Think about docker-composing docker-composes, this is what MonkScript is about.
 
@@ -77,16 +77,16 @@ Learn everything about MonkScript in the [Reference](monkscript).
 
 ## Monk Hub
 
-_Monk Hub_ ([monkhub.io](https://monkhub.io)) is the place to find pre-built Monk Templates.
+_Monk Hub_ ([monkhub.io](https://monkhub.io)) is the place to find pre-built Monk Kits.
 
-Templates on the Hub can be either Components, such as popular databases and services, or compositions thereof, defining things like entire data pipelines that can be run off the shelf.
+Kits on the Hub can be either Components, such as popular databases and services, or compositions thereof, defining things like entire data pipelines that can be run off the shelf.
 
-Furthermore, thanks to MonkScript, each template can be composed from other templates. The resulting template can be published to the Hub for others to use.
+Furthermore, thanks to MonkScript, each Kit can be composed from other Kits. The resulting Kit can be published to the Hub for others to use.
 
 :::note note
 
-Monk Templates can be instantiated from Monk Hub at any moment, without needing to download them, since every Monk Engine knows the contents of the Hub at all times.
+Monk Kits can be instantiated from Monk Hub at any moment, without needing to download them, since every Monk Engine knows the contents of the Hub at all times.
 
 :::
 
-You'll learn more about how templates can help you improve your workflow in the next section, [Why Monk](use-cases.md). And if you like the idea of publishing entire stack blueprints on a community repo, take a closer look at our [Publisher program](publishers.md) here in the docs.
+You'll learn more about how Kits can help you improve your workflow in the next section, [Why Monk](use-cases.md). And if you like the idea of publishing entire stack blueprints on a community repo, take a closer look at our [Publisher program](publishers.md) here in the docs.

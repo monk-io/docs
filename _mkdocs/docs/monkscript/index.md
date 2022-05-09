@@ -8,7 +8,7 @@ MonkScript is Monk's composable definition language with runtime scripting abili
 
 ](/monkscript/working)
 
-MonkScript sources can live in YAML files. These YAML files are called _manifests_ and the statements within, are called _templates_. A template can be either a _runnable_ (a single _component_) or a _group_ (a composition of other templates).
+MonkScript sources can live in YAML files. These YAML files are in general called _Kits_ and the statements within, are called _entities_. An _entity_ can be either a _runnable_ (a single _component_, much like K8s pod) or a _group_ (a composition of other _entities_).
 
 A notable difference between MonkScript and other YAML based Infrastructure-As-Code languages is that there is no need for macros or pre-processors. MonkScript implements a set of inheritance and composition rules that can express even the most complicated systems in a straightforward manner.
 

@@ -2,31 +2,31 @@
 
 Monk is a new alternative to Kubernetes and Terraform-based deployment flows. We make it possible to orchestrate entire stacks, rather than just containers, on any cloud or on-premise cluster, saving months of DevOps overhead.
 
-This vision wouldn't be possible without publishers: developers who build and maintain stack Templates. We invite you to become one for fun, exposure and a host of other benefits.
+This vision wouldn't be possible without publishers: developers who build and maintain stack Kits. We invite you to become one for fun, exposure and a host of other benefits.
 
-## Publishers create Monk Templates
+## Publishers create Monk Kits
 
-Monk is based on powerful master manifests, called Templates. You can use them to specify and provision system configurations down to the workload level. This makes these templates incredibly easy to deploy, manage and migrate on any infrastructure.
+Monk is based on powerful master manifests, called Kits. You can use them to specify and provision system configurations down to the workload level. This makes these Kits incredibly easy to deploy, manage and migrate on any infrastructure.
 
-Templates are released on [MonkHub.io](https://monkhub.io) by community Publishers, who include open source developers, software vendors, and enterprises. In our open beta, we collected over 300+ templates, ranging from single software components to fully integrated stack blueprints. We are always on the lookout for thrill-seeking devs to build more templates and push this new boundary of orchestration with us.
+Kits are released on [MonkHub.io](https://monkhub.io) by community Publishers, who include open source developers, software vendors, and enterprises. In our open beta, we collected over 300+ Kits, ranging from single software components to fully integrated stack blueprints. We are always on the lookout for thrill-seeking devs to build more Kits and push this new boundary of orchestration with us.
 
 ​[Apply here](https://monk-io.typeform.com/to/SCkHZKPE) to start publishing, or read on for details.
 
-## How templates work
+## How Kits work
 
-Think of Monk templates as no-Kubernetes Helm charts on overdrive, defining entire system requirements from machines to workload provisioning. They’re written in Monk Script, an easy and powerful flavor of YAML that is:
+Think of Monk Kits as no-Kubernetes Helm charts on overdrive, defining entire system requirements from machines to workload provisioning. They’re written in Monk Script, an easy and powerful flavor of YAML that is:
 
 : **Composable**: Import, reuse and modify existing configurations as you would with regular code libraries.
 
 : **Scriptable**: Extend the capabilities of the containers and your system with our programmable control plane.
 
-: **Portable**: Templates can be reproduced on any cloud or on-premise cluster that runs Monk within minutes.
+: **Portable**: Kits can be reproduced on any cloud or on-premise cluster that runs Monk within minutes.
 
 This means you can tweak and share single components (e.g. Nginx) as easily as an entire off-the-shelf stack (e.g. the entire data science workflow your startup runs on AWS + GCP), or even better, combine these and more to build something entirely new. Here's a [simple example](./guides/basic-app.md).
 
 ## Benefits for Publishers
 
-This flexibility makes Monk templates an excellent distribution choice for open-source developers and proprietary software vendors. As a fast-growing Silicon Valley startup we are actively exploring publishing models that you, our community, will love and benefit from.
+This flexibility makes Monk Kits an excellent distribution choice for open-source developers and proprietary software vendors. As a fast-growing Silicon Valley startup we are actively exploring publishing models that you, our community, will love and benefit from.
 
 Monk is a new paradigm in orchestration. It makes it easy for your users to run your software anywhere while giving you visibility into a growing new community:
 
@@ -54,14 +54,14 @@ Monk is a new paradigm in orchestration. It makes it easy for your users to run 
 : Be one of the pioneers of entire-stack orchestration
 
 **Contribute to your community**
-: Become a core maintainer of the official Monk template for your favorite open-source software.
+: Become a core maintainer of the official Monk Kit for your favorite open-source software.
 
 ### Unlock new revenue
 
 We are in the early stages of exploring these revenue models for our publishers, and would love your opinion!
 
-**Template marketplace**
-: Sell your own software or build in-demand stack templates.
+**Kit marketplace**
+: Sell your own software or build in-demand stack Kits.
 
 **On-demand stacks**
 : Build and maintain specific stacks for enterprises on request, sometimes alongside the Monk team.
@@ -70,15 +70,15 @@ We are in the early stages of exploring these revenue models for our publishers,
 
 1. Apply by filling the [application form](https://monk-io.typeform.com/to/SCkHZKPE), it only takes a minute or two
 2. We will review your application and get in touch to start onboarding.
-3. Onboarding includes setting up your publisher account, linking your code repository, and configuring the publishing pipeline for your templates.
-4. Publish your templates on Monk Hub for other developers to use!
-5. Access rich usage insights and update your templates seamlessly
+3. Onboarding includes setting up your publisher account, linking your code repository, and configuring the publishing pipeline for your Kits.
+4. Publish your Kits on Monk Hub for other developers to use!
+5. Access rich usage insights and update your Kits seamlessly
 
 ## Publishing: a primer
 
-Once your application is successful and you are onboarded as a Publisher you can start pushing templates on Monk Hub via your own code repository or one maintained by Monk.
+Once your application is successful and you are onboarded as a Publisher you can start pushing Kits on Monk Hub via your own code repository or one maintained by Monk.
 
-Your published templates will appear in the Monk Hub and the stack wizard, as well as by running `monk list` in the CLI.
+Your published Kits will appear in the Monk Hub and the stack wizard, as well as by running `monk list` in the CLI.
 
 <figure>
   <img src="/assets/publishers1.png" />
@@ -90,9 +90,9 @@ Your published templates will appear in the Monk Hub and the stack wizard, as we
   <figcaption>Monk Hub CLI view</figcaption>
 </figure>
 
-Each change to your Monk template triggers our deployment pipeline and publishes an updated or new version of your components to Monk Hub.
+Each change to your Monk Kit triggers our deployment pipeline and publishes an updated or new version of your components to Monk Hub.
 
-Creating a template is easy and takes only a few lines of YAML. You decide how much detail you want to include:
+Creating a Kit is easy and takes only a few lines of YAML. You decide how much detail you want to include:
 
 -   metadata describing your system
 -   public or private containers

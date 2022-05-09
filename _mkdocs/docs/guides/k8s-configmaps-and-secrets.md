@@ -23,7 +23,7 @@ data:
 Judging by the key names and that the values are multiple lines we can assume that those two will be files.  
 In Monk there's a distinguishment for the file and variables so we need to define them in appropriate space.  
 
-Lets consider this Monk template our 'base' template:
+Lets consider this Monk Kit our 'base' Kit:
 
 ```yaml
 namespace: /nginx
@@ -39,7 +39,7 @@ server:
           - 80:80
 ```
 
-No we would like those two files be exposed by our webserver. We can achieve that by adding [files section](/monkscript/yaml/runnables/#files) to above template, which would resolve in following template:
+No we would like those two files be exposed by our webserver. We can achieve that by adding [files section](/monkscript/yaml/runnables/#files) to above Kit, which would resolve in following Kit:
 
 ```yaml
 namespace: /nginx
@@ -158,7 +158,7 @@ $ echo YmFyCg== | base64 -d
 bar
 ```
 
-Now, we will add it to our main template:  
+Now, we will add it to our main Kit:  
 ```yaml
 namespace: /nginx
 

@@ -227,7 +227,7 @@ Referencing the contianer spec, we'll write similar YAML:
 
 Since we have all runnable defitions completed, it's time to try to run them.
 
-### Loading Templates into Monk
+### Loading Kits into Monk
 
 First we need to load them into monk, we can achieve this by running:
 
@@ -405,7 +405,7 @@ We can see that `Service` listens and redirects requests to port 80. Lets amend 
             - 80:80
     ```
 
-Now we need to update the template and our workload:
+Now we need to update the Kit and our workload:
 
 ```bash
 $ monk load yelb-ui.yaml
@@ -504,7 +504,7 @@ Lets combine all the information into our YAML file:
         value: <- get-hostname("yelb/appserver", "yelb-appserver")
     ```
 
-We should now update our template and workload.
+We should now update our Kit and workload.
 
 ```bash
 $ monk load yelb-ui.yaml
@@ -615,7 +615,7 @@ Our YAML should look like:
                 value: <- get-hostname("yelb/redis", "redis-server")
     ```
 
-We should update our template and workload.
+We should update our Kit and workload.
 
 ```bash
 $ monk load yelb-appserver.yaml
@@ -630,7 +630,7 @@ We can now open the webpage again. It should now work correctly.
 
 ## Process Groups
 
-Now that we have everything working together without any problems, we can 'beutify' our configuration a bit. We'll start by removing our workload to demonstrate how having predefined templates lets us start of our workloads all at once.
+Now that we have everything working together without any problems, we can 'beutify' our configuration a bit. We'll start by removing our workload to demonstrate how having predefined Kits lets us start of our workloads all at once.
 
 ```bash
 $ monk purge local/yelb/db
@@ -732,7 +732,7 @@ Our application should be running exactly the same as previously, but this gives
 
 ## Using Inheritance to Spawn Multiple Copies of YELB
 
-Monk is very powerful. We can spawn multiple instances of the same app via inheritence with existing templates.
+Monk is very powerful. We can spawn multiple instances of the same app via inheritance with existing Kits.
 
 ### Our Development Environment
 
@@ -740,9 +740,9 @@ We can safely assume that we were working on our development environment. So the
 
 ### Moving to Production
 
-To spawn another instance of the YELB app for production, we will use Monk's [inheritance](http://localhost:8000/monkscript/yaml/overview/#inheritance) feature. This allows us to inherit a predefined template and only update the parts we want to change.
+To spawn another instance of the YELB app for production, we will use Monk's [inheritance](http://localhost:8000/monkscript/yaml/overview/#inheritance) feature. This allows us to inherit a predefined Kit and only update the parts we want to change.
 
-Let's define our namespace and add our db and redis [runnable](/monkscript/yaml/runnables/) components in the template.
+Let's define our namespace and add our db and redis [runnable](/monkscript/yaml/runnables/) components in the Kit.
 
 === "Monk"
 
@@ -758,7 +758,7 @@ Let's define our namespace and add our db and redis [runnable](/monkscript/yaml/
         inherits: yelb/redis
     ```
 
-In this example, we're defining a new namespace for production and adding two [runnables](/monkscript/yaml/runnables/). Each runnable inherits from existing templates via the `inherits` parameter.
+In this example, we're defining a new namespace for production and adding two [runnables](/monkscript/yaml/runnables/). Each runnable inherits from existing Kits via the `inherits` parameter.
 
 Now we will have to add our appserver and ui. We'll need to do a bit more as we had to use some workarounds in development mode. Fortunately, the inheritance will make this task easier.
 
@@ -865,7 +865,7 @@ The final YAML should look like this:
             - /yelb-production/redis
     ```
 
-Since this is our production template, it might be good idea to run it on some public cloud services. To do this, you'll need to have a cloud provider added. To learn more, please see ["Monk in 10 minutes" guide](/monk-in-10/#creating-a-monk-cluster).
+Since this is our production Kit, it might be good idea to run it on some public cloud services. To do this, you'll need to have a cloud provider added. To learn more, please see ["Monk in 10 minutes" guide](/monk-in-10/#creating-a-monk-cluster).
 
 Assuming we have AWS as the provider, we can simply run:
 

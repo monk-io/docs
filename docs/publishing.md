@@ -4,33 +4,32 @@ title: Publisher's Guide
 
 # Publisher's Guide
 
-This guide explains the publishing process from the technical standpoint. We are going into the nitty-gritty of how to publish and maintain a Monk template on MonkHub.
+This guide explains the publishing process from the technical standpoint. We are going into the nitty-gritty of how to publish and maintain a Monk Kit on MonkHub.
 
 ## Publishing to MonkHub
 
 MonkHub hosts its contents publicly so that it stays available to all Monk instances in existence. Contents of the Hub are synced across all Monk instances every couple of minutes.
 Once something is published to MonkHub it immediately becomes public and available to all Monk users.
 
-MonkHub periodically pulls a set of public Git repos from different publishers and aggregates their contents. This means that having your template published on GitHub is basically enough to have it published on MonkHub.
+MonkHub periodically pulls a set of public Git repos from different publishers and aggregates their contents. This means that having your Kit published on GitHub is basically enough to have it published on MonkHub.
 
 In order to publish your software on MonkHub, you'll need to follow several steps:
 
-1. Prepare your template - make sure it loads and runs without errors,
-2. Add metadata - to make the template look good on the Hub,
-3. Publish your template in a Git repo - so that its source is avaliable and MonkHub can pull it,
+1. Prepare your Kit - make sure it loads and runs without errors,
+2. Add metadata - to make the Kit look good on the Hub,
+3. Publish your Kit in a Git repo - so that its source is avaliable and MonkHub can pull it,
 4. [Contact us](support.md) to add your repo to MonkHub.
-5. Your template will be published after a review from us.
-6. Your template will be updated automatically whenever the default branch in your repo is updated.
+5. Your Kit will be published after a review from us.
+6. Your Kit will be updated automatically whenever the default branch in your repo is updated.
 
-## Preparing Your Template
-
-Even though any working template can be published to MonkHub, there are several steps that improve end-user experience and maintainability. We have detailed best practices below.
+## Preparing Your Kit
+Even though any working Kit can be published to MonkHub, there are several steps that improve end-user experience and maintainability. We have detailed best practices below.
 
 ### Naming
 
-Each Monk template lives in a `namespace` that identifies a company or a product to which the template belongs logically. It's good to decide on the name of your namespace and stick to it across all your templates.
+Each Monk Kit lives in a `namespace` that identifies a company or a product to which the Kit belongs logically. It's good to decide on the name of your namespace and stick to it across all your Kits.
 
-For example, if you're _ACME Corp._ and your primary product is called _foobar_, and you plan on publishing more products as templates, you might want to define your namespace as:
+For example, if you're _ACME Corp._ and your primary product is called _foobar_, and you plan on publishing more products as Kits, you might want to define your namespace as:
 
 ```yaml title="acme.yaml"
 namespace: acme
@@ -90,7 +89,7 @@ On the other hand, `gizmotron/latest` inherits common and overrides version, con
 
 #### Group Variables
 
-If your template features groups it is a good practice to expose variables in the group so that users can tune the underlying runnables without having to touch them directly.
+If your Kit features groups it is a good practice to expose variables in the group so that users can tune the underlying runnables without having to touch them directly.
 
 Consider the following example:
 
@@ -135,9 +134,9 @@ my-foo:
         admin-password: super secret password 123
 ```
 
-### Template Metadata
+### Kit Metadata
 
-When making a template for internal use there's usually no need for adding metadata. When publishing your templates to MonkHub it's good practice to add and keep metadata on all your runnables and groups. This can be easily achieved by just putting a single metadata definition in a `common` section described above.
+When making a Kit for internal use there's usually no need for adding metadata. When publishing your Kits to MonkHub it's good practice to add and keep metadata on all your runnables and groups. This can be easily achieved by just putting a single metadata definition in a `common` section described above.
 
 Consider the following example:
 
@@ -159,7 +158,7 @@ common:
     license: MIT
 ```
 
-Above example shows the most useful metadata fields that you should put on all your runnables and groups. MonkHub will display template metadata according to this definition in its web UI. Those fields are also used in the CLI when listing and inspecting available templates. Name, description and tags are used for search in MonkHub.
+Above example shows the most useful metadata fields that you should put on all your runnables and groups. MonkHub will display Kit metadata according to this definition in its web UI. Those fields are also used in the CLI when listing and inspecting available Kits. Name, description and tags are used for search in MonkHub.
 
 All metadata fields are optional and you can add any arbitrary field here, i.e.
 
@@ -172,7 +171,7 @@ metadata:
 
 ### Container Images
 
-Monk is able to pull container images from any public or private registry compatible with Docker. That being said, if a template is meant for public consumption all container images referenced by this template should also be publicly available to prevent end-users from having to supply container registry credentials upon running such template.
+Monk is able to pull container images from any public or private registry compatible with Docker. That being said, if a Kit is meant for public consumption all container images referenced by this Kit should also be publicly available to prevent end-users from having to supply container registry credentials upon running such Kit.
 
 It is also a good practice to refer to container images by including the registry in image name i.e.:
 
@@ -183,7 +182,7 @@ It is also a good practice to refer to container images by including the registr
 
 ## Preparing Your Repo
 
-Now that you have a good template, the next step is to prepare a publicly available Git repo. You can use GitHub, GitLab or any other Git hosting of your choosing that allows for public repos.
+Now that you have a good Kit, the next step is to prepare a publicly available Git repo. You can use GitHub, GitLab or any other Git hosting of your choosing that allows for public repos.
 
 Name of the repo is arbitrary and has no effect on MonkHub listing but we suggest using `monk-*` format i.e. `github.com/gizmotron/monk-gizmotron`, `github.com/acme/monk-dynamite` and keeping it in line with the chosen namespace.
 
@@ -201,17 +200,17 @@ This repo showcases a number of good practices described in this document so be 
 
 The repo should contain at least three files in its top directory:
 
--   `README.md` - should contain an informative description of the template and a short guide on how to deploy it with Monk,
--   `template.yaml` - this is the template itself, can be named after your namespace, eg. `gizmotron.yaml`
--   `MANIFEST` - this file lists all template files in load order, see below.
+-   `README.md` - should contain an informative description of the Kit and a short guide on how to deploy it with Monk,
+-   `kit.yaml` - this is the Kit itself, can be named after your namespace, eg. `gizmotron.yaml`
+-   `MANIFEST` - this file lists all Kit files in load order, see below.
 
-Of course, you can host multiple template files and build arbitrary directory structures as long as you adjust the `MANIFEST` accordingly.
+Of course, you can host multiple Kit files and build arbitrary directory structures as long as you adjust the `MANIFEST` accordingly.
 
-Apart from the files above, you might want to include a `LICENSE` file containing the license under which you wish to distribute your template.
+Apart from the files above, you might want to include a `LICENSE` file containing the license under which you wish to distribute your Kit.
 
 ### Monk MANIFEST
 
-Monk MANIFESTs are simple text files that are used by Monk to identify and load template files in correct order.
+Monk MANIFESTs are simple text files that are used by Monk to identify and load Kit files in correct order.
 
 For example, if you just have one YAML file (`gizmotron.yaml`) in your repo `monk-gizmotron`, your `MANIFEST` should look like this:
 
@@ -227,7 +226,7 @@ REPO monk-gizmotron
 LOAD dependencies.yaml gizmotron.yaml
 ```
 
-If you wish to store your template files in a sub-directory, you still need to place a `MANIFEST` in the repo's top level directory and point it to your sub-directory.
+If you wish to store your Kit files in a sub-directory, you still need to place a `MANIFEST` in the repo's top level directory and point it to your sub-directory.
 
 Consider the following directory structure:
 
@@ -236,25 +235,25 @@ repo/
     README.md
     LICENSE.md
     MANIFEST                    <-- top level MANIFEST
-    templates/
+    kits/
         MANIFEST                <-- nested MANIFEST
-        dependencies.yaml       <-- first template
-        gizmotron.yaml          <-- second template
+        dependencies.yaml       <-- first Kit definition
+        gizmotron.yaml          <-- second Kit definition
     resources/
         ...
     ...
 ```
 
-The **top level `MANIFEST`** should point to `templates` and look like this:
+The **top level `MANIFEST`** should point to `kits` and look like this:
 
 ```text title="MANIFEST"
 REPO monk-gizmotron
-DIRS templates
+DIRS kits
 ```
 
-The `templates/MANIFEST` should then list the templates in the load order:
+The `kits/MANIFEST` should then list the Kits in the load order:
 
-```text title="templates/MANIFEST"
+```text title="kits/MANIFEST"
 REPO monk-gizmotron
 LOAD dependencies.yaml gizmotron.yaml
 ```
@@ -265,25 +264,24 @@ The process is fully automated and requires no work on your side. Once you're re
 
 :::caution
 
-In order to ensure high quality of templates all contributions to MonkHub are considered on case-by-case basis and subject to review at any point.
+In order to ensure high quality of Kits all contributions to MonkHub are considered on case-by-case basis and subject to review at any point.
 
 :::
 
-## Maintaining Your Template
-
-Once the initial setup has been completed and the repo is published to MonkHub the only thing left is to update the hosted template whenever you release a new version of your software or want to change the template itself.
+## Maintaining Your Kit
+Once the initial setup has been completed and the repo is published to MonkHub the only thing left is to update the hosted Kit whenever you release a new version of your software or want to change the Kit itself.
 
 :::caution
 
-MonkHub will pull your changes whenever the default branch of your Git repo changes so anything committed or merged to `main` goes live within 10 minutes. For this reason we strongly advise to keep the write access limited to a small group of trusted people. Outside contributions to the template should be screened for potential bugs and security issues before merging them to the main branch.
+MonkHub will pull your changes whenever the default branch of your Git repo changes so anything committed or merged to `main` goes live within 10 minutes. For this reason we strongly advise to keep the write access limited to a small group of trusted people. Outside contributions to the Kit should be screened for potential bugs and security issues before merging them to the main branch.
 
 :::
 
 ### Versioning Your Software
 
-Monk templates are immutable, meaning that any update to the existing template actually becomes another template under the hood. Users running a certain version of your template will keep running it until they decide to update their copy with `monk update` command. Even though this is the case, versioning your templates makes it easier for the end user to pick a specific version of it as a dependency and enables easy downgrades.
+Monk Kits are immutable, meaning that any update to the existing Kit actually becomes another Kit under the hood. Users running a certain version of your Kit will keep running it until they decide to update their copy with `monk update` command. Even though this is the case, versioning your Kits makes it easier for the end user to pick a specific version of it as a dependency and enables easy downgrades.
 
-MonkScript supports inheritance - it can be used to define multiple versions and variants of a template without much repetition. Each new version of a `runnable` or `group` can refer to previous version using the `inherits` directive just override version specific fields incrementally. This pattern works well with the [Common section pattern](#common-section).
+MonkScript supports inheritance - it can be used to define multiple versions and variants of a Kit without much repetition. Each new version of a `runnable` or `group` can refer to previous version using the `inherits` directive just override version specific fields incrementally. This pattern works well with the [Common section pattern](#common-section).
 
 Consider the following example:
 
@@ -312,7 +310,7 @@ latest:
 
 Here we have a `v1.0.0` definition, which inherits `gizmotron/common` and overrides the `image-tag` of the container. This `gizmotron/v1.0.0` will start a container `app` from image `docker.io/gizmotron:v1.0.0`. The `version` field is used to display human readable version in MonkHub and CLI listings. Additionally, `gizmotron/latest` is defined to be equivalent to `gizmotron/v1.0.0`.
 
-Now let's suppose we want to add another version of Gizmotron to this template:
+Now let's suppose we want to add another version of Gizmotron to this Kit:
 
 ```yaml title="gizmotron.yaml"
 namespace: gizmotron
@@ -351,7 +349,7 @@ Assuming that only the underlying container image has changed from `v1.0.0` to `
 
 Technique described above also works if you want to keep your versions in separate YAML files as long as you keep all definitions under the same namespace and you remember to update your [`MANIFEST` file](#monk-manifest).
 
-Splitting separate versions into separate files might help to keep the definitions clean and works well in scenarios where you want to generate templates programmatically as a part of your CI process for example.
+Splitting separate versions into separate files might help to keep the definitions clean and works well in scenarios where you want to generate Kits programmatically as a part of your CI process for example.
 
 Consider the following filesystem layout:
 
@@ -411,7 +409,7 @@ latest:
 
 The `MANIFEST` file should then look as follows:
 
-```text title="templates/MANIFEST"
+```text title="kits/MANIFEST"
 REPO monk-gizmotron
 LOAD common.yaml v1.0.0.yaml v2.0.0.yaml latest.yaml
 ```

@@ -21,7 +21,7 @@ We are actively working on removing this limitation and enabling multi-cloud loa
 
 ## Load balancing with Monk
 
-Let's suppose we have the following template:
+Let's suppose we have the following Kit:
 
 ```yaml linenums="1"
 namespace: /lbs
@@ -130,11 +130,11 @@ services:
 
 :::warning
 
-Certificates are sensitive information. Learn how to store them in templates securely: [Passing secrets in templates](passing-secrets.md).
+Certificates are sensitive information. Learn how to store them in Kits securely: [Passing secrets in templates](passing-secrets.md).
 
 :::
 
-It's useful to also include domain: in this definition to immediately know what's going on just by looking at the template.
+It's useful to also include domain: in this definition to immediately know what's going on just by looking at the Kit.
 
 The `app-balancer` will listen on both port `80` and port `443` by default. It behaves the same way as the HTTP balancer but is capable of terminating TLS connections.
 

@@ -17,7 +17,7 @@ this script composes a string from constant strings and the contents of `syncmod
 
 ## Evaluation
 
-Arrow script is evaluated at **runtime**, this means that script definitions are stored and executed when needed during operation of the templates that defined them.
+Arrow script is evaluated at **runtime**, this means that script definitions are stored and executed when needed during operation of the Kits that defined them.
 
 ## Syntax
 

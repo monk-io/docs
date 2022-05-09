@@ -1,8 +1,8 @@
 ---
-title: "Deploy templates from CI/CD"
+title: "Deploy Kits from CI/CD"
 ---
 
-Monk can run as a step in your CI process and push updated templates to an existing Monk cluster. This is a powerful feature for git-driven ops and it's easy to accomplish.
+Monk can run as a step in your CI process and push updated Kits to an existing Monk cluster. This is a powerful feature for git-driven ops and it's easy to accomplish.
 
 ---
 
@@ -16,9 +16,9 @@ Be sure to note down the Monkcode for the cluster, you can get it by running:
 
     monk cluster info
 
-### A template
+### A Kit
 
-You'll need a template YAML file available to the CI job. It can come from the repo or even be synthesized by some CI job running before the one we're going to write in a moment.
+You'll need a Kit YAML file available to the CI job. It can come from the repo or even be synthesized by some CI job running before the one we're going to write in a moment.
 
 ## Credentials
 
@@ -48,7 +48,7 @@ The container image `gcr.io/monk-releases/monk-ci:latest` provides full `monkd` 
 
 ## CircleCI
 
-Assuming you have a project that contains a template, all you need to do is create a CircleCI config like this one in your project's folder:
+Assuming you have a project that contains a Kit, all you need to do is create a CircleCI config like this one in your project's folder:
 
 ```yaml title=".circleci/config.yml" linenums="1"
 version: 2.1
@@ -62,7 +62,7 @@ jobs:
                 command: |
                     MONK="monk -s monkcode://<cluster-monkcode> --nofancy --nocolor"
                     $MONK login --email <your-email> --password <your-password>
-                    $MONK load <your-template-file.yaml>
+                    $MONK load <your-kit-file.yaml>
                     $MONK update -t <yourtag> <your/runnable>
 workflows:
     build:
@@ -70,13 +70,13 @@ workflows:
             - deploy
 ```
 
-The above example will load and update `<your/runnable>` in the target cluster whenever the `build` workflow runs. The `-t <yourtag>` is needed for the first run to schedule your workload on the correct tag in the cluster. Note that `<your/runnable>` comes from `<your-template-file.yaml>` - put your own values there.
+The above example will load and update `<your/runnable>` in the target cluster whenever the `build` workflow runs. The `-t <yourtag>` is needed for the first run to schedule your workload on the correct tag in the cluster. Note that `<your/runnable>` comes from `<your-kit-file.yaml>` - put your own values there.
 
 :::note
 
-In case you just want to deploy a template that already exists in the hub - get rid of:
+In case you just want to deploy a Kitthat already exists in the hub - get rid of:
 
-    $MONK load <your-template-file.yaml>
+    $MONK load <your-kit-file.yaml>
 
 Then, just use something else in place of `<your/runnable>`, eg. `mongodb/latest`
 
@@ -105,18 +105,18 @@ RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
-In your `entrypoint.sh` add the Monk commands to start the daemon, log in to your account, join your cluster with the Monkcode and deploy the template:
+In your `entrypoint.sh` add the Monk commands to start the daemon, log in to your account, join your cluster with the Monkcode and deploy the Kit:
 
 ```bash title="monk-deploy/entrypoint.sh"
 #!/bin/sh -l
 
 MONK="monk --nofancy -s monkcode://$MONKCODE"
 $MONK login --email $MONK_USER --password $MONK_PASS
-$MONK load <your-template-file.yaml>
+$MONK load <your-kit-file.yaml>
 $MONK update -t <yourtag> <your/runnable>
 ```
 
-This will load and update `<your/runnable>` in the target cluster whenever the `build` workflow runs. The `-t <yourtag>` is needed for the first run to schedule your workload on the correct tag in the cluster. Note that `<your/runnable>` comes from `<your-template-file.yaml>` - put your own values there.
+This will load and update `<your/runnable>` in the target cluster whenever the `build` workflow runs. The `-t <yourtag>` is needed for the first run to schedule your workload on the correct tag in the cluster. Note that `<your/runnable>` comes from `<your-kit-file.yaml>` - put your own values there.
 
 Next, create the action metadata file:
 
@@ -175,15 +175,15 @@ deploy:
         set -x
         MONK="/usr/local/bin/monk -s monkcode://$MONKCODE"
         $MONK login --email $MONK_USERNAME --password $MONK_PASSWORD
-        $MONK load <your-template-file.yaml>
+        $MONK load <your-kit-file.yaml>
         $MONK update -t <yourtag> <your/runnable>
 ```
 
-This will load and update `<your/runnable>` in the target cluster whenever the `build` workflow runs. The `-t <yourtag>` is needed for the first run to schedule your workload on the correct tag in the cluster. Note that `<your/runnable>` comes from `<your-template-file.yaml>` - put your own values there.
+This will load and update `<your/runnable>` in the target cluster whenever the `build` workflow runs. The `-t <yourtag>` is needed for the first run to schedule your workload on the correct tag in the cluster. Note that `<your/runnable>` comes from `<your-kit-file.yaml>` - put your own values there.
 
 It triggers whenever you push a tag to your repo.
 
-The `deploy` job uses Monk to deploy to your cluster. In this example we load the `test.yaml` template and update the runnable `test/test`.
+The `deploy` job uses Monk to deploy to your cluster. In this example we load the `test.yaml` Kitand update the runnable `test/test`.
 
 Be sure to provide these variables to the Gitlab CI:
 
@@ -206,11 +206,11 @@ pipelines:
             script:
             - export MONK="monk -s monkcode://$MONKCODE --nofancy --nocolor"
             - $MONK login --email $MONK_USER --password $MONK_PASSWORD
-            - $MONK load <your-template-file.yaml>
+            - $MONK load <your-kit-file.yaml>
             - $MONK update -t $MONK_TAG <your/runnable>
 ```
 
-This will load and update `<your/runnable>` in the target cluster whenever a new commit is pushed to the repo. Note `-t $MONK_TAG` is required on first run to put your workload on the correct tag in the cluster. Remember to fill in your own values for `<your-template-file.yaml>` and `<your/runnable>`.
+This will load and update `<your/runnable>` in the target cluster whenever a new commit is pushed to the repo. Note `-t $MONK_TAG` is required on first run to put your workload on the correct tag in the cluster. Remember to fill in your own values for `<your-kit-file.yaml>` and `<your/runnable>`.
 
 Be sure to provide these variables in the Bitbucket pipeline settings:
 
@@ -221,4 +221,4 @@ Be sure to provide these variables in the Bitbucket pipeline settings:
 
 ## Secrets
 
-Throughout this tutorial we've had to deal with secrets, even if just for our Monk account credentials. Let's now see how you can boost your Monk setup security and work with [encrypted templates](./passing-secrets.md) 🤫
+Throughout this tutorial we've had to deal with secrets, even if just for our Monk account credentials. Let's now see how you can boost your Monk setup security and work with [encrypted Kits](./passing-secrets.md) 🤫

@@ -3,7 +3,7 @@ title: Monk YAML
 slug: /monkscript/yaml
 ---
 
-Monk uses YAML to express templates. One of our design goals was to make YAML manageable and eliminate the need for pre-processing using external tools. In order to achieve succinct definitions and composability, we've defined three special keys on top of standard YAML: `namespace`, `defines` and `inherits`.
+Monk uses YAML to express Kits. One of our design goals was to make YAML manageable and eliminate the need for pre-processing using external tools. In order to achieve succinct definitions and composability, we've defined three special keys on top of standard YAML: `namespace`, `defines` and `inherits`.
 
 Additionally, Monk provides a `<-` macro that denotes an [Arrow script](./scripting) which can be used in place of _any_ value in YAML.
 
@@ -11,7 +11,7 @@ It's important to understand how they work before working with MonkScript in ord
 
 ## Namespaces
 
-Each MonkScript YAML file has to have `namespace` key as the first key in the file. This instructs the MonkScript loader to put the contents of the template under a chosen path in Monk internal database.
+Each MonkScript YAML file has to have `namespace` key as the first key in the file. This instructs the MonkScript loader to put the contents of the Kit under a chosen path in Monk internal database.
 
 Consider the following example:
 
@@ -39,7 +39,7 @@ quux:
     bar: <- local-ip concat(":8080")
 ```
 
-This arrow script will put a local IP address with a `:8080` postfix into `bar`. Resolution of this script happens dynamically at template _runtime_. Final result would be as if the template looked like this:
+This arrow script will put a local IP address with a `:8080` postfix into `bar`. Resolution of this script happens dynamically at Kit _runtime_. Final result would be as if the Kit looked like this:
 
 ```yaml linenums="1"
 quux:
@@ -52,6 +52,21 @@ Learn more about [Arrow script &#8594;
 ](./scripting)
 
 :::
+
+## File embeds
+
+Consider the following example:
+
+```yaml linenums="1"
+quux:
+    #...
+    variables: 
+        foo: <<< foo.json 
+```
+
+The `<<<` instructs Monk to read the file `foo.json` relative to the currently interpreted YAML file and place its contents in `quux/variables/foo` as if they were pasted into YAML.
+
+This is useful for embedding large text files into your definitions without cluttering the YAML. Keep in mind that the embedded file needs to be present whenever your Kit is loaded.
 
 ## Inheritance
 
@@ -93,7 +108,7 @@ The `inherits` property can be used freely in any place in any definition and it
 
 Inheritance can be used to:
 
--   Override any value in any template,
+-   Override any value in any Kit,
 -   Compose a complex definition out of simple ones,
 -   Re-use common definitions across multiple components,
 -   Create multiple flavors or versions of the same runnable easily.
@@ -118,7 +133,7 @@ Both `foo` and `bar` are [`runnable`](#runnable). The key defines has special me
 
 By not deciding the meaning based on names, MonkScript allows for custom naming of all "special" sections. Notice that `foo` has `containers` but `bar` has `fun-boxes`. Both `containers` and `fun-boxes` has the same meaning to Monk as only the descriptor matters.
 
-Not relying on key names allows MonkScript to be extended with every new release without affecting the existing templates.
+Not relying on key names allows MonkScript to be extended with every new release without affecting the existing Kits.
 
 :::info
 
@@ -141,7 +156,7 @@ Learn more about [Runnables &#8594;
 
 ### `process-group`
 
-Groups (or `process-group`s) are compositions of multiple [runnables](#runnable) and other `groups` plus associated resources and state. This construct is used to compose other templates in Monk.
+Groups (or `process-group`s) are compositions of multiple [runnables](#runnable) and other `groups` plus associated resources and state. This construct is used to compose other Kits in Monk.
 
 :::note
 

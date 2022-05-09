@@ -56,7 +56,7 @@ It sometime takes several minutes to bootstrap a new instance so do not be alarm
 
 !!! note
 
-    Passing the `--tag` flag tags the new peers upon their creation so they can be addressed using their tags later on. See [Running templates in a cluster](/guides/running-templates-cluster) to find out how to use tags to indicate where to run the template.
+    Passing the `--tag` flag tags the new peers upon their creation so they can be addressed using their tags later on. See [Running Kits in a cluster](/guides/running-Kits-cluster) to find out how to use tags to indicate where to run the Kit.
 
 Running the above commands will create two new peers on GCP:
 
@@ -76,7 +76,7 @@ monk cluster peers
 
 !!! success
 
-    You are all set to [Run templates in a cluster](/guides/running-templates-cluster)!
+    You are all set to [Run Kits in a cluster](/guides/running-Kits-cluster)!
 
 !!! warning
 
@@ -133,4 +133,4 @@ The Monkcode can be reused to add more machines in the same manner as long as th
 
 ## Conclusion
 
-We have learned how to create and grow a cluster. The whole point of having a Monk cluster is being able to run templates on it. Continue to the next guide to see how to run a template in your new cluster.
+We have learned how to create and grow a cluster. The whole point of having a Monk cluster is being able to run Kits on it. Continue to the next guide to see how to run a Kit in your new cluster.
