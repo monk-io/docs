@@ -2,7 +2,7 @@
 title: Contributor Program
 ---
 
-import CustomLink from '@site/src/components/CustomLink';
+import CustomLink from '@site/src/components/customLink';
 
 # Monk Contributor Program
 
