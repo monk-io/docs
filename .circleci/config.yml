@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: node:16.14.0
+      - image: node:14.19.0
     steps:
       - checkout
       - run:
@@ -20,7 +20,7 @@ jobs:
 
   build_staging:
     docker:
-      - image: node:16.14.0
+      - image: node:14.19.0
     steps:
       - checkout
       - run:
