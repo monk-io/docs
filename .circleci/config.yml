@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: node:16.14.0
+      - image: node:14.19.0
     steps:
       - checkout
       - run:
@@ -20,7 +20,7 @@ jobs:
 
   build_staging:
     docker:
-      - image: node:16.14.0
+      - image: node:14.19.0
     steps:
       - checkout
       - run:
@@ -38,7 +38,7 @@ jobs:
 
   deploy_prod:
     docker:
-      - image: node:16.14.0
+      - image: node:14.19.0
     steps:
       - attach_workspace:
           at: ./docs
@@ -51,7 +51,7 @@ jobs:
 
   deploy_preprod:
     docker:
-      - image: node:16.14.0
+      - image: node:14.19.0
     steps:
       - attach_workspace:
           at: ./docs
