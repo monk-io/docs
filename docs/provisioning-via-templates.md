@@ -27,7 +27,6 @@ foo:
     defines: runnable
 
     nodes:
-        defines: nodes
         my-node:
             provider: gcp
             tag: my-magical-cluster
@@ -36,11 +35,9 @@ foo:
             disk-size: 128
 
     affinity:
-        defines: affinity
         name: my-node
 
     containers:
-        defines: containers
         some-service:
             image: some/image
             image-tag: latest

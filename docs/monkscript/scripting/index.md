@@ -78,7 +78,6 @@ Will return `3` as long as it is placed within a [`runnable`](./yaml/runnables) 
 
 ```yaml
 variables:
-    defines: variables
     foo: 1
     bar: 2
 ```

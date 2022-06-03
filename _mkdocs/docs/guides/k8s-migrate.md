@@ -73,7 +73,6 @@ We need something similar in Monk to run the application component. Lets define 
     ui:
         defines: runnable
         containers:
-            defines: containers
             yelb-ui:
                 image-tag: "0.7"
                 image: mreferre/yelb-ui
@@ -125,7 +124,6 @@ Again, we will look at containers spec, and produce similar YAML:
     appserver:
         defines: runnable
         containers:
-            defines: containers
             yelb-appserver:
                 image-tag: "0.5"
                 image: mreferre/yelb-appserver
@@ -171,7 +169,6 @@ Again, we'll reference the containers spec and produce similar YAML:
     db:
         defines: runnable
         containers:
-            defines: containers
             yelb-db:
                 image-tag: "0.5"
                 image: mreferre/yelb-db
@@ -217,7 +214,6 @@ Referencing the contianer spec, we'll write similar YAML:
     redis:
         defines: runnable
         containers:
-            defines: containers
             redis-server:
                 image-tag: "4.0.2"
                 image: redis
@@ -397,7 +393,6 @@ We can see that `Service` listens and redirects requests to port 80. Lets amend 
     ui:
     defines: runnable
     containers:
-        defines: containers
         yelb-ui:
         image-tag: "0.7"
         image: mreferre/yelb-ui
@@ -486,7 +481,6 @@ Lets combine all the information into our YAML file:
     ui:
     defines: runnable
     containers:
-        defines: containers
         yelb-ui:
         image-tag: "0.7"
         image: mreferre/yelb-ui
@@ -496,7 +490,6 @@ Lets combine all the information into our YAML file:
             /startup.sh`
 
     variables:
-        defines: variables
         port: 80
         yelb-appserver-addr:
         type: string
@@ -594,7 +587,6 @@ Our YAML should look like:
     appserver:
         defines: runnable
         containers:
-            defines: containers
             yelb-appserver:
                 image-tag: "0.5"
                 image: mreferre/yelb-appserver
@@ -604,7 +596,6 @@ Our YAML should look like:
                     /startup.sh`
 
         variables:
-            defines: variables
             port: 4567
             yelb-db-addr:
                 type: string
@@ -777,14 +768,12 @@ Our `appserver` definition will look like that:
         # We are inheriting main runnable yelb/appserver
         inherits: yelb/appserver
         containers:
-            defines: containers
             # We will overwrite our image-tag here, all other definition of the runnable will stay the same
             yelb-appserver:
                 image-tag: "0.4"
 
         # Update the namespace in our variables, changing it from yelb to yelb-production
         variables:
-            defines: variables
             yelb-db-addr:
                 type: string
                 value: <- get-hostname("yelb-production/db", "yelb-db")
@@ -805,7 +794,6 @@ Finally, we will look at UI, which will be less problematic. For that, we'll jus
         inherits: yelb/ui
 
         variables:
-            defines: variables
             # Update our appserver hostname here with production version
             yelb-appserver-addr:
                 type: string
@@ -831,12 +819,10 @@ The final YAML should look like this:
         defines: runnable
         inherits: yelb/appserver
         containers:
-            defines: containers
             yelb-appserver:
                 image-tag: "0.4"
 
         variables:
-            defines: variables
             yelb-db-addr:
                 type: string
                 value: <- get-hostname("yelb-production/db", "yelb-db")
@@ -850,7 +836,6 @@ The final YAML should look like this:
         inherits: yelb/ui
 
         variables:
-            defines: variables
             yelb-appserver-addr:
                 type: string
                 value: <- get-hostname("yelb-production/appserver", "yelb-appserver")

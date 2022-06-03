@@ -43,7 +43,6 @@ namespace: readiness
 
 common:
     containers:
-        defines: containers
         fooc:
             image: alpine
             image-tag: latest
@@ -53,7 +52,6 @@ bar:
     defines: runnable
     inherits: ./common
     checks:
-        defines: checks
         readiness:
             code: |
                 exec("fooc", "ps", "-ef") "sleep" contains?
@@ -75,7 +73,6 @@ Lets have a look at full definition of dependency checks:
 
 ```yaml
 depends:
-    defines: depends
     wait-for:
         runnables:
             - <a runnable path to wait for>
@@ -92,7 +89,6 @@ namespace: readiness
 
 common:
     containers:
-        defines: containers
         foo:
             image: alpine
             image-tag: latest
@@ -103,7 +99,6 @@ bar:
     inherits: ./common
 
     checks:
-        defines: checks
         readiness:
             code: |
                 exec("foo", "ps", "-ef") contains?("sleep")
@@ -116,7 +111,6 @@ baz:
     inherits: ./common
 
     depends:
-        defines: depends
         wait-for:
             runnables:
                 - ./bar
@@ -133,7 +127,6 @@ We've added here our simple dependency using:
 
 ```yaml
 depends:
-    defines: depends
     wait-for:
         runnables:
             - ./bar

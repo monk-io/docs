@@ -16,7 +16,6 @@ namespace: mystuff
 my-service:
     defines: runnable
     containers:
-        defines: containers
         my-service:
             image: ubuntu:latest
             environment:
@@ -25,7 +24,6 @@ my-service:
             bash: <- `echo db at $DB_ADDR:$DB_PORT ; sleep 3600`
 
     variables:
-        defines: variables
         db-addr:
             type: string
             value: localhost
@@ -65,7 +63,6 @@ namespace: mystuff
 my-service:
     defines: runnable
     containers:
-        defines: containers
         my-service:
             image: ubuntu:latest
             environment:
@@ -73,7 +70,6 @@ my-service:
                 - <- `DB_PORT=${db-port}`
             bash: <- `echo db at $DB_ADDR:$DB_PORT ; sleep 3600`
     variables:
-        defines: variables
         db-addr:
             type: string
             value: <- get-hostname("mongodb/latest", "database")

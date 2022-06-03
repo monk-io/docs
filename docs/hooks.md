@@ -16,7 +16,6 @@ namespace: foobars
 foo:
     defines: runnable
     containers:
-        defines: containers
         bar:
             image: alpine:latest
             entrypoint: <- `/bin/sh /root/r.sh`
@@ -24,14 +23,12 @@ foo:
                 container-started: hello-world
 
     files:
-        defines: files
         r1:
             path: /root/r.sh
             container: bar
             contents: "while true; do sleep 1; date; done"
 
     actions:
-        defines: actions
         hello-world:
             code: exec("bar", "/bin/sh", "-c", `echo "Hello World" > /tmp/hello`)
 ```

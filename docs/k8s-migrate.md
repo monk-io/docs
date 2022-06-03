@@ -71,7 +71,6 @@ namespace: /yelb
 ui:
     defines: runnable
     containers:
-        defines: containers
         yelb-ui:
             image-tag: "0.7"
             image: mreferre/yelb-ui
@@ -121,7 +120,6 @@ namespace: /yelb
 appserver:
     defines: runnable
     containers:
-        defines: containers
         yelb-appserver:
             image-tag: "0.5"
             image: mreferre/yelb-appserver
@@ -163,7 +161,6 @@ namespace: /yelb
 db:
     defines: runnable
     containers:
-        defines: containers
         yelb-db:
             image-tag: "0.5"
             image: mreferre/yelb-db
@@ -205,7 +202,6 @@ namespace: /yelb
 redis:
     defines: runnable
     containers:
-        defines: containers
         redis-server:
             image-tag: "4.0.2"
             image: redis
@@ -383,7 +379,6 @@ namespace: /yelb
 ui:
 defines: runnable
 containers:
-    defines: containers
     yelb-ui:
     image-tag: "0.7"
     image: mreferre/yelb-ui
@@ -470,7 +465,6 @@ namespace: /yelb
 ui:
 defines: runnable
 containers:
-    defines: containers
     yelb-ui:
     image-tag: "0.7"
     image: mreferre/yelb-ui
@@ -480,7 +474,6 @@ containers:
         /startup.sh`
 
 variables:
-    defines: variables
     port: 80
     yelb-appserver-addr:
     type: string
@@ -576,7 +569,6 @@ namespace: /yelb
 appserver:
     defines: runnable
     containers:
-        defines: containers
         yelb-appserver:
             image-tag: "0.5"
             image: mreferre/yelb-appserver
@@ -586,7 +578,6 @@ appserver:
                 /startup.sh`
 
     variables:
-        defines: variables
         port: 4567
         yelb-db-addr:
             type: string
@@ -753,14 +744,12 @@ appserver:
     # We are inheriting main runnable yelb/appserver
     inherits: yelb/appserver
     containers:
-        defines: containers
         # We will overwrite our image-tag here, all other definition of the runnable will stay the same
         yelb-appserver:
             image-tag: "0.4"
 
     # Update the namespace in our variables, changing it from yelb to yelb-production
     variables:
-        defines: variables
         yelb-db-addr:
             type: string
             value: <- get-hostname("yelb-production/db", "yelb-db")
@@ -779,7 +768,6 @@ ui:
     inherits: yelb/ui
 
     variables:
-        defines: variables
         # Update our appserver hostname here with production version
         yelb-appserver-addr:
             type: string
@@ -803,12 +791,10 @@ appserver:
     defines: runnable
     inherits: yelb/appserver
     containers:
-        defines: containers
         yelb-appserver:
             image-tag: "0.4"
 
     variables:
-        defines: variables
         yelb-db-addr:
             type: string
             value: <- get-hostname("yelb-production/db", "yelb-db")
@@ -822,7 +808,6 @@ ui:
     inherits: yelb/ui
 
     variables:
-        defines: variables
         yelb-appserver-addr:
             type: string
             value: <- get-hostname("yelb-production/appserver", "yelb-appserver")

@@ -11,7 +11,6 @@ Runnables are the most common and basic unit in Monk. They represent a container
         defines: runnable
 
         containers:
-            defines: containers
             utils:
                 image: amouat/network-utils
                 image-tag: latest
@@ -34,7 +33,6 @@ Runnable sections can have multiple sub-sections of special meaning. All definit
 
 ```yaml
 containers:
-    defines: containers
     container-a: ...
     container-b: ...
 ```
@@ -86,7 +84,6 @@ container-name:
 
 ```yaml
 variables:
-    defines: variables
     variable-a: ...
     variable-b: ...
 ```
@@ -132,7 +129,6 @@ A variable can either just specify the value - in which case the type is inferre
 
 ```yaml
 variables:
-    defines: actions
     action-a: ...
     action-b: ...
 ```
@@ -180,7 +176,6 @@ Actions are somewhat akin to function definitions known from regular programming
 
 ```yaml linenums="1"
 actions:
-    defines: actions
 
     sum:
         description: sums two numbers
@@ -208,7 +203,6 @@ actions:
 
 ```yaml linenums="1"
 files:
-    defines: files
     file-a: ...
     file-b: ...
 ```
@@ -252,7 +246,6 @@ It's useful to declare multiline file `contents` using YAML syntax `|`
 
 ```yaml linenums="1"
 files:
-    defines: files
     poem:
         path: /var/poem.txt
         container: dummy
@@ -272,7 +265,6 @@ Each runnable can contain status checks. Currently the only supported check is `
 
 ```yaml linenums="1"
 checks:
-    defines: checks
     readiness:
         code: exec("ethereum-node", "echo", "-e", "two") "two" contains?
         period: 15
@@ -288,7 +280,6 @@ This works by awaiting the results of [`readiness` `checks`](#checks) on all ref
 
 ```yaml linenums="1"
 depends:
-    defines: depends
     wait-for:
         runnables:
             - /some/another-runnable
@@ -311,7 +302,6 @@ If it doesn't exist, Monk will assume default values:
 
 ```yaml linenums="1"
 recovery:
-    defines: recovery
     after: 60s # timeout before start recovey mechanism
     when: always/node-failure/container-failure/none # condition when to start recovery
     # node-failure - recover only if node is failed
@@ -340,7 +330,6 @@ If `ignore-pressure` is `true` (`false` by default) Monk will ignore pressure an
 
 ```yaml linenums="1"
 affinity:
-    defines: affinity
     tag: test-node
     name: test
     ignore-pressure: false
