@@ -22,12 +22,14 @@ service-1:
     inherits: nginx/latest
     variables:
         listen-port: 8080
+        proxy-target-host: www.exmple.com
 
 service-2:
     defines: runnable
     inherits: nginx/latest
     variables:
         listen-port: 8080
+        proxy-target-host: www.exmple.com
 
 services:
     defines: process-group
