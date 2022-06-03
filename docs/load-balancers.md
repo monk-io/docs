@@ -32,6 +32,7 @@ service-1:
     variables:
         defines: variables
         listen-port: 8080
+        proxy-target-host: www.exmple.com
 
 service-2:
     defines: runnable
@@ -39,6 +40,7 @@ service-2:
     variables:
         defines: variables
         listen-port: 8080
+        proxy-target-host: www.exmple.com
 
 services:
     defines: process-group
