@@ -31,7 +31,6 @@ namespace: /nginx
 server:
   defines: runnable
   containers:
-    defines: containers
     nginx:
       image-tag: latest
       image: nginx
@@ -47,7 +46,6 @@ namespace: /nginx
 server:
   defines: runnable
   containers:
-    defines: containers
     nginx:
       image-tag: latest
       image: nginx
@@ -55,7 +53,6 @@ server:
           - 80:80
 
   files:
-    defines: files
     gameprop:
       container: nginx
       path: /usr/share/nginx/html/game.properties
@@ -94,7 +91,6 @@ namespace: /nginx
 server:
   defines: runnable
   containers:
-    defines: containers
     nginx:
       image-tag: latest
       image: nginx
@@ -105,7 +101,6 @@ server:
         - <- `PORT=${runningPort}`
 
   files:
-    defines: files
     gameprop:
       container: nginx
       path: /usr/share/nginx/html/game.properties
@@ -122,7 +117,6 @@ server:
         how.nice.to.look=fairlyNice
 
   variables:
-    defines: variables
     username:
       type: string
       value: anonymous
@@ -165,7 +159,6 @@ namespace: /nginx
 server:
   defines: runnable
   containers:
-    defines: containers
     nginx:
       image-tag: latest
       image: nginx
@@ -177,7 +170,6 @@ server:
         - <- `PASSWORD=${password}`
 
   files:
-    defines: files
     gameprop:
       container: nginx
       path: /usr/share/nginx/html/game.properties
@@ -194,7 +186,6 @@ server:
         how.nice.to.look=fairlyNice
 
   variables:
-    defines: variables
     username:
       type: string
       value: anonymous

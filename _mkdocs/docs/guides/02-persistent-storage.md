@@ -42,7 +42,6 @@ Let's extend `database.yaml` with a `volume` definition:
         defines: runnable
         inherits: mongodb/latest
         volumes:
-            defines: volumes
             important-data:
                 size: 60
                 kind: SSD
@@ -64,7 +63,6 @@ Since we have the volume defined, now it's time to mount it inside the container
         defines: runnable
         inherits: mongodb/latest
         volumes:
-            defines: volumes
             important-data:
                 size: 60
                 kind: SSD
@@ -77,7 +75,6 @@ We have just replaced the `${monk-volume-path}/mongodb` because `database` inher
 
         ```yaml linenums="1"
         containers:
-            defines: containers
             database:
                 image: mongo:latest
                 ports: 27017:27017
@@ -97,7 +94,6 @@ This means it is sufficient to just provide the `volume-data` in the `volumes` s
         defines: runnable
         inherits: mongodb/latest
         volumes:
-            defines: volumes
             important-data:
                 size: 60
                 kind: SSD

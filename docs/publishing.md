@@ -64,10 +64,8 @@ namespace: gizmotron
 
 common:
     metadata:
-        defines: metadata
         ...
     containers:
-        defines: containers
         app:
             image: docker.io/gizmotron
             ...
@@ -100,7 +98,6 @@ namespace: gizmotron
 foo:
     defines: runnable
     containers:
-        defines: containers
         app:
             ...
             environment:
@@ -115,7 +112,6 @@ complete-foo-setup:
         - postgres/latest
         - redis/latest
     variables:
-        defines: variables
         admin-username: change me
         admin-password: change me, for real
 ```
@@ -146,7 +142,6 @@ namespace: gizmotron
 common:
   ...
   metadata:
-    defines: metadata
     name: Gizmotron
     description: Open-source gizmotronic gizmo making gizmo that puts things on 🔥
     tags: comma, separated, list of tags
@@ -164,7 +159,6 @@ All metadata fields are optional and you can add any arbitrary field here, i.e.
 
 ```yaml
 metadata:
-    defines: metadata
     twitter: "@gizmotron"
     proprietary-gizmo-id: 42
 ```
@@ -290,7 +284,6 @@ namespace: gizmotron
 
 common:
     containers:
-        defines: containers
         app:
             image: docker.io/gizmotron
     ...
@@ -317,7 +310,6 @@ namespace: gizmotron
 
 common:
     containers:
-        defines: containers
         app:
             image: docker.io/gizmotron
     ...
@@ -369,7 +361,6 @@ namespace: gizmotron
 
 common:
     containers:
-        defines: containers
         app:
             image: docker.io/gizmotron
     ...

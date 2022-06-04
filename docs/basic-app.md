@@ -76,7 +76,6 @@ app:
     defines: runnable
     version: 0.0.1
     containers:
-        defines: containers
         app:
             image: yourname/tutorial:latest
 ```
@@ -123,7 +122,6 @@ namespace: /yourname
 app:
     # ...
     variables:
-        defines: variables
         port:
             type: int
             value: 8080
@@ -165,7 +163,6 @@ app:
     defines: runnable
     version: 0.0.1
     containers:
-        defines: containers
         app:
             image: yourname/tutorial:latest
             ports:
@@ -175,7 +172,6 @@ app:
                 - <- `DB_HOST=${db-host}`
                 - <- `DB_PORT=${db-port}`
     variables:
-        defines: variables
         port:
             type: int
             value: 8080

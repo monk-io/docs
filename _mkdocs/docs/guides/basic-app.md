@@ -75,7 +75,6 @@ Let's start writing a Kit that will describe where to get the app, how to config
         defines: runnable
         version: 0.0.1
         containers:
-            defines: containers
             app:
                 image: yourname/tutorial:latest
     ```
@@ -122,7 +121,6 @@ First, let's define the variables in our `runnable`. Add the following `variable
     app:
         # ...
         variables:
-            defines: variables
             port:
                 type: int
                 value: 8080
@@ -166,7 +164,6 @@ Your `app.yaml` manifest should now look like this:
         defines: runnable
         version: 0.0.1
         containers:
-            defines: containers
             app:
                 image: yourname/tutorial:latest
                 ports:
@@ -176,7 +173,6 @@ Your `app.yaml` manifest should now look like this:
                     - <- `DB_HOST=${db-host}`
                     - <- `DB_PORT=${db-port}`
         variables:
-            defines: variables
             port:
                 type: int
                 value: 8080

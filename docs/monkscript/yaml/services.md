@@ -15,7 +15,6 @@ example-service:
     defines: service
 
     variables:
-        defines: variables
         foo: 1
         bar: 2
 ```
@@ -30,7 +29,6 @@ Service sections can have multiple sub-sections of special meaning. All definiti
 
 ```yaml
 variables:
-    defines: variables
     variable-a: ...
     variable-b: ...
 ```
@@ -82,7 +80,6 @@ A variable can either just specify the value - in which case the type is inferre
 
 ```yaml
 variables:
-    defines: actions
     action-a: ...
     action-b: ...
 ```
@@ -140,7 +137,6 @@ Actions are somewhat akin to function definitions known from regular programming
 
 ```yaml linenums="1"
 actions:
-    defines: actions
 
     sum:
         description: sums two numbers

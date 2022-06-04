@@ -121,12 +121,10 @@ Consider the following definitions:
 foo:
     defines: runnable
     containers:
-        defines: containers
         ...
 bar:
     defines: runnable
     fun-boxes:
-        defines: containers
 ```
 
 Both `foo` and `bar` are [`runnable`](#runnable). The key defines has special meaning, it labels its parent node with a _descriptor_ (in this case, `runnable`). Monk finds relevant sections by looking at those descriptors.

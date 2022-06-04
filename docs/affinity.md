@@ -22,7 +22,6 @@ namespace: guide
 foo:
     defines: runnable
     containers:
-        defines: containers
         utils:
             image: amouat/network-utils
             image-tag: latest
@@ -44,7 +43,6 @@ foo-on-node:
     defines: runnable
     inherits: guide/foo
     affinity:
-        defines: affinity
         name: <<name of one of your nodes>> # <----
 ```
 
@@ -76,7 +74,6 @@ foo-on-tag:
     defines: runnable
     inherits: guide/foo
     affinity:
-        defines: affinity
         tag: <<your tag>> # <----
 ```
 
@@ -116,7 +113,6 @@ foo-on-node-resident:
     defines: runnable
     inherits: guide/foo
     affinity:
-        defines: affinity
         name: <<name of one of your nodes>> # <---- use the same name as in Step 2
         resident: true                      # <---- add this
 ```

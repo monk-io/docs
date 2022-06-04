@@ -30,14 +30,12 @@ service-1:
     defines: runnable
     inherits: nginx/latest
     variables:
-        defines: variables
         listen-port: 8080
 
 service-2:
     defines: runnable
     inherits: nginx/latest
     variables:
-        defines: variables
         listen-port: 8080
 
 services:
@@ -66,7 +64,6 @@ services:
     defines: process-group
 
     balancers:
-        defines: balancers
         app-balancer:
             type: http
             port: 8080
@@ -102,7 +99,6 @@ services:
     defines: process-group
 
     balancers:
-        defines: balancers
         app-balancer:
             type: http
             domain: mystuff.com
@@ -158,7 +154,6 @@ services:
     defines: process-group
 
     balancers:
-        defines: balancers
         app-balancer:
             type: tcp
             port: 8080
@@ -188,7 +183,6 @@ services:
     defines: process-group
 
     balancers:
-        defines: balancers
         app-balancer:
             type: udp
             port: 8080
@@ -227,7 +221,6 @@ services:
     defines: process-group
 
     balancers:
-        defines: balancers
         app-balancer:
             type: elastic-ip
             instances:
@@ -254,7 +247,6 @@ services:
     defines: process-group
 
     balancers:
-        defines: balancers
         app-balancer:
             port: 8080
             type: http
@@ -284,7 +276,6 @@ services:
     defines: process-group
 
     balancers:
-        defines: balancers
         app-balancer:
             port: 8080
             type: http

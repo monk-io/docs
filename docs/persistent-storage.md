@@ -39,7 +39,6 @@ database:
     defines: runnable
     inherits: mongodb/latest
     volumes:
-        defines: volumes
         important-data:
             size: 60
             kind: SSD
@@ -59,7 +58,6 @@ database:
     defines: runnable
     inherits: mongodb/latest
     volumes:
-        defines: volumes
         important-data:
             size: 60
             kind: SSD
@@ -70,7 +68,6 @@ We have just replaced the `${monk-volume-path}/mongodb` because `database` inher
 
 ```yaml title="mongodb/latest" linenums="1"
 containers:
-    defines: containers
     database:
         image: mongo:latest
         ports: 27017:27017
@@ -87,7 +84,6 @@ database:
     defines: runnable
     inherits: mongodb/latest
     volumes:
-        defines: volumes
         important-data:
             size: 60
             kind: SSD

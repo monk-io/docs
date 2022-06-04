@@ -38,7 +38,6 @@ Runnable sections can have multiple sub-sections of special meaning. All definit
 
 ```yaml
 variables:
-    defines: variables
     variable-a: ...
     variable-b: ...
 ```
@@ -86,7 +85,6 @@ A variable can either just specify the value - in which case the type is inferre
 
 ```yaml
 variables:
-    defines: actions
     action-a: ...
     action-b: ...
 ```
@@ -134,7 +132,6 @@ Actions are somewhat akin to function definitions known from regular programming
 
 ```yaml linenums="1"
 actions:
-    defines: actions
 
     sum:
         description: sums two numbers
@@ -162,7 +159,6 @@ actions:
 
 ```yaml linenums="1"
 balancers:
-    defines: balancers
     balancer-a: ...
     balancer-b: ...
 ```

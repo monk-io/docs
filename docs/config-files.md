@@ -14,21 +14,18 @@ reverse-proxy:
     defines: runnable
 
     containers:
-        defines: containers
         nginx-reverse-proxy:
             image-tag: latest
             ports: <- `0.0.0.0:${listen-port}:${listen-port}/tcp`
             image: bitnami/nginx
 
     variables:
-        defines: variables
         server-name: www.example.com
         listen-port: 8080
         proxy-target-host: google.com
         proxy-target-port: 80
 
     files:
-        defines: files
         server-def:
             container: nginx-reverse-proxy
             path: /opt/bitnami/nginx/conf/server_blocks/reverse_proxy.conf

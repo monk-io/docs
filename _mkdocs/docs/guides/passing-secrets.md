@@ -56,7 +56,6 @@ Let's suppose we have the following Kit:
     my-service:
         defines: runnable
         containers:
-            defines: containers
             foo:
                 image: foo:latest
                 environment:

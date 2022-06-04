@@ -14,7 +14,6 @@ Consider the following Kit:
     my-service:
         defines: runnable
         containers:
-            defines: containers
             my-service:
                 image: ubuntu:latest
                 environment:
@@ -22,7 +21,6 @@ Consider the following Kit:
                     - <- `DB_PORT=${db-port}`
                 bash: echo "db at ${DB_ADDR}:${DB_PORT}" ; sleep 3600
         variables:
-            defines: variables
             db-addr:
                 type: string
                 value: localhost
@@ -65,7 +63,6 @@ The Kit should now look like this:
     my-service:
         defines: runnable
         containers:
-            defines: containers
             my-service:
                 image: ubuntu:latest
                 environment:
@@ -73,7 +70,6 @@ The Kit should now look like this:
                     - <- `DB_PORT=${db-port}`
                 bash: echo "db at ${DB_ADDR}:${DB_PORT}" ; sleep 3600
         variables:
-            defines: variables
             db-addr:
                 type: string
                 value: <- get-hostname("mongodb/latest", "database")

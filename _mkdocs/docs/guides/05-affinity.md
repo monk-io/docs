@@ -20,7 +20,6 @@ Let's define a basic Kit:
     foo:
         defines: runnable
         containers:
-            defines: containers
             utils:
                 image: amouat/network-utils
                 image-tag: latest
@@ -44,7 +43,6 @@ Let's extend the Kit by adding `affinity` section:
         defines: runnable
         inherits: guide/foo
         affinity:
-            defines: affinity
             name: <<name of one of your nodes>> # <----
     ```
 
@@ -78,7 +76,6 @@ Let's create another Kit with a different `affinity` section:
         defines: runnable
         inherits: guide/foo
         affinity:
-            defines: affinity
             tag: <<your tag>> # <----
     ```
 
@@ -120,7 +117,6 @@ Then, let's copy the Kit from Step 2 and make a subtle change:
         defines: runnable
         inherits: guide/foo
         affinity:
-            defines: affinity
             name: <<name of one of your nodes>> # <---- use the same name as in Step 2
             resident: true                      # <---- add this
     ```
