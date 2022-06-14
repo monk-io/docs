@@ -65,10 +65,8 @@ namespace: gizmotron
 
 common:
     metadata:
-        defines: metadata
         ...
     containers:
-        defines: containers
         app:
             image: docker.io/gizmotron
             ...
@@ -97,16 +95,20 @@ Consider the following example:
 ```yaml title="gizmotron.yaml"
 namespace: gizmotron
 
-# this defines foo component that expects admin-username and admin-password to be defined
 foo:
     defines: runnable
     containers:
-        defines: containers
         app:
             ...
-            environment:
-                - <- `ADMIN_NAME=${admin-username}`
-                - <- `ADMIN_PASS=${admin-password}`
+            variables:
+                admin-username:
+                  env: ADMIN_NAME
+                  type: string
+                  value: "will_be_overriden"
+                admin-password:
+                  env: ADMIN_PASS
+                  type: string
+                  value: "will_be_overriden" 
 
 # this defines foo complete with accompanying services meant for end-user consumption
 complete-foo-setup:
@@ -116,10 +118,10 @@ complete-foo-setup:
         - postgres/latest
         - redis/latest
     variables:
-        defines: variables
         admin-username: change me
         admin-password: change me, for real
 ```
+This defines the `foo` component that will use default values `will_be_overriden` of variables if it won't be overriden by `complete-foo-setup` definition and make them environment variables named by `env` directives. 
 
 By moving `admin-username` and `admin-password` to the `group` here, we have enabled the user to simply override the variables on the group and hid the details of `foo` itself.
 
@@ -147,7 +149,6 @@ namespace: gizmotron
 common:
   ...
   metadata:
-    defines: metadata
     name: Gizmotron
     description: Open-source gizmotronic gizmo making gizmo that puts things on 🔥
     tags: comma, separated, list of tags
@@ -165,7 +166,6 @@ All metadata fields are optional and you can add any arbitrary field here, i.e.
 
 ```yaml
 metadata:
-    defines: metadata
     twitter: "@gizmotron"
     proprietary-gizmo-id: 42
 ```
@@ -292,7 +292,6 @@ namespace: gizmotron
 
 common:
     containers:
-        defines: containers
         app:
             image: docker.io/gizmotron
     ...
@@ -310,6 +309,13 @@ latest:
     inherits: ./v1.0.0
 ```
 
+:::note
+
+Since Monk v3.4.0 `defines` key is only mandatory  within runnable and process-group, no need to put defines elsewhere!
+
+:::
+
+
 Here we have a `v1.0.0` definition, which inherits `gizmotron/common` and overrides the `image-tag` of the container. This `gizmotron/v1.0.0` will start a container `app` from image `docker.io/gizmotron:v1.0.0`. The `version` field is used to display human readable version in MonkHub and CLI listings. Additionally, `gizmotron/latest` is defined to be equivalent to `gizmotron/v1.0.0`.
 
 Now let's suppose we want to add another version of Gizmotron to this template:
@@ -319,7 +325,6 @@ namespace: gizmotron
 
 common:
     containers:
-        defines: containers
         app:
             image: docker.io/gizmotron
     ...
@@ -371,7 +376,6 @@ namespace: gizmotron
 
 common:
     containers:
-        defines: containers
         app:
             image: docker.io/gizmotron
     ...
