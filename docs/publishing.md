@@ -95,7 +95,7 @@ Consider the following example:
 ```yaml title="gizmotron.yaml"
 namespace: gizmotron
 
-# this defines foo component that will use default values ("will_be_overriden") of variables ("will_be_overriden") if it won't be overriden by complete-foo-setup definition
+# this defines foo component that will use default values ("will_be_overriden") of variables if it won't be overriden by complete-foo-setup definition and make them environment variables with considering what is the value of 'env:' key 
 
 foo:
     defines: runnable
