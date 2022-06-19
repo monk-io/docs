@@ -44,7 +44,7 @@ We run an APT repository containing official releases of Monk. You can obtain th
 
 Add Monk repository to your sources list:
 
-    curl -s https://apt.monk.io/Release.gpg | sudo apt-key add -
+    curl -s https://apt.monk.io/Release.gpg | sudo tee /etc/apt/trusted.gpg.d/monk.asc
     sudo echo "deb [arch=amd64] https://apt.monk.io/ stable main" | sudo tee /etc/apt/sources.list.d/monk.list
     sudo apt update
 

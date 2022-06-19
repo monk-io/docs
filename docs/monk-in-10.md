@@ -35,7 +35,7 @@ values={[
 
 <TabItem value="mainLinux">
 
-    curl -s https://apt.monk.io/Release.gpg | sudo apt-key add -
+    curl -s https://apt.monk.io/Release.gpg | sudo tee /etc/apt/trusted.gpg.d/monk.asc
     sudo echo "deb [arch=amd64] https://apt.monk.io/ stable main" | sudo tee /etc/apt/sources.list.d/monk.list
     sudo apt update
     sudo apt install monk
