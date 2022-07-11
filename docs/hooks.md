@@ -16,7 +16,6 @@ namespace: foobars
 foo:
     defines: runnable
     containers:
-        defines: containers
         bar:
             image: alpine:latest
             entrypoint: <- `/bin/sh /root/r.sh`
@@ -24,21 +23,19 @@ foo:
                 container-started: hello-world
 
     files:
-        defines: files
         r1:
             path: /root/r.sh
             container: bar
             contents: "while true; do sleep 1; date; done"
 
     actions:
-        defines: actions
         hello-world:
             code: exec("bar", "/bin/sh", "-c", `echo "Hello World" > /tmp/hello`)
 ```
 
 The container itself will just hang out and wait but this is perfect for us since we'll be inspecting its filesystem contents.
 
-Run the template with:
+Run the Kit with:
 
     monk load basic.yaml
     monk run foobars/foo

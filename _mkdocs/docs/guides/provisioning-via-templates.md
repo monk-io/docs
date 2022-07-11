@@ -1,4 +1,4 @@
-With Monk you can [grow your cluster manually](../lifecycle/cluster-create-1.md) by issuing the `grow` command. This is not the only way to add instances to your cluster as the templates can also carry instructions instance definitions. Monk will create instances when running a template containing such a definition.
+With Monk you can [grow your cluster manually](../lifecycle/cluster-create-1.md) by issuing the `grow` command. This is not the only way to add instances to your cluster as the Kits can also carry instructions instance definitions. Monk will create instances when running a Kit containing such a definition.
 
 ---
 
@@ -21,7 +21,6 @@ foo:
     defines: runnable
 
     nodes:
-        defines: nodes
         my-node:
             provider: gcp
             tag: my-magical-cluster
@@ -30,11 +29,9 @@ foo:
             disk-size: 128
 
     affinity:
-        defines: affinity
         name: my-node
 
     containers:
-        defines: containers
         some-service:
             image: some/image
             image-tag: latest

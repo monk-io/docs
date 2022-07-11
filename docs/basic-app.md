@@ -4,13 +4,13 @@ title: "Build a Basic App"
 
 Let's see how to create and run a basic app that uses MongoDB and Nginx, entirely from Monk.
 
-This tutorial requires you to have Monk installed locally, which you can do [just like this](get-monk).
+This tutorial requires you to have Monk installed locally, which you can do [just like this](get-monk.md).
 
 ## What we're building
 
 We're preparing a small application for deployment. It's a simple guestbook written in Node.js, where we store entries in MongoDB and use a basic Nginx reverse proxy in front of the app to secure it.
 
-We will prepare a Monk template for a small system composed of these three elements. The code of the app itself is not the focus of this tutorial and will be provided.
+We will prepare a Monk Kit for a small system composed of these three elements. The code of the app itself is not the focus of this tutorial and will be provided.
 
 <br/>
 
@@ -57,7 +57,7 @@ This is a pretty standard Node.js Dockerfile without any bells and whistles and 
     docker build -t yourname/tutorial:latest .
     docker push yourname/tutorial:latest
 
-This will give us the container image for our App. Your local docker instance now knows about the `yourname/tutorial:latest` image, and in the next step we will wrap it in a Monk template.
+This will give us the container image for our App. Your local docker instance now knows about the `yourname/tutorial:latest` image, and in the next step we will wrap it in a Monk Kit.
 
 :::note
 
@@ -67,7 +67,7 @@ We only use Docker in this tutorial to build the image so that Monk becomes awar
 
 ### Preparing a Monk manifest
 
-Let's start writing a template that will describe where to get the app, how to configure it and how to run it in the right context. Start a new file called `app.yaml` and put the following contents there:
+Let's start writing a Kit that will describe where to get the app, how to configure it and how to run it in the right context. Start a new file called `app.yaml` and put the following contents there:
 
 ```yaml title="app.yaml" linenums="1"
 namespace: /yourname
@@ -76,7 +76,6 @@ app:
     defines: runnable
     version: 0.0.1
     containers:
-        defines: containers
         app:
             image: yourname/tutorial:latest
 ```
@@ -89,7 +88,7 @@ You can look at the `tutorial.yaml` file in the App's repo to see the full examp
 
 We have provided the simplest description of the container image to be run and Monk is already capable of starting it. The `namespace` field tells Monk where to put the description of `app` - it will be under `yourname/app`. The `defines` field is important as it tells Monk how to interpret parts of the YAML tree - all the names are free form so this is the way to "type" the YAML.
 
-You could run your new template with:
+You could run your new Kit with:
 
     monk load app.yaml
     monk run yourname/app
@@ -97,11 +96,11 @@ You could run your new template with:
 :::note
 
 To do this, you should have the cluster already set-up.
-    Also, `monk stop yourname/app` to stop the template.
+    Also, `monk stop yourname/app` to stop the Kit.
 
 :::
 
-However, the template is not complete. Much like with `docker-compose`, in order to prepare a good runtime environment, we must understand what are the App's requirements.
+However, the Kit is not complete. Much like with `docker-compose`, in order to prepare a good runtime environment, we must understand what are the App's requirements.
 
 By inspecting the `index.js` file we can see that the app requires three environment variables to be set before it runs:
 
@@ -113,7 +112,7 @@ const DB_PORT = process.env.DB_PORT;
 //...
 ```
 
-This has to be reflected in our template by telling the container to use the right environment variables and also bringing them out into the Monk namespace. This will allow us to alter the variables later when composing the system.
+This has to be reflected in our Kit by telling the container to use the right environment variables and also bringing them out into the Monk namespace. This will allow us to alter the variables later when composing the system.
 
 First, let's define the variables in our `runnable`. Add the following `variables` section below the `containers` section:
 
@@ -123,7 +122,6 @@ namespace: /yourname
 app:
     # ...
     variables:
-        defines: variables
         port:
             type: int
             value: 8080
@@ -151,7 +149,7 @@ Here we see a small example of Monk's powerful language. The YAML values startin
 
 :::note
 
-The syntax for string interpolation in MonkScript is inspired by JavaScript's string template literals. Learn more about [Arrow scripts](monkscript).
+The syntax for string interpolation in MonkScript is inspired by JavaScript's string Kit literals. Learn more about [Arrow scripts](monkscript).
 
 :::
 
@@ -165,7 +163,6 @@ app:
     defines: runnable
     version: 0.0.1
     containers:
-        defines: containers
         app:
             image: yourname/tutorial:latest
             ports:
@@ -175,7 +172,6 @@ app:
                 - <- `DB_HOST=${db-host}`
                 - <- `DB_PORT=${db-port}`
     variables:
-        defines: variables
         port:
             type: int
             value: 8080
@@ -187,11 +183,11 @@ app:
             value: 27017
 ```
 
-Now run the following to make Monk aware of your new template:
+Now run the following to make Monk aware of your new Kit:
 
     monk load app.yaml
 
-And that's it! It's very easy to wrap any containerized application into a Monk template. You could publish this template now for everyone to run with a simple `monk run yourname/app` or use it in composition with other templates.
+And that's it! It's very easy to wrap any containerized application into a Monk Kit. You could publish this Kit now for everyone to run with a simple `monk run yourname/app` or use it in composition with other Kits.
 
 We are going to deploy it ourselves though, so publishing won't be necessary.
 
@@ -199,19 +195,19 @@ We are going to deploy it ourselves though, so publishing won't be necessary.
 
 One of the most interesting facts about Monk is that we don't have to work from scratch when it comes to deploying 3rd party services such as Mongo and Nginx. We can simply take them off the shelf and focus on our app.
 
-You'll see in a second. We will use pre-made templates for Mongo and Nginx and simply include them in our system composition. Which means this step... is not really a step after all 😎
+You'll see in a second. We will use pre-made Kits for Mongo and Nginx and simply include them in our system composition. Which means this step... is not really a step after all 😎
 
 ## Composing the system
 
-Now it's time to compose our app's template with the third party services, and make another template out of that. This way, you will be able to run the same composition on any Monk cluster on any cloud.
+Now it's time to compose our app's Kit with the third party services, and make another Kit out of that. This way, you will be able to run the same composition on any Monk cluster on any cloud.
 
 <br/>
 
-![Template architecture for the system we're building](/img/docs/system-full.png)
+![Kit architecture for the system we're building](/img/docs/system-full.png)
 
-If you were to publish your composed template, other people would also be able to run this same setup in seconds or compose it further with their own services. That's what our [Publisher program](publishers) is there for, by the way.
+If you were to publish your composed Kit, other people would also be able to run this same setup in seconds or compose it further with their own services. That's what our [Publisher program](publishers) is there for, by the way.
 
-### Creating a template of templates
+### Creating a Kit of Kits
 
 First, create a new manifest file called `system.yaml` and add the following contents:
 
@@ -241,7 +237,7 @@ Finally, `process-group` is like a `runnable` consisting of other runnables. Thi
 
 ### Adding Mongo
 
-Great, now let's define the missing `yourname/tutorial-mongo` runnable in terms of the existing MongoDB template. Add this to the `system.yaml` file:
+Great, now let's define the missing `yourname/tutorial-mongo` runnable in terms of the existing MongoDB Kit. Add this to the `system.yaml` file:
 
 ```yaml title="system.yaml" linenums="1"
 namespace: /yourname
@@ -253,7 +249,7 @@ tutorial-mongo:
     inherits: mongodb/latest
 ```
 
-And we're all good. We will use MongoDB from the `mongodb/latest` template that has been published to the shared namespace. That's all we need, since the app is simple and we don't want to change any defaults that the database template comes with.
+And we're all good. We will use MongoDB from the `mongodb/latest` Kit that has been published to the shared namespace. That's all we need, since the app is simple and we don't want to change any defaults that the database Kit comes with.
 
 Let's update `tutorial-app` so it knows how to find the database. Add the `db-host` section to the `tutorial-app/variables`:
 
@@ -289,9 +285,9 @@ tutorial-nginx:
             value: 8080
 ```
 
-And that's pretty much it. Just changing those two variables is enough for the Nginx template to generate a config file for itself and behave as a reverse proxy for our purposes.
+And that's pretty much it. Just changing those two variables is enough for the Nginx Kit to generate a config file for itself and behave as a reverse proxy for our purposes.
 
-We could change any of the Nginx settings here or even enable Let's Encrypt, which is already available in the Nginx template, but let's keep it simple for now.
+We could change any of the Nginx settings here or even enable Let's Encrypt, which is already available in the Nginx Kit, but let's keep it simple for now.
 
 ## Our app is ready
 
@@ -347,6 +343,6 @@ To stop it, use:
 
 This concludes our basic app tutorial. We have learned how to compose 3rd party software with our own containerized service and how to run it all as an ensemble using Monk.
 
-The next step would be to run your app on different clouds. To that end, you can head back to the [Creating a cluster](lifecycle/cluster-create-1) and [Running templates in a cluster](lifecycle/running-templates-cluster) guides to see them with a fresh perspective.
+The next step would be to run your app on different clouds. To that end, you can head back to the [Creating a cluster](lifecycle/cluster-create-1) and [Running Kits in a cluster](lifecycle/running-templates-cluster) guides to see them with a fresh perspective.
 
 Or better yet, continue to [Connecting runnables](connecting-runnables.md) to see how we can make our services talk to each other.

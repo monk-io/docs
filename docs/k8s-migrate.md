@@ -71,7 +71,6 @@ namespace: /yelb
 ui:
     defines: runnable
     containers:
-        defines: containers
         yelb-ui:
             image-tag: "0.7"
             image: mreferre/yelb-ui
@@ -121,7 +120,6 @@ namespace: /yelb
 appserver:
     defines: runnable
     containers:
-        defines: containers
         yelb-appserver:
             image-tag: "0.5"
             image: mreferre/yelb-appserver
@@ -163,7 +161,6 @@ namespace: /yelb
 db:
     defines: runnable
     containers:
-        defines: containers
         yelb-db:
             image-tag: "0.5"
             image: mreferre/yelb-db
@@ -205,7 +202,6 @@ namespace: /yelb
 redis:
     defines: runnable
     containers:
-        defines: containers
         redis-server:
             image-tag: "4.0.2"
             image: redis
@@ -215,7 +211,7 @@ redis:
 
 Since we have all runnable defitions completed, it's time to try to run them.
 
-### Loading Templates into Monk
+### Loading Kits into Monk
 
 First we need to load them into monk, we can achieve this by running:
 
@@ -383,7 +379,6 @@ namespace: /yelb
 ui:
 defines: runnable
 containers:
-    defines: containers
     yelb-ui:
     image-tag: "0.7"
     image: mreferre/yelb-ui
@@ -391,7 +386,7 @@ containers:
         - 80:80
 ```
 
-Now we need to update the template and our workload:
+Now we need to update the Kit and our workload:
 
 ```bash
 $ monk load yelb-ui.yaml
@@ -470,7 +465,6 @@ namespace: /yelb
 ui:
 defines: runnable
 containers:
-    defines: containers
     yelb-ui:
     image-tag: "0.7"
     image: mreferre/yelb-ui
@@ -480,7 +474,6 @@ containers:
         /startup.sh`
 
 variables:
-    defines: variables
     port: 80
     yelb-appserver-addr:
     type: string
@@ -488,7 +481,7 @@ variables:
     value: <- get-hostname("yelb/appserver", "yelb-appserver")
 ```
 
-We should now update our template and workload.
+We should now update our Kit and workload.
 
 ```bash
 $ monk load yelb-ui.yaml
@@ -576,7 +569,6 @@ namespace: /yelb
 appserver:
     defines: runnable
     containers:
-        defines: containers
         yelb-appserver:
             image-tag: "0.5"
             image: mreferre/yelb-appserver
@@ -586,7 +578,6 @@ appserver:
                 /startup.sh`
 
     variables:
-        defines: variables
         port: 4567
         yelb-db-addr:
             type: string
@@ -597,7 +588,7 @@ appserver:
             value: <- get-hostname("yelb/redis", "redis-server")
 ```
 
-We should update our template and workload.
+We should update our Kit and workload.
 
 ```bash
 $ monk load yelb-appserver.yaml
@@ -712,7 +703,7 @@ Our application should be running exactly the same as previously, but this gives
 
 ## Using Inheritance to Spawn Multiple Copies of YELB
 
-Monk is very powerful. We can spawn multiple instances of the same app via inheritence with existing templates.
+Monk is very powerful. We can spawn multiple instances of the same app via inheritence with existing Kits.
 
 ### Our Development Environment
 
@@ -720,9 +711,9 @@ We can safely assume that we were working on our development environment. So the
 
 ### Moving to Production
 
-To spawn another instance of the YELB app for production, we will use Monk's [inheritance](http://localhost:8000monkscript/yaml/overview#inheritance) feature. This allows us to inherit a predefined template and only update the parts we want to change.
+To spawn another instance of the YELB app for production, we will use Monk's [inheritance](http://localhost:8000monkscript/yaml/overview#inheritance) feature. This allows us to inherit a predefined Kit and only update the parts we want to change.
 
-Let's define our namespace and add our db and redis [runnable](monkscript/yaml/runnables/) components in the template.
+Let's define our namespace and add our db and redis [runnable](monkscript/yaml/runnables/) components in the Kit.
 
 ```yaml title="Monk"
 namespace: /yelb-production
@@ -736,7 +727,7 @@ redis:
     inherits: yelb/redis
 ```
 
-In this example, we're defining a new namespace for production and adding two [runnables](monkscript/yaml/runnables/). Each runnable inherits from existing templates via the `inherits` parameter.
+In this example, we're defining a new namespace for production and adding two [runnables](monkscript/yaml/runnables/). Each runnable inherits from existing Kits via the `inherits` parameter.
 
 Now we will have to add our appserver and ui. We'll need to do a bit more as we had to use some workarounds in development mode. Fortunately, the inheritance will make this task easier.
 
@@ -753,14 +744,12 @@ appserver:
     # We are inheriting main runnable yelb/appserver
     inherits: yelb/appserver
     containers:
-        defines: containers
         # We will overwrite our image-tag here, all other definition of the runnable will stay the same
         yelb-appserver:
             image-tag: "0.4"
 
     # Update the namespace in our variables, changing it from yelb to yelb-production
     variables:
-        defines: variables
         yelb-db-addr:
             type: string
             value: <- get-hostname("yelb-production/db", "yelb-db")
@@ -779,7 +768,6 @@ ui:
     inherits: yelb/ui
 
     variables:
-        defines: variables
         # Update our appserver hostname here with production version
         yelb-appserver-addr:
             type: string
@@ -803,12 +791,10 @@ appserver:
     defines: runnable
     inherits: yelb/appserver
     containers:
-        defines: containers
         yelb-appserver:
             image-tag: "0.4"
 
     variables:
-        defines: variables
         yelb-db-addr:
             type: string
             value: <- get-hostname("yelb-production/db", "yelb-db")
@@ -822,7 +808,6 @@ ui:
     inherits: yelb/ui
 
     variables:
-        defines: variables
         yelb-appserver-addr:
             type: string
             value: <- get-hostname("yelb-production/appserver", "yelb-appserver")
@@ -837,7 +822,7 @@ application:
         - /yelb-production/redis
 ```
 
-Since this is our production template, it might be good idea to run it on some public cloud services. To do this, you'll need to have a cloud provider added. To learn more, please see ["Monk in 10 minutes" guide](monk-in-10#creating-a-monk-cluster).
+Since this is our production Kit, it might be good idea to run it on some public cloud services. To do this, you'll need to have a cloud provider added. To learn more, please see ["Monk in 10 minutes" guide](monk-in-10#creating-a-monk-cluster).
 
 Assuming we have AWS as the provider, we can simply run:
 

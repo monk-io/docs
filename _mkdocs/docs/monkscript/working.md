@@ -1,6 +1,6 @@
 # Working with MonkScript
 
-This document describes basic ideas and workflow behind authoring Monk templates. Check the reference in order to understand MonkScript itself.
+This document describes basic ideas and workflow behind authoring Monk Kits. Check the reference in order to understand MonkScript itself.
 
 !!! note ""
 
@@ -8,7 +8,7 @@ This document describes basic ideas and workflow behind authoring Monk templates
 
 ## Manifest files and project structure
 
-Monk keeps all its data, including templates in an internal tree-like data structure. Templates are stored as individual parts of that tree. YAML files are a human-friendly way to express tree-like structures and thus, we have used YAML as our primary input format.
+Monk keeps all its data, including Kits in an internal tree-like data structure. Kits are stored as individual parts of that tree. YAML files are a human-friendly way to express tree-like structures and thus, we have used YAML as our primary input format.
 
 It is important to remember that since Monk doesn't work with those files directly, their source of origin and layout in the filesystem tree is arbitrary. This gives a lot of flexibility to the user and allows the user to choose the best organization strategy for a particular use case.
 
@@ -30,11 +30,11 @@ The notion of the namespace eliminates the need to keep all the files pertaining
 
 ## Loading manifests
 
-In order for Monk to be aware of a template, the file containing the template must be loaded. This is achieved by using the `load` command.
+In order for Monk to be aware of a Kit, the file containing the Kit must be loaded. This is achieved by using the `load` command.
 
     monk load mystuff.yaml
 
-Remember to reload (use the load command again) any file that has been changed in order for Monk to acknowledge the changes. This is very important when developing the templates as forgetting to reload a template often leads to confusion.
+Remember to reload (use the load command again) any file that has been changed in order for Monk to acknowledge the changes. This is very important when developing the Kits as forgetting to reload a Kit often leads to confusion.
 
 Example development flow:
 

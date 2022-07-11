@@ -20,7 +20,7 @@ Our language allows you to specify your entire stack needs in a simple, reusable
 
 ### Programmable Control Plane
 
-Monk understands your workloads by constantly tracking and computing values associated with any cloud instance, running container, firewall rule, data volume, and all other items present in a cluster. This process is scriptable directly from the templates, which makes it easy to express even the most complex workloads.
+Monk understands your workloads by constantly tracking and computing values associated with any cloud instance, running container, firewall rule, data volume, and all other items present in a cluster. This process is scriptable directly from the Kits, which makes it easy to express even the most complex workloads.
 
 ### Custom Variables
 
@@ -29,7 +29,7 @@ Expose your container environment variables through dynamically computed variabl
 
 ### Actions
 
-Abstract any of your containerized software functionalities through our unique actions within the same template. [Read more​ &#8594;
+Abstract any of your containerized software functionalities through our unique actions within the same Kit. [Read more​ &#8594;
 ](/monkscript/yaml/runnables/#actions)
 
 ### Health Checks
@@ -75,7 +75,7 @@ Directly access shell of any running container from our CLI, without ssh to its 
 
 ### System Portability to Any Cloud Provider
 
-The Monk runtime natively runs on any Linux instance. You can create clusters spanning across any cloud or on-premise server while ensuring your template will stay portable.
+The Monk runtime natively runs on any Linux instance. You can create clusters spanning across any cloud or on-premise server while ensuring your Kit will stay portable.
 
 ### Workload Healing on Container and Instance Level
 
@@ -106,7 +106,7 @@ Utilize the most popular load balancers (HTTP(s) and ElasticIP) natively baked i
 
 ### 🧪 3rd Party Service Abstraction
 
-Include any 3rd party services such as specific Cloud APIs in templates with similar scripting capabilities. Our language can also be used to embed third party services such as SaaS APIs or directly into your system. [Compose a small system](./guides/basic-app.md) to see how it works.
+Include any 3rd party services such as specific Cloud APIs in Kits with similar scripting capabilities. Our language can also be used to embed third party services such as SaaS APIs or directly into your system. [Compose a small system](./guides/basic-app.md) to see how it works.
 
 ### 🧪 Network Abstraction
 

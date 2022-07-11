@@ -23,7 +23,7 @@ data:
 Judging by the key names and that the values are multiple lines we can assume that those two will be files.  
 In Monk there's a distinguishment for the file and variables so we need to define them in appropriate space.  
 
-Lets consider this Monk template our 'base' template:
+Lets consider this Monk Kit our 'base' Kit:
 
 ```yaml
 namespace: /nginx
@@ -31,7 +31,6 @@ namespace: /nginx
 server:
   defines: runnable
   containers:
-    defines: containers
     nginx:
       image-tag: latest
       image: nginx
@@ -39,7 +38,7 @@ server:
           - 80:80
 ```
 
-No we would like those two files be exposed by our webserver. We can achieve that by adding [files section](/monkscript/yaml/runnables/#files) to above template, which would resolve in following template:
+No we would like those two files be exposed by our webserver. We can achieve that by adding [files section](/monkscript/yaml/runnables/#files) to above Kit, which would resolve in following Kit:
 
 ```yaml
 namespace: /nginx
@@ -47,7 +46,6 @@ namespace: /nginx
 server:
   defines: runnable
   containers:
-    defines: containers
     nginx:
       image-tag: latest
       image: nginx
@@ -55,7 +53,6 @@ server:
           - 80:80
 
   files:
-    defines: files
     gameprop:
       container: nginx
       path: /usr/share/nginx/html/game.properties
@@ -94,7 +91,6 @@ namespace: /nginx
 server:
   defines: runnable
   containers:
-    defines: containers
     nginx:
       image-tag: latest
       image: nginx
@@ -105,7 +101,6 @@ server:
         - <- `PORT=${runningPort}`
 
   files:
-    defines: files
     gameprop:
       container: nginx
       path: /usr/share/nginx/html/game.properties
@@ -122,7 +117,6 @@ server:
         how.nice.to.look=fairlyNice
 
   variables:
-    defines: variables
     username:
       type: string
       value: anonymous
@@ -158,14 +152,13 @@ $ echo YmFyCg== | base64 -d
 bar
 ```
 
-Now, we will add it to our main template:  
+Now, we will add it to our main Kit:  
 ```yaml
 namespace: /nginx
 
 server:
   defines: runnable
   containers:
-    defines: containers
     nginx:
       image-tag: latest
       image: nginx
@@ -177,7 +170,6 @@ server:
         - <- `PASSWORD=${password}`
 
   files:
-    defines: files
     gameprop:
       container: nginx
       path: /usr/share/nginx/html/game.properties
@@ -194,7 +186,6 @@ server:
         how.nice.to.look=fairlyNice
 
   variables:
-    defines: variables
     username:
       type: string
       value: anonymous

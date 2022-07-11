@@ -2,46 +2,46 @@ version: 2
 jobs:
   build:
     docker:
-      - image: node:16.14.0
+      - image: node:16.15.0
     steps:
       - checkout
       - run:
           name: deps
-          command: yarn install
+          command: npm install --force
 
       - run:
           name: build
-          command: yarn build
+          command: npm run build
 
       - persist_to_workspace:
           root: .
           paths:
-            - "*"
+            - .
 
   build_staging:
     docker:
-      - image: node:16.14.0
+      - image: node:16.15.0
     steps:
       - checkout
       - run:
           name: deps
-          command: yarn install
+          command: npm install --force
 
       - run:
           name: build
-          command: yarn build
+          command: npm run build
 
       - persist_to_workspace:
           root: .
           paths:
-            - "*"
+            - .
 
   deploy_prod:
     docker:
-      - image: node:16.14.0
+      - image: node:16.15.0
     steps:
       - attach_workspace:
-          at: docs
+          at: ./docs
       - run:
           name: Install Firebase
           command: npm install -g firebase-tools
@@ -51,10 +51,10 @@ jobs:
 
   deploy_preprod:
     docker:
-      - image: node:16.14.0
+      - image: node:16.15.0
     steps:
       - attach_workspace:
-          at: docs
+          at: ./docs
       - run:
           name: Install Firebase
           command: npm install -g firebase-tools

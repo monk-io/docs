@@ -10,7 +10,7 @@ The `ps` command will show you all containers currently running in your cluster 
 
 ## How does my workload look like?
 
-    monk describe some/template
+    monk describe some/kit
 
 This will show a summary about a running workload, just like `monk run` would, but without re-running it.
 

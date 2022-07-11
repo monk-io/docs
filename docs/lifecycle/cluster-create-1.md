@@ -35,7 +35,7 @@ In order to _grow_ your new cluster onto your cloud(s) you need to add your clou
 :::note Info
 
 Follow [How to add cloud provider to monk &#8594;
-](../cloud-provider)
+](cloud-provider.md)
 
 :::
 
@@ -47,7 +47,7 @@ Obviously, you can try to run your two instances (or any number of them in fact)
 
 :::note Info
 
-See [How to add cloud provider to monk](../multi-cloud) to learn how to provision multi-cloud clusters in detail.
+See [How to add cloud provider to monk](multi-cloud.md) to learn how to provision multi-cloud clusters in detail.
 
 :::
 
@@ -65,7 +65,7 @@ It sometime takes several minutes to bootstrap a new instance so do not be alarm
 
 :::note Info
 
-Passing the `--tag` flag tags the new peers upon their creation so they can be addressed using their tags later on. See [Running templates in a cluster](running-templates-cluster) to find out how to use tags to indicate where to run the template.
+Passing the `--tag` flag tags the new peers upon their creation so they can be addressed using their tags later on. See [Running templates in a cluster](lifecycle/running-templates-cluster.md) to find out how to use tags to indicate where to run the template.
 
 :::
 
@@ -87,7 +87,7 @@ monk cluster peers
 
 :::tip success
 
-You are all set to [Run templates in a cluster](running-templates-cluster)!
+You are all set to [Run Kits in a cluster](running-templates-cluster)!
 
 :::
 
@@ -105,7 +105,7 @@ The process to add new peer is relatively simple thanks to _Monkcodes_ and can b
 
 :::note Info
 
-See [How to add cloud provider to monk](./cluster-switch-1#monkcodes) to learn more about Monkcodes.
+See [How to add cloud provider to monk](lifecycle/cluster-switch-1.md#monkcodes) to learn more about Monkcodes.
 
 :::
 
@@ -152,4 +152,4 @@ The Monkcode can be reused to add more machines in the same manner as long as th
 
 ## Conclusion
 
-We have learned how to create and grow a cluster. The whole point of having a Monk cluster is being able to run templates on it. Continue to the next guide to see how to run a template in your new cluster.
+We have learned how to create and grow a cluster. The whole point of having a Monk cluster is being able to run Kits on it. Continue to the next guide to see how to run a Kit in your new cluster.

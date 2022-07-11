@@ -16,9 +16,9 @@ Think of Monk as a Kubernetes and Terraform rolled into one tool. Monk is **a ne
 
 ## Key Features at a Glance
 
--   **Next-gen Manifests**: Compose your application _and_ provision workloads with composable and scriptable YAML manifests known as Monk Templates.
+-   **Next-gen Manifests**: Compose your application _and_ provision workloads with composable and scriptable YAML manifests known as Monk Kits.
 -   **Ready-to-use Stack Components**: Easily combine and customize containers or entire pre-composed stacks from the Monk Hub repository.
--   **Easily Mix and Match Templates**: Use our ready-made templates or modify them to suit your needs with our Monk Hub wizard.
+-   **Easily Mix and Match Kits**: Use our ready-made Kits or modify them to suit your needs with our Monk Hub wizard.
 -   **Masterless P2P Clusters**: An encrypted 0-config network connects all containers in Monk securely and transparently--even across clouds.
 -   **Multi-Cloud Support**: Deploy on any combination of GCP, AWS, Azure, Digital Ocean, bare metal, or even single board computers.
 -   **Automatic Provisioning**: Monk does the heavy lifting in your cloud accounts or bare metal servers so you can focus on development.
@@ -38,7 +38,7 @@ These docs should have everything you need to get acquainted with Monk and start
 
 -   [Install Monk](get-monk.md) and compose your first stack in 10 minutes
 -   Learn Monk's inner workings from [Reference](monkscript/index.md)
--   Explore templates on [monkhub.io](https://monkhub.io) and learn how and why you may want to [Publish your own](publishers.md)
+-   Explore Kits on [monkhub.io](https://monkhub.io) and learn how and why you may want to [Publish your own](publishers.md)
 
 If at any time you need help or want to share feedback, we'd love to hear from you! Find all our contacts and resources on the [Support](support.md) page to find our contacts, or join us directly on [Discord](https://discord.gg/WxDzaKe).
 

@@ -26,17 +26,12 @@ module.exports = {
                     position: "left",
                     label: "Docs",
                 },
-                // {to: '/blog', label: 'Blog', position: 'left'},
                 {
                     href: "https://github.com/monk-io/docs",
                     label: "GitHub",
                     position: "right",
                 },
             ],
-            // algolia: {
-            //   indexName: 'monk-docs',
-            //   apiKey: 'fd80626beb26ac2e5ace88192dd0c7a1',
-            // },
         },
         footer: {
             style: "dark",
@@ -111,9 +106,12 @@ module.exports = {
             },
         ],
     },
-    scripts: [
-        '/js/chatwoot.js',
+    stylesheets: [
+        'https://at-ui.github.io/feather-font/css/iconfont.css'
     ],
+    // scripts: [
+    //     '/js/chatwoot.js',
+    // ],
     plugins: ["docusaurus-plugin-sass"],
     presets: [
         [
@@ -121,15 +119,8 @@ module.exports = {
             {
                 docs: {
                     sidebarPath: require.resolve("./sidebars.js"),
-                    // Please change this to your repo.
                     editUrl: "https://github.com/monk-io/docs/blob/main",
                 },
-                // blog: {
-                //   showReadingTime: true,
-                //   // Please change this to your repo.
-                //   editUrl:
-                //     'https://github.com/facebook/docusaurus/edit/master/website/blog/',
-                // },
                 theme: {
                     customCss: [
                         require.resolve("./src/stylesheet/custom.css"),

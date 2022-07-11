@@ -21,7 +21,7 @@ We are actively working on removing this limitation and enabling multi-cloud loa
 
 ## Load balancing with Monk
 
-Let's suppose we have the following template:
+Let's suppose we have the following Kit:
 
 ```yaml linenums="1"
 namespace: /lbs
@@ -30,7 +30,6 @@ service-1:
     defines: runnable
     inherits: nginx/latest
     variables:
-        defines: variables
         listen-port: 8080
         proxy-target-host: www.exmple.com
 
@@ -38,7 +37,6 @@ service-2:
     defines: runnable
     inherits: nginx/latest
     variables:
-        defines: variables
         listen-port: 8080
         proxy-target-host: www.exmple.com
 
@@ -68,7 +66,6 @@ services:
     defines: process-group
 
     balancers:
-        defines: balancers
         app-balancer:
             type: http
             port: 8080
@@ -104,7 +101,6 @@ services:
     defines: process-group
 
     balancers:
-        defines: balancers
         app-balancer:
             type: http
             domain: mystuff.com
@@ -132,11 +128,11 @@ services:
 
 :::warning
 
-Certificates are sensitive information. Learn how to store them in templates securely: [Passing secrets in templates](passing-secrets.md).
+Certificates are sensitive information. Learn how to store them in Kits securely: [Passing secrets in templates](passing-secrets.md).
 
 :::
 
-It's useful to also include domain: in this definition to immediately know what's going on just by looking at the template.
+It's useful to also include domain: in this definition to immediately know what's going on just by looking at the Kit.
 
 The `app-balancer` will listen on both port `80` and port `443` by default. It behaves the same way as the HTTP balancer but is capable of terminating TLS connections.
 
@@ -160,7 +156,6 @@ services:
     defines: process-group
 
     balancers:
-        defines: balancers
         app-balancer:
             type: tcp
             port: 8080
@@ -190,7 +185,6 @@ services:
     defines: process-group
 
     balancers:
-        defines: balancers
         app-balancer:
             type: udp
             port: 8080
@@ -229,7 +223,6 @@ services:
     defines: process-group
 
     balancers:
-        defines: balancers
         app-balancer:
             type: elastic-ip
             instances:
@@ -256,7 +249,6 @@ services:
     defines: process-group
 
     balancers:
-        defines: balancers
         app-balancer:
             port: 8080
             type: http
@@ -286,7 +278,6 @@ services:
     defines: process-group
 
     balancers:
-        defines: balancers
         app-balancer:
             port: 8080
             type: http

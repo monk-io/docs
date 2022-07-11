@@ -72,7 +72,7 @@ It is advised to run `monkd` as a service on your system. See Running monccd as 
 : Run in read-only mode
 
 `-a, --template-autoupdate` _int_ (`30`)
-: The template auto update interval in minutes (set to 0 to disable)
+: The Kit auto update interval in minutes (set to 0 to disable)
 
 `-v, --version`
 : Print version information and quit

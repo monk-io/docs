@@ -4,7 +4,7 @@ title: "Chainlink Nodes"
 
 This guide will show you how to easily deploy Chainlink-based system.
 
-## Templates
+## Kits
 
 Each of the components is published in Monk Hub (<https://monkhub.io/>) or can be loaded locally from the repository.
 
@@ -24,7 +24,7 @@ group     chainlink/system        moncc       -        -
 
 ## Start
 
-Install Monk with our [quick start guide](../monk-in-10).
+Install Monk with our [quick start guide](monk-in-10.md).
 
 Then start Monk in a separate terminal with `monkd -d` if it's not running already. The `-d` flag is for debugging, which writes logs to stdout.
 
@@ -93,7 +93,7 @@ If you are using CI pipeline i.e GitLab, you will need to save Monkcode for GitL
 
 #### Prepare cloud credentials
 
-You should already have your cloud credentials ready from the [Monk in 10 minutes](../monk-in-10) Guide.
+You should already have your cloud credentials ready from the [Monk in 10 minutes](monk-in-10.md) Guide.
 
 -   GCP service account key `/usr/local/etc/key.json` with full Compute access role.
 
@@ -155,7 +155,7 @@ local                                           local                      unkno
 
 #### Deploy
 
-To deploy select chosen template and specify your tag in cluster created above.
+To deploy select chosen Kit and specify your tag in cluster created above.
 
 ```
 ➜ monk run chainlink/system
