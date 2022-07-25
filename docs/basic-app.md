@@ -335,6 +335,10 @@ You can now run your system locally using the following command:
 
 And everything should be working like a charm. You can now visit <http://localhost:9090> to verify that the app is in fact running and functioning correctly.
 
+To update template & running workload, use:
+
+    monk update yourname/system
+
 To stop it, use:
 
     monk stop yourname/system
