@@ -57,7 +57,9 @@ Reset your Monk account password
 
 ## load
 
-Load template YAML file(s) from disk
+Load template YAML file(s) from disk.
+
+Will not update a running workload. Use `update` after `load` to commit changes to the workload that is already running.
 
 **Flags**
 
