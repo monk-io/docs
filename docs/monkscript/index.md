@@ -10,7 +10,7 @@ MonkScript is Monk's composable definition language with runtime scripting abili
 :::note
 
 Start [Working with MonkScript &#8594;
-](monkscript/working.md)
+](working.md)
 
 :::
 
@@ -21,7 +21,7 @@ A notable difference between MonkScript and other YAML based Infrastructure-As-C
 :::note
 
 Read more about [MonkScript YAML &#8594;
-](monkscript/yaml)
+](yaml/index.md)
 
 :::
 
@@ -32,7 +32,7 @@ Arrow scripts are immensely powerful - they are used to implement service discov
 :::note
 
 Read more about [MonkScript Arrow scripting &#8594;
-](monkscript/scripting)
+](scripting/index.md)
 
 :::
 
