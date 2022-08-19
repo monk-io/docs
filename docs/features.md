@@ -18,7 +18,7 @@ The 🧪​ icon denotes experimental features. Please don't be upset if they ca
 ## MonkScript
 
 Our language allows you to specify your entire stack needs in a simple, reusable way. MonkScript is a primary user interface for controlling Monk's Programmable Control Plane. [Here's a primer &#8594;
-](monkscript)
+](publishers.md/#publishing-a-primer)
 
 ### Programmable Control Plane
 
@@ -27,12 +27,12 @@ Monk understands your workloads by constantly tracking and computing values asso
 ### Custom Variables
 
 Expose your container environment variables through dynamically computed variables, add and edit as required to extend your component functionality. [Read more &#8594;
-](monkscript/yaml/runnables#variables)​
+](monkscript/yaml/runnables.md#variables)​
 
 ### Actions
 
 Abstract any of your containerized software functionalities through our unique actions within the same Kit. [Read more​ &#8594;
-](monkscript/yaml/runnables#actions)
+](monkscript/yaml/runnables.md#actions)
 
 ### Health Checks
 

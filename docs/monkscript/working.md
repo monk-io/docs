@@ -22,7 +22,7 @@ Each manifest file must start with a `namespace` declaration - it allows Monk to
 
 ## Picking a namespace
 
-A good name for a [`namespace`](./yaml#namespaces) is unique and short. Suitable candidates are:
+A good name for a [`namespace`](./yaml/index.md#namespaces) is unique and short. Suitable candidates are:
 
 -   your name,
 -   name of your company,
