@@ -277,20 +277,6 @@ files:
             Monk is awesome!
 ```
 
-
-You can add content of the file by supplying path of the local file with `<<<`.
-
-#### Example
-```yaml linenums="1"
-files:
-    poem:
-        path: /var/poem.txt
-        container: dummy
-        chmod: 0666
-        raw: false
-        contents: <<< files/poem.txt
-```
-
 ### `checks`
 
 Each runnable can contain status checks. Currently the only supported check is `readiness`.

@@ -68,6 +68,20 @@ The `<<<` instructs Monk to read the file `foo.json` relative to the currently i
 
 This is useful for embedding large text files into your definitions without cluttering the YAML. Keep in mind that the embedded file needs to be present whenever your Kit is loaded.
 
+You can add content of the file by supplying path of the local file with `<<<`.
+
+#### Example
+```yaml linenums="1"
+files:
+    poem:
+        path: /var/poem.txt
+        container: dummy
+        chmod: 0666
+        raw: false
+        contents: <<< files/poem.txt
+```
+
+
 ## Inheritance
 
 The most powerful feature of MonkScript is the ability to inherit any piece of YAML from any place in any definition. The inheritance mechanism practically eliminates the need for macro processing as it is capable of expressing many complex patterns by itself.
