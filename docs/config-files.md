@@ -2,11 +2,11 @@
 title: "Add Dynamic Configuration"
 ---
 
-Monk offers a convenient way to pass arbitrary text files (such as config files) to any container from the Kitlevel. Such files can be generated on the fly at container startup making it easy to create dynamic configuration for services based on Monk variables.
+Monk offers a convenient way to pass arbitrary text files (such as config files) to any container from the Kit level. Such files can be generated on the fly at container startup making it easy to create dynamic configuration for services based on Monk variables.
 
 ## Nginx example
 
-Let's take an nginx Kitas an example an analyze how nginx configuration is passed to the container:
+Let's take an nginx Kits as an example and analyze how nginx configuration is passed to the container:
 
 ```yaml title="nginx.yaml" linenums="1"
 namespace: nginx
@@ -111,7 +111,7 @@ server {
 }
 ```
 
-Notice how the proxy target address was computed dynamically and placed into the right place in the configuration. This is a very powerful feature allowing for re-use of config files at the Kitlevel.
+Notice how the proxy target address was computed dynamically and placed into the right place in the configuration. This is a very powerful feature allowing for re-use of config files at the Kit level.
 
 ### Re-defining the contents
 
