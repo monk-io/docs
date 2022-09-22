@@ -83,6 +83,8 @@ We have just replaced the `${monk-volume-path}/mongodb` because `database` inher
 
 This means it is sufficient to just provide the `volume-data` in the `volumes` section so that `important-data` will get mounted in a place where the mongodb container expects to save its state.
 
+**Important notice!** The path defined in volumes sections should be used the same for the path defined in containers section.
+
 ## Step 2: Running the Kit
 
 === "database.yaml"
