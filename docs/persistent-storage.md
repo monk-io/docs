@@ -76,6 +76,8 @@ containers:
 
 This means it is sufficient to just provide the `volume-data` in the `volumes` section so that `important-data` will get mounted in a place where the mongodb container expects to save its state.
 
+**Important notice!** The path defined in volumes sections should be used the same for the path defined in containers section.
+
 ## Step 2: Running the Kit
 ```yaml title="database.yaml" linenums="1"
 namespace: guides
@@ -174,6 +176,31 @@ Monk delegates the backup process to the cloud it's running on and the backups c
 Volume backups are released as canary feature in v3.2.0. They only work on GCP for now. Please confirm creation of the backups in your cloud console before assuming they are present.
 
 :::
+
+## Full example of volumes with backup's usage
+
+```
+namespace: /postgres
+postgres:
+  defines: runnable
+  volumes:
+    postgres:
+      size: 2
+      kind: HDD
+      path: <- `${monk-volume-path}/data`
+      backup:
+        rotation-days: 10
+        every: 1
+        kind: hour
+        start-time: 00:00
+        start-day: MONDAY
+  containers:
+    postgres:
+      image: bitnami/postgresql
+      paths:
+        - <- `${monk-volume-path}/data:/var/lib/postgresql/data`
+```
+
 
 ## Conclusion
 
