@@ -62,6 +62,20 @@ In order to create a load balancer that will balance the traffic between those t
 ```yaml linenums="1"
 namespace: /lbs
 
+service-1:
+    defines: runnable
+    inherits: nginx/latest
+    variables:
+        listen-port: 8080
+        proxy-target-host: www.exmple.com
+
+service-2:
+    defines: runnable
+    inherits: nginx/latest
+    variables:
+        listen-port: 8080
+        proxy-target-host: www.exmple.com
+
 services:
     defines: process-group
 
@@ -96,6 +110,20 @@ In order to tell `app-balancer` to use HTTPS, all we need to do is pass our cert
 
 ```yaml linenums="1"
 namespace: /lbs
+
+service-1:
+    defines: runnable
+    inherits: nginx/latest
+    variables:
+        listen-port: 8080
+        proxy-target-host: www.exmple.com
+
+service-2:
+    defines: runnable
+    inherits: nginx/latest
+    variables:
+        listen-port: 8080
+        proxy-target-host: www.exmple.com
 
 services:
     defines: process-group
@@ -152,13 +180,27 @@ values={[
 ```yaml linenums="1"
 namespace: /lbs
 
+service-1:
+    defines: runnable
+    inherits: nginx/latest
+    variables:
+        listen-port: 5222
+        proxy-target-host: www.exmple.com
+
+service-2:
+    defines: runnable
+    inherits: nginx/latest
+    variables:
+        listen-port: 5222
+        proxy-target-host: www.exmple.com
+
 services:
     defines: process-group
 
     balancers:
         app-balancer:
             type: tcp
-            port: 8080
+            port: 5222
             instances:
                 - lbs/service-1
                 - lbs/service-2
@@ -181,25 +223,45 @@ For a `tcp` load balancer to work a healthcheck against the runnable needs to pa
 ```yaml linenums="1"
 namespace: /lbs
 
+udp:
+    defines: runnable
+    containers:
+        defines: containers
+        server:
+            image: danielyinanc/udp-server-docker
+            image-tag: latest
+            ports:
+                - 4545:4445/udp
+
+service-1:
+    defines: runnable
+    inherits: lbs/udp
+
+service-2:
+    defines: runnable
+    inherits: lbs/udp
+
 services:
     defines: process-group
-
     balancers:
+        defines: balancers
         app-balancer:
             type: udp
-            port: 8080
+            port: 4545
             instances:
-                - lbs/service-1
-                - lbs/service-2
+                - /lbs/service-1
+                - /lbs/service-2
 
     runnable-list:
-        - lbs/service-1
-        - lbs/service-2
+        - /lbs/service-1
+        - /lbs/service-2
 ```
 
 </TabItem>
 
 </Tabs>
+
+Here for demonstration purpose `danielyinanc/udp-server-docker` is used , since it is simple to test.
 
 Such balancers are listening on the specified port and are connecting on the same port to the underlying services.
 
@@ -218,6 +280,21 @@ No configuration is required here. All ports exposed on the target instance will
 
 ```yaml linenums="1"
 namespace: /lbs
+
+service-1:
+    defines: runnable
+    inherits: nginx/latest
+    variables:
+        listen-port: 8080
+        proxy-target-host: www.exmple.com
+
+service-2:
+    defines: runnable
+    inherits: nginx/latest
+    variables:
+        listen-port: 8080
+        proxy-target-host: www.exmple.com
+
 
 services:
     defines: process-group
@@ -279,7 +356,7 @@ services:
 
     balancers:
         app-balancer:
-            port: 8080
+            port: 5222
             type: http
             health-check:
                 kind: tcp
