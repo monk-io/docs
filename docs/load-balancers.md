@@ -173,6 +173,7 @@ defaultValue="tcp"
 values={[
 {label: 'TCP', value: 'tcp'},
 {label: 'UDP', value: 'udp'},
+{label: 'UDP (AWS)', value: 'udp-aws'},
 ]}>
 
 <TabItem value="tcp">
@@ -256,20 +257,49 @@ services:
         - /lbs/service-1
         - /lbs/service-2
 ```
-
-</TabItem>
-
-</Tabs>
-
 Here for demonstration purpose `danielyinanc/udp-server-docker` is used , since it is simple to test.
-
-Such balancers are listening on the specified port and are connecting on the same port to the underlying services.
 
 :::warning
 
 UDP load balancers are not available for Digital Ocean, since Digital Ocean is not supporting that service.
 
 :::
+</TabItem>
+
+<TabItem value="udp-aws">
+
+```yaml linenums="1"
+namespace: /lbs
+
+udp:
+  defines: runnable
+  containers:
+    defines: containers
+    server:
+      image: danielyinanc/udp-server-docker
+      image-tag: latest
+      ports:
+        - 4545:4445/udp
+    tcp-server:
+      image: busybox
+      image-tag: latest
+      bash: "while true; do { echo -e 'HTTP/1.1 200 OK\r\n'; echo 'ok'; } | nc -l -p 8080; done"
+      ports:
+        - 4545:8080
+```
+
+
+AWS doesn't support UDP health check so load balancer from previous template will fail.
+One way of solving this, is to attach simple TCP health endpoint at the same port.
+This example introduces a tiny (~1MB) web server that just sends HTTP 200 for every request to port 8080.
+
+
+</TabItem>
+
+</Tabs>
+
+Such balancers are listening on the specified port and are connecting on the same port to the underlying services.
+
 
 
 ### Elastic IP
