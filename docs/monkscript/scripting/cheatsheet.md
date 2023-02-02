@@ -48,4 +48,5 @@ Here's an index of all the operators available in Arrow scripts by category. Eac
 ## Types
 [`to-bi, to-bigint`](operators/types.md#to-bi-to-bigint) [`to-float, to-f`](operators/types.md#to-float-to-f) [`to-int, to-i`](operators/types.md#to-int-to-i) [`to-string, to-s`](operators/types.md#to-string-to-s) 
 
-
+## Entities
+[`entity`](./operators/entities.md#entity) [`entity-state`](./operators/entities.md#entity-state)
