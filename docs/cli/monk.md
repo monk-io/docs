@@ -152,6 +152,29 @@ Run a template
 | `--local-only, -o` |  | Search for templates only in local repository |
 | `--multiple, -m` |  | Run multiple templates at once |
 | `--autoload, -a` |  | Automatically reload modified templates without prompting |
+| `--set VAR=VALUE, -s VAR=VALUE` |  | Set runtime value for a variable |
+| `--variables-file FILE, --variable-file FILE, --vf FILE` |  | Load runtime values for variables from file |
+
+### Runtime variables
+
+It's possible to provide runtime values for some variables during `monk run` or `monk update`. It can be used to override default values defined in the template, or to provide values for variables that were declared without a default value, or to modify the value of a variable for `monk update`. Runtime variables can be set either using the `--set` flag for `monk run` or `monk update`, or listed in a YAML file and provided using the `--variables-file` flag.
+
+E.g.:
+```
+monk run --set foo=somevalue --set somenamespace/somerunnable/bar=othervalue somenamespace/somegroup
+```
+will set the variable `foo` on runnable `somenamespace/somegroup` to `somevalue`, and variable `bar` on a runnable `somenamespace/somerunnable` (which is presumably a part of `somegroup`'s runnable-list) to `othervalue`.
+
+The same can be achieved by putting those values in a YAML file:
+```yaml title="vars.yaml"
+foo: somevalue
+somenamespace:
+    somerunnable:
+        bar: othervalue
+```
+```
+monk run --variables-file vars.yaml somenamespace/somegroup
+```
 
 ## describe
 
@@ -177,6 +200,12 @@ Update a running workload with new template definition
 | `--peer NAME, -p NAME` | `` | Consider only workloads running on peer named `NAME` |
 | `--multiple, -m` |  | Update multiple templates |
 | `--autoload, -a` |  | Automatically reload modified templates without prompting |
+| `--set VAR=VALUE, -s VAR=VALUE` |  | Set runtime value for a variable |
+| `--variables-file FILE, --variable-file FILE, --vf FILE` |  | Load runtime values for variables from file |
+
+### Runtime variables
+
+See [`Runtime variables`](#runtime-variables).
 
 ## restart
 
