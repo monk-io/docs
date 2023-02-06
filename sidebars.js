@@ -66,6 +66,7 @@ module.exports = {
                 "affinity",
                 "load-balancers",
                 "hooks",
+                "entities",
             ],
         },
         {
@@ -135,6 +136,7 @@ module.exports = {
                                         "monkscript/scripting/operators/strings",
                                         "monkscript/scripting/operators/types",
                                         "monkscript/scripting/operators/variables",
+                                        "monkscript/scripting/operators/entities",
                                     ],
                                 },
                             ],
