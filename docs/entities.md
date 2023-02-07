@@ -770,21 +770,21 @@ cloud-sql-instance:
         let res = createInstance(gcp.getProject(), def);
         console.log(JSON.stringify(res));
         if (res.error) {
-          throw new Error(res.error);
+          throw new Error(res.error + ", body: " + res.body);
         }
         return {"statusCode": res.statusCode};
       }
     purge: |
       var deleteInstance = function(project, name) {
-        return gcp.delete("https://sqladmin.googleapis.com/sql/v1beta4/projects/"+
-          project+"/instances/"+name);
+        return gcp.delete("https://sqladmin.googleapis.com/sql/v1beta4/projects/"+project+
+          "/instances/"+name);
       }
 
       function main(def, state, context) {
         let res = deleteInstance(gcp.getProject(), def.name);
         console.log(JSON.stringify(res));
         if (res.error) {
-          throw new Error(res.error);
+          throw new Error(res.error + ", body: " + res.body);
         }
       }
 ```
@@ -844,9 +844,9 @@ cloud-sql-database:
           throw new Error("instance address is empty");
         }
 
-        res = createDatabase(gcp.getProject(), def.instance, def.name);
+        let res = createDatabase(gcp.getProject(), def.instance, def.name);
         if (res.error) {
-          throw new Error(res.error);
+          throw new Error(res.error + ", body: " + res.body);
         }
         return {"name": def.name, "address": address};
       }
@@ -859,7 +859,7 @@ cloud-sql-database:
       function main(def, state, context) {
         let res = deleteDatabase(gcp.getProject(), def.instance, def.name);
         if (res.error) {
-          throw new Error(res.error);
+          throw new Error(res.error + ", body: " + res.body);
         }
       }
 ```
@@ -906,9 +906,9 @@ cloud-sql-user:
       }
 
       function main(def, state, ctx) {      
-        res = createUser(gcp.getProject(), def)
+        let res = createUser(gcp.getProject(), def);
         if (res.error) {
-          throw new Error(res.error);
+          throw new Error(res.error + ", body: " + res.body);
         }
         return {}
       }
@@ -921,7 +921,7 @@ cloud-sql-user:
       function main(def, state, context) {
         let res = deleteUser(gcp.getProject(), def.instance, def.name)
         if (res.error) {
-          throw new Error(res.error)
+          throw new Error(res.error + ", body: " + res.body);
         }
         try {
           secret.remove(def["password-secret"]);
@@ -940,6 +940,7 @@ myinstance:
   defines: guides/cloud-sql-instance
   name: testmyinstance1
   database-version: MYSQL_8_0
+  tier: "db-g1-small"
   allow-all: true
 
 mydb:
@@ -950,7 +951,7 @@ mydb:
 myuser:
   defines: guides/cloud-sql-user
   name: myuser1
-  instance: name
+  instance: <- entity("guides/myinstance") get-member("name")
   password-secret: myuser-password
   permitted-secrets:
     myuser-password: true
@@ -990,14 +991,17 @@ wordpress:
     wordpress_db_name:
       value: <- entity("guides/mydb") get-member("name")
       type: string
-    wordpress_db_password:
+    wordpress_db_secret:
       value: <- entity("guides/myuser") get-member("password-secret")
+      type: string
+    wordpress_db_password:
+      value: <- secret($wordpress_db_secret)
       type: string
     wordpress_db_user:
       value: <- entity("guides/myuser") get-member("name")
       type: string
     wordpress_db_addr:
-      value: <- $wordpress_db_host `:3306` concat-all
+      value: <- $wordpress_db_host ":3306" concat-all
       type: string
     wordpress_table_prefix:
       type: string
