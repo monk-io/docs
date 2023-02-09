@@ -243,8 +243,16 @@ function main(definition, state, context) {
 
 Available modules:
 
+:::note
+
+Require works only with modules that are implemented in Monk, see full list below.  
+But you can use native JS functions like JSON, Math, etc.
+
+:::
+
 * cli
 * secret
+* fs
 * http
 * cloud/digitalocean
 * cloud/aws
@@ -274,10 +282,10 @@ The module implements methods to work with Monk Secrets.
 
 It has the following methods:
 
-* get - get Secret value by name.
-* set - set Secret value.
-* remove - delete Secret.
-* randString - generate random string.
+* `get` - get Secret value by name.
+* `set` - set Secret value.
+* `remove` - delete Secret.
+* `randString` - generate random string.
 
 Usage:
 
@@ -306,6 +314,63 @@ john:
   ...
   permitted-secrets:
     my-global-secret-name: true
+```
+
+### Module FS
+
+The module implements methods to work with embedded files. It uses virtual filesystem with readonly access.
+
+Module has the following methods:
+
+* `ls` - returns array of filenames in the given path, dirs names end with "/".
+* `readFile` - returns file content.
+* `zip` - archive as zip.
+* `tar` - package as tar.
+
+Files can be added in **files** property.
+
+:::note
+
+You can use `<<<` macro [to paste contents from a local file](monkscript/yaml/index.md#file-embeds).
+
+:::
+
+Example:
+
+```yaml title="john.yaml" linenums="1"
+namespace: guides
+
+john:
+  defines: guides/person
+  ...
+  files:
+    interests:
+      path: interests.txt
+      contents: "Animal lover, Astrology"
+    bio:
+      path: biography.txt
+      contents: <<< bio.txt
+```
+
+Usage:
+
+```javascript
+let fs = require("fs");
+
+// list files from root dir
+let res = fs.ls();
+
+// read file and return content
+let data = fs.readFile("biography.txt");
+
+// zip all files
+let zipdata = fs.zip(".");
+
+// zip files with given path
+let zipdata = fs.zip("biography.txt", "interests.txt");
+
+// tar all files
+let tardata = fs.tar(".");
 ```
 
 ### Module HTTP
