@@ -257,6 +257,7 @@ But you can use native JS functions like JSON, Math, etc.
 * cloud/digitalocean
 * cloud/aws
 * cloud/gcp
+* cloud/azure
 
 ### Module CLI
 
@@ -505,6 +506,37 @@ function main(definition) {
     if (res.error) {
         throw new Error(res.error);
     }
+}
+```
+
+### Module Azure
+
+This module implements an HTTP client for Microsoft Azure API.
+
+:::note
+
+Using azure module requires you to have [Azure provider credentials](cloud-provider.md) in your cluster.
+
+:::
+
+Methods are the same as http module: `get`, `put`, `post`, `delete`, `do`.
+There are also `getTenant()`, `getSubscription()`, `getResourceGroup()` methods
+that return info from provider credentials.
+
+Usage:
+
+```javascript
+let azure = require("cloud/azure");
+
+function main(definition, state, context) {
+    let url = "https://mytestaccount.blob.core.windows.net/?comp=list";
+    // storage has to use at least 2017-11-09 version to work with OAuth token
+    let res = azure.get(url, {headers: {"x-ms-version": "2017-11-09"}});
+    if (res.error) {
+        throw res.error + ", body: " + res.body;
+    }
+    // print result to monkd logs
+    console.log(res.body);
 }
 ```
 
