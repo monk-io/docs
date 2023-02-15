@@ -204,6 +204,110 @@ person:
     bye: ""
 ```
 
+## Readiness & dependency checks
+
+Lefecycle scripts are meant to return fast, but some Entities may take time to become available after `monk run`.
+Monk comes with readiness checks that can perform tests to check if Entity is up and running.
+
+:::note
+
+See [this guide to learn](readiness-and-dependency-checks.md) how readiness and dependency work in detail.
+
+:::
+
+### Readiness
+
+Readiness check is written in JavaScript. To fail check, you need to throw error at any point.
+
+```yaml title="type.yaml" linenums="1"
+namespace: guides
+
+person:
+  defines: entity
+  checks:
+    readiness:
+      code: |
+        function main(def, state, ctx) {
+          throw "not ready";
+        }
+      initialDelay: 5   
+```
+
+Check can return state to be saved like any other lifecycle action.
+
+```yaml title="type.yaml" linenums="1"
+checks:
+  readiness:
+    code: |
+      function main(def, state, ctx) {
+        state.ready = true;
+        return state;
+      }
+```
+
+If code is empty and Entity has `sync` method defined, then `sync` is going to be called instead.
+Context action will be **check-readiness**.
+
+Example:
+
+```yaml title="type.yaml" linenums="1"
+namespace: guides
+
+person:
+  defines: entity
+  checks:
+    readiness:
+      initialDelay: 5
+      interval: 10
+      period: 120
+  lifecycle:
+    sync: |
+      function main(def, state, ctx) {
+         switch (ctx.action) {
+            case "create":
+              // create logic
+              break;
+            case "purge":
+              // purge logic
+              break;
+            case "check-readiness":
+              // readiness check logic
+              break;
+            default:
+              // no action
+              return;
+         }
+      }
+```
+
+### Dependency
+
+Entities can depend on each other being available, they can also depend on Runnable, or vice versa.
+
+```yaml title="people.yaml" linenums="1"
+namespace: guides
+
+john:
+  defines: guides/person
+  name: John D
+  depends:
+    wait-for:
+      runnables:
+        - guides/lucy
+      timeout: 120
+
+john-runnable:
+  defines: runnable
+  depends:
+    wait-for:
+      runnables:
+        - guides/john
+      timeout: 60
+  containers:
+    operator:
+      image: your-image/test:webhook
+```
+
 ## Require modules
 
 Monk has a number of modules. You can use them by requiring modules in _requires_ property:
@@ -560,6 +664,11 @@ namespace: guides
 
 foo:
   defines: entity
+  depends:
+    wait-for:
+      runnables:
+        - guides/foo-operator
+      timeout: 60
   schema:
     first-url:
       type: string
