@@ -257,9 +257,9 @@ person:
   defines: entity
   checks:
     readiness:
-      initialDelay: 5
-      interval: 10
-      period: 120
+      initialDelay: 15
+      period: 10
+      attempts: 12
   lifecycle:
     sync: |
       function main(def, state, ctx) {
