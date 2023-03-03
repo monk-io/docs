@@ -26,13 +26,14 @@ readiness:
     code: <Arrow script code>
     period: <time in seconds>
     initialDelay: <time in seconds>
-    interval: <time in seconds>
+    attempts: <number of max retries>
 ```
 
 `code` - is the place where we will put our Arrow script to check readiness, 
-`period` - is the time period (in seconds) until Monk decides that application didn't start properly,  
+`period` - specifies how often (in seconds) Monk will perform this check, 
 `initialDelay` - initial delay (in seconds) before Monk will start checking application health,
-`interval` - specifies how often (in seconds) Monk will perform this check.
+`attempts` - specifies how many times (max) to perform this check until Monk decides that application
+didn't start properly, default is 10.
 
 ### Example
 
@@ -104,7 +105,7 @@ bar:
                 exec("foo", "ps", "-ef") contains?("sleep")
             period: 60
             initialDelay: 5
-            interval: 5
+            attempts: 5
 
 baz:
     defines: runnable

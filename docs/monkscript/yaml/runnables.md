@@ -291,11 +291,11 @@ Each runnable can contain status checks. Currently the only supported check is `
 :::
 
 | Field          | Value             | Purpose                                                                                                     | Required |
-| -------------- | ----------------- | ----------------------------------------------------------------------------------------------------------- | -------- |
+|----------------|-------------------|-------------------------------------------------------------------------------------------------------------| -------- |
 | `code`         | arrow script code | code to be run to perform the check, truthy return value indicates success, anything else indicates failure | yes      |
-| `period`       | int (seconds)     | time period (in seconds) until Monk decides that application didn't start properly                          | no       |
+| `period`       | int (seconds)     | specifies how often (in seconds) Monk will perform this check                                               | no       |
 | `initialDelay` | int (seconds)     | initial delay (in seconds) before Monk will start checking application health                               | no       |
-| `interval`     | int (seconds)     | specifies how often (in seconds) Monk will perform this check                                               | no       |
+| `attempts`     | int               | specifies how many times Monk will perform this check                                                       | no       |
 
 #### Example
 
