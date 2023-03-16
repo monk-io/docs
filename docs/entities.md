@@ -95,8 +95,9 @@ and retrieving structured data. We have to write Lifecycle scripts to apply cust
 
 ## Lifecycle scripts
 
-Scripts are written in JavaScript and can be inlined in Entity type. Considering our
-example, let’s add some validation and logging to create lifecycle:
+Scripts are written in JavaScript and can be inlined in Entity type.
+
+Considering our example, let’s add some validation and logging to create lifecycle:
 
 ```yaml title="type.yaml" linenums="1"
 namespace: guides
@@ -148,6 +149,16 @@ You don't have to return new state for every action. If you do — it replaces p
 :::
 
 You can use **throw** to terminate command execution from JS at any point.
+
+Monk JS Runtime supports most of the native JS functions,
+but it doesn't have access to browser features or file system.
+
+Here's a list with some JS methods:
+
+* `JSON.parse()`, `JSON.stringify()` - encode/decode JSON strings.
+* `btoa()`, `atob()` - encode/decode base64 strings, this method accepts Unicode.
+* `console.log()` - print value to monkd logs.
+* `Math`, `Date`, `Map`, etc
 
 ### Available lifecycle targets
 
@@ -357,6 +368,7 @@ But you can use native JS functions like JSON, Math, etc.
 * cli
 * secret
 * fs
+* parser
 * http
 * cloud/digitalocean
 * cloud/aws
@@ -476,6 +488,47 @@ let zipdata = fs.zip("biography.txt", "interests.txt");
 
 // tar all files
 let tardata = fs.tar(".");
+```
+
+### Module Parser
+
+The module implements methods to parse value from text documents.
+
+Module has the following methods:
+
+* `xmlquery` - parse XML documents.
+* `jsonquery` - parse JSON documents.
+* `htmlquery` - parse HTML documents.
+
+Methods accept 2 strings: document and query with XPath expression.
+
+Returned value is a list for most of the queries,
+with the exceptions that return scalar values: XML methods like `count`, `concat`, `sum`.
+
+Usage:
+
+```javascript
+const parser = require("parser");
+
+// get values by selector
+let title = parser.xmlquery(def.data, "//channel/title")[0];
+let titles = itemTitles = parser.xmlquery(def.data, "//item/title");
+
+// get attirubute value of a second item
+let itemId = parser.xmlquery(def.data, "//item[2]/@id")[0];
+
+// get number of all items
+let count = parser.xmlquery(def.data, "count(//item)");
+
+// JSON - get all prices that are greater than value
+let prices = parser.jsonquery(def.data, "//price[.>21]");
+
+// HTML - parse header h1 and all h2 text values
+let h1 = parser.htmlquery(def.data, "//header/h1")[0];
+let h2List = parser.htmlquery(def.data, "//h2");
+
+// HTML - parse all link href values
+let hrefs = parser.htmlquery(def.data, "//a/@href");
 ```
 
 ### Module HTTP
