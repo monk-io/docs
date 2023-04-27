@@ -1,7 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Getting Monk
+# Install Monk Locally
 
 Here's how you install, test, and upgrade Monk.
 

@@ -1,5 +1,5 @@
 ---
-title: "Accounts & Authentication"
+title: "Create Your Monk Account"
 ---
 
 # Monk Accounts & Authentication
