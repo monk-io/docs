@@ -58,7 +58,13 @@ If you're running Linux that does not have APT see [Getting Monk](get-monk.md) a
 
 ## Running Monk
 
-Ensure that Docker is running on your system. Both Docker and `monkd` have to be running when using Monk.
+:::caution warning
+
+**You always need to have `monkd` running in order to use Monk CLI. Fire it up to continue this guide.**
+
+:::
+
+Ensure that Docker or Podman is running on your system. Both of either Docker or Podman and `monkd` have to be running when using Monk.
 
 <Tabs
 defaultValue="macOS"
@@ -76,16 +82,20 @@ Run `monkd` in a new Terminal window and don't close it:
 
 Wait for it to initialize, and you should get this output:
 
-    Monkd v2.4.4
-    © 2018-2021 OAKds Inc. All rights reserved.
+    Monk v3.9.0
+    © 2018-2023 OAKds Inc. All rights reserved.
     https://monk.io
 
     Please stand by while monkd is starting...
+    generating 2048-bit RSA keypair...done
+    peer identity: ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
     Initialization complete. monkd is ready
 
 </TabItem>
 
 <TabItem value="mainLinux">
+
+<!-- FIXME : I updated the macOS version to 3.9.0, unsure if the Linux version needs to be udpated as well -->
 
 If you installed `monkd` using apt it should be running after installation.
 
@@ -139,11 +149,6 @@ Wait for it to initialize, you should see this:
 
 </Tabs>
 
-:::caution warning
-
-**You always need to have `monkd` running in order to use Monk CLI. Fire it up to continue this guide.**
-
-:::
 
 ## Creating Your Monk Account
 
