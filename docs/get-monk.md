@@ -7,7 +7,19 @@ Here's how you install, test, and upgrade Monk.
 
 :::note Prerequisites
 
-Monk requires [Docker](https://www.docker.com/) to be present and running on your system. If you don't have Docker installed and running, please refer to [https://docs.docker.com/docker-for-mac/install/](https://docs.docker.com/docker-for-mac/install/) and follow the steps detailed there in order to obtain Docker before installing Monk.
+Monk requires [Docker](https://www.docker.com/) or [Podman](https://podman.io/) to be present and running on your system. 
+If you do not have either of these installed and running, please check out either either [how to install Docker](https://docs.docker.com/docker-for-mac/install/) or [how to install Podman](https://podman.io/getting-started/installation) prior to installing Monk.
+
+:::
+
+:::note Prerequisites
+
+Monk on macOS requres Command Line Tools version 14.3. If you are using an earlier version of the Command Line Tools, you will be prompted
+to upgrade as part of set up. If you are unsure what version of Command Line Tools you are running, you can check with:
+
+```
+softwareupdate --history | grep "Command Line Tools" | tail -n 1
+```
 
 :::
 
@@ -25,7 +37,7 @@ Monk requires [Docker](https://www.docker.com/) to be present and running on you
 
 **Installing with Homebrew**
 
-We provide a Homebrew repository containing official releases of Monk. You can obtain the latest stable version of Monk from this repository by running the following command:
+We provide a [Homebrew](https://brew.sh/) repository containing official releases of Monk. You can obtain the latest stable version of Monk from this repository by running the following command:
 
     brew install monk-io/monk/monk
 

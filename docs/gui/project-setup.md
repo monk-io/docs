@@ -3,6 +3,12 @@ title: Setting Up Your Project
 displayed_sidebar: guiSidebar
 ---
 
+:::note Prerequisites
+
+In order to build a project you will need to have your credentials ready for one or more of the following cloud providers:
+AWS, Azure, Digital Ocean, and/or GCP. 
+:::
+
 After successful sign up, you will see the list of your projects. This list is initially empty as there are no projects in your account yet. To create a new project click **Create project** button in the top right corner.
 
 ![](/img/docs/gui/gui43.png)
