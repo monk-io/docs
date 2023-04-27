@@ -1,6 +1,6 @@
 # Monk vs Other Software
 
-import ComparisonTable from "../src/components/comparisonTable";
+import ComparisonTable from "../../src/components/comparisonTable";
 
 As a new startup kid on the stack block, we often get compared to other services. Those who ask usually have their assumptions all wrong 🚨
 
