@@ -141,3 +141,19 @@ button[class^='backToTopButton_'], button[class*=' backToTopButton_'] {
   bottom: 6.3rem !important;
   right: 1.8rem !important;
 }
+
+figure {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  margin: 0 0 var(--ifm-paragraph-margin-bottom);
+}
+
+figcaption {
+  font-family: Aeonik;
+  font-weight: 200;
+  font-size: 1rem;
+  color: gray;
+  font-style: italic;
+  text-align: center;
+}

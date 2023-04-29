@@ -1,6 +1,5 @@
 ---
 title: Setting Up Your Project
-displayed_sidebar: guiSidebar
 ---
 
 :::note Prerequisites
