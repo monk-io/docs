@@ -8,14 +8,15 @@ Here's how you install, test, and upgrade Monk.
 :::note Prerequisites
 
 Monk requires [Docker](https://www.docker.com/) or [Podman](https://podman.io/) to be present and running on your system. 
-If you do not have either of these installed and running, please check out either either [how to install Docker](https://docs.docker.com/docker-for-mac/install/) or [how to install Podman](https://podman.io/getting-started/installation) prior to installing Monk.
+If you do not have either of these installed and running, please check out either [how to install Docker](https://docs.docker.com/docker-for-mac/install/) or [how to install Podman](https://podman.io/getting-started/installation) prior to installing Monk.
 
 :::
 
 :::note Prerequisites
 
 Monk on macOS requres Command Line Tools version 14.3. If you are using an earlier version of the Command Line Tools, you will be prompted
-to upgrade as part of set up. If you are unsure what version of Command Line Tools you are running, you can check with:
+to upgrade as part of set up. Note that the version of Command Line Tools is separate from the version of Xcode.
+If you are unsure what version of Command Line Tools you are running, you can check with:
 
 ```
 softwareupdate --history | grep "Command Line Tools" | tail -n 1
@@ -47,7 +48,7 @@ Now run the Monk daemon in a fresh terminal:
 
 :::note
 
-`monkd` has to be running at all times when using `monk` or running any workloads via Monk. You might consider adding `monkd` to your `launchctl` configuration so that it stays running as a service. See [Running `monkd` as a service](./cli/monkd.md).
+`monkd` has to be running at all times when using `monk` or running any workloads via Monk. You might consider adding `monkd` to your `launchctl` configuration so that it stays running as a service. See [Running `monkd` as a service](../cli/monkd.md).
 
 :::
 </TabItem>
@@ -98,7 +99,7 @@ Open a fresh terminal and run `monkd`:
 
 :::success
 
-All done! Go to [Testing the installation](#testing-your-setup) to try it out.
+All done! Please proceed to the next section to try `monk` out.
 
 :::
 
