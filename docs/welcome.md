@@ -6,7 +6,7 @@ slug: /
 
 # Welcome to Monk
 
-Welcome to [Monk](https://monk.io), the stack orchestration platform.
+Welcome to [Monk](https://monk.io), a new stack orchestration platform.
 
 Monk lets you compose, deploy, and manage your entire stack, on your own infrastructure, with nearly zero DevOps overhead.
 
