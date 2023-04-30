@@ -1,22 +1,22 @@
-# Monk Ecosystem
+# MonkOS Ecosystem
 
-Monk is a new infrastructure platform that makes it easy to deploy and manage container-based applications in any environment. It works as a highly customizable abstraction layer between containers and infrastructure, and it's based on three key technologies:
+MonkOS is a new infrastructure platform that makes it easy to deploy and manage container-based applications in any environment. It works as a highly customizable abstraction layer between containers and infrastructure, and it's based on three key technologies:
 
-- **Monk Engine** a distributed container engine that runs and manages workloads
+- **MonkOS** a distributed resource manages that manages workloads and infrastructure
 
-- **MonkScript** composable YAML for describing containers and workloads in one place
+- **MonkScript** composable YAML for describing workloads and infrastructure in one place
 
 - **Monk Hub** a globally accessible repository where Kits are stored
 
-With this "trinity" working together, you can define your entire stack with a single master manifest (_written in MonkScript_) composed from other developers' Kits (_on Monk Hub_). You can then deploy said stack on your infrastructure of choice without needing to define provisioning somewhere else (_thanks to Monk Engine_).
+With this "trinity" working together, you can define your entire stack with a single master manifest (_written in MonkScript_) composed from other developers' Kits (_on Monk Hub_). You can then deploy said stack on your infrastructure of choice without needing to define provisioning somewhere else (_thanks to MonkOS Engine_).
 
 Pretty nifty, right? Let's take a closer look at each component.
 
 ---
 
-## Monk Engine
+## MonkOS
 
-Monk Engine is the central piece of the Monk solution. It is a new container orchestrator that implements a masterless cluster architecture.
+MonkOS is the central piece of the solution. It is a new distributed resource manager that implements a masterless cluster architecture.
 
 The Engine was designed from the ground up to be independent of existing tools like Kubernetes and Terraform, but aims to provide similar functionality with notable improvements:
 
@@ -26,9 +26,9 @@ The Engine was designed from the ground up to be independent of existing tools l
 
 All of those features exist in a self-contained binary (`monkd`) that can be installed on almost any machine, be it a cloud instance or a single board computer. Read more about `monkd` [here](cli/monkd.md).
 
-### Monk Clusters
+### MonkOS Clusters
 
-Monk Clusters are groups of machines running the Monk Engine. Particular instances of the Engine are called Peers.
+MonkOS Clusters are groups of machines running the MonkOS. Particular instances of the Engine are called Peers.
 
 The clusters can be created by manually connecting the Peers between a group of machines, or they can be "grown" from a single machine by bootstrapping the engine onto other machines automatically.
 
@@ -38,9 +38,9 @@ Check out [Creating a cluster](lifecycle/cluster-create-1.md) to learn more abou
 
 ### Multi-site Presence
 
-Monk Clusters span a coordination layer between their members and create an encrypted overlay network between the peers. This design is a result of Monk's early mission to run anywhere without assuming anything about the underlying network environment.
+MonkOS Clusters span a coordination layer between their members and create an encrypted overlay network between the peers. This design is a result of Monk's early mission to run anywhere without assuming anything about the underlying network environment.
 
-Thanks to this approach, Monk Clusters can seemlessly run workloads in which part of the services is running on GCP, another one on AWS, and a third one is deployed on-premise.
+Thanks to this approach, MonkOS Clusters can seemlessly run workloads in which part of the services is running on GCP, another one on AWS, and a third one is deployed on-premise.
 
 Running one system on multiple clouds has many advantages, some of them being:
 
@@ -50,14 +50,14 @@ Running one system on multiple clouds has many advantages, some of them being:
 
 :::note note
 
-Monk currently supports automatic Cluster provisioning on AWS and GCP. We are working to add more cloud providers in the near future.
+MonkOS currently supports automatic Cluster provisioning on AWS, GCP and DigitalOcean. We are working to add more cloud providers in the near future.
 :::
 
 Dive deeper into the provisioning side of things in the [Guides](running-templates.md).
 
 ### Programmable Control Plane
 
-Monk undersands workloads natively. The Engine contains a programmable control plane that can be precisely tuned to any piece of software running on Monk. By moving computation from manifest pre-processing (e.g. Helm) to runtime, we have given Monk the ability to perform user-defined scripted actions on any level of the workload.
+MonkOS undersands workloads natively. The Engine contains a programmable control plane that can be precisely tuned to any piece of software running on MonkOS. By moving computation from manifest pre-processing (e.g. Helm) to runtime, we have given MonkOS the ability to perform user-defined scripted actions on any level of the workload.
 
 Starting from a single container, all the way to the entire system, actions and variables can be used to control and query the workloads across the whole cluster.
 
@@ -85,7 +85,7 @@ Furthermore, thanks to MonkScript, each Kit can be composed from other Kits. The
 
 :::note note
 
-Monk Kits can be instantiated from Monk Hub at any moment, without needing to download them, since every Monk Engine knows the contents of the Hub at all times.
+Monk Kits can be instantiated from Monk Hub at any moment, without needing to download them, since every MonkOS instance knows the contents of the Hub at all times.
 
 :::
 

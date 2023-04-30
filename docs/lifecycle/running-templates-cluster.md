@@ -21,11 +21,11 @@ Once you're in a cluster it is almost the same as when [running locally](running
 
     monk run -t mytag mongodb/mongodb
 
-The `-t` flag tells Monk to only pick cluster members with `mytag` tag. Tags are specified when [growing the cluster](./cluster-create-1.md).
+The `-t` flag tells MonkOS to only pick cluster members with `mytag` tag. Tags are specified when [growing the cluster](./cluster-create-1.md).
 
 :::note
 
-Monk makes all runnables stick to the node they were ran on initially. If you have been running mongodb/mongodb on your local machine it will always go to your local machine.
+MonkOS makes all runnables stick to the node they were ran on initially. If you have been running mongodb/mongodb on your local machine it will always go to your local machine.
 
 In order to un-stick the workload use the `--force-move` flag like this:
 
@@ -35,13 +35,13 @@ In order to un-stick the workload use the `--force-move` flag like this:
 
 ### Orchestration
 
-Monk will pick the least busy machine in the cluster tagged with `mytag` tag and put MongoDB there. There is no way to instruct Monk to put particular containers on particular machines yet.
+MonkOS will pick the least busy machine in the cluster tagged with `mytag` tag and put MongoDB there. There is no way to instruct MonkOS to put particular containers on particular machines yet.
 
 ### Auto-recovery
 
-Monk will restart crashed containers on the same instance they were occupying previously.
+MonkOS will restart crashed containers on the same instance they were occupying previously.
 
-In case of instance outage, Monk will re-provision the same type of instance and re-create the containers that were affected by the outage. During this process, containers will be distributed across healthy instances for the time it takes to re-provision the missing instance.
+In case of instance outage, MonkOS will re-provision the same type of instance and re-create the containers that were affected by the outage. During this process, containers will be distributed across healthy instances for the time it takes to re-provision the missing instance.
 
 ## Running more than one instance of a Kit
 Currently there are two ways to run multiple copies of one Kit in a single cluster. They are described below.
@@ -126,4 +126,4 @@ Updating and stopping Kits in a cluster work the same as their [local counterpar
 
 ## Conclusion
 
-We have learned that running workloads in a cluster is almost as simple as running them locally. Uncomplicated workloads like MongoDB are not that interesting on their own as Monk can compose multiple different Kits into reusable system Kits. Head to the next guide to learn how to build a small system with Monk.
+We have learned that running workloads in a cluster is almost as simple as running them locally. Uncomplicated workloads like MongoDB are not that interesting on their own as MonkOS can compose multiple different Kits into reusable system Kits. Head to the next guide to learn how to build a small system with Monk.

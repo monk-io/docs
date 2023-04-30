@@ -5,13 +5,13 @@ title: "Readiness & Dependency Checks"
 # Readiness & Dependency Checks
 
 Sometimes you want to delay start of your application until you are sure that your application is ready to serve traffic.  
-Monk comes with a readiness checks that will basically perform some tests to check if application is up and running.
+MonkOS comes with a readiness checks that will basically perform some tests to check if application is up and running.
 
 ## Readiness
 
-Using combination of Monk functions and readiness checks we can create custom `checks` associated with any `runnable`. Currently the only special check is `readiness`, which is connected with `depends` clause. This check allows the defining `runnable` to determine and advertise its status to other runnables which may use `depends` to wait for it to be ready.
+Using combination of MonkOS functions and readiness checks we can create custom `checks` associated with any `runnable`. Currently the only special check is `readiness`, which is connected with `depends` clause. This check allows the defining `runnable` to determine and advertise its status to other runnables which may use `depends` to wait for it to be ready.
 
-Whenever a `readiness` check fails (returns `false` or an error), Monk will report an error when trying to run other runnables that depend on it.
+Whenever a `readiness` check fails (returns `false` or an error), MonkOS will report an error when trying to run other runnables that depend on it.
 
 By default, when no `readiness` check is specfied all runnables are considered to be ready immediately after starting.
 
@@ -30,9 +30,9 @@ readiness:
 ```
 
 `code` - is the place where we will put our Arrow script to check readiness, 
-`period` - specifies how often (in seconds) Monk will perform this check, 
-`initialDelay` - initial delay (in seconds) before Monk will start checking application health,
-`attempts` - specifies how many times (max) to perform this check until Monk decides that application
+`period` - specifies how often (in seconds) MonkOS will perform this check, 
+`initialDelay` - initial delay (in seconds) before MonkOS will start checking application health,
+`attempts` - specifies how many times (max) to perform this check until MonkOS decides that application
 didn't start properly, default is 10.
 
 ### Example
@@ -66,7 +66,7 @@ Combining power of monk script a [exec](monkscript/scripting/operators/container
 
 ## Dependency
 
-Any `runnable` can define its runtime dependencies using a `depends` section. In this section we define which other runnables the given runnable is waiting for before starting. Monk will report an error if all dependencies are not met i.e. is any of the listed `runnables` is not running or its `readiness` check fails after specified period.
+Any `runnable` can define its runtime dependencies using a `depends` section. In this section we define which other runnables the given runnable is waiting for before starting. MonkOS will report an error if all dependencies are not met i.e. is any of the listed `runnables` is not running or its `readiness` check fails after specified period.
 
 ### Definition
 

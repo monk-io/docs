@@ -2,7 +2,7 @@
 title: "Automate with Hooks"
 ---
 
-Monk is able to run any action in response to an event. This mechanism is good for defining scripted actions that should happen in given circumstances over containers and other objects. It can be used to define custom recovery scenarios and even intricate auto-scaling schemes.
+MonkOS is able to run any action in response to an event. This mechanism is good for defining scripted actions that should happen in given circumstances over containers and other objects. It can be used to define custom recovery scenarios and even intricate auto-scaling schemes.
 
 ---
 
@@ -53,7 +53,7 @@ This confirms that the `hello-world` action was in fact triggered by `container-
 
 ## More on hooks
 
-Monk supports the following hooks at the moment:
+MonkOS supports the following hooks at the moment:
 
 | Applicable in | Hook                 | Description                       |
 | ------------- | -------------------- | --------------------------------- |

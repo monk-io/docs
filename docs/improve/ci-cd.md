@@ -2,7 +2,7 @@
 title: "Deploy Kits from CI/CD"
 ---
 
-Monk can run as a step in your CI process and push updated Kits to an existing Monk cluster. This is a powerful feature for git-driven ops and it's easy to accomplish.
+MonkOS can run as a step in your CI process and push updated Kits to an existing MonkOS cluster. This is a powerful feature for git-driven ops and it's easy to accomplish.
 
 ---
 
@@ -22,7 +22,7 @@ You'll need a Kit YAML file available to the CI job. It can come from the repo o
 
 ## Credentials
 
-The CI process will need access to your Monk account email and password.
+The CI process will need access to your MonkOS account email and password.
 
 Alternatively, you can [create another account](acc-and-auth) just for your CI and [authorize it against the cluster](lifecycle/cluster-switch-1). This can be done with:
 
@@ -36,9 +36,9 @@ It's not a good idea to put your credentials in plaintext anywhere. Use CircleCI
 
 :::
 
-## Monk CI image
+## MonkOS CI image
 
-The container image `gcr.io/monk-releases/monk-ci:latest` provides full `monkd` and `monk` capable of running inside your CI job. The usage is exactly the same as if you were running Monk locally with the exception of local `run`, which will not work inside the image.
+The container image `gcr.io/monk-releases/monk-ci:latest` provides full `monkd` and `monk` capable of running inside your CI job. The usage is exactly the same as if you were running MonkOS locally with the exception of local `run`, which will not work inside the image.
 
 :::note
 
@@ -88,13 +88,13 @@ Be sure to pass your own credentials and Monkcode in place of:
 -   `<your-password>`
 -   `<cluster-monkcode>`
 
-You can of course come up with a much more involved CI setup - the `deploy` job definition should give you a good idea on how to incorporate Monk into your pipeline.
+You can of course come up with a much more involved CI setup - the `deploy` job definition should give you a good idea on how to incorporate MonkOS into your pipeline.
 
 ## Github Actions
 
 For the most part, we will follow the [Github Actions Hello World](https://lab.github.com/githubtraining/github-actions:-hello-world) course.
 
-Use the Monk CI/CD image (`gcr.io/monk-releases/monk-ci:latest`) as base for your `Dockerfile`:
+Use the MonkOS CI/CD image (`gcr.io/monk-releases/monk-ci:latest`) as base for your `Dockerfile`:
 
 ```dockerfile title="monk-deploy/Dockerfile"
 FROM gcr.io/monk-releases/monk-ci:latest
@@ -105,7 +105,7 @@ RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
-In your `entrypoint.sh` add the Monk commands to start the daemon, log in to your account, join your cluster with the Monkcode and deploy the Kit:
+In your `entrypoint.sh` add the MonkOS commands to start the daemon, log in to your account, join your cluster with the Monkcode and deploy the Kit:
 
 ```bash title="monk-deploy/entrypoint.sh"
 #!/bin/sh -l
@@ -121,7 +121,7 @@ This will load and update `<your/runnable>` in the target cluster whenever the `
 Next, create the action metadata file:
 
 ```yaml title="monk-deploy/action.yml" linenums="1"
-name: "Monk deploy"
+name: "MonkOS deploy"
 description: "Deploy new version to cluster with Monk"
 author: "author@github.com"
 
@@ -133,12 +133,12 @@ runs:
 Finally, create a workflow:
 
 ```yaml title=".github/workflows/main.yml" linenums="1"
-name: A workflow for my Monk deploy
+name: A workflow for my MonkOS deploy
 on: push
 
 jobs:
     deploy:
-        name: Monk deploy action
+        name: MonkOS deploy action
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v1
@@ -152,10 +152,10 @@ jobs:
 Be sure to provide these variables to Github Actions secrets:
 
 `MONK_USER`
-: your Monk account username
+: your MonkOS account username
 
 `MONK_PASS`
-: your Monk account password
+: your MonkOS account password
 
 `MONKODE`
 : the Monkcode for your cluster
@@ -183,12 +183,12 @@ This will load and update `<your/runnable>` in the target cluster whenever the `
 
 It triggers whenever you push a tag to your repo.
 
-The `deploy` job uses Monk to deploy to your cluster. In this example we load the `test.yaml` Kitand update the runnable `test/test`.
+The `deploy` job uses MonkOS to deploy to your cluster. In this example we load the `test.yaml` Kitand update the runnable `test/test`.
 
 Be sure to provide these variables to the Gitlab CI:
 
--   `MONK_USERNAME`: your Monk account username
--   `MONK_PASSWORD`: your Monk account password
+-   `MONK_USERNAME`: your MonkOS account username
+-   `MONK_PASSWORD`: your MonkOS account password
 -   `MONKCODE`: the Monkcode for your cluster
 
 ## Bitbucket
@@ -214,11 +214,11 @@ This will load and update `<your/runnable>` in the target cluster whenever a new
 
 Be sure to provide these variables in the Bitbucket pipeline settings:
 
--   `MONK_USER`: your Monk account username
+-   `MONK_USER`: your MonkOS account username
 -   `MONK_PASSWORD`: your monk account password
 -   `MONKCODE`: the Monkcode for your cluster
 -   `MONK_TAG`: tag on which to deploy in your cluster
 
 ## Secrets
 
-Throughout this tutorial we've had to deal with secrets, even if just for our Monk account credentials. Let's now see how you can boost your Monk setup security and work with [encrypted Kits](./passing-secrets.md) 🤫
+Throughout this tutorial we've had to deal with secrets, even if just for our MonkOS account credentials. Let's now see how you can boost your MonkOS setup security and work with [encrypted Kits](./passing-secrets.md) 🤫

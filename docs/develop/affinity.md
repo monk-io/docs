@@ -4,13 +4,13 @@ title: "Add Placement Constraints"
 
 # How to constrain containers to certain instances in monk cluster
 
-Monk provides a mechanism to constrain runnables to certain instances or groups of instances within a cluster. This mechanism ensures that your containers will not run where they don't belong.
+MonkOS provides a mechanism to constrain runnables to certain instances or groups of instances within a cluster. This mechanism ensures that your containers will not run where they don't belong.
 
-Each runnable has an _affinity_ - by default this affinity is set to any instance but can be easily overriden. Additionally, in case of restart Monk will remember where each of the runnables were and restarts them in place so they don't change instances unless they are forced to do so. This feature is perfect for stateful workloads and we say that in Monk the workloads are _sticky_.
+Each runnable has an _affinity_ - by default this affinity is set to any instance but can be easily overriden. Additionally, in case of restart MonkOS will remember where each of the runnables were and restarts them in place so they don't change instances unless they are forced to do so. This feature is perfect for stateful workloads and we say that in MonkOS the workloads are _sticky_.
 
 ## Prerequisites
 
-You should have a Monk cluster with several instances and tags running in order to follow this guide.
+You should have a MonkOS cluster with several instances and tags running in order to follow this guide.
 
 ## Step 1: Basic Kit
 
@@ -98,7 +98,7 @@ It should show that `guide/foo-on-tag` lives on a node having a tag you've speci
 
 Both tag and node affinity are very useful to put certain workloads on certain nodes. What if we would like to have a runnable that takes up entire instance for itself?
 
-This is where `resident` afinity comes into play. With `resident` affinity it is possible to tell Monk to put a runnable on a certain node and make sure that no other runnables will be started on it as long as the resident runnable is present.
+This is where `resident` afinity comes into play. With `resident` affinity it is possible to tell MonkOS to put a runnable on a certain node and make sure that no other runnables will be started on it as long as the resident runnable is present.
 
 Let's stop the runnable from Step 2 with:
 
@@ -130,7 +130,7 @@ This will fail as the node is now occupied by the resident `guide/foo-on-node-re
 
 :::note
 
-Resident affinity works when either `name` or `tag` are specified. If you don't specify any of them, Monk will pick first empty instance and place the resident runnable there.
+Resident affinity works when either `name` or `tag` are specified. If you don't specify any of them, MonkOS will pick first empty instance and place the resident runnable there.
 
 :::
 

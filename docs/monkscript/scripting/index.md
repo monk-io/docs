@@ -46,7 +46,7 @@ json.dumps((2 + foo)/2)
 
 ### Values and Types
 
-Monk recognizes several data types similar to JSON. See example literals in the table below:
+MonkOS recognizes several data types similar to JSON. See example literals in the table below:
 
 | Type      | Example literals                | Comment                                                                                              |
 | --------- | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -90,7 +90,7 @@ Variables can be used as parenthesized arguments to operators:
 
 ### Operators
 
-Operators are pre-defined functions which usually take one or more preceding values together with parenthesized arguments and produce another value. Operators can also perform work behind the scenes causing side-effects such as calling HTTP APIs, changing state, communicating with containers. Monk provides a [library of operators](./scripting/operators/HTTP) that can be used to compose many useful scripts.
+Operators are pre-defined functions which usually take one or more preceding values together with parenthesized arguments and produce another value. Operators can also perform work behind the scenes causing side-effects such as calling HTTP APIs, changing state, communicating with containers. MonkOS provides a [library of operators](./scripting/operators/HTTP) that can be used to compose many useful scripts.
 
 Operator names can consist of letters, numbers, hyphens and underscores, as well as other unicode characters and as long as a letter is used as the first character. Many operators accept parenthesized arguments in addition to values piped to them from the left. Some will work with both forms.
 

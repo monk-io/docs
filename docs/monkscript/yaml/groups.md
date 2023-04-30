@@ -48,7 +48,7 @@ variables:
 
 Variables section is a map of [`variable`](#variable), each container is named by its key (`variable-a`, `variable-b` in above example). Names can be any valid YAML key.
 
-Variables in groups are visible to all member `runnables` as if they were declared in the runnable as long as there is no definition for a variable of the same name inside the runnable itself. In other words, whenever resolving a variable inside a `runnable`, Monk first looks at variables defined or inherited in that runnable, only then looks at the variables defined in the group containing the runnable.
+Variables in groups are visible to all member `runnables` as if they were declared in the runnable as long as there is no definition for a variable of the same name inside the runnable itself. In other words, whenever resolving a variable inside a `runnable`, MonkOS first looks at variables defined or inherited in that runnable, only then looks at the variables defined in the group containing the runnable.
 
 :::note
 

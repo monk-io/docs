@@ -6,9 +6,9 @@ title: "Common Issues"
 
 Commonly encountered issues and how to resolve them.
 
-### I need to generally troubleshoot my Monk installation
+### I need to generally troubleshoot my MonkOS installation
 
-There may be situations where you need to check your Monk installation to troubleshoot
+There may be situations where you need to check your MonkOS installation to troubleshoot
 an issue with your configuration or the tool itself. The first place you should go to
 gather information is `monk system selftest`:
 
@@ -34,9 +34,9 @@ and running, but is not currently connected to a cluster. Common configuration
 issues, like the state of the CLI tool itself, the daemon, and so forth, are all
 checked as part of the `selftest` with the outputs displayed as above.
 
-### Monk cannot connect to socket
+### MonkOS cannot connect to socket
 
-If you do not have `monkd` running when you use the Monk CLI, you will encounter an
+If you do not have `monkd` running when you use the MonkOS CLI, you will encounter an
 error that looks like the following:
 
 ```bash

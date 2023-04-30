@@ -22,7 +22,7 @@ This will stop the peer and detach it from the cluster.
 
 The instance will be terminated.
 
-Monk will not back up the storage of the instances it terminates. Use `peer-remove` with caution and make sure that you've backed up your data first if you'd like to keep it.
+MonkOS will not back up the storage of the instances it terminates. Use `peer-remove` with caution and make sure that you've backed up your data first if you'd like to keep it.
 
 :::
 
@@ -34,13 +34,13 @@ The invocation is simple:
 
     monk cluster shrink
 
-Upon running this command, Monk will look for idle (not running any containers) instances in the cluster and terminate them.
+Upon running this command, MonkOS will look for idle (not running any containers) instances in the cluster and terminate them.
 
 :::caution warning
 
 The instances will be terminated.
 
-Monk will not back up the storage of the instances it terminates. Use `shrink` with caution and make sure that you've backed up your data first if you'd like to keep it.
+MonkOS will not back up the storage of the instances it terminates. Use `shrink` with caution and make sure that you've backed up your data first if you'd like to keep it.
 
 :::
 
@@ -50,14 +50,14 @@ If you wish to get rid of your entire cluster and all associated resources, you 
 
     monk cluster nuke
 
-Upon running this command, Monk will irreversibly destroy the entire cluster and delete all associated cloud resources and data.
+Upon running this command, MonkOS will irreversibly destroy the entire cluster and delete all associated cloud resources and data.
 
-This will also log you out from Monk CLI.
+This will also log you out from MonkOS CLI.
 
 :::caution warning
 
 The instances and all associated resources will be terminated.
 
-Monk will not back up the storage of the instances it terminates. Use `nuke` with caution and make sure that you've backed up your data first if you'd like to keep it.
+MonkOS will not back up the storage of the instances it terminates. Use `nuke` with caution and make sure that you've backed up your data first if you'd like to keep it.
 
 :::

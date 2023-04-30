@@ -6,7 +6,7 @@ import Figure from "@site/src/components/figure";
 
 Each Project can have multiple environments, for example, you might want to keep your Staging environment separate from your Production environment or create a temporary Dev environment to test out changes without impacting any existing environment.
 
-Each environment is almost completely separated from the others, however, they can share secrets and variables if you chose so. Each environment has its own Monk cluster to use.
+Each environment is almost completely separated from the others, however, they can share secrets and variables if you chose so. Each environment has its own MonkOS cluster to use.
 
 To switch between environments use the **Environment Switcher** in the middle of the navigation bar. Selecting an environment will immediately place you in context of that environment. ✔️ indicates which environment is currently shown.
 

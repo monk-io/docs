@@ -1,5 +1,5 @@
 # `monk`
-Monk Command Line Interface
+MonkOS Command Line Interface
 
 **Usage**
 
@@ -23,12 +23,12 @@ monk [GLOBAL OPTIONS] command [OPTIONS] [arguments...]
 
 ## register
 
-Register a new Monk account
+Register a new MonkOS account
 
 
 ## login
 
-Log in with your Monk account
+Log in with your MonkOS account
 
 **Flags**
 
@@ -52,7 +52,7 @@ Log out
 
 ## reset
 
-Reset your Monk account password
+Reset your MonkOS account password
 
 
 ## load
@@ -350,7 +350,7 @@ Add a container registry
 
 ## tutorial
 
-Start the Monk interactive tutorial
+Start the MonkOS interactive tutorial
 
 **Flags**
 
@@ -361,7 +361,7 @@ Start the Monk interactive tutorial
 
 ## gui
 
-Start, upgrade or stop Monk GUI
+Start, upgrade or stop MonkOS GUI
 
 **Flags**
 
@@ -375,7 +375,7 @@ Start, upgrade or stop Monk GUI
 
 ## status
 
-Print Monk's status
+Print MonkOS's status
 
 
 ## version
@@ -400,7 +400,7 @@ Create a new cluster
 | Flag | Default | Description |
 | --- | --- | --- | --- |
 | `--name, -n` | `` | Name for the new cluster |
-| `--link, -l` |  | Store cluster Monkcode in your Monk account |
+| `--link, -l` |  | Store cluster Monkcode in your MonkOS account |
 
 ### grow
 
@@ -628,7 +628,7 @@ list cluster users
 
 **Aliases:** `s`
 
-Manage and debug Monk internals (be careful!)
+Manage and debug MonkOS internals (be careful!)
 
 
 ### logs
@@ -707,7 +707,7 @@ Launch monkd on this machine
 
 **Aliases:** `update`
 
-Upgrade Monk on selected node(s)
+Upgrade MonkOS on selected node(s)
 
 **Flags**
 

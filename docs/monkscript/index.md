@@ -5,7 +5,7 @@ slug: /monkscript
 
 # MonkScript
 
-MonkScript is Monk's composable definition language with runtime scripting abilities. Apart from the CLI, MonkScript is the primary way of programming Monk to run and manage workloads.
+MonkScript is Monk's composable definition language with runtime scripting abilities. Apart from the CLI, MonkScript is the primary way of programming MonkOS to run and manage workloads.
 
 :::note
 
@@ -36,4 +36,4 @@ Read more about [MonkScript Arrow scripting &#8594;
 
 :::
 
-Last but not least, MonkScript manifests are meant to be fully portable between Monk clusters - meaning that any Monk cluster can interpret and run all existing Kits. Additionally, all public Kits available in the Monk Hub are readily available to be run and composed on any Monk cluster. This makes MonkScript globally share-able and easy to apply.
+Last but not least, MonkScript manifests are meant to be fully portable between MonkOS clusters - meaning that any MonkOS cluster can interpret and run all existing Kits. Additionally, all public Kits available in the Monk Hub are readily available to be run and composed on any MonkOS cluster. This makes MonkScript globally share-able and easy to apply.

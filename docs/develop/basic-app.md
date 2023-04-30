@@ -4,7 +4,7 @@ title: "Build a Basic App"
 
 Let's see how to create and run a basic app that uses MongoDB and Nginx, entirely from Monk.
 
-This tutorial requires you to have Monk installed locally, which you can do [just like this](get-monk.md).
+This tutorial requires you to have MonkOS installed locally, which you can do [just like this](get-monk.md).
 
 ## What we're building
 
@@ -32,7 +32,7 @@ Oaknode is the repo of the company behind Monk. We're migrating to Monk's Github
 
 ### Preparing the container
 
-Monk runs containers so our App needs to be containerized before we can start handling it. We will use Docker in this tutorial as it is the easiest way to obtain a container image from the App's source code.
+MonkOS runs containers so our App needs to be containerized before we can start handling it. We will use Docker in this tutorial as it is the easiest way to obtain a container image from the App's source code.
 
 Open the folder containing the source and inspect the Dockerfile that we have prepared:
 
@@ -61,11 +61,11 @@ This will give us the container image for our App. Your local docker instance no
 
 :::note
 
-We only use Docker in this tutorial to build the image so that Monk becomes aware of our app by caching its container image. Monk will run and orchestrate containers spawned from any OCI-compliant container image; Docker is one way of obtaining those.
+We only use Docker in this tutorial to build the image so that MonkOS becomes aware of our app by caching its container image. MonkOS will run and orchestrate containers spawned from any OCI-compliant container image; Docker is one way of obtaining those.
 
 :::
 
-### Preparing a Monk manifest
+### Preparing a MonkOS manifest
 
 Let's start writing a Kit that will describe where to get the app, how to configure it and how to run it in the right context. Start a new file called `app.yaml` and put the following contents there:
 
@@ -86,7 +86,7 @@ You can look at the `tutorial.yaml` file in the App's repo to see the full examp
 
 :::
 
-We have provided the simplest description of the container image to be run and Monk is already capable of starting it. The `namespace` field tells Monk where to put the description of `app` - it will be under `yourname/app`. The `defines` field is important as it tells Monk how to interpret parts of the YAML tree - all the names are free form so this is the way to "type" the YAML.
+We have provided the simplest description of the container image to be run and MonkOS is already capable of starting it. The `namespace` field tells MonkOS where to put the description of `app` - it will be under `yourname/app`. The `defines` field is important as it tells MonkOS how to interpret parts of the YAML tree - all the names are free form so this is the way to "type" the YAML.
 
 You could run your new Kit with:
 
@@ -112,7 +112,7 @@ const DB_PORT = process.env.DB_PORT;
 //...
 ```
 
-This has to be reflected in our Kit by telling the container to use the right environment variables and also bringing them out into the Monk namespace. This will allow us to alter the variables later when composing the system.
+This has to be reflected in our Kit by telling the container to use the right environment variables and also bringing them out into the MonkOS namespace. This will allow us to alter the variables later when composing the system.
 
 First, let's define the variables in our `runnable`. Add the following `variables` section below the `containers` section:
 
@@ -132,7 +132,7 @@ app:
             value: 27017
 ```
 
-This tells Monk that we have a set of values associated with our runnable for the app. Now let's pass the values to the container by adding the following `environment` section to `app/containers/app`:
+This tells MonkOS that we have a set of values associated with our runnable for the app. Now let's pass the values to the container by adding the following `environment` section to `app/containers/app`:
 
 ```yaml title="app.yaml" linenums="1"
 app:
@@ -183,7 +183,7 @@ app:
             value: 27017
 ```
 
-Now run the following to make Monk aware of your new Kit:
+Now run the following to make MonkOS aware of your new Kit:
 
     monk load app.yaml
 
@@ -193,13 +193,13 @@ We are going to deploy it ourselves though, so publishing won't be necessary.
 
 ## 3rd party services
 
-One of the most interesting facts about Monk is that we don't have to work from scratch when it comes to deploying 3rd party services such as Mongo and Nginx. We can simply take them off the shelf and focus on our app.
+One of the most interesting facts about MonkOS is that we don't have to work from scratch when it comes to deploying 3rd party services such as Mongo and Nginx. We can simply take them off the shelf and focus on our app.
 
 You'll see in a second. We will use pre-made Kits for Mongo and Nginx and simply include them in our system composition. Which means this step... is not really a step after all 😎
 
 ## Composing the system
 
-Now it's time to compose our app's Kit with the third party services, and make another Kit out of that. This way, you will be able to run the same composition on any Monk cluster on any cloud.
+Now it's time to compose our app's Kit with the third party services, and make another Kit out of that. This way, you will be able to run the same composition on any MonkOS cluster on any cloud.
 
 <br/>
 
@@ -229,11 +229,11 @@ system:
         - /yourname/tutorial-nginx
 ```
 
-We have already defined the `yourname/app` runnable inside `app.yaml` and now we're instantiating it as `yourname/tutorial-app`. Since `app` lives in the same namespace, we can just refer to it as `./app`. The `inherits` keyword tells Monk to put the sub-tree from the target path in the new path (here: `yourname/tutorial-app`) and override it with whatever comes next.
+We have already defined the `yourname/app` runnable inside `app.yaml` and now we're instantiating it as `yourname/tutorial-app`. Since `app` lives in the same namespace, we can just refer to it as `./app`. The `inherits` keyword tells MonkOS to put the sub-tree from the target path in the new path (here: `yourname/tutorial-app`) and override it with whatever comes next.
 
-There are two other runnables which we will define in a moment. Also notice that the file uses the same `namespace`, which means that Monk will put `system` together with the `app` in the same namespace tree. This is important because it allows you to keep your definition files in separate repositories but still retain order within your own namespace.
+There are two other runnables which we will define in a moment. Also notice that the file uses the same `namespace`, which means that MonkOS will put `system` together with the `app` in the same namespace tree. This is important because it allows you to keep your definition files in separate repositories but still retain order within your own namespace.
 
-Finally, `process-group` is like a `runnable` consisting of other runnables. This allows us to group them and tell Monk that we want these things to be run together in a single cluster.
+Finally, `process-group` is like a `runnable` consisting of other runnables. This allows us to group them and tell MonkOS that we want these things to be run together in a single cluster.
 
 ### Adding Mongo
 

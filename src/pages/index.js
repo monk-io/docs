@@ -9,12 +9,12 @@ export default function Home() {
         {
             to: "/docs",
             title: "About Monk",
-            desc: "Learn about Monk and its features.",
+            desc: "Learn about MonkOS and its features.",
             icon: "/img/mainNavItems/about-monk.svg"
         },
         {
             to: "/docs/monk-in-10",
-            title: "Monk Basics",
+            title: "MonkOS Basics",
             desc: "From zero to cluster in 10 min.",
             icon: "/img/mainNavItems/monk-basics.svg"
         },
@@ -27,7 +27,7 @@ export default function Home() {
         {
             to: "/docs/lifecycle/cluster-overview",
             title: "Guides",
-            desc: "Learn Monk hands on.",
+            desc: "Learn MonkOS hands on.",
             icon: "/img/mainNavItems/guides.svg"
         },
         {
@@ -39,7 +39,7 @@ export default function Home() {
         {
             to: "/docs/monkscript",
             title: "MonkScript Reference",
-            desc: "Monk templating language in detail.",
+            desc: "MonkOS templating language in detail.",
             icon: "/img/mainNavItems/monkscript.svg"
         },
     ];
@@ -50,7 +50,7 @@ export default function Home() {
         >
             <div className="main-page">
                 <div className="container">
-                    <h1 className="main-title">Explore Monk Docs</h1>
+                    <h1 className="main-title">Explore MonkOS Docs</h1>
                     <div className="row">
                         {navItems.map((i) => (
                             <BigNavItem key={i.title} {...i} />

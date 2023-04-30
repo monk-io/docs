@@ -2,9 +2,9 @@
 title: "Run locally"
 ---
 
-Running existing Kits with Monk is very straightforward. Running them locally is useful for testing and one-off deployments on single machines.
+Running existing Kits with MonkOS is very straightforward. Running them locally is useful for testing and one-off deployments on single machines.
 
-This short tutorial shows how to run Kits locally. We'll run MongoDB on Monk. Make sure you have Monk installed and `monkd` running. If not, follow [this guide &#8594;
+This short tutorial shows how to run Kits locally. We'll run MongoDB on MonkOS. Make sure you have MonkOS installed and `monkd` running. If not, follow [this guide &#8594;
 ](get-monk.md)
 
 ---
@@ -32,7 +32,7 @@ OPTIONS:
        --help, -h       show help (default: false)
 ```
 
-In this example we use a MongoDB Kit published by Monk. It is based on Bitnami's MongoDB container image. You can pick any other Kit from the available ones of course.
+In this example we use a MongoDB Kit published by MonkOS. It is based on Bitnami's MongoDB container image. You can pick any other Kit from the available ones of course.
 
 To install MongoDB, simply run:
 
@@ -60,4 +60,4 @@ This will stop the Kit but it will not touch its storage so if you decide to run
 
 ## Conclusion
 
-We have learned how to run, update and stop Kits locally and how to browse the available ones. Monk will happily run even the largest system on your laptop if you want but its true value lies in clusters. Move to the next guide to learn how to create a Monk cluster.
+We have learned how to run, update and stop Kits locally and how to browse the available ones. MonkOS will happily run even the largest system on your laptop if you want but its true value lies in clusters. Move to the next guide to learn how to create a MonkOS cluster.

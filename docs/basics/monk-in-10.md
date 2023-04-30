@@ -1,9 +1,9 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Monk in 10 Minutes
+# MonkOS in 10 Minutes
 
-This is a super-quick guide to get some containers running within your own Monk cluster, from start to finish.
+This is a super-quick guide to get some containers running within your own MonkOS cluster, from start to finish.
 
 ---
 
@@ -17,7 +17,7 @@ This is a super-quick guide to get some containers running within your own Monk 
 
 ## Getting Monk
 
-Install Monk for your OS. For more detailed instructions see [Getting Monk](get-monk.md).
+Install MonkOS on your machine. For more detailed instructions see [Getting MonkOS](get-monk.md).
 
 <Tabs
 defaultValue="macOS"
@@ -60,7 +60,7 @@ If you're running Linux that does not have APT see [Getting Monk](get-monk.md) a
 
 :::caution warning
 
-**You always need to have `monkd` running in order to use Monk CLI. Fire it up to continue this guide.**
+**You always need to have `monkd` running in order to use MonkOS CLI. Fire it up to continue this guide.**
 
 :::
 
@@ -147,11 +147,11 @@ Wait for it to initialize, you should see this:
 
 </Tabs>
 
-## Creating Your Monk Account
+## Creating Your MonkOS Account
 
-Setting up the account takes 10 seconds. We use accounts to match users with their Monk setups and for licensing and analytics purposes. We are very privacy-focused and only use telemetry data for product improvement. This data never includes your proprietary information. You can [learn more about the privacy of Monk accounts](monk-privacy.md).
+Setting up the account takes 10 seconds. We use accounts to match users with their MonkOS setups and for licensing and analytics purposes. We are very privacy-focused and only use telemetry data for product improvement. This data never includes your proprietary information. You can [learn more about the privacy of MonkOS accounts](monk-privacy.md).
 
-Use this command to create your Monk account:
+Use this command to create your MonkOS account:
 
     monk register
 
@@ -163,7 +163,7 @@ Once `monkd` is running and you have confirmed your email address do:
 
     monk login
 
-Use your Monk account email and password:
+Use your MonkOS account email and password:
 
     ? Email greatest@hacker.me
     ? Password ***** ***
@@ -171,13 +171,13 @@ Use your Monk account email and password:
 
 :::success
 
-**Monk is 100% ready to roll at this point.** You will not be asked to log in very often but some commands will require your Monk account credentials.
+**MonkOS is 100% ready to roll at this point.** You will not be asked to log in very often but some commands will require your MonkOS account credentials.
 
 :::
 
-## Creating a Monk Cluster
+## Creating a MonkOS Cluster
 
-Now to the exciting part! Monk cluster is where your workloads will run. Clusters are created once and they serve as a runtime environment that can be grown or shrunk on demand. Let's create a cluster with 3 short commands.
+Now to the exciting part! MonkOS cluster is where your workloads will run. Clusters are created once and they serve as a runtime environment that can be grown or shrunk on demand. Let's create a cluster with 3 short commands.
 
 You'll need your service account credentials handy. Here's a reminder on how to get them:
 
@@ -214,8 +214,8 @@ Make sure that your account has **compute resources admin access**.
 If you're running the AWS CLI, you should be able to locate the credentials in the `~/.aws/credentials` on your machine, i.e.:
 
     [default]
-    aws_access_key_id=F0FADIOSFODNN7EXAMPLE
-    aws_secret_access_key=wJalrUUtnEEMI/K7MEDNG/bPxRfiCYEXAMPLEKEY
+    aws_access_key_id=F0FAXXXXXEXAMPLE
+    aws_secret_access_key=wJXXXXXXEEMI/XXXXX/bPxRfiCYEXAMPLEKEY
 
 Note those values down.
 
@@ -284,7 +284,7 @@ values={[
 
 <TabItem value="gcp">
 
-In order to add your Service Account key to Monk do:
+In order to add your Service Account key to MonkOS do:
 
     monk cluster provider add -p gcp -f <<path/to/your-key.json>>
 
@@ -302,11 +302,11 @@ Successful invocation will result in:
 
 <TabItem value="aws">
 
-In order to add your AWS credentials to Monk do:
+In order to add your AWS credentials to MonkOS do:
 
     monk cluster provider add -p aws
 
-Monk will look for AWS credentials in your AWS CLI config folder `~/.aws/credentials`:
+MonkOS will look for AWS credentials in your AWS CLI config folder `~/.aws/credentials`:
 
     AWS config /Users/me/.aws/credentials detected, multiple profiles present - pick one.
     ? AWS profile  [Use arrows to move, type to filter]
@@ -315,7 +315,7 @@ Monk will look for AWS credentials in your AWS CLI config folder `~/.aws/credent
 
 :::info
 
-If `~/.aws/credentials` file is not present, Monk will prompt you for **Access** and **Secret Keys**.
+If `~/.aws/credentials` file is not present, MonkOS will prompt you for **Access** and **Secret Keys**.
 
 :::
 
@@ -329,7 +329,7 @@ Successful invocation will result in:
 
 <TabItem value="azure">
 
-In order to add your SDK authentication JSON file to Monk do:
+In order to add your SDK authentication JSON file to MonkOS do:
 
     monk cluster provider add -p azure -f <<path/to/your-sdk-file.json>>
 
@@ -347,7 +347,7 @@ Successful invocation will result in:
 
 <TabItem value="do">
 
-In order to add your Digital Ocean Personal Access Token to Monk do:
+In order to add your Digital Ocean Personal Access Token to MonkOS do:
 
     monk cluster provider add -p digitalocean
 
@@ -367,13 +367,13 @@ Successful invocation will result in:
 
 :::note
 
-If you have more cloud accounts you can add all of them. Monk is great at managing singular clusters across cloud providers out of the box.
+If you have more cloud accounts you can add all of them. MonkOS is great at managing singular clusters across cloud providers out of the box.
 
 :::
 
 :::important
 
-You don't need to touch, or even have your `gcloud` or `aws` CLI installed locally. Monk will work without them being present.
+You don't need to touch, or even have your `gcloud` or `aws` CLI installed locally. MonkOS will work without them being present.
 
 :::
 
@@ -385,7 +385,7 @@ You don't need to touch, or even have your `gcloud` or `aws` CLI installed local
 
 ## Growing Your New Cluster
 
-The cluster is there _logically_. Now we have to expand it _physically_. Fortunately, we don't have to go back to the cloud console or resort to other tools like Terraform. We will just tell Monk to bootstrap it for us:
+The cluster is there _logically_. Now we have to expand it _physically_. Fortunately, we don't have to go back to the cloud console or resort to other tools like Terraform. We will just tell MonkOS to bootstrap it for us:
 
     monk cluster grow
 
@@ -403,7 +403,7 @@ Next up, you will be prompted for some information. All fields are required:
     ⠏ Creating a new instance(s) on gcp...
 
 **`Tag` is important** – replace `<your-cluster-tag>` with a name of your choice and write it down.
-**Monk requires all machines in the cluster to be tagged with at least one tag.** We will be referring to the new machines by their tag shortly.
+**MonkOS requires all machines in the cluster to be tagged with at least one tag.** We will be referring to the new machines by their tag shortly.
 
 :::caution warning
 
@@ -431,7 +431,7 @@ Sometimes, depending on your network conditions, the peers might appear on the l
 
 :::success
 
-You now have a fully operational 3 machine Monk cluster running in your cloud 🎉
+You now have a fully operational 3 machine MonkOS cluster running in your cloud 🎉
 
 :::
 
@@ -456,11 +456,11 @@ Skip `-t <your-cluster-tag>` if you skipped the cluster creation step. The invoc
 
 :::
 
-Monk will work for a moment and then display a summary showing the current workload layout and some useful hints.
+MonkOS will work for a moment and then display a summary showing the current workload layout and some useful hints.
 
 :::success
 
-That's it! You're now running stuff, in the cloud, with Monk 🎉
+That's it! You're now running stuff, in the cloud, with MonkOS 🎉
 
 :::
 
@@ -470,12 +470,12 @@ If you don't want to use the cluster anymore just do:
 
     monk cluster nuke
 
-This will destroy the cluster and all associated resources. **Be careful! Monk will not back up the storage of the instances it terminates**.
+This will destroy the cluster and all associated resources. **Be careful! MonkOS will not back up the storage of the instances it terminates**.
 
 In case you'd like to create another cluster, follow this guide again or see: [Creating a cluster](lifecycle/cluster-create-1.md).
 
 ## What's Next?
 
-Our newly formed cluster has 3 machines and can do much more than just running one simple workload. Having your cluster up and running is enough to start trying [everything that Monk has to offer](features.md).
+Our newly formed cluster has 3 machines and can do much more than just running one simple workload. Having your cluster up and running is enough to start trying [everything that MonkOS has to offer](features.md).
 
 If you'd like to try a more advanced setup including a database, HTTP server, and a self-made service, continue to our first A-Z tutorial: [Running a small system](basic-app.md).

@@ -20,7 +20,7 @@ A specific YAML definition that contains all necessary service definitions and d
 
 ## YELB Deployments
 
-Deployments in Monk are very similar to Kubernetes [(see runnables for more info)](monkscript/yaml/runnables/). We have four deployments defined in the Kubernetes YAML, which we'll now port to Monk.
+Deployments in MonkOS are very similar to Kubernetes [(see runnables for more info)](monkscript/yaml/runnables/). We have four deployments defined in the Kubernetes YAML, which we'll now port to Monk.
 
 We'll start with porting the YELB deployments, then try to run them and see what problems need to be resolved to get it up and running. With most microservice apps, we will have to port Kubernetes Services configurations so the app can communicate between its components.
 
@@ -63,7 +63,7 @@ spec:
             - containerPort: 80
 ```
 
-We need something similar in Monk to run the application component. Lets define our [runnable](monkscript/yaml/runnables/) and put that information in. It will look like this:
+We need something similar in MonkOS to run the application component. Lets define our [runnable](monkscript/yaml/runnables/) and put that information in. It will look like this:
 
 ```yaml title="Monk"
 namespace: /yelb
@@ -207,7 +207,7 @@ redis:
             image: redis
 ```
 
-## Starting YELB in Monk for the First Time
+## Starting YELB in MonkOS for the First Time
 
 Since we have all runnable defitions completed, it's time to try to run them.
 
@@ -451,10 +451,10 @@ Unfortunately, in this case, there's no environment variables that we could over
 
 We need to update `proxy_pass http://yelb-appserver:4567/api;` with the real name of docker container running our `yelb-appserver`.
 
-We will utilise three the Monk features here:
+We will utilise three the MonkOS features here:
 
 1. `bash` [option](monkscript/yaml/runnables#container) that will overwrite our docker command.
-2. `get-hostname` [function](monkscript/scripting/operators/network#get-hostname-get-container-ip), as Monk sometimes changes the name of the container.
+2. `get-hostname` [function](monkscript/scripting/operators/network#get-hostname-get-container-ip), as MonkOS sometimes changes the name of the container.
 3. `variables` [section](monkscript/yaml/runnables#variables) of the YAML definition.
 
 Lets combine all the information into our YAML file:
@@ -703,7 +703,7 @@ Our application should be running exactly the same as previously, but this gives
 
 ## Using Inheritance to Spawn Multiple Copies of YELB
 
-Monk is very powerful. We can spawn multiple instances of the same app via inheritence with existing Kits.
+MonkOS is very powerful. We can spawn multiple instances of the same app via inheritence with existing Kits.
 
 ### Our Development Environment
 
@@ -822,7 +822,7 @@ application:
         - /yelb-production/redis
 ```
 
-Since this is our production Kit, it might be good idea to run it on some public cloud services. To do this, you'll need to have a cloud provider added. To learn more, please see ["Monk in 10 minutes" guide](monk-in-10#creating-a-monk-cluster).
+Since this is our production Kit, it might be good idea to run it on some public cloud services. To do this, you'll need to have a cloud provider added. To learn more, please see ["MonkOS in 10 minutes" guide](monk-in-10#creating-a-monk-cluster).
 
 Assuming we have AWS as the provider, we can simply run:
 

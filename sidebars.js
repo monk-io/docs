@@ -15,7 +15,7 @@ module.exports = {
     mainSidebar: [
         {
             type: "category",
-            label: "About Monk",
+            label: "About MonkOS",
             collapsible: false,
             items: [
                 "welcome",

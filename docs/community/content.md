@@ -4,18 +4,18 @@ title: Content Creation
 
 # Content Creation
 
-Monk Contributor Program rewards individuals who share their knowledge and spread the word about Monk on the internet.
+MonkOS Contributor Program rewards individuals who share their knowledge and spread the word about MonkOSOS on the internet.
 
 :::success Earn up to $300 per article or video!
 
 If you:
-- wrote a blog post or an article referring to Monk,
-- recorded a tutorial video on how to use Monk,
-- live-steramed yourself using Monk, 
-- did a podcast episode about Monk,
-- mentioned Monk on social media and people liked it,
+- wrote a blog post or an article referring to MonkOS,
+- recorded a tutorial video on how to use MonkOS,
+- live-steramed yourself using MonkOS, 
+- did a podcast episode about MonkOS,
+- mentioned MonkOS on social media and people liked it,
   
-then Monk Contributor Program is for you, read on! 😀
+then MonkOS Contributor Program is for you, read on! 😀
 
 :::
 
@@ -26,7 +26,7 @@ then Monk Contributor Program is for you, read on! 😀
 In order to be eligible for a reward, your content must check all of these boxes:
 
 - Your content must be in English,
-- Your content must be related to Monk,
+- Your content must be related to MonkOS,
 - Your content must be original (and you can prove it),
 - Your content should be published on your own website/blog or at least one of:
   - [Youtube](https://www.youtube.com/)
@@ -47,8 +47,8 @@ In order to be eligible for a reward, your content must check all of these boxes
 
 Submitting content is simple:
 
-1. [Sign up](../acc-and-auth) for a Monk account (if you don't have one already!),
-2. Join [Monk Discord Server](https://discord.gg/2YGryc5) and link your content in **[#content](https://discord.com/channels/760852235000348703/950793772382420992)** channel,
+1. [Sign up](../acc-and-auth) for a MonkOS account (if you don't have one already!),
+2. Join [MonkOS Discord Server](https://discord.gg/2YGryc5) and link your content in **[#content](https://discord.com/channels/760852235000348703/950793772382420992)** channel,
 3. We will review your content and get back to you regarding next steps,
 4. If accepted, your content will be featured on our [Resources](https://monk.io/resources) page.
 
@@ -64,7 +64,7 @@ Our team will review your content and put into one of three tiers at their discr
 
 :::caution The reward amounts may change without notice
 
-Monk Contributor Program rules apply. [Read more &#8594;](.)
+MonkOS Contributor Program rules apply. [Read more &#8594;](.)
 
 :::
 

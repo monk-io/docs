@@ -1,32 +1,30 @@
-# Why Monk?
+# Why MonkOS?
 
-Orchestrating containers and infrastructure together gets tedious really quick. Monk is a flexible piece of middleware that frees your time and restores your sanity by letting you control both these layers with a single, streamlined workflow.
+Orchestrating containers and infrastructure together gets tedious really quick. MonkOS is a flexible piece of middleware that frees your time and restores your sanity by letting you control both these layers with a single, streamlined workflow.
 
 This page will give you an idea of what you can accomplish with Monk, and hopefully give you a nudge towards [giving it a try](get-monk.md).
 
 ---
 
-## The Problem Monk Solves
+## The Problem MonkOS Solves
 
 As software becomes more sophisticated and performance requirements get steeper, container orchestration is becoming increasingly complex, time-consuming, and mission critical.
 
 Developer teams are spending a lot of time managing (a.k.a. de-spaghettifying) infrastructure and less building product. This is especially true for teams without the scale and resources to justify internal DevOps or wide-scope enteprise tools.
 
-Monk removes most of the overhead, scope and headaches from today's orchestration:
+MonkOS removes most of the overhead, scope and headaches from today's orchestration:
 
 -   **Months of DevOps**, From hiring specialists to DIYing an efficient CI/CD pipeline.<br/> &#8594;
-    _With Monk you can get well-configured stacks up & runnuing in minutes_. See [Monk in 10 minutes &#8594;
+    _With MonkOS you can get well-configured stacks up & runnuing in minutes_. See [MonkOS in 10 minutes &#8594;
     ](monk-in-10.md)
 
 -   **Devtools creep**: Using Kubernetes? Brush up on your Helm syntax, sign up to Terraform and get their EKS module, then repeat for the GCP portion of your app.<br/> &#8594;
-    _Monk is one solution: compose with Hub Kits, deploy from a single manifest, manage with the built-in Engine_. See [Monk ecosystem &#8594;
-    ](key-concepts.md)
+    _MonkOS is one solution: compose with Hub Kits, deploy from a single manifest, manage with the built-in Engine_. See [MonkOS ecosystem &#8594;](key-concepts.md)
 
 -   **Cloud provider lock-in**: Managed services or manual deployments force you into specific providers, make future migration a pain, or make multi-cloud deployments simply too much of a hassle.<br/> &#8594;
-    \_Monk lets you use any combination of infrastructure and switch gears whenever you want.
+    \_MonkOS lets you use any combination of infrastructure and switch gears whenever you want.
 
--   **Moving clouds?** Simply add your new cloud's credentials with* `monk cluster provider add --provider=` \_and run your Kits there.* See [Monk vs. other software &#8594;
-    ](comparison.md)
+-   **Moving clouds?** Simply add your new cloud's credentials with* `monk cluster provider add --provider=` \_and run your Kits there.* See [MonkOS vs. other software &#8594;](comparison.md)
 
 ## 1. Find Inspiration for Your Stack
 
@@ -78,11 +76,11 @@ See how it works in this guide: [Running a small system](basic-app.md).
 
 ## 3. Manage Infra in One Place
 
-Since Monk sits between your infra and application, the CLI that can communicate directly with your cloud providers. It's packed with functionality, meaning you'll be able to perform the majority of infrastructure-side work without ever leaving Monk. See the [CLI reference](cli/monk.md).
+Since MonkOS sits between your infra and application, the CLI that can communicate directly with your cloud providers. It's packed with functionality, meaning you'll be able to perform the majority of infrastructure-side work without ever leaving Monk. See the [CLI reference](cli/monk.md).
 
-More importantly, Monk is multi-cloud by design, enabling you to deploy your application across environment with minimal custom work.
+More importantly, MonkOS is multi-cloud by design, enabling you to deploy your application across environment with minimal custom work.
 
-Also note that Monk Engine can take care of [provisioning](provisioning-via-templates) natively, supports [load balancers](load-balancers.md), integrates with popular [CI/CD platforms](ci-cd.md), and much more.
+Also note that MonkOS can take care of [provisioning](provisioning-via-templates) natively, supports [load balancers](load-balancers.md), integrates with popular [CI/CD platforms](ci-cd.md), and much more.
 
 ## 4. Share & Maintain Your Stack
 

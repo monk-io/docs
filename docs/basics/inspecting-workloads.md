@@ -2,7 +2,7 @@
 title: "Inspect workloads"
 ---
 
-When working with multiple containers running on a big cluster it's important to know what's where and how it performs. Monk provides simple but effective tools for inspecting and troubleshooting your workloads.
+When working with multiple containers running on a big cluster it's important to know what's where and how it performs. MonkOS provides simple but effective tools for inspecting and troubleshooting your workloads.
 
 ---
 

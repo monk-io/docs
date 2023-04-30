@@ -8,8 +8,8 @@ This guide explains the publishing process from the technical standpoint. We are
 
 ## Publishing to MonkHub
 
-MonkHub hosts its contents publicly so that it stays available to all Monk instances in existence. Contents of the Hub are synced across all Monk instances every couple of minutes.
-Once something is published to MonkHub it immediately becomes public and available to all Monk users.
+MonkHub hosts its contents publicly so that it stays available to all MonkOS instances in existence. Contents of the Hub are synced across all MonkOS instances every couple of minutes.
+Once something is published to MonkHub it immediately becomes public and available to all MonkOS users.
 
 MonkHub periodically pulls a set of public Git repos from different publishers and aggregates their contents. This means that having your Kit published on GitHub is basically enough to have it published on MonkHub.
 
@@ -37,7 +37,7 @@ namespace: acme
 foobar: ...
 ```
 
-This will result in Monk users see and refer to _foobar_ as `acme/foobar`. Add a new product called _dynamite_ and they'll know it as `acme/dynamite`.
+This will result in MonkOS users see and refer to _foobar_ as `acme/foobar`. Add a new product called _dynamite_ and they'll know it as `acme/dynamite`.
 
 Alternatively, if you only have one project called _gizmotron_ and identify by that name, you might want to define your namespace as follows:
 
@@ -47,7 +47,7 @@ namespace: gizmotron
 latest: ...
 ```
 
-This, in contrast, will result in Monk users seeing names like `gizmotron/latest`, `gizmotron/v1.2.3`, `gizmotron/companion-database` etc.
+This, in contrast, will result in MonkOS users seeing names like `gizmotron/latest`, `gizmotron/v1.2.3`, `gizmotron/companion-database` etc.
 
 You can choose either approach but the most important thing is to stick to your choice as changing namespaces will confuse the end-user.
 
@@ -171,7 +171,7 @@ metadata:
 
 ### Container Images
 
-Monk is able to pull container images from any public or private registry compatible with Docker. That being said, if a Kit is meant for public consumption all container images referenced by this Kit should also be publicly available to prevent end-users from having to supply container registry credentials upon running such Kit.
+MonkOS is able to pull container images from any public or private registry compatible with Docker. That being said, if a Kit is meant for public consumption all container images referenced by this Kit should also be publicly available to prevent end-users from having to supply container registry credentials upon running such Kit.
 
 It is also a good practice to refer to container images by including the registry in image name i.e.:
 
@@ -196,7 +196,7 @@ This repo showcases a number of good practices described in this document so be 
 
 :::
 
-### File layout
+### File Layout
 
 The repo should contain at least three files in its top directory:
 
@@ -208,9 +208,9 @@ Of course, you can host multiple Kit files and build arbitrary directory structu
 
 Apart from the files above, you might want to include a `LICENSE` file containing the license under which you wish to distribute your Kit.
 
-### Monk MANIFEST
+### MonkOS MANIFEST
 
-Monk MANIFESTs are simple text files that are used by Monk to identify and load Kit files in correct order.
+MonkOS MANIFESTs are simple text files that are used by MonkOS to identify and load Kit files in correct order.
 
 For example, if you just have one YAML file (`gizmotron.yaml`) in your repo `monk-gizmotron`, your `MANIFEST` should look like this:
 
@@ -309,7 +309,7 @@ latest:
 
 :::note
 
-Since Monk v3.4.0 `defines` key is only mandatory  within runnable and process-group, no need to put defines elsewhere!
+Since MonkOS v3.4.0 `defines` key is only mandatory  within runnable and process-group, no need to put defines elsewhere!
 
 :::
 

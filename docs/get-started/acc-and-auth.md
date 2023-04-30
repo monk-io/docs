@@ -1,8 +1,8 @@
 ---
-title: "Create Your Monk Account"
+title: "Create Your MonkOS Account"
 ---
 
-# Monk Accounts & Authentication
+# MonkOS Accounts & Authentication
 
 You need an account in order to use Monk. Getting one is free, straightforward, and it shouldn't take more than a couple of seconds.
 
@@ -10,11 +10,11 @@ You need an account in order to use Monk. Getting one is free, straightforward, 
 
 ## Register Using CLI
 
-You are going to need a working Monk installation before proceeding. If you haven't installed Monk yet, see [Getting Monk](get-monk).
+You are going to need a working MonkOS installation before proceeding. If you haven't installed MonkOS yet, see [Getting Monk](get-monk).
 
 ## Register
 
-To sign up for a new Monk account, run:
+To sign up for a new MonkOS account, run:
 
     monk register
 
@@ -28,13 +28,13 @@ You will be asked to verify your email address before logging in. Check your ema
 
 :::warning
 
-Choose a strong password to secure your Monk account. We recommend passwords longer than 12 characters.
+Choose a strong password to secure your MonkOS account. We recommend passwords longer than 12 characters.
 
 :::
 
 ## Log In
 
-While using Monk tools, you will be asked to log in while performing various actions. In order to log in permanently, do the following:
+While using MonkOS tools, you will be asked to log in while performing various actions. In order to log in permanently, do the following:
 
     monk login
 
@@ -57,4 +57,4 @@ To reset your password, you can use the following command:
 
 ---
 
-If you've been following along, you now have a working Monk installation. See these first steps in context in the next section: [Monk in 10 minutes](monk-in-10.md).
+If you've been following along, you now have a working MonkOS installation. See these first steps in context in the next section: [MonkOS in 10 minutes](monk-in-10.md).

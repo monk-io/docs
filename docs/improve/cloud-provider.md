@@ -5,19 +5,19 @@ title: Add cloud provider
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Monk requires access to your cloud account in order to be able to provision cloud resources on your behalf. Before running a Kitthat provisions instances, load-balancers, volumes etc. you will have to add your cloud provider to Monk.
+MonkOS requires access to your cloud account in order to be able to provision cloud resources on your behalf. Before running a Kitthat provisions instances, load-balancers, volumes etc. you will have to add your cloud provider to Monk.
 
 :::note
 
-Your credentials are saved by your local Monk instance and shared with other peers within your cluster via encrypted connections on a need-to-know basis. Credentials are never transferred outside of your infrastructure.
+Your credentials are saved by your local MonkOS instance and shared with other peers within your cluster via encrypted connections on a need-to-know basis. Credentials are never transferred outside of your infrastructure.
 
 :::
 
 ## Prerequisites
 
-This procedure can be performed only while you're connected to a cluster - either a fresh or existing one. Monk will ask you to create a cluster in case you try the following commands without having a cluster.
+This procedure can be performed only while you're connected to a cluster - either a fresh or existing one. MonkOS will ask you to create a cluster in case you try the following commands without having a cluster.
 
-Monk will only accept one provider of each kind per cluster. This means that you can have GCP, AWS, Azure and DO providers added at the same time but you can't have eg. two sets of GCP credentials for different projects.
+MonkOS will only accept one provider of each kind per cluster. This means that you can have GCP, AWS, Azure and DO providers added at the same time but you can't have eg. two sets of GCP credentials for different projects.
 
 ## Step 1: Obtaining cloud credentials
 
@@ -128,7 +128,7 @@ values={[
 
 <TabItem value="gcp">
 
-In order to add your Service Account key to Monk do:
+In order to add your Service Account key to MonkOS do:
 
     monk cluster provider add -p gcp -f <<path/to/your-key.json>>
 
@@ -146,11 +146,11 @@ Successful invocation will result in:
 
 <TabItem value="aws">
 
-In order to add your AWS credentials to Monk do:
+In order to add your AWS credentials to MonkOS do:
 
     monk cluster provider add -p aws
 
-Monk will look for AWS credentials in your AWS CLI config folder `~/.aws/credentials`:
+MonkOS will look for AWS credentials in your AWS CLI config folder `~/.aws/credentials`:
 
     AWS config /Users/me/.aws/credentials detected, multiple profiles present - pick one.
     ? AWS profile  [Use arrows to move, type to filter]
@@ -159,7 +159,7 @@ Monk will look for AWS credentials in your AWS CLI config folder `~/.aws/credent
 
 :::info
 
-If `~/.aws/credentials` file is not present, Monk will prompt you for Access and Secret Keys.
+If `~/.aws/credentials` file is not present, MonkOS will prompt you for Access and Secret Keys.
 
 :::
 
@@ -173,7 +173,7 @@ Successful invocation will result in:
 
 <TabItem value="azure">
 
-In order to add your SDK authentication JSON file to Monk do:
+In order to add your SDK authentication JSON file to MonkOS do:
 
     monk cluster provider add -p azure -f <<path/to/your-sdk-file.json>>
 
@@ -191,7 +191,7 @@ Successful invocation will result in:
 
 <TabItem value="do">
 
-In order to add your Digital Ocean Personal Access Token to Monk do:
+In order to add your Digital Ocean Personal Access Token to MonkOS do:
 
     monk cluster provider add -p digitalocean
 
@@ -213,4 +213,4 @@ Successful invocation will result in:
 
 Adding a single provider is enough to start provisioning instances and other resources via Monk. If you have multiple accounts, you can add them the same way by just going back to [Step 1](#Step-1:-Obtaining-cloud-credentials) and repeating the process.
 
-Adding providers is usually a one time operation performed on new clusters. Once the credentials are in there is no maintenance required from the user. This action doesn't have to repeated during deployments, even if they happen from different nodes connected to the same cluster. Monk will manage your credentials and use them only when performing actions on the infrastructure relevant to the cluster itself.
+Adding providers is usually a one time operation performed on new clusters. Once the credentials are in there is no maintenance required from the user. This action doesn't have to repeated during deployments, even if they happen from different nodes connected to the same cluster. MonkOS will manage your credentials and use them only when performing actions on the infrastructure relevant to the cluster itself.

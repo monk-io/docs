@@ -6,7 +6,7 @@ title: "Support & Resources"
 
 ## Get Help
 
-Join [Monk at Discord](https://discord.gg/WxDzaKe) to get real-time support or to discuss all things Monk.
+Join [MonkOS at Discord](https://discord.gg/WxDzaKe) to get real-time support or to discuss all things Monk.
 
 Or send us an email at <hello@monk.io>. We do read those.
 

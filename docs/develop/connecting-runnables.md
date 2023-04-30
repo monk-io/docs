@@ -2,7 +2,7 @@
 title: "Define Connections"
 ---
 
-Getting services up and running isn't everything - they also need to talk to each other in order to serve their purpose. Monk abstracts away the complexity of networking and service discovery by introducing simple MonkScript operators that take care of finding services for you.
+Getting services up and running isn't everything - they also need to talk to each other in order to serve their purpose. MonkOS abstracts away the complexity of networking and service discovery by introducing simple MonkScript operators that take care of finding services for you.
 
 ---
 
@@ -36,7 +36,7 @@ Let's assume that the `ubuntu:latest` image expects environment variables `DB_AD
 
 Whenever we run `mystuff/my-service` it will assume that the database is at `localhost:21721`. Though, in most cases, the database will not be at localhost and running this Kit as it is will end in an error.
 
-The provider `mystuff/my-service` expects a MongoDB database. Monk provides a Kit for this. So we don't really need to define it here. It's on the Hub.
+The provider `mystuff/my-service` expects a MongoDB database. MonkOS provides a Kit for this. So we don't really need to define it here. It's on the Hub.
 
 Run MongoDB with:
 

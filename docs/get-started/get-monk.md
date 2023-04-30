@@ -1,20 +1,20 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Install Monk Locally
+# Install MonkOS Locally
 
 Here's how you install, test, and upgrade Monk.
 
 :::note Prerequisites
 
-Monk requires [Docker](https://www.docker.com/) or [Podman](https://podman.io/) to be present and running on your system. 
+MonkOS requires [Docker](https://www.docker.com/) or [Podman](https://podman.io/) to be present and running on your system. 
 If you do not have either of these installed and running, please check out either [how to install Docker](https://docs.docker.com/docker-for-mac/install/) or [how to install Podman](https://podman.io/getting-started/installation) prior to installing Monk.
 
 :::
 
 :::note Prerequisites
 
-Monk on macOS requres Command Line Tools version 14.3. If you are using an earlier version of the Command Line Tools, you will be prompted
+MonkOS on macOS requres Command Line Tools version 14.3. If you are using an earlier version of the Command Line Tools, you will be prompted
 to upgrade as part of set up. Note that the version of Command Line Tools is separate from the version of Xcode.
 If you are unsure what version of Command Line Tools you are running, you can check with:
 
@@ -38,11 +38,11 @@ softwareupdate --history | grep "Command Line Tools" | tail -n 1
 
 **Installing with Homebrew**
 
-We provide a [Homebrew](https://brew.sh/) repository containing official releases of Monk. You can obtain the latest stable version of Monk from this repository by running the following command:
+We provide a [Homebrew](https://brew.sh/) repository containing official releases of Monk. You can obtain the latest stable version of MonkOS from this repository by running the following command:
 
     brew install monk-io/monk/monk
 
-Now run the Monk daemon in a fresh terminal:
+Now run the MonkOS daemon in a fresh terminal:
 
     monkd
 
@@ -53,9 +53,9 @@ Now run the Monk daemon in a fresh terminal:
 :::
 </TabItem>
 <TabItem value="mainLinux">
-We run an APT repository containing official releases of Monk. You can obtain the latest stable version of Monk from this repository in two steps.
+We run an APT repository containing official releases of Monk. You can obtain the latest stable version of MonkOS from this repository in two steps.
 
-Add Monk repository to your sources list:
+Add MonkOS repository to your sources list:
 
     curl -s https://apt.monk.io/Release.gpg | sudo tee /etc/apt/trusted.gpg.d/monk.asc
     sudo echo "deb [arch=amd64] https://apt.monk.io/ stable main" | sudo tee /etc/apt/sources.list.d/monk.list
@@ -75,7 +75,7 @@ You might need to log out and log back in on your system to be able to use `monk
 </TabItem>
 <TabItem value="otherLinux">
 
-Download the latest stable binary distribution of Monk for Linux:
+Download the latest stable binary distribution of MonkOS for Linux:
 
     wget https://get.monk.io/stable/linux/monk-amd64-latest.tar.gz
 
@@ -122,7 +122,7 @@ The command should return available Kits if the installation was successful, but
     group     chatwoot/stack        monk          latest    self hosted, messaging, communication
     ....
 
-If you see similar output it means that the installation was successful and you may now start using Monk on your system 🎉
+If you see similar output it means that the installation was successful and you may now start using MonkOS on your system 🎉
 
 Continue to the [Guides section](/) to see how you can use Monk.
 
@@ -130,7 +130,7 @@ If for some reason the command didn't work, please check if you have followed al
 
 ## Upgrading Monk
 
-Upgrading your local Monk to the newest version is simple.
+Upgrading your local MonkOS to the newest version is simple.
 <Tabs
   defaultValue="macOS"
   values={[
@@ -166,12 +166,12 @@ Upgrading your local Monk to the newest version is simple.
 If you have a cluster running:
 
 1. Make sure you are connected to the cluster,
-2. Make sure your local Monk is the latest version,
+2. Make sure your local MonkOS is the latest version,
 3. Run `monk system upgrade` to upgrade all the nodes to the newest version.
 
 ## Installation Impact
 
-Monk aims to be a good steward of your filesystem and not scatter files throughout the disk. The Monk distribution is simple and consists of two binaries, `monkd` and `monk`. 
+MonkOS aims to be a good steward of your filesystem and not scatter files throughout the disk. The MonkOS distribution is simple and consists of two binaries, `monkd` and `monk`. 
 
 When installing with `apt` or `brew` those are placed or symlinked in `/usr/local/bin`. `apt` on Linux configures your `systemd` to start `monkd` as a service immediately after install and on system startup. Additionally, a `monkd` user group is created and assigned appropriately.
 

@@ -5,7 +5,7 @@ title: "Define Entities"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Entities are custom resources that allow everybody to extend Monk with their own data structures and logic.
+Entities are custom resources that allow everybody to extend MonkOS with their own data structures and logic.
 
 ---
 
@@ -63,7 +63,7 @@ lucy:
     organizationName: C corp
 ```
 
-Now we can use Monk CLI to work with our custom Entity:
+Now we can use MonkOS CLI to work with our custom Entity:
 
     # load template
     monk load people.yaml
@@ -90,7 +90,7 @@ Now we can use Monk CLI to work with our custom Entity:
     # remove entity type
     monk delete guides/person
 
-This example already extends Monk API, but it is not doing much, apart from storing
+This example already extends MonkOS API, but it is not doing much, apart from storing
 and retrieving structured data. We have to write Lifecycle scripts to apply custom logic.
 
 ## Lifecycle scripts
@@ -150,7 +150,7 @@ You don't have to return new state for every action. If you do — it replaces p
 
 You can use **throw** to terminate command execution from JS at any point.
 
-Monk JS Runtime supports most of the native JS functions,
+MonkOS JS Runtime supports most of the native JS functions,
 but it doesn't have access to browser features or file system.
 
 Here's a list with some JS methods:
@@ -218,7 +218,7 @@ person:
 ## Readiness & dependency checks
 
 Lefecycle scripts are meant to return fast, but some Entities may take time to become available after `monk run`.
-Monk comes with readiness checks that can perform tests to check if Entity is up and running.
+MonkOS comes with readiness checks that can perform tests to check if Entity is up and running.
 
 :::note
 
@@ -321,7 +321,7 @@ john-runnable:
 
 ## Require modules
 
-Monk has a number of modules. You can use them by requiring modules in _requires_ property:
+MonkOS has a number of modules. You can use them by requiring modules in _requires_ property:
 
 ```yaml title="type.yaml" linenums="1"
 namespace: guides
@@ -377,7 +377,7 @@ But you can use native JS functions like JSON, Math, etc.
 
 ### Module CLI
 
-The module implements methods to work with Monk CLI.
+The module implements methods to work with MonkOS CLI.
 
 Currently, it has only 1 method `output` that prints passed parameters to console.
 
@@ -395,7 +395,7 @@ The console will show it as:
 
 ### Module Secret
 
-The module implements methods to work with Monk Secrets.
+The module implements methods to work with MonkOS Secrets.
 
 It has the following methods:
 
@@ -700,7 +700,7 @@ function main(definition, state, context) {
 ## Webhook lifecycle
 
 If your logic needs a lot of dependencies, or you don't want to write JavaScript code, you can register webhook url of
-your own service. In this case, Monk will send request for each lifecycle event and will expect a response with updated
+your own service. In this case, MonkOS will send request for each lifecycle event and will expect a response with updated
 Entity state.
 
      lifecycle:
@@ -923,7 +923,7 @@ mybucket:
   region: us-east-1
 ```
 
-Then, we use Monk CLI to load and run templates:
+Then, we use MonkOS CLI to load and run templates:
 
       # load templates
       monk load objectstorage.yaml mybucket.yaml
@@ -957,7 +957,7 @@ we can delete it with `monk delete`:
 
       monk delete guides/mybucket
 
-This should remove Entity from Monk and the Bucket resource from AWS.
+This should remove Entity from MonkOS and the Bucket resource from AWS.
 
 ## Examples: Cloud SQL Entity
 
@@ -1216,7 +1216,7 @@ myuser:
     myuser-password: true
 ```
 
-We'll use Monk CLI to load and run everything:
+We'll use MonkOS CLI to load and run everything:
 
       # load Entity types
       monk load cloud-sql-instance.yaml cloud-sql-database.yaml cloud-sql-user.yaml
@@ -1232,7 +1232,7 @@ We'll use Monk CLI to load and run everything:
 
 Finally, let's use these Entities for something practical:  
 we are going to deploy WordPress Runnable that stores data in Cloud SQL Database
-with User credentials from Monk Secret.
+with User credentials from MonkOS Secret.
 
 We are using `entity` and `entity-state` ArrowScript operators to reference Entity properties in Runnable resource.
 
