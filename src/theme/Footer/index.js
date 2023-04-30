@@ -52,7 +52,7 @@ function Footer() {
         <div className="row footer__content-row">
           <div className="col col--6 footer__logo-block">
             <a className="footer__logo-btn" href="https://monk.io" target="_blank">monk</a>
-            <span className="copyright">{`© ${new Date().getFullYear()} OakDS Inc.`}</span>
+            <span className="copyright">{`© ${new Date().getFullYear()} MonkOS Inc.`}</span>
           </div>
           {links && links.length > 0 && (
             <div className="col col--6">

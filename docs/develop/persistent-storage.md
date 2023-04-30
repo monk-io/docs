@@ -19,7 +19,7 @@ namespace: guides
 
 database:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
 ```
 
 It is perfectly fine to run with:
@@ -37,7 +37,7 @@ namespace: guides
 
 database:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
     volumes:
         important-data:
             size: 60
@@ -56,7 +56,7 @@ namespace: guides
 
 database:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
     volumes:
         important-data:
             size: 60
@@ -64,9 +64,9 @@ database:
             path: <- $volume-data
 ```
 
-We have just replaced the `${monk-volume-path}/mongodb` because `database` inherits from `mongodb/latest` which defines a variable `volume-data`. By looking at the `mongodb/latest` Kit we can see that the database container mounts `$volume-data` in `/data/db`:
+We have just replaced the `${monk-volume-path}/mongodb` because `database` inherits from `mongodb/mongodb` which defines a variable `volume-data`. By looking at the `mongodb/mongodb` Kit we can see that the database container mounts `$volume-data` in `/data/db`:
 
-```yaml title="mongodb/latest" linenums="1"
+```yaml title="mongodb/mongodb" linenums="1"
 containers:
     database:
         image: mongo:latest
@@ -84,7 +84,7 @@ namespace: guides
 
 database:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
     volumes:
         important-data:
             size: 60

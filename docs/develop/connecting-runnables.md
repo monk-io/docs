@@ -40,14 +40,14 @@ The provider `mystuff/my-service` expects a MongoDB database. Monk provides a Ki
 
 Run MongoDB with:
 
-    monk run mongodb/latest
+    monk run mongodb/mongodb
 
 ## The connector
 
 Before running mystuff/my-service we need to tell it where to find the database that is currently running. We will do that by replacing localhost with:
 
 ```clojure
-<- get-hostname("mongodb/latest", "database")
+<- get-hostname("mongodb/mongodb", "database")
 ```
 
 `get-hostname` finds and returns the hostname of the target container. It takes two arguments:
@@ -72,7 +72,7 @@ my-service:
     variables:
         db-addr:
             type: string
-            value: <- get-hostname("mongodb/latest", "database")
+            value: <- get-hostname("mongodb/mongodb", "database")
         db-port:
             type: int
             value: 21721
@@ -91,7 +91,7 @@ It will automatically find MongoDB that we run earlier. It will also work if you
 my-group:
     defines: process-group
     runnable-list:
-        - mongodb/latest
+        - mongodb/mongodb
         - mystuff/my-service
 ```
 

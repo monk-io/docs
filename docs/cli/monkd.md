@@ -9,7 +9,7 @@
 `monkd` is the Monk engine daemon. It implements all of Monk's functionalities and is required to be running in order for Monk setup to operate.
 
 Running `monkd` in a normal scenario does not require any options.
-It is advised to run `monkd` as a service on your system. See Running monccd as a service for an example setup.
+It is advised to run `monkd` as a service on your system. See Running `monkd` as a service for an example setup.
 
 ### Usage
 

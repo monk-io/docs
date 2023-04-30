@@ -83,7 +83,7 @@ Run `monkd` in a new Terminal window and don't close it:
 Wait for it to initialize, and you should get this output:
 
     Monk v3.9.0
-    © 2018-2023 OAKds Inc. All rights reserved.
+    © 2018-2023 MonkOS Inc. All rights reserved.
     https://monk.io
 
     Please stand by while monkd is starting...
@@ -95,9 +95,7 @@ Wait for it to initialize, and you should get this output:
 
 <TabItem value="mainLinux">
 
-<!-- FIXME : I updated the macOS version to 3.9.0, unsure if the Linux version needs to be udpated as well -->
-
-If you installed `monkd` using apt it should be running after installation.
+If you installed `monkd` using APT it should be running after installation.
 
 You can confirm that `monkd` is running by using this command:
 
@@ -108,25 +106,25 @@ The output should be similar to:
     ● monkd.service - Monk daemon
     Loaded: loaded (/lib/systemd/system/monk.service; enabled; vendor preset: enabled)
     Active: active (running) since Wed 2020-10-07 17:53:20 CEST; 10s ago
-    Main PID: 10526 (monccd)
+    Main PID: 10526 (monkd)
         Tasks: 16 (limit: 4667)
     CGroup: /system.slice/monkd.service
             └─10526 /usr/bin/monkd
     oct 07 17:53:20 foo systemd[1]: Started Monk daemon.
-    oct 07 17:53:20 foo monccd[10526]:    Monk v2.4.3
-    oct 07 17:53:20 foo monccd[10526]:    © 2018-2020 OAKds Inc. All rights reserved.
-    oct 07 17:53:20 foo monccd[10526]:    https://monk.io
-    oct 07 17:53:20 foo monccd[10526]: Please stand by while monccd is starting...
-    oct 07 17:53:20 foo monccd[10526]: generating 2048-bit RSA keypair...done
-    oct 07 17:53:20 foo monccd[10526]: peer identity: Qmch66W2sJPTvchcFAVwHR57HyAPA927s3327
-    oct 07 17:53:23 foo monccd[10526]: Local containers will not be broadcasted to the clus
-    oct 07 17:53:23 foo monccd[10526]: Initialization complete. monccd is ready
+    oct 07 17:53:20 foo monkd[10526]:    Monk v3.9.0
+    oct 07 17:53:20 foo monkd[10526]:    © 2018-2023 MonkOS Inc. All rights reserved.
+    oct 07 17:53:20 foo monkd[10526]:    https://monk.io
+    oct 07 17:53:20 foo monkd[10526]: Please stand by while monkd is starting...
+    oct 07 17:53:20 foo monkd[10526]: generating 2048-bit RSA keypair...done
+    oct 07 17:53:20 foo monkd[10526]: peer identity: ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+    oct 07 17:53:23 foo monkd[10526]: Local containers will not be broadcasted to the cluster
+    oct 07 17:53:23 foo monkd[10526]: Initialization complete. monkd is ready
 
 If for some reason it's not running - just start it with the following command:
 
     monkd
 
-Keep the terminal open.
+Keep the terminal open while using `monk`, or use `systemctl` to start the service so it is running at all times.
 
 </TabItem>
 
@@ -138,8 +136,8 @@ Run monkd in a new Terminal window and don't close it:
 
 Wait for it to initialize, you should see this:
 
-    Monk v2.4.3
-    © 2018-2020 OAKds Inc. All rights reserved.
+    Monk v3.9.0
+    © 2018-2023 MonkOS Inc. All rights reserved.
     https://monk.io
 
     Please stand by while monkd is starting...
@@ -444,9 +442,9 @@ Use the following command to see what's immediately available:
 
     monk list
 
-Then just pick one of those Kits, or just try with `mongodb/latest`:
+Then just pick one of those Kits, or just try with `mongodb/mongodb`:
 
-    monk run -t <your-cluster-tag> mongodb/latest
+    monk run -t <your-cluster-tag> mongodb/mongodb
 
 Remember to replace `<your-cluster-tag>` with the one you've chosen during `monk cluster new`!
 
@@ -454,7 +452,7 @@ Remember to replace `<your-cluster-tag>` with the one you've chosen during `monk
 
 Skip `-t <your-cluster-tag>` if you skipped the cluster creation step. The invocation will look like this:
 
-    monk run mongodb/latest
+    monk run mongodb/mongodb
 
 :::
 

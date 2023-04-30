@@ -36,17 +36,17 @@ In this example we use a MongoDB Kit published by Monk. It is based on Bitnami's
 
 To install MongoDB, simply run:
 
-    monk run mongodb/latest
+    monk run mongodb/mongodb
 
 That's it! MongoDB is running on your machine. You can connect to `localhost:27017` and put some data in it.
 
 ## Updating
 
-Let's suppose that a new version of MongoDB came out. The maintainer of `mongodb/latest` will update their Kit to a new version and publish it to the Monk Hub.
+Let's suppose that a new version of MongoDB came out. The maintainer of `mongodb/mongodb` will update their Kit to a new version and publish it to the Monk Hub.
 
 In order to update the already running Kit to its newest available version you just have to do:
 
-    monk update mongodb/latest
+    monk update mongodb/mongodb
 
 That's it! The containers will be updated and re-spawned from the newest images, the storage associated with the Kit will be preserved.
 
@@ -54,9 +54,9 @@ That's it! The containers will be updated and re-spawned from the newest images,
 
 In order to stop the Kit do:
 
-    monk stop mongodb/latest
+    monk stop mongodb/mongodb
 
-This will stop the Kit but it will not touch its storage so if you decide to run `mongodb/latest` again, the data will be there.
+This will stop the Kit but it will not touch its storage so if you decide to run `mongodb/mongodb` again, the data will be there.
 
 ## Conclusion
 

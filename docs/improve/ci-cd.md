@@ -78,7 +78,7 @@ In case you just want to deploy a Kitthat already exists in the hub - get rid of
 
     $MONK load <your-kit-file.yaml>
 
-Then, just use something else in place of `<your/runnable>`, eg. `mongodb/latest`
+Then, just use something else in place of `<your/runnable>`, eg. `mongodb/mongodb`
 
 :::
 

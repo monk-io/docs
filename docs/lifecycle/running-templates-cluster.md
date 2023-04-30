@@ -19,17 +19,17 @@ to check whether you're in a cluster. If not, [create a new cluster](./cluster-c
 ## Running a single Kit
 Once you're in a cluster it is almost the same as when [running locally](running-templates.md):
 
-    monk run -t mytag mongodb/latest
+    monk run -t mytag mongodb/mongodb
 
 The `-t` flag tells Monk to only pick cluster members with `mytag` tag. Tags are specified when [growing the cluster](./cluster-create-1.md).
 
 :::note
 
-Monk makes all runnables stick to the node they were ran on initially. If you have been running mongodb/latest on your local machine it will always go to your local machine.
+Monk makes all runnables stick to the node they were ran on initially. If you have been running mongodb/mongodb on your local machine it will always go to your local machine.
 
 In order to un-stick the workload use the `--force-move` flag like this:
 
-    monk run -t mytag --force-move mongodb/latest
+    monk run -t mytag --force-move mongodb/mongodb
 
 :::
 
@@ -48,7 +48,7 @@ Currently there are two ways to run multiple copies of one Kit in a single clust
 
 ### Proxy Kits
 
-Another option is to write a small proxy Kit to rename the thing we want to run. Let's suppose we want to run two independent copies of mongodb/latest.
+Another option is to write a small proxy Kit to rename the thing we want to run. Let's suppose we want to run two independent copies of mongodb/mongodb.
 
 Create `mongos.yaml` file:
 
@@ -57,11 +57,11 @@ namespace: mynamespace
 
 mongo1:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
 
 mongo2:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
 ```
 
 Now load it with:
@@ -89,19 +89,19 @@ namespace: mynamespace
 #define proxy Kits
 mongo1:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
 
 mongo2:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
 
 mongo3:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
 
 mongo4:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
 
 #create process group
 many-mongos:
@@ -118,7 +118,7 @@ Load and run it:
     monk load mongos.yaml
     monk run -t mytag mynamespace/many-mongos
 
-This will result in four instances of `mongodb/latest` starting in your cluster. This approach works well for stateless Kits that are to be run in great numbers of exact copies.
+This will result in four instances of `mongodb/mongodb` starting in your cluster. This approach works well for stateless Kits that are to be run in great numbers of exact copies.
 
 ## Updating and Stopping
 

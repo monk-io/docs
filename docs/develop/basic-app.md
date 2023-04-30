@@ -246,10 +246,10 @@ namespace: /yourname
 
 tutorial-mongo:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
 ```
 
-And we're all good. We will use MongoDB from the `mongodb/latest` Kit that has been published to the shared namespace. That's all we need, since the app is simple and we don't want to change any defaults that the database Kit comes with.
+And we're all good. We will use MongoDB from the `mongodb/mongodb` Kit that has been published to the shared namespace. That's all we need, since the app is simple and we don't want to change any defaults that the database Kit comes with.
 
 Let's update `tutorial-app` so it knows how to find the database. Add the `db-host` section to the `tutorial-app/variables`:
 
@@ -299,7 +299,7 @@ namespace: /yourname
 
 tutorial-mongo:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
 
 tutorial-app:
     defines: runnable
@@ -312,7 +312,7 @@ tutorial-nginx:
     defines: runnable
     inherits: nginx/reverse-proxy
     variables:
-        server-name: tutorial-app.moncc.io
+        server-name: tutorial-app.monk.io
         listen-port: 8080
         proxy-target-host: <- get-hostname("yourname/tutorial-app", "app")
         proxy-target-port: 9090
