@@ -34,7 +34,7 @@ and running, but is not currently connected to a cluster. Common configuration
 issues, like the state of the CLI tool itself, the daemon, and so forth, are all
 checked as part of the `selftest` with the outputs displayed as above.
 
-### MonkOS cannot connect to socket
+### MonkOS CLI cannot connect to `monkd` socket
 
 If you do not have `monkd` running when you use the MonkOS CLI, you will encounter an
 error that looks like the following:

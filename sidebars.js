@@ -193,7 +193,7 @@ module.exports = {
             type: "category",
             label: "Troubleshooting",
             collapsed: false,
-            items: ["troubleshooting/templates", "troubleshooting/common-issues"],
+            items: ["troubleshooting/common-issues"],
         },
     ],
 };
