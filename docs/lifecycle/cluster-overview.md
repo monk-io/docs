@@ -16,8 +16,7 @@ Peers communicate and coordinate using an encrypted peer-to-peer protocol and, i
 
 :::note Info
 
-Learn more about networking here: [Connecting runnables &#8594;
-](../connecting-runnables.md)
+Learn more about networking here: [Connecting runnables &#8594;](../develop/connecting-runnables.md)
 
 :::
 

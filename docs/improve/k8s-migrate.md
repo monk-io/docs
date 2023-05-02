@@ -10,7 +10,7 @@ To demonstrate this, we'll use [YELB](https://github.com/mreferre/yelb), a simpl
 
 YELB's design is well documented [here](https://github.com/mreferre/yelb#yelb-architecture).
 
-A quick glance at the architecture tells us we'll need to create definitions for four [runnables](../monkscript/yaml/runnables/) and one [process group](../monkscript/yaml/groups) group them all together.
+A quick glance at the architecture tells us we'll need to create definitions for four [runnables](../monkscript/yaml/runnables/) and one [process group](../monkscript/yaml/groups.md) group them all together.
 
 ## Digging In
 
@@ -245,7 +245,7 @@ Since we have the definitions loaded, we can now start them individually.
 
 :::note
 
-Later, we'll create a [process group](monkscript/yaml/groups) that will allow us to start all of them at the same time.
+Later, we'll create a [process group](../monkscript/yaml/groups.md) that will allow us to start all of them at the same time.
 
 :::
 
@@ -616,7 +616,7 @@ $ monk purge local/yelb/redis
 (...)
 ```
 
-To define a [process group](../monkscript/yaml/groups), we'll have to create YAML with list of runnables that will be part of our group. It will look like:
+To define a [process group](../monkscript/yaml/groups.md), we'll have to create YAML with list of runnables that will be part of our group. It will look like:
 
 ```yaml title="Monk"
 namespace: /yelb

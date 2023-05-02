@@ -67,7 +67,7 @@ If you created more than one Kit in the ranking - you get both rewards. If your 
 If you get rewarded at any point we will contact you via the email address associated with your MonkOS account in order to arrange the payout.
 
 If for some reason you didn't hear from us, in order to claim your rewards reach us at:
-- [MonkOS Discord Server](https://discord.gg/2YGryc5), channel: **[#bugs-and-fixes](https://discord.com/channels/760852235000348703/760855409992531998)**
+- [MonkOS Discord Server](https://discord.gg/monk-io), channel: **[#bugs-and-fixes](https://discord.com/channels/760852235000348703/760855409992531998)**
 - Email: [rewards@monk.io](mailto:rewards@monk.io)
 
 We are obligated to verify your identity and authorship of the Kits before making any payments.

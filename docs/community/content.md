@@ -47,8 +47,8 @@ In order to be eligible for a reward, your content must check all of these boxes
 
 Submitting content is simple:
 
-1. [Sign up](../acc-and-auth) for a MonkOS account (if you don't have one already!),
-2. Join [MonkOS Discord Server](https://discord.gg/2YGryc5) and link your content in **[#content](https://discord.com/channels/760852235000348703/950793772382420992)** channel,
+1. [Sign up](../get-started/acc-and-auth) for a MonkOS account (if you don't have one already!),
+2. Join [MonkOS Discord Server](https://discord.gg/monk-io) and link your content in **[#content](https://discord.com/channels/760852235000348703/950793772382420992)** channel,
 3. We will review your content and get back to you regarding next steps,
 4. If accepted, your content will be featured on our [Resources](https://monk.io/resources) page.
 

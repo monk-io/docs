@@ -579,7 +579,7 @@ This module implements an HTTP client for DigitalOcean API.
 
 :::note
 
-Using digitalocean module requires you to have [DO provider credentials](cloud-provider.md) in your cluster.
+Using digitalocean module requires you to have [DO provider credentials](../improve/cloud-provider.md) in your cluster.
 
 :::
 
@@ -607,7 +607,7 @@ with `https://www.googleapis.com/auth/cloud-platform` scope if provider credenti
 
 :::note
 
-Using gcp module requires you to have [GCP provider credentials](cloud-provider.md) in your cluster.
+Using gcp module requires you to have [GCP provider credentials](../improve/cloud-provider.md) in your cluster.
 
 :::
 
@@ -636,7 +636,7 @@ Thies module implements an HTTP client for AWS API.
 
 :::note
 
-Using aws module requires you to have [AWS provider credentials](cloud-provider.md) in your cluster.
+Using aws module requires you to have [AWS provider credentials](../improve/cloud-provider.md) in your cluster.
 
 :::
 
@@ -672,7 +672,7 @@ This module implements an HTTP client for Microsoft Azure API.
 
 :::note
 
-Using azure module requires you to have [Azure provider credentials](cloud-provider.md) in your cluster.
+Using azure module requires you to have [Azure provider credentials](../improve/cloud-provider.md) in your cluster.
 
 :::
 

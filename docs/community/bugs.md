@@ -33,7 +33,7 @@ Moreover, we reserve the right to reject reports that are purely theoretical, pl
 ## Submit Your Report 
 
 Contact us via:
-- [MonkOS Discord Server](https://discord.gg/2YGryc5), channel: **[#bugs-and-fixes](https://discord.com/channels/760852235000348703/760855409992531998)**
+- [MonkOS Discord Server](https://discord.gg/monk-io), channel: **[#bugs-and-fixes](https://discord.com/channels/760852235000348703/760855409992531998)**
 - Email: [bugs@monk.io](mailto:bugs@monk.io)
 
 We will get back to you with next steps.

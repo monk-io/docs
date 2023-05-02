@@ -10,7 +10,7 @@ You need an account in order to use Monk. Getting one is free, straightforward, 
 
 ## Register Using CLI
 
-You are going to need a working MonkOS installation before proceeding. If you haven't installed MonkOS yet, see [Getting Monk](get-monk).
+You are going to need a working MonkOS installation before proceeding. If you haven't installed MonkOS yet, see [Getting Monk](get-monk.md).
 
 ## Register
 
@@ -57,4 +57,4 @@ To reset your password, you can use the following command:
 
 ---
 
-If you've been following along, you now have a working MonkOS installation. See these first steps in context in the next section: [MonkOS in 10 minutes](monk-in-10.md).
+If you've been following along, you now have a working MonkOS installation. See these first steps in context in the next section: [MonkOS in 10 minutes](../basics/monk-in-10.md).

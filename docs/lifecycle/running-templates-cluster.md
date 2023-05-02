@@ -17,7 +17,7 @@ In order to run a Kit in a cluster, we need to be in a cluster context. Run:
 to check whether you're in a cluster. If not, [create a new cluster](./cluster-create-1.md) or join an existing one.
 
 ## Running a single Kit
-Once you're in a cluster it is almost the same as when [running locally](running-templates.md):
+Once you're in a cluster it is almost the same as when [running locally](../basics/running-templates.md):
 
     monk run -t mytag mongodb/mongodb
 
@@ -122,7 +122,7 @@ This will result in four instances of `mongodb/mongodb` starting in your cluster
 
 ## Updating and Stopping
 
-Updating and stopping Kits in a cluster work the same as their [local counterparts](running-templates.md).
+Updating and stopping Kits in a cluster work the same as their [local counterparts](../basics/running-templates.md).
 
 ## Conclusion
 

@@ -18,7 +18,7 @@ In order to publish your software on MonkHub, you'll need to follow several step
 1. Prepare your Kit - make sure it loads and runs without errors,
 2. Add metadata - to make the Kit look good on the Hub,
 3. Publish your Kit in a Git repo - so that its source is avaliable and MonkHub can pull it,
-4. [Contact us](support.md) to add your repo to MonkHub.
+4. [Contact us](./about/support.md) to add your repo to MonkHub.
 5. Your Kit will be published after a review from us.
 6. Your Kit will be updated automatically whenever the default branch in your repo is updated.
 
@@ -260,7 +260,7 @@ LOAD dependencies.yaml gizmotron.yaml
 
 ## Publishing Your Repo to MonkHub
 
-The process is fully automated and requires no work on your side. Once you're ready to publish your repo to MonkHub just [drop us a line](support.md) and we'll take care of the rest.
+The process is fully automated and requires no work on your side. Once you're ready to publish your repo to MonkHub just [drop us a line](./about/support.md) and we'll take care of the rest.
 
 :::caution
 

@@ -26,7 +26,7 @@ Think of Monk Kits as no-Kubernetes Helm charts on overdrive, defining entire sy
 
 -   **Portable**: Kits can be reproduced on any cloud or on-premise cluster that runs MonkOS within minutes.
 
-This means you can tweak and share single components (e.g. Nginx) as easily as an entire off-the-shelf stack (e.g. the entire data science workflow your startup runs on AWS + GCP), or even better, combine these and more to build something entirely new. Here's a [simple example](basic-app.md).
+This means you can tweak and share single components (e.g. Nginx) as easily as an entire off-the-shelf stack (e.g. the entire data science workflow your startup runs on AWS + GCP), or even better, combine these and more to build something entirely new. Here's a [simple example](develop/basic-app.md).
 
 ## Benefits for Publishers
 
@@ -102,10 +102,10 @@ Creating a Kit is easy and takes only a few lines of YAML. You decide how much d
 
 ![](/img/docs/publishers3.png)
 
-You will feel right at home with MonkScript, YAML inspired by `docker-compose` but with quite a few scriptable tricks up its sleeve. View them all in [Features](features.md) and inside the [Reference](monkscript).
+You will feel right at home with MonkScript, YAML inspired by `docker-compose` but with quite a few scriptable tricks up its sleeve. View them all in [Features](about/features.md) and inside the [Reference](monkscript/index.md).
 
 ## How Can I join?
 
 Let us know that you are interested in joining our Publisher Program by filling this [application form](https://monk-io.typeform.com/to/SCkHZKPE).
 
-We’d also be thrilled to have you on our [Discord](https://discord.gg/2YGryc5) and answer all your questions!
+We’d also be thrilled to have you on our [Discord](https://discord.gg/monk-io) and answer all your questions!

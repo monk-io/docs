@@ -4,7 +4,7 @@
 
 Orchestrating containers and infrastructure together gets tedious really quick. MonkOS is a flexible piece of middleware that frees your time and restores your sanity by letting you control both these layers with a single, streamlined workflow.
 
-This page will give you an idea of what you can accomplish with Monk, and hopefully give you a nudge towards [giving it a try](../get-monk/get-monk.md).
+This page will give you an idea of what you can accomplish with Monk, and hopefully give you a nudge towards [giving it a try](../get-started/get-monk.md).
 
 ---
 
@@ -73,24 +73,24 @@ group     elk/stack                      monk          -                 -
 ...
 ```
 
-See how it works in this guide: [Running a small system](basic-app.md).
+See how it works in this guide: [Running a small system](../develop/basic-app.md).
 
 ## 3. Manage Infra in One Place
 
-Since MonkOS sits between your infra and application, the CLI that can communicate directly with your cloud providers. It's packed with functionality, meaning you'll be able to perform the majority of infrastructure-side work without ever leaving Monk. See the [CLI reference](cli/monk.md).
+Since MonkOS sits between your infra and application, the CLI that can communicate directly with your cloud providers. It's packed with functionality, meaning you'll be able to perform the majority of infrastructure-side work without ever leaving Monk. See the [CLI reference](../cli/monk.md).
 
 More importantly, MonkOS is multi-cloud by design, enabling you to deploy your application across environment with minimal custom work.
 
-Also note that MonkOS can take care of [provisioning](provisioning-via-templates) natively, supports [load balancers](load-balancers.md), integrates with popular [CI/CD platforms](ci-cd.md), and much more.
+Also note that MonkOS can take care of [provisioning](../develop/provisioning-via-templates.md) natively, supports [load balancers](../develop/load-balancers.md), integrates with popular [CI/CD platforms](../improve/ci-cd.md), and much more.
 
 ## 4. Share & Maintain Your Stack
 
 Monk Hub is a new distribution system for open-source components and pre-build stacks. It features over 300 entries, with more being added constantly by our team and the community.
 
-You could help your favorite software gain traction by becoming a maintainer of the Hub repo. Or you could share your application's Kits for stars, exposure, and possibly revenue (we're exploring a marketplace model for paid Kits). Learn more about our [Publisher program](publishers.md).
+You could help your favorite software gain traction by becoming a maintainer of the Hub repo. Or you could share your application's Kits for stars, exposure, and possibly revenue (we're exploring a marketplace model for paid Kits). Learn more about our [Publisher program](../community/publishers.md).
 
 ## 5. Save Time and Sanity
 
 Our mission is to make composing, deploying, and managing applications almost as easy as installing mobile apps. With Monk, you can save time to market by starting from ready-made stack Kits. Your life will be much easier because you'll be able to keep deployments inside a single workflow.
 
-Scroll to the next page to learn about Monk's key technologies – the "trinity" of Engine, Script and Hub – or [Install Monk](get-monk.md) to see them in action.
+Scroll to the next page to learn about Monk's key technologies – the "trinity" of Engine, Script and Hub – or [Install Monk](../get-started/get-monk.md) to see them in action.

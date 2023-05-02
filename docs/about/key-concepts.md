@@ -73,7 +73,7 @@ Additionally, Kits can describe actions and variables particular to the software
 
 Think about docker-composing docker-composes, this is what MonkScript is about.
 
-Learn everything about MonkScript in the [Reference](monkscript).
+Learn everything about MonkScript in the [Reference](../monkscript/index.md).
 
 ## Monk Hub
 

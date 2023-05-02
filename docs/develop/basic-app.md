@@ -146,7 +146,7 @@ Here we see a small example of Monk's powerful language. The YAML values startin
 
 :::note
 
-The syntax for string interpolation in MonkScript is inspired by JavaScript's string Kit literals. Learn more about [Arrow scripts](monkscript).
+The syntax for string interpolation in MonkScript is inspired by JavaScript's string Kit literals. Learn more about [Arrow scripts](../monkscript/index.md).
 
 :::
 

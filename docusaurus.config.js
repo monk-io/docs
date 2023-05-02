@@ -54,7 +54,7 @@ module.exports = {
           items: [
             {
               label: "YouTube",
-              href: "https://www.youtube.com/channel/UCtVa9hzta_6huDd7k5D6Cxw",
+              href: "https://www.youtube.com/@monk_io",
             },
             {
               label: "GitHub",

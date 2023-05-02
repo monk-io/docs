@@ -13,13 +13,13 @@ export default function Home() {
             icon: "/img/mainNavItems/about-monk.svg"
         },
         {
-            to: "/docs/monk-in-10",
+            to: "/docs/basics/monk-in-10",
             title: "MonkOS Basics",
             desc: "From zero to cluster in 10 min.",
             icon: "/img/mainNavItems/monk-basics.svg"
         },
         {
-            to: "/docs/get-monk",
+            to: "/docs/get-started/get-monk",
             title: "Install Monk",
             desc: "Download, install and update Monk.",
             icon: "/img/mainNavItems/install-monk.svg"
@@ -31,7 +31,7 @@ export default function Home() {
             icon: "/img/mainNavItems/guides.svg"
         },
         {
-            to: "/docs/support",
+            to: "/docs/about/support",
             title: "Support & Contact",
             desc: "Join the community, get in touch.",
             icon: "/img/mainNavItems/support-contact.svg"

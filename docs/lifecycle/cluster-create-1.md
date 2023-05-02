@@ -34,8 +34,7 @@ In order to _grow_ your new cluster onto your cloud(s) you need to add your clou
 
 :::note Info
 
-Follow [How to add cloud provider to monk &#8594;
-](cloud-provider.md)
+Follow [How to add cloud provider to monk &#8594;](../improve/cloud-provider.md)
 
 :::
 
@@ -47,7 +46,7 @@ Obviously, you can try to run your two instances (or any number of them in fact)
 
 :::note Info
 
-See [How to add cloud provider to monk](multi-cloud.md) to learn how to provision multi-cloud clusters in detail.
+See [How to add cloud provider to monk](../improve/multi-cloud.md) to learn how to provision multi-cloud clusters in detail.
 
 :::
 
@@ -109,7 +108,7 @@ See [How to add cloud provider to monk](lifecycle/cluster-switch-1.md#monkcodes)
 
 :::
 
-First, install MonkOS on a machine of your choice (let's call it **New Machine**). Check [Getting Monk](get-monk.md) for instructions for **New Machine's** OS.
+First, install MonkOS on a machine of your choice (let's call it **New Machine**). Check [Getting Monk](../get-started/get-monk.md) for instructions for **New Machine's** OS.
 
 Assuming you have created your cluster on **Your Machine**, run the following command to get the cluster's _Monkcode_:
 

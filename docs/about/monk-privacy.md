@@ -18,6 +18,6 @@ Now that the basics are out of the way, you can always [read the full policy](ht
 
 ## Questions?
 
-Join [MonkOS at Discord](https://discord.gg/WxDzaKe) to get real-time support or to discuss all things Monk.
+Join [MonkOS at Discord](https://discord.gg/monk-io) to get real-time support or to discuss all things Monk.
 
 Or feel free to drop us a line at <hello@monk.io>.

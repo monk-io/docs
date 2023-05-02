@@ -10,7 +10,7 @@ MonkOS can run as a step in your CI process and push updated Kits to an existing
 
 ### A cluster
 
-In order to deploy to a cluster, you will need a running cluster. See: [Creating a cluster](../lifecycle/cluster-create-1).
+In order to deploy to a cluster, you will need a running cluster. See: [Creating a cluster](../lifecycle/cluster-create-1.md).
 
 Be sure to note down the Monkcode for the cluster, you can get it by running:
 
@@ -24,7 +24,7 @@ You'll need a Kit YAML file available to the CI job. It can come from the repo o
 
 The CI process will need access to your MonkOS account email and password.
 
-Alternatively, you can [create another account](../get-started/acc-and-auth) just for your CI and [authorize it against the cluster](../lifecycle/cluster-switch-1). This can be done with:
+Alternatively, you can [create another account](../get-started/acc-and-auth.md) just for your CI and [authorize it against the cluster](../lifecycle/cluster-switch-1.md). This can be done with:
 
     monk user add
 
@@ -221,4 +221,4 @@ Be sure to provide these variables in the Bitbucket pipeline settings:
 
 ## Secrets
 
-Throughout this tutorial we've had to deal with secrets, even if just for our MonkOS account credentials. Let's now see how you can boost your MonkOS setup security and work with [encrypted Kits](./passing-secrets.md) 🤫
+Throughout this tutorial we've had to deal with secrets, even if just for our MonkOS account credentials. Let's now see how you can boost your MonkOS setup security and work with [encrypted Kits](../develop/passing-secrets.md) 🤫
