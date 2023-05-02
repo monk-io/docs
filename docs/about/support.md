@@ -12,9 +12,7 @@ Or send us an email at <hello@monk.io>. We do read those.
 
 ## Get Involved
 
-<!-- FIXME publisher program link in particular breaks side nav bar for some reason -->
-
-Read the [Publisher program page](publishers.md) for all info about sharing your Kits for glory, fame and revenue.
+Read the [Publisher program page](../community/publishers.md) for all info about sharing your Kits for glory, fame and revenue.
 
 Here's a quick link to the [application form](https://monk-io.typeform.com/to/SCkHZKPE) (takes only a minute or so).
 

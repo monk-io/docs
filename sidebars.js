@@ -118,12 +118,6 @@ module.exports = {
                 "community/bugs"
             ],
         },
-        // {
-        //     type: "category",
-        //     label: "Case Studies",
-        //     collapsed: false,
-        //     items: ["cases/chainlink"],
-        // },
         {
             type: "category",
             label: "Reference",

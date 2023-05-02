@@ -24,13 +24,8 @@ Our App is just a simple piece of code that requires a Mongo database and expose
 
 Let's grab the source from GitHub:
 
-    git clone https://github.com/oaknode/tutorial.git
+    git clone https://github.com/monk-io/tutorial.git
 
-:::note
-
-Oaknode is the repo of the company behind Monk. We're migrating to Monk's Github in steps.
-
-:::
 
 ### Preparing the container
 

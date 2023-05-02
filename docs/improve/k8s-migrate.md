@@ -711,9 +711,7 @@ We can safely assume that we were working on our development environment. So the
 
 ### Moving to Production
 
-<!-- FIXME: Note: the below anchor link for Inheritance doesn't go to the anchor, only the page top -->
-
-To spawn another instance of the YELB app for production, we will use Monk's [inheritance](../monkscript/yaml#inheritance) feature. This allows us to inherit a predefined Kit and only update the parts we want to change.
+To spawn another instance of the YELB app for production, we will use Monk's [inheritance](../monkscript/yaml/index.md#inheritance) feature. This allows us to inherit a predefined Kit and only update the parts we want to change.
 
 Let's define our namespace and add our db and redis [runnable](../monkscript/yaml/runnables/) components in the Kit.
 
@@ -824,8 +822,7 @@ application:
         - /yelb-production/redis
 ```
 
-<!-- FIXME: Note the following anchor link also only goes to the page, not the anchor -->
-Since this is our production Kit, it might be good idea to run it on some public cloud services. To do this, you'll need to have a cloud provider added. To learn more, please see ["Monk in 10 minutes" guide](../basics/monk-in-10#creating-a-monk-cluster).
+Since this is our production Kit, it might be good idea to run it on some public cloud services. To do this, you'll need to have a cloud provider added. To learn more, please see ["Monk in 10 minutes" guide](../basics/monk-in-10#growing-your-new-cluster).
 
 Assuming we have AWS as the provider, we can simply run:
 
