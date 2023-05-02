@@ -23,6 +23,7 @@ All you have to do is follow [our Kit publishing guide &#8594;](#).
 - Your Kit must be published on [monkhub.io](https://monkhub.io).
 - Your Kit must be original, actively maintained and made by you (we check),
 - Your Kit must adhere to the publishing standards [Read more about making a good Kit &#8594;](#)
+<!-- FIXME: we need the publishing standards. The above just links to the top of the page -->
 
 ## Kit Ranking and Rewards 
 

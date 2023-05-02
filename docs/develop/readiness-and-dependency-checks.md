@@ -62,7 +62,7 @@ bar:
 
 In this example we have defined one 'common' container that we can re-use in our application, it is just simple alpine image that will run for 1h.  
 As next step we have defined a `bar` runnable that will inherit our common `alpine` image and additionally it will have readiness check defined.  
-Combining power of monk script a [exec](monkscript/scripting/operators/containers#exec) function and [contains](monkscript/scripting/operators/boolean#contains-has) function we check if `sleep` process is running.
+Combining power of monk script a [exec](../monkscript/scripting/operators/containers#exec) function and [contains](../monkscript/scripting/operators/boolean#contains-has) function we check if `sleep` process is running.
 
 ## Dependency
 

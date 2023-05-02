@@ -1,8 +1,10 @@
-# Why MonkOS?
+# Why Monk?
+
+<!-- FIXME: There are several links in the docs to MonkHub.io, which I believe is offline. We should redirect this -->
 
 Orchestrating containers and infrastructure together gets tedious really quick. MonkOS is a flexible piece of middleware that frees your time and restores your sanity by letting you control both these layers with a single, streamlined workflow.
 
-This page will give you an idea of what you can accomplish with Monk, and hopefully give you a nudge towards [giving it a try](get-monk.md).
+This page will give you an idea of what you can accomplish with Monk, and hopefully give you a nudge towards [giving it a try](../get-monk/get-monk.md).
 
 ---
 
@@ -15,8 +17,7 @@ Developer teams are spending a lot of time managing (a.k.a. de-spaghettifying) i
 MonkOS removes most of the overhead, scope and headaches from today's orchestration:
 
 -   **Months of DevOps**, From hiring specialists to DIYing an efficient CI/CD pipeline.<br/> &#8594;
-    _With MonkOS you can get well-configured stacks up & runnuing in minutes_. See [MonkOS in 10 minutes &#8594;
-    ](monk-in-10.md)
+    _With Monk you can get well-configured stacks up & runnuing in minutes_. See [Monk in 10 minutes &#8594;](../basics/monk-in-10.md)
 
 -   **Devtools creep**: Using Kubernetes? Brush up on your Helm syntax, sign up to Terraform and get their EKS module, then repeat for the GCP portion of your app.<br/> &#8594;
     _MonkOS is one solution: compose with Hub Kits, deploy from a single manifest, manage with the built-in Engine_. See [MonkOS ecosystem &#8594;](key-concepts.md)

@@ -4,7 +4,7 @@ title: "Build a Basic App"
 
 Let's see how to create and run a basic app that uses MongoDB and Nginx, entirely from Monk.
 
-This tutorial requires you to have MonkOS installed locally, which you can do [just like this](get-monk.md).
+This tutorial requires you to have Monk installed locally, which you can do [just like this](../get-started/get-monk.md).
 
 ## What we're building
 
@@ -19,6 +19,8 @@ We will prepare a Monk Kit for a small system composed of these three elements. 
 ## The app
 
 Our App is just a simple piece of code that requires a Mongo database and exposes an HTTP endpoint by means of the Express framework.
+
+<!-- FIXME: If we could migrate this sample out of Oaknode and into Monk, that'd be great -->
 
 Let's grab the source from GitHub:
 
@@ -205,7 +207,7 @@ Now it's time to compose our app's Kit with the third party services, and make a
 
 ![Kit architecture for the system we're building](/img/docs/system-full.png)
 
-If you were to publish your composed Kit, other people would also be able to run this same setup in seconds or compose it further with their own services. That's what our [Publisher program](publishers) is there for, by the way.
+If you were to publish your composed Kit, other people would also be able to run this same setup in seconds or compose it further with their own services. That's what our [Publisher program](../publishers) is there for, by the way.
 
 ### Creating a Kit of Kits
 
@@ -347,6 +349,6 @@ To stop it, use:
 
 This concludes our basic app tutorial. We have learned how to compose 3rd party software with our own containerized service and how to run it all as an ensemble using Monk.
 
-The next step would be to run your app on different clouds. To that end, you can head back to the [Creating a cluster](lifecycle/cluster-create-1) and [Running Kits in a cluster](lifecycle/running-templates-cluster) guides to see them with a fresh perspective.
+The next step would be to run your app on different clouds. To that end, you can head back to the [Creating a cluster](../lifecycle/cluster-create-1) and [Running Kits in a cluster](../lifecycle/running-templates-cluster) guides to see them with a fresh perspective.
 
 Or better yet, continue to [Connecting runnables](connecting-runnables.md) to see how we can make our services talk to each other.

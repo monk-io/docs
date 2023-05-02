@@ -17,7 +17,7 @@ This is a super-quick guide to get some containers running within your own MonkO
 
 ## Getting Monk
 
-Install MonkOS on your machine. For more detailed instructions see [Getting MonkOS](get-monk.md).
+Install Monk for your OS. For more detailed instructions see [Getting Monk](../get-started/get-monk.md).
 
 <Tabs
 defaultValue="macOS"
@@ -50,7 +50,7 @@ You might need to log out and log back in on your system to be able to use `monk
 
 <TabItem value="otherLinux">
 
-If you're running Linux that does not have APT see [Getting Monk](get-monk.md) and come back ⏪
+If you're running Linux that does not have APT see [Getting Monk](../get-started/get-monk.md) and come back ⏪
 
 </TabItem>
 
@@ -149,7 +149,9 @@ Wait for it to initialize, you should see this:
 
 ## Creating Your MonkOS Account
 
-Setting up the account takes 10 seconds. We use accounts to match users with their MonkOS setups and for licensing and analytics purposes. We are very privacy-focused and only use telemetry data for product improvement. This data never includes your proprietary information. You can [learn more about the privacy of MonkOS accounts](monk-privacy.md).
+Setting up the account takes 10 seconds. We use accounts to match users with their Monk setups and for licensing and analytics purposes. We are very privacy-focused and only use telemetry data for product improvement. This data never includes your proprietary information. You can [learn more about the privacy of Monk accounts](monk-privacy.md).
+
+<!-- FIXME: where is the Monk Privacy doc linked directly above? -->
 
 Use this command to create your MonkOS account:
 
@@ -263,7 +265,7 @@ DigitalOcean API Token is sensitive information. Take care to store it securely.
 
 :::note
 
-**It's alright if you want to skip cluster creation for now.** You can run things locally and create a cluster later. You can still follow this guide but remember that stuff will happen on your machine and not in the cloud. To skip ahead, head to [Running Kits locally](running-templates.md).
+**It's alright if you want to skip cluster creation for now.** You can run things locally and create a cluster later. You can still follow this guide but remember that stuff will happen on your machine and not in the cloud. To skip ahead, head to [Running Kits locally](../basics/running-templates.md).
 
 :::
 
@@ -472,10 +474,10 @@ If you don't want to use the cluster anymore just do:
 
 This will destroy the cluster and all associated resources. **Be careful! MonkOS will not back up the storage of the instances it terminates**.
 
-In case you'd like to create another cluster, follow this guide again or see: [Creating a cluster](lifecycle/cluster-create-1.md).
+In case you'd like to create another cluster, follow this guide again or see: [Creating a cluster](../lifecycle/cluster-create-1.md).
 
 ## What's Next?
 
-Our newly formed cluster has 3 machines and can do much more than just running one simple workload. Having your cluster up and running is enough to start trying [everything that MonkOS has to offer](features.md).
+Our newly formed cluster has 3 machines and can do much more than just running one simple workload. Having your cluster up and running is enough to start trying [everything that Monk has to offer](../about/features.md).
 
-If you'd like to try a more advanced setup including a database, HTTP server, and a self-made service, continue to our first A-Z tutorial: [Running a small system](basic-app.md).
+If you'd like to try a more advanced setup including a database, HTTP server, and a self-made service, continue to our first A-Z tutorial: [Running a small system](../develop/basic-app.md).
