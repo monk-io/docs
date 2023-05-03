@@ -2,7 +2,7 @@
 title: "Define Connections"
 ---
 
-Getting services up and running isn't everything - they also need to talk to each other in order to serve their purpose. Monk abstracts away the complexity of networking and service discovery by introducing simple MonkScript operators that take care of finding services for you.
+Getting services up and running isn't everything - they also need to talk to each other in order to serve their purpose. MonkOS abstracts away the complexity of networking and service discovery by introducing simple MonkScript operators that take care of finding services for you.
 
 ---
 
@@ -36,18 +36,18 @@ Let's assume that the `ubuntu:latest` image expects environment variables `DB_AD
 
 Whenever we run `mystuff/my-service` it will assume that the database is at `localhost:21721`. Though, in most cases, the database will not be at localhost and running this Kit as it is will end in an error.
 
-The provider `mystuff/my-service` expects a MongoDB database. Monk provides a Kit for this. So we don't really need to define it here. It's on the Hub.
+The provider `mystuff/my-service` expects a MongoDB database. MonkOS provides a Kit for this. So we don't really need to define it here. It's on the Hub.
 
 Run MongoDB with:
 
-    monk run mongodb/latest
+    monk run mongodb/mongodb
 
 ## The connector
 
 Before running mystuff/my-service we need to tell it where to find the database that is currently running. We will do that by replacing localhost with:
 
 ```clojure
-<- get-hostname("mongodb/latest", "database")
+<- get-hostname("mongodb/mongodb", "database")
 ```
 
 `get-hostname` finds and returns the hostname of the target container. It takes two arguments:
@@ -72,7 +72,7 @@ my-service:
     variables:
         db-addr:
             type: string
-            value: <- get-hostname("mongodb/latest", "database")
+            value: <- get-hostname("mongodb/mongodb", "database")
         db-port:
             type: int
             value: 21721
@@ -91,7 +91,7 @@ It will automatically find MongoDB that we run earlier. It will also work if you
 my-group:
     defines: process-group
     runnable-list:
-        - mongodb/latest
+        - mongodb/mongodb
         - mystuff/my-service
 ```
 

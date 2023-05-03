@@ -5,13 +5,13 @@ title: "Add Load Balancers"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Load balancers are important components of any modern cloud setup. They provide a reliable ingress point for any system. Monk creates and manages load balancers for you so that you can focus on your services.
+Load balancers are important components of any modern cloud setup. They provide a reliable ingress point for any system. MonkOS creates and manages load balancers for you so that you can focus on your services.
 
 ---
 
 ## Cloud Load Balancers
 
-Monk currently supports TCP, UDP, HTTP(s) and Elastic IP type balancers on AWS, GCP, Azure and Digital Ocean. It doesn't matter on which cloud you're running as long as the balanced portion of the workload stays on the same cloud.
+MonkOS currently supports TCP, UDP, HTTP(s) and Elastic IP type balancers on AWS, GCP, Azure and Digital Ocean. It doesn't matter on which cloud you're running as long as the balanced portion of the workload stays on the same cloud.
 
 :::note
 
@@ -343,7 +343,7 @@ services:
 
 ## Custom health checks
 
-Monk can configure the load balancers to perform custom health checks on the target services in order to switch between them in case they fail. Health checks can be applied to any type of load balancer, regardless of its type.
+MonkOS can configure the load balancers to perform custom health checks on the target services in order to switch between them in case they fail. Health checks can be applied to any type of load balancer, regardless of its type.
 
 ### HTTP
 

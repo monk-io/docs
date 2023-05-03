@@ -9,6 +9,10 @@ jobs:
           name: deps
           command: npm install --force
 
+      - run: 
+          name: caniuse
+          command: npx browserslist@latest --update-db
+
       - run:
           name: build
           command: npm run build
@@ -26,6 +30,10 @@ jobs:
       - run:
           name: deps
           command: npm install --force
+
+      - run: 
+          name: caniuse
+          command: npx browserslist@latest --update-db
 
       - run:
           name: build

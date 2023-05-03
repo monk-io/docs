@@ -2,7 +2,7 @@
 title: "Add Dynamic Configuration"
 ---
 
-Monk offers a convenient way to pass arbitrary text files (such as config files) to any container from the Kit level. Such files can be generated on the fly at container startup making it easy to create dynamic configuration for services based on Monk variables.
+MonkOS offers a convenient way to pass arbitrary text files (such as config files) to any container from the Kit level. Such files can be generated on the fly at container startup making it easy to create dynamic configuration for services based on MonkOS variables.
 
 ## Nginx example
 
@@ -44,7 +44,7 @@ Above example defines a basic nginx container that doesn't have any specific con
 
 In order to insert the config file `/opt/bitnami/nginx/conf/server_blocks/reverse_proxy.conf` defining a reverse proxy configuration, one could prepare a new container image based on `bitnami/nginx` and have the file set up as a part of the image. This approach comes with a disadvantage of having to prepare and build the image, which in turn means that all the values have to be known at build time.
 
-Monk solves this issue by allowing to specify a `files` section in any `runnable`.
+MonkOS solves this issue by allowing to specify a `files` section in any `runnable`.
 
 ### File definition
 
@@ -65,7 +65,7 @@ The `content` field contains what will be the file contents once it is created i
 
 ### Templating
 
-Monk currently uses a very simple templating syntax which allows for placing
+MonkOS currently uses a very simple templating syntax which allows for placing
 
     {{ v "variable-name" }}
 

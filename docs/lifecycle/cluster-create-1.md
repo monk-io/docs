@@ -26,32 +26,31 @@ In the next steps, we will see how to expand the new cluster to other machines.
 
 ## Automatic provisioning
 
-Automatic provisioning is the recommended way of creating your Monk clusters. Currently, Monk features integration with AWS, GCP, Azure and DigitalOcean. This means that Clusters can be grown automatically by just specifying instances by their type on any of those clouds. One cluster can have peers in both clouds at the same time if you set up both providers for the cluster beforehand.
+Automatic provisioning is the recommended way of creating your MonkOS clusters. Currently, MonkOS features integration with AWS, GCP, Azure and DigitalOcean. This means that Clusters can be grown automatically by just specifying instances by their type on any of those clouds. One cluster can have peers in both clouds at the same time if you set up both providers for the cluster beforehand.
 
 ### Adding cloud providers
 
-In order to _grow_ your new cluster onto your cloud(s) you need to add your cloud credentials to Monk first.
+In order to _grow_ your new cluster onto your cloud(s) you need to add your cloud credentials to MonkOS first.
 
 :::note Info
 
-Follow [How to add cloud provider to monk &#8594;
-](cloud-provider.md)
+Follow [How to add cloud provider to monk &#8594;](../improve/cloud-provider.md)
 
 :::
 
 ### Growing the cluster
 
-We'll now create two instances on GCP to demonstrate how easy it is to grow a Monk cluster.
+We'll now create two instances on GCP to demonstrate how easy it is to grow a MonkOS cluster.
 
 Obviously, you can try to run your two instances (or any number of them in fact) in multiple clouds.
 
 :::note Info
 
-See [How to add cloud provider to monk](multi-cloud.md) to learn how to provision multi-cloud clusters in detail.
+See [How to add cloud provider to monk](../improve/multi-cloud.md) to learn how to provision multi-cloud clusters in detail.
 
 :::
 
-Let's create a new **GCP** instance. Monk has an aptly named `grow` command for doing this:
+Let's create a new **GCP** instance. MonkOS has an aptly named `grow` command for doing this:
 
     monk cluster grow --provider=gcp --name=my-gcp-instance --tag=mytag --instance-type=g1-small --region=europe-west4 -m 2
 
@@ -74,7 +73,7 @@ Running the above commands will create two new peers on GCP:
 -   `my-gcp-instance-1`
 -   `my-gcp-instance-2`
 
-Both of those peers are now available to run Monk workloads in the cluster. You can verify this with the cluster peers command like so:
+Both of those peers are now available to run MonkOS workloads in the cluster. You can verify this with the cluster peers command like so:
 
 ```bash
 monk cluster peers
@@ -93,13 +92,13 @@ You are all set to [Run Kits in a cluster](running-templates-cluster)!
 
 :::caution warning
 
-The instances created by Monk using `grow` are essentially black boxes - the user is not supposed to change their configuration by hand or even log into them via ssh. Attempting to reconfigure such instance by other means than Monk may render it unstable or unusable.
+The instances created by MonkOS using `grow` are essentially black boxes - the user is not supposed to change their configuration by hand or even log into them via ssh. Attempting to reconfigure such instance by other means than MonkOS may render it unstable or unusable.
 
 :::
 
 ## Adding peers manually
 
-In addition to recommended Automatic provisioning, there is an option to add new peers manually. This operation can be performed by hand or automated by some custom scripting. You can use this method, for instance, to plug on-premise bare metal servers into your existing Monk cluster or even bootstrap an entire cluster from such machines.
+In addition to recommended Automatic provisioning, there is an option to add new peers manually. This operation can be performed by hand or automated by some custom scripting. You can use this method, for instance, to plug on-premise bare metal servers into your existing MonkOS cluster or even bootstrap an entire cluster from such machines.
 
 The process to add new peer is relatively simple thanks to _Monkcodes_ and can be used to put almost any linux machine under Monk's control.
 
@@ -109,7 +108,7 @@ See [How to add cloud provider to monk](lifecycle/cluster-switch-1.md#monkcodes)
 
 :::
 
-First, install Monk on a machine of your choice (let's call it **New Machine**). Check [Getting Monk](get-monk.md) for instructions for **New Machine's** OS.
+First, install MonkOS on a machine of your choice (let's call it **New Machine**). Check [Getting Monk](../get-started/get-monk.md) for instructions for **New Machine's** OS.
 
 Assuming you have created your cluster on **Your Machine**, run the following command to get the cluster's _Monkcode_:
 
@@ -152,4 +151,4 @@ The Monkcode can be reused to add more machines in the same manner as long as th
 
 ## Conclusion
 
-We have learned how to create and grow a cluster. The whole point of having a Monk cluster is being able to run Kits on it. Continue to the next guide to see how to run a Kit in your new cluster.
+We have learned how to create and grow a cluster. The whole point of having a MonkOS cluster is being able to run Kits on it. Continue to the next guide to see how to run a Kit in your new cluster.

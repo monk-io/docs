@@ -17,38 +17,38 @@ In order to run a Kit in a cluster, we need to be in a cluster context. Run:
 to check whether you're in a cluster. If not, [create a new cluster](./cluster-create-1.md) or join an existing one.
 
 ## Running a single Kit
-Once you're in a cluster it is almost the same as when [running locally](running-templates.md):
+Once you're in a cluster it is almost the same as when [running locally](../basics/running-templates.md):
 
-    monk run -t mytag mongodb/latest
+    monk run -t mytag mongodb/mongodb
 
-The `-t` flag tells Monk to only pick cluster members with `mytag` tag. Tags are specified when [growing the cluster](./cluster-create-1.md).
+The `-t` flag tells MonkOS to only pick cluster members with `mytag` tag. Tags are specified when [growing the cluster](./cluster-create-1.md).
 
 :::note
 
-Monk makes all runnables stick to the node they were ran on initially. If you have been running mongodb/latest on your local machine it will always go to your local machine.
+MonkOS makes all runnables stick to the node they were ran on initially. If you have been running mongodb/mongodb on your local machine it will always go to your local machine.
 
 In order to un-stick the workload use the `--force-move` flag like this:
 
-    monk run -t mytag --force-move mongodb/latest
+    monk run -t mytag --force-move mongodb/mongodb
 
 :::
 
 ### Orchestration
 
-Monk will pick the least busy machine in the cluster tagged with `mytag` tag and put MongoDB there. There is no way to instruct Monk to put particular containers on particular machines yet.
+MonkOS will pick the least busy machine in the cluster tagged with `mytag` tag and put MongoDB there. There is no way to instruct MonkOS to put particular containers on particular machines yet.
 
 ### Auto-recovery
 
-Monk will restart crashed containers on the same instance they were occupying previously.
+MonkOS will restart crashed containers on the same instance they were occupying previously.
 
-In case of instance outage, Monk will re-provision the same type of instance and re-create the containers that were affected by the outage. During this process, containers will be distributed across healthy instances for the time it takes to re-provision the missing instance.
+In case of instance outage, MonkOS will re-provision the same type of instance and re-create the containers that were affected by the outage. During this process, containers will be distributed across healthy instances for the time it takes to re-provision the missing instance.
 
 ## Running more than one instance of a Kit
 Currently there are two ways to run multiple copies of one Kit in a single cluster. They are described below.
 
 ### Proxy Kits
 
-Another option is to write a small proxy Kit to rename the thing we want to run. Let's suppose we want to run two independent copies of mongodb/latest.
+Another option is to write a small proxy Kit to rename the thing we want to run. Let's suppose we want to run two independent copies of mongodb/mongodb.
 
 Create `mongos.yaml` file:
 
@@ -57,11 +57,11 @@ namespace: mynamespace
 
 mongo1:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
 
 mongo2:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
 ```
 
 Now load it with:
@@ -89,19 +89,19 @@ namespace: mynamespace
 #define proxy Kits
 mongo1:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
 
 mongo2:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
 
 mongo3:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
 
 mongo4:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
 
 #create process group
 many-mongos:
@@ -118,12 +118,12 @@ Load and run it:
     monk load mongos.yaml
     monk run -t mytag mynamespace/many-mongos
 
-This will result in four instances of `mongodb/latest` starting in your cluster. This approach works well for stateless Kits that are to be run in great numbers of exact copies.
+This will result in four instances of `mongodb/mongodb` starting in your cluster. This approach works well for stateless Kits that are to be run in great numbers of exact copies.
 
 ## Updating and Stopping
 
-Updating and stopping Kits in a cluster work the same as their [local counterparts](running-templates.md).
+Updating and stopping Kits in a cluster work the same as their [local counterparts](../basics/running-templates.md).
 
 ## Conclusion
 
-We have learned that running workloads in a cluster is almost as simple as running them locally. Uncomplicated workloads like MongoDB are not that interesting on their own as Monk can compose multiple different Kits into reusable system Kits. Head to the next guide to learn how to build a small system with Monk.
+We have learned that running workloads in a cluster is almost as simple as running them locally. Uncomplicated workloads like MongoDB are not that interesting on their own as MonkOS can compose multiple different Kits into reusable system Kits. Head to the next guide to learn how to build a small system with Monk.

@@ -1,17 +1,22 @@
 ---
 title: Setting Up Your Project
-displayed_sidebar: guiSidebar
 ---
+
+:::note Prerequisites
+
+In order to build a project you will need to have your credentials ready for one or more of the following cloud providers:
+AWS, Azure, Digital Ocean, and/or GCP. 
+:::
 
 After successful sign up, you will see the list of your projects. This list is initially empty as there are no projects in your account yet. To create a new project click **Create project** button in the top right corner.
 
 ![](/img/docs/gui/gui43.png)
 
-First step is to pick the name for your project and select the project type - choose the “Create a new cluster option” on the left. You want Monk to create a new cluster for your project on your own cloud infrastructure. The other option is useful for managing clusters that already exist but it’s beyond the scope of this tutorial. Read more here
+First step is to pick the name for your project and select the project type - choose the “Create a new cluster option” on the left. You want MonkOS to create a new cluster for your project on your own cloud infrastructure. The other option is useful for managing clusters that already exist but it’s beyond the scope of this tutorial. Read more here
 
 ![](/img/docs/gui/gui52.png)
 
-Next step is to tell Monk about your cloud accounts. This is a multiple choice screen. You can add multiple cloud credentials to a single project because Monk is able to manage your infrastructure and workloads across multiple clouds and regions. Read more here
+Next step is to tell MonkOS about your cloud accounts. This is a multiple choice screen. You can add multiple cloud credentials to a single project because MonkOS is able to manage your infrastructure and workloads across multiple clouds and regions. Read more here
 
 ![](/img/docs/gui/gui9.png)
 
@@ -24,7 +29,7 @@ GCP credentials come in a JSON key file. You can obtain this file for your accou
 
 ![](/img/docs/gui/gui41.png)
 
-You will see your credentials added to the list. Be sure to check **Use GCP as default provider** - this tells Monk that the cluster should be initially created on this account. Confirm with **Next**.
+You will see your credentials added to the list. Be sure to check **Use GCP as default provider** - this tells MonkOS that the cluster should be initially created on this account. Confirm with **Next**.
 
 ![](/img/docs/gui/gui15.png)
 

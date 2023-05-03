@@ -5,7 +5,7 @@ title: "Multi-Cloud Deployments"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Monk clusters are capable of spanning across multiple cloud environments while Monk handles all cloud specific aspects of such setup.
+MonkOS clusters are capable of spanning across multiple cloud environments while MonkOS handles all cloud specific aspects of such setup.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ We will start by provisioning two nodes on one of the clouds:
 
     monk cluster grow
 
-Monk will ask several questions about new instances, see example answers below:
+MonkOS will ask several questions about new instances, see example answers below:
 
 <Tabs
   defaultValue="gcp"
@@ -85,7 +85,7 @@ Monk will ask several questions about new instances, see example answers below:
 
 </Tabs>
 
-After completing the survey, Monk will create instances according to your choices. Output from a successful run looks like this:
+After completing the survey, MonkOS will create instances according to your choices. Output from a successful run looks like this:
 
     ✔ Creating a new instance(s) on gcp... DONE
     ✔ Creating node: gcp-example-1 DONE
@@ -107,7 +107,7 @@ Go back to [Step 1](#step-1-add-peers-on-cloud-a) and repeat the process for you
 
 ## Step 3: Check the cluster's layout
 
-After completing above steps, you should have a multi-cloud Monk cluster running. To confirm that all nodes were started issue the following command:
+After completing above steps, you should have a multi-cloud MonkOS cluster running. To confirm that all nodes were started issue the following command:
 
     monk cluster peers
 
@@ -125,4 +125,4 @@ Note the contents of `Provider` column, both **cloud A** and **cloud B** should 
 
 ## Conclusion
 
-You are now running a Monk cluster spanning across two clouds. This cluster will behave as any other Monk cluster as Monk manages all supported cloud environments in a transparent manner. This new cluster is capable of running any Monk Kit and the workloads will be distributed to all instances available.
+You are now running a MonkOS cluster spanning across two clouds. This cluster will behave as any other MonkOS cluster as MonkOS manages all supported cloud environments in a transparent manner. This new cluster is capable of running any Monk Kit and the workloads will be distributed to all instances available.

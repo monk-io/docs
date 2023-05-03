@@ -2,7 +2,7 @@
 title: Adding Secrets
 ---
 
-One of the crucial requirements of any deployment is storing secrets in a secure way. Monk offers a built-in secret storage that is backed by the Cloud KMS on your cloud account. Monk ensures that all your secrets stored within your infrastructure are always encrypted at rest with frequent key rotation.
+One of the crucial requirements of any deployment is storing secrets in a secure way. MonkOS offers a built-in secret storage that is backed by the Cloud KMS on your cloud account. MonkOS ensures that all your secrets stored within your infrastructure are always encrypted at rest with frequent key rotation.
 
 Secrets can be shared between multiple kits within the project’s environment.
 
@@ -38,7 +38,7 @@ Repeat applying the secret to your own service by selecting the database passwor
 
 ![](/img/docs/gui/gui35.png)
 
-Monk also offers **Variables**, which work in exactly the same way as secrets but are not encrypted and can be reviewed and edited at any time. If you do not care if the value is stored securely it is better to use a Variable instead of a Secret - the usage is the same as described above.
+MonkOS also offers **Variables**, which work in exactly the same way as secrets but are not encrypted and can be reviewed and edited at any time. If you do not care if the value is stored securely it is better to use a Variable instead of a Secret - the usage is the same as described above.
 
 Secrets and Variables can be also added and removed from the **Settings** tab.
 

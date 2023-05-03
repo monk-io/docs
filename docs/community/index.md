@@ -4,9 +4,9 @@ title: Contributor Program
 
 import CustomLink from '@site/src/components/customLink';
 
-# Monk Contributor Program
+# MonkOS Contributor Program
 
-Monk Contributor Program rewards Monk users for creating popular Kits, sharing their knowledge and finding bugs. 
+MonkOS Contributor Program rewards MonkOS users for creating popular Kits, sharing their knowledge and finding bugs. 
 
 ## Joining
 
@@ -27,17 +27,17 @@ You can earn up to $2550 a month for publishing and maintaining a popular Kit! ð
 
 There are some basic rules that apply:
 
-- Any person can enter Monk Contributor Program by:
-  - Signing up for a Monk account,
+- Any person can enter MonkOS Contributor Program by:
+  - Signing up for a MonkOS account,
   - Following steps outlined in documents linked above,
 - Each contributor wishing to receive rewards is bound by the [Contributor Agreement](#).
 - Reward amounts may change without notice,
-- Monk team reviews all applications and has the final say in granting the reward and its amount,
-- Monk reserves the right to withold rewards and ban contributors in justified circumstances.
+- MonkOS team reviews all applications and has the final say in granting the reward and its amount,
+- MonkOS reserves the right to withold rewards and ban contributors in justified circumstances.
 
 ## Ranking
 
-Users participating in Monk Contributor Program are ranked by total amount of rewards received. 
+Users participating in MonkOS Contributor Program are ranked by total amount of rewards received. 
 
 Contributor ranking is publicly visible at all times on [this page](#). Your contributor profile will be visible there once you win your first reward.
 

@@ -3,7 +3,7 @@ title: Scaling and Auto-scaling
 ---
 
 
-Monk enables easy manual and automatic scaling of any kit.
+MonkOS enables easy manual and automatic scaling of any kit.
 
 To set kit’s scale select it and go to **Scale** tab in **Kit Configuration** panel.
 
@@ -37,6 +37,6 @@ For example: Set **max replicas** to **3** and flip the switch next to **CPU usa
 
 ![](/img/docs/gui/gui13.png)
 
-Monk autoscaler features target-oriented and algorithmic scaling modes, however only the target-oriented method is available in the GUI at this time. For more autoscaling options see the Monkscript documentation.
+MonkOS autoscaler features target-oriented and algorithmic scaling modes, however only the target-oriented method is available in the GUI at this time. For more autoscaling options see the Monkscript documentation.
 
 To disable auto-scaling just flip the switch nest to **Auto Scale** and confirm by clicking **Save changes**.

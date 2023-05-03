@@ -1,9 +1,9 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Monk in 10 Minutes
+# MonkOS in 10 Minutes
 
-This is a super-quick guide to get some containers running within your own Monk cluster, from start to finish.
+This is a super-quick guide to get some containers running within your own MonkOS cluster, from start to finish.
 
 ---
 
@@ -17,7 +17,7 @@ This is a super-quick guide to get some containers running within your own Monk 
 
 ## Getting Monk
 
-Install Monk for your OS. For more detailed instructions see [Getting Monk](get-monk.md).
+Install Monk for your OS. For more detailed instructions see [Getting Monk](../get-started/get-monk.md).
 
 <Tabs
 defaultValue="macOS"
@@ -50,7 +50,7 @@ You might need to log out and log back in on your system to be able to use `monk
 
 <TabItem value="otherLinux">
 
-If you're running Linux that does not have APT see [Getting Monk](get-monk.md) and come back ⏪
+If you're running Linux that does not have APT see [Getting Monk](../get-started/get-monk.md) and come back ⏪
 
 </TabItem>
 
@@ -58,7 +58,13 @@ If you're running Linux that does not have APT see [Getting Monk](get-monk.md) a
 
 ## Running Monk
 
-Ensure that Docker is running on your system. Both Docker and `monkd` have to be running when using Monk.
+:::caution warning
+
+**You always need to have `monkd` running in order to use MonkOS CLI. Fire it up to continue this guide.**
+
+:::
+
+Ensure that Docker or Podman is running on your system. Both of either Docker or Podman and `monkd` have to be running when using Monk.
 
 <Tabs
 defaultValue="macOS"
@@ -76,18 +82,20 @@ Run `monkd` in a new Terminal window and don't close it:
 
 Wait for it to initialize, and you should get this output:
 
-    Monkd v2.4.4
-    © 2018-2021 OAKds Inc. All rights reserved.
+    Monk v3.9.0
+    © 2018-2023 MonkOS Inc. All rights reserved.
     https://monk.io
 
     Please stand by while monkd is starting...
+    generating 2048-bit RSA keypair...done
+    peer identity: ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
     Initialization complete. monkd is ready
 
 </TabItem>
 
 <TabItem value="mainLinux">
 
-If you installed `monkd` using apt it should be running after installation.
+If you installed `monkd` using APT it should be running after installation.
 
 You can confirm that `monkd` is running by using this command:
 
@@ -98,25 +106,25 @@ The output should be similar to:
     ● monkd.service - Monk daemon
     Loaded: loaded (/lib/systemd/system/monk.service; enabled; vendor preset: enabled)
     Active: active (running) since Wed 2020-10-07 17:53:20 CEST; 10s ago
-    Main PID: 10526 (monccd)
+    Main PID: 10526 (monkd)
         Tasks: 16 (limit: 4667)
     CGroup: /system.slice/monkd.service
             └─10526 /usr/bin/monkd
     oct 07 17:53:20 foo systemd[1]: Started Monk daemon.
-    oct 07 17:53:20 foo monccd[10526]:    Monk v2.4.3
-    oct 07 17:53:20 foo monccd[10526]:    © 2018-2020 OAKds Inc. All rights reserved.
-    oct 07 17:53:20 foo monccd[10526]:    https://monk.io
-    oct 07 17:53:20 foo monccd[10526]: Please stand by while monccd is starting...
-    oct 07 17:53:20 foo monccd[10526]: generating 2048-bit RSA keypair...done
-    oct 07 17:53:20 foo monccd[10526]: peer identity: Qmch66W2sJPTvchcFAVwHR57HyAPA927s3327
-    oct 07 17:53:23 foo monccd[10526]: Local containers will not be broadcasted to the clus
-    oct 07 17:53:23 foo monccd[10526]: Initialization complete. monccd is ready
+    oct 07 17:53:20 foo monkd[10526]:    Monk v3.9.0
+    oct 07 17:53:20 foo monkd[10526]:    © 2018-2023 MonkOS Inc. All rights reserved.
+    oct 07 17:53:20 foo monkd[10526]:    https://monk.io
+    oct 07 17:53:20 foo monkd[10526]: Please stand by while monkd is starting...
+    oct 07 17:53:20 foo monkd[10526]: generating 2048-bit RSA keypair...done
+    oct 07 17:53:20 foo monkd[10526]: peer identity: ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+    oct 07 17:53:23 foo monkd[10526]: Local containers will not be broadcasted to the cluster
+    oct 07 17:53:23 foo monkd[10526]: Initialization complete. monkd is ready
 
 If for some reason it's not running - just start it with the following command:
 
     monkd
 
-Keep the terminal open.
+Keep the terminal open while using `monk`, or use `systemctl` to start the service so it is running at all times.
 
 </TabItem>
 
@@ -128,8 +136,8 @@ Run monkd in a new Terminal window and don't close it:
 
 Wait for it to initialize, you should see this:
 
-    Monk v2.4.3
-    © 2018-2020 OAKds Inc. All rights reserved.
+    Monk v3.9.0
+    © 2018-2023 MonkOS Inc. All rights reserved.
     https://monk.io
 
     Please stand by while monkd is starting...
@@ -139,17 +147,11 @@ Wait for it to initialize, you should see this:
 
 </Tabs>
 
-:::caution warning
+## Creating Your MonkOS Account
 
-**You always need to have `monkd` running in order to use Monk CLI. Fire it up to continue this guide.**
+Setting up the account takes 10 seconds. We use accounts to match users with their Monk setups and for licensing and analytics purposes. We are very privacy-focused and only use telemetry data for product improvement. This data never includes your proprietary information. You can [learn more about the privacy of Monk accounts](../about/monk-privacy.md).
 
-:::
-
-## Creating Your Monk Account
-
-Setting up the account takes 10 seconds. We use accounts to match users with their Monk setups and for licensing and analytics purposes. We are very privacy-focused and only use telemetry data for product improvement. This data never includes your proprietary information. You can [learn more about the privacy of Monk accounts](monk-privacy.md).
-
-Use this command to create your Monk account:
+Use this command to create your MonkOS account:
 
     monk register
 
@@ -161,7 +163,7 @@ Once `monkd` is running and you have confirmed your email address do:
 
     monk login
 
-Use your Monk account email and password:
+Use your MonkOS account email and password:
 
     ? Email greatest@hacker.me
     ? Password ***** ***
@@ -169,13 +171,13 @@ Use your Monk account email and password:
 
 :::success
 
-**Monk is 100% ready to roll at this point.** You will not be asked to log in very often but some commands will require your Monk account credentials.
+**MonkOS is 100% ready to roll at this point.** You will not be asked to log in very often but some commands will require your MonkOS account credentials.
 
 :::
 
-## Creating a Monk Cluster
+## Creating a MonkOS Cluster
 
-Now to the exciting part! Monk cluster is where your workloads will run. Clusters are created once and they serve as a runtime environment that can be grown or shrunk on demand. Let's create a cluster with 3 short commands.
+Now to the exciting part! MonkOS cluster is where your workloads will run. Clusters are created once and they serve as a runtime environment that can be grown or shrunk on demand. Let's create a cluster with 3 short commands.
 
 You'll need your service account credentials handy. Here's a reminder on how to get them:
 
@@ -212,8 +214,8 @@ Make sure that your account has **compute resources admin access**.
 If you're running the AWS CLI, you should be able to locate the credentials in the `~/.aws/credentials` on your machine, i.e.:
 
     [default]
-    aws_access_key_id=F0FADIOSFODNN7EXAMPLE
-    aws_secret_access_key=wJalrUUtnEEMI/K7MEDNG/bPxRfiCYEXAMPLEKEY
+    aws_access_key_id=F0FAXXXXXEXAMPLE
+    aws_secret_access_key=wJXXXXXXEEMI/XXXXX/bPxRfiCYEXAMPLEKEY
 
 Note those values down.
 
@@ -261,7 +263,7 @@ DigitalOcean API Token is sensitive information. Take care to store it securely.
 
 :::note
 
-**It's alright if you want to skip cluster creation for now.** You can run things locally and create a cluster later. You can still follow this guide but remember that stuff will happen on your machine and not in the cloud. To skip ahead, head to [Running Kits locally](running-templates.md).
+**It's alright if you want to skip cluster creation for now.** You can run things locally and create a cluster later. You can still follow this guide but remember that stuff will happen on your machine and not in the cloud. To skip ahead, head to [Running Kits locally](../basics/running-templates.md).
 
 :::
 
@@ -282,7 +284,7 @@ values={[
 
 <TabItem value="gcp">
 
-In order to add your Service Account key to Monk do:
+In order to add your Service Account key to MonkOS do:
 
     monk cluster provider add -p gcp -f <<path/to/your-key.json>>
 
@@ -300,11 +302,11 @@ Successful invocation will result in:
 
 <TabItem value="aws">
 
-In order to add your AWS credentials to Monk do:
+In order to add your AWS credentials to MonkOS do:
 
     monk cluster provider add -p aws
 
-Monk will look for AWS credentials in your AWS CLI config folder `~/.aws/credentials`:
+MonkOS will look for AWS credentials in your AWS CLI config folder `~/.aws/credentials`:
 
     AWS config /Users/me/.aws/credentials detected, multiple profiles present - pick one.
     ? AWS profile  [Use arrows to move, type to filter]
@@ -313,7 +315,7 @@ Monk will look for AWS credentials in your AWS CLI config folder `~/.aws/credent
 
 :::info
 
-If `~/.aws/credentials` file is not present, Monk will prompt you for **Access** and **Secret Keys**.
+If `~/.aws/credentials` file is not present, MonkOS will prompt you for **Access** and **Secret Keys**.
 
 :::
 
@@ -327,7 +329,7 @@ Successful invocation will result in:
 
 <TabItem value="azure">
 
-In order to add your SDK authentication JSON file to Monk do:
+In order to add your SDK authentication JSON file to MonkOS do:
 
     monk cluster provider add -p azure -f <<path/to/your-sdk-file.json>>
 
@@ -345,7 +347,7 @@ Successful invocation will result in:
 
 <TabItem value="do">
 
-In order to add your Digital Ocean Personal Access Token to Monk do:
+In order to add your Digital Ocean Personal Access Token to MonkOS do:
 
     monk cluster provider add -p digitalocean
 
@@ -365,13 +367,13 @@ Successful invocation will result in:
 
 :::note
 
-If you have more cloud accounts you can add all of them. Monk is great at managing singular clusters across cloud providers out of the box.
+If you have more cloud accounts you can add all of them. MonkOS is great at managing singular clusters across cloud providers out of the box.
 
 :::
 
 :::important
 
-You don't need to touch, or even have your `gcloud` or `aws` CLI installed locally. Monk will work without them being present.
+You don't need to touch, or even have your `gcloud` or `aws` CLI installed locally. MonkOS will work without them being present.
 
 :::
 
@@ -383,7 +385,7 @@ You don't need to touch, or even have your `gcloud` or `aws` CLI installed local
 
 ## Growing Your New Cluster
 
-The cluster is there _logically_. Now we have to expand it _physically_. Fortunately, we don't have to go back to the cloud console or resort to other tools like Terraform. We will just tell Monk to bootstrap it for us:
+The cluster is there _logically_. Now we have to expand it _physically_. Fortunately, we don't have to go back to the cloud console or resort to other tools like Terraform. We will just tell MonkOS to bootstrap it for us:
 
     monk cluster grow
 
@@ -401,7 +403,7 @@ Next up, you will be prompted for some information. All fields are required:
     ⠏ Creating a new instance(s) on gcp...
 
 **`Tag` is important** – replace `<your-cluster-tag>` with a name of your choice and write it down.
-**Monk requires all machines in the cluster to be tagged with at least one tag.** We will be referring to the new machines by their tag shortly.
+**MonkOS requires all machines in the cluster to be tagged with at least one tag.** We will be referring to the new machines by their tag shortly.
 
 :::caution warning
 
@@ -429,7 +431,7 @@ Sometimes, depending on your network conditions, the peers might appear on the l
 
 :::success
 
-You now have a fully operational 3 machine Monk cluster running in your cloud 🎉
+You now have a fully operational 3 machine MonkOS cluster running in your cloud 🎉
 
 :::
 
@@ -440,9 +442,9 @@ Use the following command to see what's immediately available:
 
     monk list
 
-Then just pick one of those Kits, or just try with `mongodb/latest`:
+Then just pick one of those Kits, or just try with `mongodb/mongodb`:
 
-    monk run -t <your-cluster-tag> mongodb/latest
+    monk run -t <your-cluster-tag> mongodb/mongodb
 
 Remember to replace `<your-cluster-tag>` with the one you've chosen during `monk cluster new`!
 
@@ -450,15 +452,15 @@ Remember to replace `<your-cluster-tag>` with the one you've chosen during `monk
 
 Skip `-t <your-cluster-tag>` if you skipped the cluster creation step. The invocation will look like this:
 
-    monk run mongodb/latest
+    monk run mongodb/mongodb
 
 :::
 
-Monk will work for a moment and then display a summary showing the current workload layout and some useful hints.
+MonkOS will work for a moment and then display a summary showing the current workload layout and some useful hints.
 
 :::success
 
-That's it! You're now running stuff, in the cloud, with Monk 🎉
+That's it! You're now running stuff, in the cloud, with MonkOS 🎉
 
 :::
 
@@ -468,12 +470,12 @@ If you don't want to use the cluster anymore just do:
 
     monk cluster nuke
 
-This will destroy the cluster and all associated resources. **Be careful! Monk will not back up the storage of the instances it terminates**.
+This will destroy the cluster and all associated resources. **Be careful! MonkOS will not back up the storage of the instances it terminates**.
 
-In case you'd like to create another cluster, follow this guide again or see: [Creating a cluster](lifecycle/cluster-create-1.md).
+In case you'd like to create another cluster, follow this guide again or see: [Creating a cluster](../lifecycle/cluster-create-1.md).
 
 ## What's Next?
 
-Our newly formed cluster has 3 machines and can do much more than just running one simple workload. Having your cluster up and running is enough to start trying [everything that Monk has to offer](features.md).
+Our newly formed cluster has 3 machines and can do much more than just running one simple workload. Having your cluster up and running is enough to start trying [everything that Monk has to offer](../about/features.md).
 
-If you'd like to try a more advanced setup including a database, HTTP server, and a self-made service, continue to our first A-Z tutorial: [Running a small system](basic-app.md).
+If you'd like to try a more advanced setup including a database, HTTP server, and a self-made service, continue to our first A-Z tutorial: [Running a small system](../develop/basic-app.md).

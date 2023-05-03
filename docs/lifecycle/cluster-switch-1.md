@@ -2,13 +2,13 @@
 title: "Switch Clusters"
 ---
 
-You can have multiple Monk clusters at any given time but you can manage just one at a time. When you're working with a cluster, you're essentially joining the cluster as a member from your local machine.
+You can have multiple MonkOS clusters at any given time but you can manage just one at a time. When you're working with a cluster, you're essentially joining the cluster as a member from your local machine.
 
-Monk introduces `exit` and `switch` commands which make it possible to hop between clusters. You can also join somebody else's cluster if they add you as an admin and as long as you have their _Monkcode_
+MonkOS introduces `exit` and `switch` commands which make it possible to hop between clusters. You can also join somebody else's cluster if they add you as an admin and as long as you have their _Monkcode_
 
 ## Monkcodes
 
-_Monkcodes_ are encrypted and compressed connection strings for Monk clusters. Each Monk cluster has its own Monkcode, find it with:
+_Monkcodes_ are encrypted and compressed connection strings for MonkOS clusters. Each MonkOS cluster has its own Monkcode, find it with:
 
     monk cluster info
 
@@ -39,7 +39,7 @@ By default, only the cluster creator is able to connect to the cluster of their 
 
     monk user add
 
-You'll need the email they signed up with for their Monk account. They'll need to have a Monk account, obviously.
+You'll need the email they signed up with for their MonkOS account. They'll need to have a MonkOS account, obviously.
 
 ### User management
 
@@ -67,4 +67,4 @@ In order to switch to another cluster from either local mode or current cluster 
 
 This command will prompt you for a Monkcode of the target cluster. If this is your cluster you should be connected immediately. If this is somebody's else cluster - you may need to connect them so that they add your email with `monk user add`.
 
-If you are currently in a cluster, Monk will exit that cluster before joining the target one.
+If you are currently in a cluster, MonkOS will exit that cluster before joining the target one.

@@ -6,10 +6,10 @@
 
 ## Description
 
-`monkd` is the Monk engine daemon. It implements all of Monk's functionalities and is required to be running in order for Monk setup to operate.
+`monkd` is the MonkOS daemon. It implements all of Monk's functionalities and is required to be running in order for MonkOS setup to operate.
 
 Running `monkd` in a normal scenario does not require any options.
-It is advised to run `monkd` as a service on your system. See Running monccd as a service for an example setup.
+It is advised to run `monkd` as a service on your system. See Running `monkd` as a service for an example setup.
 
 ### Usage
 
@@ -18,7 +18,7 @@ It is advised to run `monkd` as a service on your system. See Running monccd as 
 ### Options
 
 `--analytics` _bool_
-: Send anonymous usage data to Monk (default true)
+: Send anonymous usage data to MonkOS Inc. (default true)
 
 `--cluster-exchange` _bool_
 : In-cluster P2P image exchange (default false)
@@ -84,11 +84,11 @@ It is advised to run `monkd` as a service on your system. See Running monccd as 
 
 ### Linux `systemd`
 
-To setup Monk as a service on a Linux system running systemd, create a config file like the one presented below and substitute the path to `monkd` binary for `PATH_TO_MONKD_BINARY`.
+To setup `monkd` as a service on a Linux system running systemd, create a config file like the one presented below and substitute the path to `monkd` binary for `PATH_TO_MONKD_BINARY`.
 
 ```ini
 [Unit]
-Description=Monk daemon
+Description=MonkOS daemon
 
 [Service]
 User=monkd
@@ -112,7 +112,7 @@ to start `monkd` and set it to automatically start on boot.
 
 ### MacOS `launchd`
 
-To setup Monk as a service on macOS, create a config file like the one presented below and substitute the path to `monkd` binary for `PATH_TO_MONKD_BINARY`.
+To setup MonkOS as a service on macOS, create a config file like the one presented below and substitute the path to `monkd` binary for `PATH_TO_MONKD_BINARY`.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

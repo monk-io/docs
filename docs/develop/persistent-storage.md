@@ -2,13 +2,13 @@
 title: "Add Persistent Storage"
 ---
 
-Monk is capable of creating and maintaining persistent volumes in your cloud environment. For example, you can create a volume usable by all containers in its region. This guide shows how to provision and mount such volume.
+MonkOS is capable of creating and maintaining persistent volumes in your cloud environment. For example, you can create a volume usable by all containers in its region. This guide shows how to provision and mount such volume.
 
-Persistent volumes are created close to the workloads, meaning that they will end up in the same region as the Monk node running the runnable or group in which the volume was specified.
+Persistent volumes are created close to the workloads, meaning that they will end up in the same region as the MonkOS node running the runnable or group in which the volume was specified.
 
 ## Prerequisites
 
-You need a Monk cluster with at least two nodes running in your chosen cloud to be able to try this out.
+You need a MonkOS cluster with at least two nodes running in your chosen cloud to be able to try this out.
 
 ## Step 1: Preparing the Kit
 We will use a simple `mongodb` Kit to illustrate how the database could be stored on a persistent volume.
@@ -19,7 +19,7 @@ namespace: guides
 
 database:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
 ```
 
 It is perfectly fine to run with:
@@ -37,7 +37,7 @@ namespace: guides
 
 database:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
     volumes:
         important-data:
             size: 60
@@ -47,7 +47,7 @@ database:
 
 We've added a volume named `important-data` in the new `volumes` section. The `size` is expressed in Gigabytes so our new volume will have 60GB. The `kind` is `SSD` - you can pick between `HDD` or `SSD` depending on your needs.
 
-The `path` tells Monk where to mount the volume on **host** meaning that the instance with this volume attached will see the persistent volume under the path specified here. In this case, the host will mount the volume in `${monk-volume-path}/mongodb`.
+The `path` tells MonkOS where to mount the volume on **host** meaning that the instance with this volume attached will see the persistent volume under the path specified here. In this case, the host will mount the volume in `${monk-volume-path}/mongodb`.
 
 Since we have the volume defined, now it's time to mount it inside the container. Let's extend the Kit again:
 
@@ -56,7 +56,7 @@ namespace: guides
 
 database:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
     volumes:
         important-data:
             size: 60
@@ -64,9 +64,9 @@ database:
             path: <- $volume-data
 ```
 
-We have just replaced the `${monk-volume-path}/mongodb` because `database` inherits from `mongodb/latest` which defines a variable `volume-data`. By looking at the `mongodb/latest` Kit we can see that the database container mounts `$volume-data` in `/data/db`:
+We have just replaced the `${monk-volume-path}/mongodb` because `database` inherits from `mongodb/mongodb` which defines a variable `volume-data`. By looking at the `mongodb/mongodb` Kit we can see that the database container mounts `$volume-data` in `/data/db`:
 
-```yaml title="mongodb/latest" linenums="1"
+```yaml title="mongodb/mongodb" linenums="1"
 containers:
     database:
         image: mongo:latest
@@ -84,7 +84,7 @@ namespace: guides
 
 database:
     defines: runnable
-    inherits: mongodb/latest
+    inherits: mongodb/mongodb
     volumes:
         important-data:
             size: 60
@@ -154,7 +154,7 @@ If you see similar output, it means that the cloud provided volume is mounted to
 
 ## Volume backups
 
-Monk can back up any defined volume using cloud volume snapshots. To enable backups at any point you can add the following definition inside your volume (here `important-data`):
+MonkOS can back up any defined volume using cloud volume snapshots. To enable backups at any point you can add the following definition inside your volume (here `important-data`):
 
 ```
 backup:
@@ -169,7 +169,7 @@ This can be read as follows: _At all times keep backups from last 10 days making
 
 Times must be in `HH:MM` format, weekdays are one of `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, `SUNDAY`. The field `kind` sets the interval and can be one of `day`, `hour`, `week`.
 
-Monk delegates the backup process to the cloud it's running on and the backups can be managed via the cloud console and won't disappear even if Monk fails or gets removed from your cloud account.
+MonkOS delegates the backup process to the cloud it's running on and the backups can be managed via the cloud console and won't disappear even if MonkOS fails or gets removed from your cloud account.
 
 :::note
 

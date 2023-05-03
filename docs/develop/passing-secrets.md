@@ -16,13 +16,13 @@ This tutorial also has a short video! Stream away:
 
 Mozilla Secrets OPerationS (SOPS) is a popular editor for encrypted files, supporting many popular formats including JSON and YAML. See: [https://github.com/mozilla/sops](https://github.com/mozilla/sops).
 
-You can encrypt your Kits with SOPS for storage or for putting them under version control. Monk is able to `load` SOPS encrypted YAML files in a transparent manner as long as it has access to the key store that was used to encrypt them.
+You can encrypt your Kits with SOPS for storage or for putting them under version control. MonkOS is able to `load` SOPS encrypted YAML files in a transparent manner as long as it has access to the key store that was used to encrypt them.
 
 This feature works transparently - if you have an encrypted Kit, just use:
 
     monk load myencrypted.yaml
 
-Monk will decrypt the values passed in that YAML file and then re-encrypt it in its internal database so that your data stays secure at rest.
+MonkOS will decrypt the values passed in that YAML file and then re-encrypt it in its internal database so that your data stays secure at rest.
 
 ## Prerequisites
 
@@ -129,7 +129,7 @@ To `load` such Kit file:
 
     monk load mystuff-secure.yaml
 
-And that's it! Monk will load this file like any other cleartext Kit.
+And that's it! MonkOS will load this file like any other cleartext Kit.
 
 ## Further edits to the Kit
 This Kit can now be edited by using:

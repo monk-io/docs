@@ -6,7 +6,7 @@ First step is to create some cloud VM instances that will host your services and
 
 ![](/img/docs/gui/gui53.png)
 
-This will create a box on the diagram - whatever you put in that box will be assigned to run on that instance. Selecting the instance brings up a property editor where you can select placement, type and default volume for your instance. With Monk you can pick any region and instance type on any of the supported clouds.
+This will create a box on the diagram - whatever you put in that box will be assigned to run on that instance. Selecting the instance brings up a property editor where you can select placement, type and default volume for your instance. With MonkOS you can pick any region and instance type on any of the supported clouds.
 
 ![](/img/docs/gui/gui11.png)
 

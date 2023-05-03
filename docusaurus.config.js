@@ -9,7 +9,7 @@ module.exports = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/monk-dolphin-small.svg",
-  organizationName: "OakDS Inc.", // Usually your GitHub org/user name.
+  organizationName: "MonkOS Inc.", // Usually your GitHub org/user name.
   projectName: "monk-io/docs", // Usually your repo name.
   themeConfig: {
     navbar: {
@@ -25,12 +25,6 @@ module.exports = {
           docId: "welcome",
           position: "left",
           label: "Docs",
-        },
-        {
-            type: "doc",
-            docId: "gui/project-setup",
-            position: "left",
-            label: "GUI",
         },
         {
           href: "https://github.com/monk-io/docs",
@@ -60,7 +54,7 @@ module.exports = {
           items: [
             {
               label: "YouTube",
-              href: "https://www.youtube.com/channel/UCtVa9hzta_6huDd7k5D6Cxw",
+              href: "https://www.youtube.com/@monk_io",
             },
             {
               label: "GitHub",

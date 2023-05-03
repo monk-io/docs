@@ -275,7 +275,7 @@ files:
         contents: |
             roses are {{ v "color" }}
             violets are {{ v "another-color" }}
-            Monk is awesome!
+            MonkOS is awesome!
 ```
 
 ### `checks`
@@ -293,9 +293,9 @@ Each runnable can contain status checks. Currently the only supported check is `
 | Field          | Value             | Purpose                                                                                                     | Required |
 |----------------|-------------------|-------------------------------------------------------------------------------------------------------------| -------- |
 | `code`         | arrow script code | code to be run to perform the check, truthy return value indicates success, anything else indicates failure | yes      |
-| `period`       | int (seconds)     | specifies how often (in seconds) Monk will perform this check                                               | no       |
-| `initialDelay` | int (seconds)     | initial delay (in seconds) before Monk will start checking application health                               | no       |
-| `attempts`     | int               | specifies how many times Monk will perform this check                                                       | no       |
+| `period`       | int (seconds)     | specifies how often (in seconds) MonkOS will perform this check                                               | no       |
+| `initialDelay` | int (seconds)     | initial delay (in seconds) before MonkOS will start checking application health                               | no       |
+| `attempts`     | int               | specifies how many times MonkOS will perform this check                                                       | no       |
 
 #### Example
 
@@ -326,7 +326,7 @@ depends:
 
 Each runnable can contain a recovery section.
 
-If it doesn't exist, Monk will assume default values:
+If it doesn't exist, MonkOS will assume default values:
 
 ```
     after: 60s
@@ -358,11 +358,11 @@ recovery:
 
 Each runnable can contain `affinity` section. It's used to determine runtime placement of the `runnable`.
 
-Eiher `tag` or `name` can be specified, depending on the choice, Monk will place the runnable either on any of the nodes bearing the `tag`, or on a specific node named by `name`.
+Eiher `tag` or `name` can be specified, depending on the choice, MonkOS will place the runnable either on any of the nodes bearing the `tag`, or on a specific node named by `name`.
 
-If `resident` is `true` (`false` by default), Monk will search for an empty node and reserve it for the runnable in questions so that no other `runnable` will start on that node as long as the `runnable` in question is present.
+If `resident` is `true` (`false` by default), MonkOS will search for an empty node and reserve it for the runnable in questions so that no other `runnable` will start on that node as long as the `runnable` in question is present.
 
-If `ignore-pressure` is `true` (`false` by default) Monk will ignore pressure and consider all nodes, even the busy ones for allocation.
+If `ignore-pressure` is `true` (`false` by default) MonkOS will ignore pressure and consider all nodes, even the busy ones for allocation.
 
 ```yaml linenums="1"
 affinity:

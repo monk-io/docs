@@ -2,7 +2,7 @@
 title: Monitoring Your Project
 ---
 
-Monk tracks basic metrics of each component in your system. Access the metrics by selecting **Monitor** tab in the main navigation bar.
+MonkOS tracks basic metrics of each component in your system. Access the metrics by selecting **Monitor** tab in the main navigation bar.
 
 ![](/img/docs/gui/gui10.png)
 

@@ -1,17 +1,17 @@
 ---
-title: Monk YAML
+title: MonkOS YAML
 slug: /monkscript/yaml
 ---
 
-Monk uses YAML to express Kits. One of our design goals was to make YAML manageable and eliminate the need for pre-processing using external tools. In order to achieve succinct definitions and composability, we've defined three special keys on top of standard YAML: `namespace`, `defines` and `inherits`.
+MonkOS uses YAML to express Kits. One of our design goals was to make YAML manageable and eliminate the need for pre-processing using external tools. In order to achieve succinct definitions and composability, we've defined three special keys on top of standard YAML: `namespace`, `defines` and `inherits`.
 
-Additionally, Monk provides a `<-` macro that denotes an [Arrow script](./scripting) which can be used in place of _any_ value in YAML.
+Additionally, MonkOS provides a `<-` macro that denotes an [Arrow script](./scripting) which can be used in place of _any_ value in YAML.
 
 It's important to understand how they work before working with MonkScript in order to avoid confusion.
 
 ## Namespaces
 
-Each MonkScript YAML file has to have `namespace` key as the first key in the file. This instructs the MonkScript loader to put the contents of the Kit under a chosen path in Monk internal database.
+Each MonkScript YAML file has to have `namespace` key as the first key in the file. This instructs the MonkScript loader to put the contents of the Kit under a chosen path in MonkOS internal database.
 
 Consider the following example:
 
@@ -64,7 +64,7 @@ quux:
         foo: <<< foo.json 
 ```
 
-The `<<<` instructs Monk to read the file `foo.json` relative to the currently interpreted YAML file and place its contents in `quux/variables/foo` as if they were pasted into YAML.
+The `<<<` instructs MonkOS to read the file `foo.json` relative to the currently interpreted YAML file and place its contents in `quux/variables/foo` as if they were pasted into YAML.
 
 This is useful for embedding large text files into your definitions without cluttering the YAML. Keep in mind that the embedded file needs to be present whenever your Kit is loaded.
 
@@ -141,23 +141,23 @@ bar:
     fun-boxes:
 ```
 
-Both `foo` and `bar` are [`runnable`](#runnable). The key defines has special meaning, it labels its parent node with a _descriptor_ (in this case, `runnable`). Monk finds relevant sections by looking at those descriptors.
+Both `foo` and `bar` are [`runnable`](#runnable). The key defines has special meaning, it labels its parent node with a _descriptor_ (in this case, `runnable`). MonkOS finds relevant sections by looking at those descriptors.
 
-By not deciding the meaning based on names, MonkScript allows for custom naming of all "special" sections. Notice that `foo` has `containers` but `bar` has `fun-boxes`. Both `containers` and `fun-boxes` has the same meaning to Monk as only the descriptor matters.
+By not deciding the meaning based on names, MonkScript allows for custom naming of all "special" sections. Notice that `foo` has `containers` but `bar` has `fun-boxes`. Both `containers` and `fun-boxes` has the same meaning to MonkOS as only the descriptor matters.
 
 Not relying on key names allows MonkScript to be extended with every new release without affecting the existing Kits.
 
 :::info
 
-Be sure to remember about assigning proper descriptors to the relevant sections as Monk will not interpret them without it.
+Be sure to remember about assigning proper descriptors to the relevant sections as MonkOS will not interpret them without it.
 
 :::
 
-Currently Monk recognizes several "special" sections, or definition classes higlighted below.
+Currently MonkOS recognizes several "special" sections, or definition classes higlighted below.
 
 ### `runnable`
 
-Runnables are the basic unit in Monk. A `runnable` is essentially something that Monk can run, manage and then stop. This can be viewed as one or more containers meant to be standing together, plus associated resource definitions, variables etc.
+Runnables are the basic unit in Monk. A `runnable` is essentially something that MonkOS can run, manage and then stop. This can be viewed as one or more containers meant to be standing together, plus associated resource definitions, variables etc.
 
 :::note
 
@@ -179,7 +179,7 @@ Learn more about [Groups &#8594;
 
 ### `service`
 
-Services are like [runnables](#runnable) but don't define containers. They can be used to represent services external to Monk which can't be managed directly.
+Services are like [runnables](#runnable) but don't define containers. They can be used to represent services external to MonkOS which can't be managed directly.
 
 :::note
 

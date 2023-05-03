@@ -2,7 +2,7 @@
 title: "Add Infrastructure"
 ---
 
-With Monk you can [grow your cluster manually](lifecycle/cluster-create-1) by issuing the `grow` command. This is not the only way to add instances to your cluster as the Kits can also carry instructions instance definitions. Monk will create instances when running a Kit containing such a definition.
+With Monk you can [grow your cluster manually](../lifecycle/cluster-create-1.md) by issuing the `grow` command. This is not the only way to add instances to your cluster as the Kits can also carry instructions instance definitions. Monk will create instances when running a Kit containing such a definition.
 
 ---
 
@@ -12,7 +12,7 @@ You need to create a cluster or join already existing cluster in order to deploy
 
 :::note
 
-Please follow [this guide](lifecycle/cluster-create-1) if you need to create a new cluster.
+Please follow [this guide](../lifecycle/cluster-create-1.md) if you need to create a new cluster.
 
 :::
 
@@ -43,7 +43,7 @@ foo:
             image-tag: latest
 ```
 
-When running `foos/foo`, Monk will create an instance named `my-node` using the GCP provider if it's available. The `some-service` container will be then scheduled to run on that new instance thanks to the `affinity` directive.
+When running `foos/foo`, MonkOS will create an instance named `my-node` using the GCP provider if it's available. The `some-service` container will be then scheduled to run on that new instance thanks to the `affinity` directive.
 
 ### Nodes section
 
@@ -58,11 +58,11 @@ my-node:
     disk-size: 128
 ```
 
-The fields here match the arguments in the [`monk grow` command](cli/monkd.md).
+The fields here match the arguments in the [`monk grow` command](../cli/monkd.md).
 
 ## Instance affinity
 
-Use `affinity` field in runnable definition in order to tell Monk where to start this runnable.
+Use `affinity` field in runnable definition in order to tell MonkOS where to start this runnable.
 
 ```yaml linenums="1"
 affinity:

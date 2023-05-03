@@ -2,7 +2,7 @@
 title: Adding Your Own Services
 ---
 
-A PostgreSQL database is not that useful by itself. With Monk you can add your services straight from GitHub - Monk converts your app into a private Kit and takes care of building it for you using Buildpacks. If you already have an app running on Heroku, Railway or other PaaS providers you can spin it up with Monk by just adding your existing repo.
+A PostgreSQL database is not that useful by itself. With MonkOS you can add your services straight from GitHub - MonkOS converts your app into a private Kit and takes care of building it for you using Buildpacks. If you already have an app running on Heroku, Railway or other PaaS providers you can spin it up with MonkOS by just adding your existing repo.
 
 Click ![(plus)](https://monk-io.atlassian.net/wiki/s/481958474/6452/fd6418f9b90c3778951784f56d6337a7b98af733/_/images/icons/emoticons/add.png) and select **Add kit** just like before.
 
@@ -16,7 +16,7 @@ A dialog will appear prompting you to select a repo. Since there are no existing
 
 ![](/img/docs/gui/gui30.png)
 
-You will be redirected to GitHub to authorize Monk app. Once you complete this process you will see the connection on the list. Click **Import** on your new GitHub connection.
+You will be redirected to GitHub to authorize MonkOS app. Once you complete this process you will see the connection on the list. Click **Import** on your new GitHub connection.
 
 ![](/img/docs/gui/gui4.png)
 
@@ -32,7 +32,7 @@ Now **Kit Browser** will display all your private kits under **All Kits** in **P
 
 ![](/img/docs/gui/gui18.png)
 
-Monk will rebuild your services and deploy changes whenever you push to master branch in your repos that were imported.
+MonkOS will rebuild your services and deploy changes whenever you push to master branch in your repos that were imported.
 
 Place your app inside the empty instance so that it doesn’t clash with the **db**. With two kits on the board you are ready to connect them.
 
