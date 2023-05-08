@@ -31,6 +31,7 @@ softwareupdate --history | grep "Command Line Tools" | tail -n 1
   values={[
     {label: 'macOS', value: 'macOS'},
     {label: 'Ubuntu and Debian', value: 'mainLinux'},
+    {label: 'Red Hat Enterprise Linux 8', value: 'rpmLinux'},
     {label: 'Other Linux Systems', value: 'otherLinux'},
   ]}
 >
@@ -57,13 +58,51 @@ We run an APT repository containing official releases of Monk. You can obtain th
 
 Add MonkOS repository to your sources list:
 
-    curl -s https://apt.monk.io/Release.gpg | sudo tee /etc/apt/trusted.gpg.d/monk.asc
-    sudo echo "deb [arch=amd64] https://apt.monk.io/ stable main" | sudo tee /etc/apt/sources.list.d/monk.list
+    curl https://us-east1-apt.pkg.dev/doc/repo-signing-key.gpg | sudo apt-key add
+    echo 'deb https://us-east1-apt.pkg.dev/projects/monk-releases monk-releases-apt main' | sudo tee -a  /etc/apt/sources.list.d/artifact-registry.list
     sudo apt update
 
 Install `monkd` and `monk`:
 
     sudo apt install monk
+
+After this, `monkd` service will be started and added to your systemd configuration so that it stays running in the background.
+
+:::note
+
+You might need to log out and log back in on your system to be able to use `monk` without `sudo`. Alternatively, use `su - <your-username>`.
+
+:::
+</TabItem>
+<TabItem value="rpmLinux">
+We run an RPM repository containing official releases of Monk. You can obtain the latest stable version of MonkOS from this repository with the following steps.
+
+Install `epel`:
+
+    yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+
+Enable `codeready-builder`:
+
+    yum subscription-manager repos --enable codeready-builder-for-rhel-8-$(arch)-rpms
+
+Enable Wireguard:
+
+    yum copr enable jdoss/wireguard
+
+Add MonkOS repository:
+
+    sudo tee -a /etc/yum.repos.d/artifact-registry.repo << EOF
+    [monk-repo]
+    name=Monk Repository
+    baseurl=https://us-east1-yum.pkg.dev/projects/monk-releases/monk-releases-rpm
+    enabled=1
+    repo_gpgcheck=0
+    gpgcheck=0
+    EOF
+
+And finally install MonkOS with:
+
+    yum install monk
 
 After this, `monkd` service will be started and added to your systemd configuration so that it stays running in the background.
 
@@ -136,6 +175,7 @@ Upgrading your local MonkOS to the newest version is simple.
   values={[
     {label: 'macOS', value: 'macOS'},
     {label: 'Ubuntu and Debian', value: 'mainLinux'},
+    {label: 'Red Hat Enterprise Linux 8', value: 'rpmLinux'},
     {label: 'Other Linux Systems', value: 'otherLinux'},
   ]}
 >
@@ -150,6 +190,12 @@ Upgrading your local MonkOS to the newest version is simple.
 
     sudo apt update
     sudo apt upgrade monkd monk
+
+</TabItem>
+
+<TabItem value="rpmLinux">
+
+    yum update monk monkd
 
 </TabItem>
 
