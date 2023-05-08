@@ -35,8 +35,8 @@ values={[
 
 <TabItem value="mainLinux">
 
-    curl -s https://apt.monk.io/Release.gpg | sudo tee /etc/apt/trusted.gpg.d/monk.asc
-    sudo echo "deb [arch=amd64] https://apt.monk.io/ stable main" | sudo tee /etc/apt/sources.list.d/monk.list
+    curl https://us-east1-apt.pkg.dev/doc/repo-signing-key.gpg | sudo apt-key add
+    echo 'deb https://us-east1-apt.pkg.dev/projects/monk-releases monk-releases-apt main' | sudo tee -a  /etc/apt/sources.list.d/artifact-registry.list
     sudo apt update
     sudo apt install monk
 
