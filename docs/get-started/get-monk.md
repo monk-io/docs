@@ -7,14 +7,17 @@ Here's how you install, test, and upgrade Monk.
 
 :::note Prerequisites
 
-MonkOS requires [Docker](https://www.docker.com/) or [Podman](https://podman.io/) to be present and running on your system. 
-If you do not have either of these installed and running, please check out either [how to install Docker](https://docs.docker.com/docker-for-mac/install/) or [how to install Podman](https://podman.io/getting-started/installation) prior to installing Monk.
+MonkOS requires [Podman](https://podman.io/) to be present and running on your system. 
+
+APT and Homebrew packages will install Podman for you.
+
+If you're not installing from the above sources, please check out [how to install Podman](https://podman.io/getting-started/installation) prior to installing MonkOS.
 
 :::
 
 :::note Prerequisites
 
-MonkOS on macOS requres Command Line Tools version 14.3. If you are using an earlier version of the Command Line Tools, you will be prompted
+MonkOS on macOS requires Command Line Tools version 14.3. If you are using an earlier version of the Command Line Tools, you will be prompted
 to upgrade as part of set up. Note that the version of Command Line Tools is separate from the version of Xcode.
 If you are unsure what version of Command Line Tools you are running, you can check with:
 
@@ -43,15 +46,12 @@ We provide a [Homebrew](https://brew.sh/) repository containing official release
 
     brew install monk-io/monk/monk
 
-Now run the MonkOS daemon in a fresh terminal:
+Now enable Monk machine to have `monkd` running in the background:
 
-    monkd
+    monk machine init
 
-:::note
-
-`monkd` has to be running at all times when using `monk` or running any workloads via Monk. You might consider adding `monkd` to your `launchctl` configuration so that it stays running as a service. See [Running `monkd` as a service](../cli/monkd.md).
-
-:::
+Monk machine is a lightweight Linux VM that runs `monkd` on your mac.
+After this step you don't have to start `monkd` by hand.
 </TabItem>
 <TabItem value="mainLinux">
 We run an APT repository containing official releases of Monk. You can obtain the latest stable version of MonkOS from this repository in two steps.
@@ -183,6 +183,8 @@ Upgrading your local MonkOS to the newest version is simple.
 <TabItem value="macOS">
 
     brew upgrade monk
+    monk machine rm
+    monk machine init
 
 </TabItem>
 
@@ -211,7 +213,7 @@ Upgrading your local MonkOS to the newest version is simple.
 
 If you have a cluster running:
 
-1. Make sure you are connected to the cluster,
+1. Make sure you are connected to the cluster (`monk cluster info`),
 2. Make sure your local MonkOS is the latest version,
 3. Run `monk system upgrade` to upgrade all the nodes to the newest version.
 
@@ -219,8 +221,10 @@ If you have a cluster running:
 
 MonkOS aims to be a good steward of your filesystem and not scatter files throughout the disk. The MonkOS distribution is simple and consists of two binaries, `monkd` and `monk`. 
 
+Our `apt` ot `brew` packages bring `podman` as a dependency and install it on your system if it is not present.
+
 When installing with `apt` or `brew` those are placed or symlinked in `/usr/local/bin`. `apt` on Linux configures your `systemd` to start `monkd` as a service immediately after install and on system startup. Additionally, a `monkd` user group is created and assigned appropriately.
 
-All data files needed for Monk's operation are created in `/var/lib/monkd` (Linux) and `~/.monk` (both Linux and macOS) upon first `monkd` startup.
+All data files needed for MonkOS' operation are created in `/var/lib/monkd` (Linux) and `~/.monk` (both Linux and macOS) upon first `monkd` startup.
 
 The `monk` command will install `bash` and `zsh` autocompletion in your dotfiles on first use. Changes to the dotfiles are reversed upon package removal.

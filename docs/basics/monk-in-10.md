@@ -9,9 +9,7 @@ This is a super-quick guide to get some containers running within your own MonkO
 
 ## Prerequisites
 
--   A computer with **Linux** or **macOS** installed
--   Open ports **44001** and **44002** for ingress/egress if you're behind a firewall.
--   Have **Docker** installed and running
+-   A computer with **Linux** or **macOS** installed (+ Homebrew on macOS)
 -   An account with your favorite **cloud provider**
 -   **10 minutes** of your time
 
@@ -103,20 +101,12 @@ values={[
 
 <TabItem value="macOS">
 
-Run `monkd` in a new Terminal window and don't close it:
+Initialize a new monk VM that will run `monkd` in the background:
 
-    monkd
+    monk machine init
 
-Wait for it to initialize, and you should get this output:
-
-    Monk v3.9.0
-    © 2018-2023 MonkOS Inc. All rights reserved.
-    https://monk.io
-
-    Please stand by while monkd is starting...
-    generating 2048-bit RSA keypair...done
-    peer identity: ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-    Initialization complete. monkd is ready
+Monk machine is a lightweight Linux VM that runs `monkd` on your mac.
+After this step you don't have to start `monkd` by hand.
 
 </TabItem>
 
@@ -138,7 +128,7 @@ The output should be similar to:
     CGroup: /system.slice/monkd.service
             └─10526 /usr/bin/monkd
     oct 07 17:53:20 foo systemd[1]: Started Monk daemon.
-    oct 07 17:53:20 foo monkd[10526]:    Monk v3.9.0
+    oct 07 17:53:20 foo monkd[10526]:    Monk v3.10.1
     oct 07 17:53:20 foo monkd[10526]:    © 2018-2023 MonkOS Inc. All rights reserved.
     oct 07 17:53:20 foo monkd[10526]:    https://monk.io
     oct 07 17:53:20 foo monkd[10526]: Please stand by while monkd is starting...
@@ -192,19 +182,24 @@ Keep the terminal open while using `monk`, or use `systemctl` to start the servi
 
 <TabItem value="otherLinux">
 
-Run monkd in a new Terminal window and don't close it:
+Run `monkd` in a new Terminal window and don't close it:
 
     monkd
 
 Wait for it to initialize, you should see this:
 
-    Monk v3.9.0
+    Monk v3.10.1
     © 2018-2023 MonkOS Inc. All rights reserved.
     https://monk.io
 
     Please stand by while monkd is starting...
     Initialization complete. monkd is ready
 
+:::note
+
+`monkd` has to be running at all times when using `monk` or running any workloads via Monk. You might consider adding monkd to your service management daemon configuration so that it stays running as a service.
+
+:::
 </TabItem>
 
 </Tabs>
@@ -291,7 +286,7 @@ Make sure that your account has **AmazonEC2FullAccess policy**.
 
 </TabItem>
 
-<TabItem value="azure">
+<!-- <TabItem value="azure">
 
 Assuming you're using Azure CLI, issue the following command:
 
@@ -305,7 +300,7 @@ Azure Access Key is sensitive information. You can remove the file from your mac
 
 :::
 
-</TabItem>
+</TabItem> -->
 
 <TabItem value="do">
 

@@ -21,8 +21,8 @@ $ monk system selftest
 ✔ Runtime check DONE
 ✔ Host check DONE
 Test results:
-✔ CLI check: Version v3.9.0, build 6cce10a6
-✔ Daemon check: Daemon is running: Version v3.9.0, build 6cce10a6
+✔ CLI check: Version v3.10.1, build 268736cb
+✔ Daemon check: Daemon is running: Version v3.10.1, build 268736cb
 ⚠ Cluster connection check: Cluster not connected
 ✔ NS consistency check: NS in consistent state
 ✔ Runtime check: Runtime version 20.10.14
