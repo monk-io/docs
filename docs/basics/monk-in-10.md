@@ -24,6 +24,7 @@ defaultValue="macOS"
 values={[
 {label: 'macOS', value: 'macOS'},
 {label: 'Ubuntu and Debian', value: 'mainLinux'},
+{label: 'Red Hat Enteprise Linux 8', value: 'rpmLinux'},
 {label: 'Other Linux Systems', value: 'otherLinux'},
 ]}>
 
@@ -35,10 +36,35 @@ values={[
 
 <TabItem value="mainLinux">
 
-    curl -s https://apt.monk.io/Release.gpg | sudo tee /etc/apt/trusted.gpg.d/monk.asc
-    sudo echo "deb [arch=amd64] https://apt.monk.io/ stable main" | sudo tee /etc/apt/sources.list.d/monk.list
+    curl https://us-east1-apt.pkg.dev/doc/repo-signing-key.gpg | sudo apt-key add
+    echo 'deb https://us-east1-apt.pkg.dev/projects/monk-releases monk-releases-apt main' | sudo tee -a  /etc/apt/sources.list.d/artifact-registry.list
     sudo apt update
     sudo apt install monk
+
+:::note
+
+You might need to log out and log back in on your system to be able to use `monk` without `sudo`. Alternatively, use `su - <your-username>`.
+
+:::
+
+</TabItem>
+
+<TabItem value="rpmLinux">
+
+    yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+    yum subscription-manager repos --enable codeready-builder-for-rhel-8-$(arch)-rpms
+    yum copr enable jdoss/wireguard
+
+    sudo tee -a /etc/yum.repos.d/artifact-registry.repo << EOF
+    [monk-repo]
+    name=Monk Repository
+    baseurl=https://us-east1-yum.pkg.dev/projects/monk-releases/monk-releases-rpm
+    enabled=1
+    repo_gpgcheck=0
+    gpgcheck=0
+    EOF
+
+    yum install monk
 
 :::note
 
@@ -71,6 +97,7 @@ defaultValue="macOS"
 values={[
 {label: 'macOS', value: 'macOS'},
 {label: 'Ubuntu and Debian', value: 'mainLinux'},
+{label: 'Red Hat Enterprise Linux 8', value: 'rpmLinux'},
 {label: 'Other Linux Systems', value: 'otherLinux'},
 ]}>
 
@@ -96,6 +123,41 @@ Wait for it to initialize, and you should get this output:
 <TabItem value="mainLinux">
 
 If you installed `monkd` using APT it should be running after installation.
+
+You can confirm that `monkd` is running by using this command:
+
+    systemctl status monkd.service
+
+The output should be similar to:
+
+    ● monkd.service - Monk daemon
+    Loaded: loaded (/lib/systemd/system/monk.service; enabled; vendor preset: enabled)
+    Active: active (running) since Wed 2020-10-07 17:53:20 CEST; 10s ago
+    Main PID: 10526 (monkd)
+        Tasks: 16 (limit: 4667)
+    CGroup: /system.slice/monkd.service
+            └─10526 /usr/bin/monkd
+    oct 07 17:53:20 foo systemd[1]: Started Monk daemon.
+    oct 07 17:53:20 foo monkd[10526]:    Monk v3.9.0
+    oct 07 17:53:20 foo monkd[10526]:    © 2018-2023 MonkOS Inc. All rights reserved.
+    oct 07 17:53:20 foo monkd[10526]:    https://monk.io
+    oct 07 17:53:20 foo monkd[10526]: Please stand by while monkd is starting...
+    oct 07 17:53:20 foo monkd[10526]: generating 2048-bit RSA keypair...done
+    oct 07 17:53:20 foo monkd[10526]: peer identity: ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+    oct 07 17:53:23 foo monkd[10526]: Local containers will not be broadcasted to the cluster
+    oct 07 17:53:23 foo monkd[10526]: Initialization complete. monkd is ready
+
+If for some reason it's not running - just start it with the following command:
+
+    monkd
+
+Keep the terminal open while using `monk`, or use `systemctl` to start the service so it is running at all times.
+
+</TabItem>
+
+<TabItem value="rpmLinux">
+
+If you installed `monkd` using RPM it should be running after installation.
 
 You can confirm that `monkd` is running by using this command:
 
