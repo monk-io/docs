@@ -29,7 +29,7 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Getting Started",
+            label: "Getting Started with the CLI",
             collapsed: true,
             items: [
                 "get-started/get-monk",
@@ -38,7 +38,7 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Basics",
+            label: "CLI Basics",
             collapsed: true,
             items: [
                 "basics/monk-in-10",
@@ -48,7 +48,7 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Deploy",
+            label: "Deploy with the CLI",
             collapsed: true,
             items: [
                 "lifecycle/cluster-overview",
@@ -58,29 +58,9 @@ module.exports = {
                 "lifecycle/running-templates-cluster",
             ],
         },
-        // FIXME - Marcin: I think this should be "GUI" instead of "Sandbox UI" because the "Sandbox" is the one at sandbox.monk.io that does not require an account and doesn't allow you to deploy.
-        //         Some instructions apply to both the "Sandbox" ad "Main App UI" when it come3s to editing the graph, settings etc. but the Sandbox is missing project creation, deploymetn, monitoring etc.   
         {
             type: "category",
-            label: "Sandbox UI", 
-            collapsed: true,
-            items: [
-                "gui/project-setup",
-                "gui/instance-create",
-                "gui/kits-adding",
-                "gui/repo-import",
-                "gui/scaling",
-                "gui/kits-connecting",
-                "gui/secrets",
-                "gui/deployment",
-                "gui/kits-inspecting",
-                "gui/code-inspecting",
-                "gui/environments",
-            ],
-        },
-        {
-            type: "category",
-            label: "Develop Templates",
+            label: "How to Deploy with Kits",
             collapsed: true,
             items: [
                 "develop/basic-app",
@@ -98,13 +78,33 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Level Up",
+            label: "Level Up Your CLI Deployments",
             collapsed: true,
             items: [
                 "improve/k8s-migrate",
                 "improve/ci-cd",
                 "improve/multi-cloud",
                 "improve/cloud-provider"
+            ],
+        },
+        // FIXME - Marcin: I think this should be "GUI" instead of "Sandbox UI" because the "Sandbox" is the one at sandbox.monk.io that does not require an account and doesn't allow you to deploy.
+        //         Some instructions apply to both the "Sandbox" ad "Main App UI" when it come3s to editing the graph, settings etc. but the Sandbox is missing project creation, deploymetn, monitoring etc.   
+        {
+            type: "category",
+            label: "Introduction to the GUI", 
+            collapsed: true,
+            items: [
+                "gui/project-setup",
+                "gui/instance-create",
+                "gui/kits-adding",
+                "gui/repo-import",
+                "gui/scaling",
+                "gui/kits-connecting",
+                "gui/secrets",
+                "gui/deployment",
+                "gui/kits-inspecting",
+                "gui/code-inspecting",
+                "gui/environments",
             ],
         },
         {
