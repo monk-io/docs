@@ -63,6 +63,7 @@ module.exports = {
             label: "How to Deploy with Kits",
             collapsed: true,
             items: [
+                "develop/supported-kits",
                 "develop/basic-app",
                 "develop/connecting-runnables",
                 "develop/readiness-and-dependency-checks",
