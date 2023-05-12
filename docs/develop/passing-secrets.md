@@ -4,14 +4,6 @@ title: "Add Secrets"
 
 Some information passed in the Kits should be hidden from prying eyes. Fortunately, your database passwords, keys, secret tokens, and other sensitive information can be stored safely in encrypted form before being passed to Monk.
 
-This tutorial also has a short video! Stream away:
-
-<iframe width="500" height="315"
-  src="https://www.youtube.com/embed/wNJhShmu2R4">
-</iframe>
-
----
-
 ## SOPS
 
 Mozilla Secrets OPerationS (SOPS) is a popular editor for encrypted files, supporting many popular formats including JSON and YAML. See: [https://github.com/mozilla/sops](https://github.com/mozilla/sops).
