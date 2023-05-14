@@ -4,11 +4,11 @@ description: Welcome to MonkOS
 slug: /
 ---
 
-# Welcome to MonkOS
+# Welcome to monkOS
 
-Welcome to [MonkOS](https://monk.io), a new cloud OS.
+Welcome to [monkOS](https://monk.io), a new disbuted cloud OS.
 
-MonkOS lets you compose, deploy, and manage your entire stack, on your own infrastructure, with nearly zero DevOps overhead.
+monkOS lets you compose, deploy, and manage your entire stack, on your own infrastructure, with nearly zero DevOps overhead.
 
 Think of MonkOS as a Kubernetes and Terraform rolled into one tool. MonkOS is **a new orchestrator that lets you take control of both the application and provisioning layers in one place** by (1) writing feature-packed YAML manifests, and (2) using the CLI to interact directly with your containers and cloud provider(s) of choice.
 
