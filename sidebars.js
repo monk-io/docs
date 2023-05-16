@@ -95,6 +95,7 @@ module.exports = {
             collapsed: true,
             items: [
                 "gui/project-setup",
+                "gui/add-cloud-providers",
                 "gui/instance-create",
                 "gui/kits-adding",
                 "gui/repo-import",
