@@ -2,7 +2,6 @@
 title: Setting Up Your Project
 ---
 
-<!-- FIXME : removed Azure from this blurb, but it is in the UI screenshot below. We should have both places consistent -->
 :::note Prerequisites
 
 In order to build a project you will need to have your credentials ready for one or more of the following cloud providers:
@@ -19,7 +18,6 @@ To create a completely new project, you will need to name your project and then 
 
 Now you will need to optionally choose a cloud provider to deploy to. Alternatively, you can skip this step for now (using "Skip"), and add your desired cloud provider later. The only impact this will have is that you will need to have connected to a cloud provider before you can deploy. When you are ready to deploy, make sure you add as many cloud providers as you intend to deploy to as MonkOS supports infrastructure and workloads across cloud providers and regions. (Read more on our [Adding your cloud providers](add-cloud-providers) article, which is the next page in this section.)
 
-<!-- FIXME this screenshot will need to be updated as we now have the ability to skip this -->
 ![](/img/docs/gui/gui9.png)
 
 For the purpose of this tutorial we will pick just one cloud - GCP. You can choose different cloud - everything will work exactly the same regardless of your choice.  
