@@ -3,6 +3,8 @@ title: MonkOS YAML
 slug: /monkscript/yaml
 ---
 
+import CustomLink from '@site/src/components/customLink';
+
 MonkOS uses YAML to express Kits. One of our design goals was to make YAML manageable and eliminate the need for pre-processing using external tools. In order to achieve succinct definitions and composability, we've defined three special keys on top of standard YAML: `namespace`, `defines` and `inherits`.
 
 Additionally, MonkOS provides a `<-` macro that denotes an [Arrow script](./scripting) which can be used in place of _any_ value in YAML.
@@ -159,31 +161,11 @@ Currently MonkOS recognizes several "special" sections, or definition classes hi
 
 Runnables are the basic unit in Monk. A `runnable` is essentially something that MonkOS can run, manage and then stop. This can be viewed as one or more containers meant to be standing together, plus associated resource definitions, variables etc.
 
-:::note
-
-Learn more about [Runnables &#8594;
-](./yaml/runnables)
-
-:::
+<CustomLink to="./yaml/runnabls">Learn more about Runnables</CustomLink>
 
 ### `process-group`
 
 Groups (or `process-group`s) are compositions of multiple [runnables](#runnable) and other `groups` plus associated resources and state. This construct is used to compose other Kits in Monk.
 
-:::note
+<CustomLink to="./yaml/groups">Learn more about Groups</CustomLink>
 
-Learn more about [Groups &#8594;
-](./yaml/groups)
-
-:::
-
-### `service`
-
-Services are like [runnables](#runnable) but don't define containers. They can be used to represent services external to MonkOS which can't be managed directly.
-
-:::note
-
-Learn more about [Services &#8594;
-](./yaml/services)
-
-:::
