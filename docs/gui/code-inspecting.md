@@ -6,4 +6,4 @@ When working on a system in the Build view, any change made to the instances, ki
 
 To preview the code click **\[^\]** in the bottom right corner of the screen. This opens code preview panel. The code can be searched and copied.
 
-![](/img/docs/gui/gui17.png)
+<Figure src="/img/docs/gui/gui17.png" />

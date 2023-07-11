@@ -4,7 +4,7 @@ title: Monitoring Your Project
 
 MonkOS tracks basic metrics of each component in your system. Access the metrics by selecting **Monitor** tab in the main navigation bar.
 
-![](/img/docs/gui/gui10.png)
+<Figure src="/img/docs/gui/gui10.png" />
 
 Metrics are provided per **Instance**, **Volume** and **Kit** available in respective tabs within the **Monitor** interface.
 
@@ -21,8 +21,8 @@ For Instances the metrics available are:
 
 Hover the mouse cursor over the graphs to see exact values of these metrics at any given moment.
 
-![](/img/docs/gui/gui2.png)
+<Figure src="/img/docs/gui/gui2.png" />
 
 Click **see details** to enter a more detailed view narrowed down to the particular instance.
 
-![](/img/docs/gui/gui25.png)
+<Figure src="/img/docs/gui/gui25.png" />

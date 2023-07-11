@@ -10,15 +10,15 @@ To connect your service to the database you need to connect **db-host** output o
 
 Click on the **db-host** port. An arrow will appear and follow your mouse.
 
-![](/img/docs/gui/gui33.png)
+<Figure src="/img/docs/gui/gui33.png" />
 
 Move your mouse cursor over to the port labelled **db** and click on the port to confirm.
 
-![](/img/docs/gui/gui8.png)
+<Figure src="/img/docs/gui/gui8.png" />
 
 A connection is made and arrow points from **db-host** to **db**.
 
-![](/img/docs/gui/gui21.png)
+<Figure src="/img/docs/gui/gui21.png" />
 
 To sever the connection double-click on the line.
 

@@ -6,12 +6,12 @@ After first deployment when the project is running it is possible to inspect the
 
 To view kit’s network endpoints select the kit by clicking on it, **Kit Configuration** panel will appear. Select **Network** tab on the **Kit Configuration** panel. You can copy the endpoint address or visit it new tab by clicking “Preview” next to the endpoint.
 
-![](/img/docs/gui/gui12.png)
+<Figure src="/img/docs/gui/gui12.png" />
 
 To view metrics of a kit select the kit by clicking on it, **Kit Configuration** panel will appear. Select **Metrics** tab on the **Kit Configuration** panel. Metrics are updated in real-time and show current values as well as historical values on a mini graph.
 
-![](/img/docs/gui/gui20.png)
+<Figure src="/img/docs/gui/gui20.png" />
 
 To view kit’s logs select the kit by clicking on it, **Kit Configuration** panel will appear. Select **Logs** tab on the **Kit Configuration** panel. Logs are streamed in real-time.
 
-![](/img/docs/gui/gui24.png)
+<Figure src="/img/docs/gui/gui24.png" />
