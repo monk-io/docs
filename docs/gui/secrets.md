@@ -2,6 +2,8 @@
 title: Adding Secrets
 ---
 
+import Figure from "@site/src/components/figure";
+
 One of the crucial requirements of any deployment is storing secrets in a secure way. MonkOS offers a built-in secret storage that is backed by the Cloud KMS on your cloud account. MonkOS ensures that all your secrets stored within your infrastructure are always encrypted at rest with frequent key rotation.
 
 Secrets can be shared between multiple kits within the project’s environment.

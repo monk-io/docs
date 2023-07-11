@@ -2,6 +2,8 @@
 title: Connecting Kits
 ---
 
+import Figure from "@site/src/components/figure";
+
 MonkOS includes a secure encrypted overlay network that is configured automatically based on declared connections between kits. Connecting kits with MonkOS is very straightforward.
 
 Each kit on the board has **ports** represented by circles on the edges of the kit. **Inputs** are on the left side of kits, **outputs** are on the right.

@@ -2,6 +2,8 @@
 title: Adding and Fine-tuning Kits
 ---
 
+import Figure from "@site/src/components/figure";
+
 Having one or two instances set up, we are ready to add some services to the board. Click ![(plus)](https://monk-io.atlassian.net/wiki/s/481958474/6452/fd6418f9b90c3778951784f56d6337a7b98af733/_/images/icons/emoticons/add.png) and select **Add kit**.
 
 <Figure src="/img/docs/gui/gui16.png" />

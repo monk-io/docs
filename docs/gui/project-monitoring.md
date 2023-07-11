@@ -2,6 +2,8 @@
 title: Monitoring Your Project
 ---
 
+import Figure from "@site/src/components/figure";
+
 MonkOS tracks basic metrics of each component in your system. Access the metrics by selecting **Monitor** tab in the main navigation bar.
 
 <Figure src="/img/docs/gui/gui10.png" />

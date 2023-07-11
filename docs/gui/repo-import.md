@@ -2,6 +2,8 @@
 title: Adding Your Own Services
 ---
 
+import Figure from "@site/src/components/figure";
+
 A PostgreSQL database is not that useful by itself. With MonkOS you can add your services straight from GitHub - MonkOS converts your app into a private Kit and takes care of building it for you using Buildpacks. If you already have an app running on Heroku, Railway or other PaaS providers you can spin it up with MonkOS by just adding your existing repo.
 
 Click ![(plus)](https://monk-io.atlassian.net/wiki/s/481958474/6452/fd6418f9b90c3778951784f56d6337a7b98af733/_/images/icons/emoticons/add.png) and select **Add kit** just like before.

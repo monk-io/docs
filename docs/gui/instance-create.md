@@ -2,6 +2,8 @@
 title: Creating Instances
 ---
 
+import Figure from "@site/src/components/figure";
+
 First step is to create some cloud VM instances that will host your services and kits. To do so, click on ![(plus)](https://monk-io.atlassian.net/wiki/s/481958474/6452/fd6418f9b90c3778951784f56d6337a7b98af733/_/images/icons/emoticons/add.png) and select **Create Instance**.
 
 <Figure src="/img/docs/gui/gui53.png" />

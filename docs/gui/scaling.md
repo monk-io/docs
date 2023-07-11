@@ -2,6 +2,7 @@
 title: Scaling and Auto-scaling 
 ---
 
+import Figure from "@site/src/components/figure";
 
 MonkOS enables easy manual and automatic scaling of any kit.
 

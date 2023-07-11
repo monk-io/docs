@@ -2,6 +2,8 @@
 title: Deploying Your Project
 ---
 
+import Figure from "@site/src/components/figure";
+
 Once your design has been set up it is time to **Deploy** it onto your cloud account. The process is fully automated and only requires pressing a button.
 
 Make sure that the kits are connected and placed appropriately and click the **Deploy** button on the top-right of the screen.
