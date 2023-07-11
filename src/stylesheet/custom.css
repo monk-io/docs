@@ -112,6 +112,7 @@
 
   --ifm-font-family-base: "Aeonik";
   --ifm-font-family-monospace: "Lineto";
+  --ifm-font-size-base: 14px;
 }
 
 .docusaurus-highlight-code-line {
