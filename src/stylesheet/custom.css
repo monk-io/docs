@@ -150,6 +150,10 @@ figure {
   margin: 0 0 var(--ifm-paragraph-margin-bottom);
 }
 
+figure > img {
+  max-height: 500px;
+}
+
 figcaption {
   font-family: Aeonik;
   font-weight: 200;
