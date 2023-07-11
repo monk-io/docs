@@ -122,7 +122,11 @@ module.exports = {
           type: "category",
           label: "MonkScript",
           collapsed: true,
-          items: ["monkscript/index", "monkscript/working"],
+          items: [
+            "monkscript/index",
+            "monkscript/working",
+            // FIXME describe MANIFEST
+          ],
         },
         {
           type: "category",
@@ -137,9 +141,10 @@ module.exports = {
                 "monkscript/yaml/index",
                 "monkscript/yaml/runnables",
                 "monkscript/yaml/groups",
-                "monkscript/yaml/services",
+                // FIXME decribe entities
               ],
             },
+            // FIXME describe entity JS
             {
               type: "category",
               label: "Scripting",
@@ -147,6 +152,7 @@ module.exports = {
               items: [
                 "monkscript/scripting/index",
                 "monkscript/scripting/cheatsheet",
+                // FIXME describe repl
                 {
                   type: "category",
                   label: "Operators",
@@ -173,7 +179,6 @@ module.exports = {
             },
           ],
         },
-        // "gui/index",
       ],
     },
     {
