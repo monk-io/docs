@@ -21,7 +21,6 @@ module.exports = {
         "welcome",
         "about/use-cases",
         "about/key-concepts",
-        "about/comparison",
         "about/features",
         "about/support",
         "about/monk-privacy",
@@ -32,6 +31,7 @@ module.exports = {
       label: "GUI",
       collapsed: false,
       items: [
+        "gui/overview",
         "gui/project-setup",
         "gui/add-cloud-providers",
         "gui/instance-create",
@@ -44,6 +44,7 @@ module.exports = {
         "gui/kits-inspecting",
         "gui/code-inspecting",
         "gui/environments",
+        "gui/ai-agent",
       ],
     },
     {
