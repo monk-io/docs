@@ -12,7 +12,6 @@ MonkOS Contributor Program rewards MonkOS users for creating popular Kits, shari
 
 Learn how to contribute and earn rewards for:
 
-<CustomLink to="./publishers">Kit Creation</CustomLink>
 <CustomLink to="./content">Content Creation</CustomLink>
 <CustomLink to="./bugs">Bug Bounty</CustomLink>
 
@@ -21,7 +20,6 @@ You're most welcome to participate on more than one front! 😎
 ## Rewards
 
 You can earn from $25 to $3000 one-time rewards for submitting content and bug reports.
-You can earn up to $2550 a month for publishing and maintaining a popular Kit! 🤑
 
 ## General Rules
 

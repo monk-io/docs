@@ -3,7 +3,9 @@ title: MonkOS YAML
 slug: /monkscript/yaml
 ---
 
+```mdx-code-block
 import CustomLink from '@site/src/components/customLink';
+```
 
 MonkOS uses YAML to express Kits. One of our design goals was to make YAML manageable and eliminate the need for pre-processing using external tools. In order to achieve succinct definitions and composability, we've defined three special keys on top of standard YAML: `namespace`, `defines` and `inherits`.
 

@@ -32,7 +32,7 @@ This means you can tweak and share single components (e.g. Nginx) as easily as a
 
 This flexibility makes Monk Kits an excellent distribution choice for open-source developers and proprietary software vendors. As a fast-growing Silicon Valley startup we are actively exploring publishing models that you, our community, will love and benefit from.
 
-MonkOS is a new paradigm in orchestration. It makes it easy for your users to run your software anywhere while giving you visibility into a growing new community:
+MonkOS is a new paradigm in orchestration. It makes it easy for your users to run your software anywhere while giving you visibility into a growing new community.
 
 ### Grow Your Software
 

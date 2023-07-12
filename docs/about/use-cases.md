@@ -1,4 +1,4 @@
-# Why Monk?
+# CLI Overview
 
 <!-- FIXME: There are several links in the docs to MonkHub.io, which I believe is offline. We should redirect this -->
 
@@ -86,8 +86,6 @@ Also note that MonkOS can take care of [provisioning](../develop/provisioning-vi
 ## 4. Share & Maintain Your Stack
 
 Monk Hub is a new distribution system for open-source components and pre-build stacks. It features over 300 entries, with more being added constantly by our team and the community.
-
-You could help your favorite software gain traction by becoming a maintainer of the Hub repo. Or you could share your application's Kits for stars, exposure, and possibly revenue (we're exploring a marketplace model for paid Kits). Learn more about our [Publisher program](../community/publishers.md).
 
 ## 5. Save Time and Sanity
 

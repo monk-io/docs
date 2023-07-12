@@ -13,7 +13,7 @@ MonkOS is a new paradigm and approach to orchestration: a control plane sitting 
 
 :::note Paradigm
 
-No matter how complex they get, stacks should be as easy to 'install' and 'run' as mobile apps. Since Monk Kits work seamlessly everywhere, **you as a developer offload all undue complexity** to (1) us, who make sure `monk` and `monkd` work with both infra and containers, and to (2) Kitpublishers, who optimize stacks and components for particular app/infra combinations.
+No matter how complex they get, stacks should be as easy to 'install' and 'run' as mobile apps. Since Monk Kits work seamlessly everywhere, **you as a developer offload all undue complexity** to (1) us, who make sure `monk` and `monkd` work with both infra and containers, and to (2) Kitp ublishers, who optimize stacks and components for particular app/infra combinations.
 :::
 
 ---
@@ -28,7 +28,7 @@ Both MonkOS and Kubernetes orchestrate containers, provision workloads and reduc
 
 -   **Seamless production flow**: develop locally and move to staging and production with zero friction. MonkOS Kits work the same anywhere there's a `monkd` instance running.
 
--   **Low overhead**: lean teams can manage very complex applications. MonkOS is easy to use, and [developers who maintain Kits](/docs/community/publishers.md) significantly reduce overhead for end users.
+-   **Low overhead**: lean teams can manage very complex applications. MonkOS is easy to use, and developers who maintain Kits significantly reduce overhead for end users.
 
 -   **Self-contained Engine**: in most use cases, especially for smaller teams, K8s requires managed services such as EKS, AKS or GKE, which add extra steps and scaling pains. MonkOS runs a new kind of [peer-to-peer clusters](/docs/lifecycle/cluster-create-1.md), is a native part of the [ecosystem](key-concepts.md) and offers load balancing, auto-scaling and much more out of the box. See [Features](./features.md) for a complete list.
 

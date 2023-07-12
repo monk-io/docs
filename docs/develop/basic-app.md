@@ -202,7 +202,7 @@ Now it's time to compose our app's Kit with the third party services, and make a
 
 ![Kit architecture for the system we're building](/img/docs/system-full.png)
 
-If you were to publish your composed Kit, other people would also be able to run this same setup in seconds or compose it further with their own services. That's what our [Publisher program](../publishers) is there for, by the way.
+If you were to publish your composed Kit, other people would also be able to run this same setup in seconds or compose it further with their own services.
 
 ### Creating a Kit of Kits
 

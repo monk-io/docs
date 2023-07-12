@@ -88,5 +88,3 @@ Furthermore, thanks to MonkScript, each Kit can be composed from other Kits. The
 Monk Kits can be instantiated from Monk Hub at any moment, without needing to download them, since every MonkOS instance knows the contents of the Hub at all times.
 
 :::
-
-You'll learn more about how Kits can help you improve your workflow in the next section, [Why Monk](use-cases.md). And if you like the idea of publishing entire stack blueprints on a community repo, take a closer look at our [Publisher program](../community/publishers.md) here in the docs.

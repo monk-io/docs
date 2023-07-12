@@ -19,11 +19,8 @@ module.exports = {
       collapsible: false,
       items: [
         "welcome",
-        "about/use-cases",
         "about/key-concepts",
-        "about/features",
         "about/support",
-        "about/monk-privacy",
       ],
     },
     {
@@ -52,6 +49,7 @@ module.exports = {
       label: "CLI",
       collapsed: false,
       items: [
+        "about/features",
         {
           type: "category",
           label: "Basics",
@@ -115,9 +113,10 @@ module.exports = {
     },
     {
       type: "category",
-      label: "Develop Kits",
+      label: "Develop Kits & MonkHub",
       collapsed: false,
       items: [
+        "monkscript/kits-overview",
         {
           type: "category",
           label: "MonkScript",
@@ -187,7 +186,6 @@ module.exports = {
       collapsed: false,
       items: [
         "community/index",
-        "community/publishers",
         "community/content",
         "community/bugs",
       ],

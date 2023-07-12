@@ -1,9 +1,9 @@
 ---
-title: Overview
+title: MonkScript Overview
 slug: /monkscript
 ---
 
-# MonkScript
+## MonkScript
 
 MonkScript is Monk's composable definition language with runtime scripting abilities. Apart from the CLI, MonkScript is the primary way of programming MonkOS to run and manage workloads.
 

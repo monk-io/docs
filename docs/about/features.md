@@ -17,7 +17,7 @@ The 🧪​ icon denotes experimental features. Please don't be upset if they ca
 
 ## MonkScript
 
-Our language allows you to specify your entire stack needs in a simple, reusable way. MonkScript is a primary user interface for controlling Monk's Programmable Control Plane. [Here's a primer &#8594;](/docs/community/publishers.md#publishing-a-primer)
+Our language allows you to specify your entire stack needs in a simple, reusable way. MonkScript is a primary user interface for controlling Monk's Programmable Control Plane. 
 
 ### Programmable Control Plane
 
