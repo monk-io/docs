@@ -21,12 +21,6 @@ module.exports = {
       },
       items: [
         {
-          type: "doc",
-          docId: "welcome",
-          position: "left",
-          label: "Docs",
-        },
-        {
           href: "https://github.com/monk-io/docs",
           label: "GitHub",
           position: "right",
