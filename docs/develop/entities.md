@@ -448,7 +448,7 @@ Files can be added in **files** property.
 
 :::note
 
-You can use `<<<` macro [to paste contents from a local file](monkscript/yaml/index.md#file-embeds).
+You can use `<<<` macro [to paste contents from a local file](/docs/monkscript/yaml/index.md#file-embeds).
 
 :::
 

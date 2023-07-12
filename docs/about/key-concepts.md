@@ -24,7 +24,7 @@ The Engine was designed from the ground up to be independent of existing tools l
 -   has a programmable control plane that "understands" the workloads on both the container and system level, and can be extended in MonkScript,
 -   provides its own secure network overlay allowing for clusters to span between multiple clouds and/or on-premise sites without additional work.
 
-All of those features exist in a self-contained binary (`monkd`) that can be installed on almost any machine, be it a cloud instance or a single board computer. Read more about `monkd` [here](cli/monkd.md).
+All of those features exist in a self-contained binary (`monkd`) that can be installed on almost any machine, be it a cloud instance or a single board computer. Read more about `monkd` [here](/docs/cli/monkd.md).
 
 ### MonkOS Clusters
 
@@ -34,7 +34,7 @@ The clusters can be created by manually connecting the Peers between a group of 
 
 Once created, a Cluster will work autonomously to keep itself and the workloads online. You can run one big cluster, even spanning multiple cloud providers, and run all your workloads there. Alternatively, you can run multiple smaller clusters, for example, one for each of your projects or customers. Thanks to Monk's architecture, all of the clusters will behave and scale the same way starting from one instance to hundreds of them.
 
-Check out [Creating a cluster](lifecycle/cluster-create-1.md) to learn more about how clusters work.
+Check out [Creating a cluster](/docs/lifecycle/cluster-create-1.md) to learn more about how clusters work.
 
 ### Multi-site Presence
 

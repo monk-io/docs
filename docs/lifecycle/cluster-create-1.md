@@ -64,7 +64,7 @@ It sometime takes several minutes to bootstrap a new instance so do not be alarm
 
 :::note Info
 
-Passing the `--tag` flag tags the new peers upon their creation so they can be addressed using their tags later on. See [Running templates in a cluster](lifecycle/running-templates-cluster.md) to find out how to use tags to indicate where to run the template.
+Passing the `--tag` flag tags the new peers upon their creation so they can be addressed using their tags later on. See [Running templates in a cluster](/docs/lifecycle/running-templates-cluster.md) to find out how to use tags to indicate where to run the template.
 
 :::
 
@@ -104,7 +104,7 @@ The process to add new peer is relatively simple thanks to _Monkcodes_ and can b
 
 :::note Info
 
-See [How to add cloud provider to monk](lifecycle/cluster-switch-1.md#monkcodes) to learn more about Monkcodes.
+See [How to add cloud provider to monk](/docs/lifecycle/cluster-switch-1.md#monkcodes) to learn more about Monkcodes.
 
 :::
 

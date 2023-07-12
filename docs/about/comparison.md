@@ -28,9 +28,9 @@ Both MonkOS and Kubernetes orchestrate containers, provision workloads and reduc
 
 -   **Seamless production flow**: develop locally and move to staging and production with zero friction. MonkOS Kits work the same anywhere there's a `monkd` instance running.
 
--   **Low overhead**: lean teams can manage very complex applications. MonkOS is easy to use, and [developers who maintain Kits](publishers.md) significantly reduce overhead for end users.
+-   **Low overhead**: lean teams can manage very complex applications. MonkOS is easy to use, and [developers who maintain Kits](/docs/community/publishers.md) significantly reduce overhead for end users.
 
--   **Self-contained Engine**: in most use cases, especially for smaller teams, K8s requires managed services such as EKS, AKS or GKE, which add extra steps and scaling pains. MonkOS runs a new kind of [peer-to-peer clusters](lifecycle/cluster-create-1.md), is a native part of the [ecosystem](key-concepts.md) and offers load balancing, auto-scaling and much more out of the box. See [Features](./features.md) for a complete list.
+-   **Self-contained Engine**: in most use cases, especially for smaller teams, K8s requires managed services such as EKS, AKS or GKE, which add extra steps and scaling pains. MonkOS runs a new kind of [peer-to-peer clusters](/docs/lifecycle/cluster-create-1.md), is a native part of the [ecosystem](key-concepts.md) and offers load balancing, auto-scaling and much more out of the box. See [Features](./features.md) for a complete list.
 
 Also note that MonkOS integrates natively with popular [CI/CD providers](../improve/ci-cd/). Overall, MonkOS is meant to be a single solution that maintains the power of K8s where it shines, but without the extra steps of setting up DevOps or using external IaaS, managed engines, or Helm. And speaking of...
 
@@ -64,12 +64,12 @@ In short, both MonkOS and Nomad make it easy and efficient to orchestrate applic
 
 ## Docker-compose
 
-In general principle and syntax, MonkScript is similar to Docker Compose: you define and run multi-container applications with YAML manifest. In fact, if you've ever written a `docker-compose.yml` you'll feel right at home using MonkScript (see the [MonkScript primer](monkscript/index.md)).
+In general principle and syntax, MonkScript is similar to Docker Compose: you define and run multi-container applications with YAML manifest. In fact, if you've ever written a `docker-compose.yml` you'll feel right at home using MonkScript (see the [MonkScript primer](/docs/monkscript/index.md)).
 
 However, MonkOS adds an invaluable extra layer of control to your manifests, making them truly independent of environment, and bypassing the need for a Dockerfile in most cases.
 
 -   **Environment definition**: With Compose, you need to specify a particular environment in your Dockerfile, and make manual changes to it when needed. MonkOS lets you do that inside your single MonkScript file, and switch environments (staging, production, CI/CD etc.) and infrastructure (cloud, multi-cloud or bare metal) in one place with just a few lines of code.
--   **Scriptable actions**: You can execute code in your containers and communicate with your cloud provider directly from MonkOS, without a Dockerfile or even your cloud CLI. All you need is your Kit's file and MonkOS' [command line](cli/monk.md).
+-   **Scriptable actions**: You can execute code in your containers and communicate with your cloud provider directly from MonkOS, without a Dockerfile or even your cloud CLI. All you need is your Kit's file and MonkOS' [command line](/docs/cli/monk.md).
 
 Think of Monk as a docker-compose for herds of docker-composes, which also sets up and manages your infra in addition to containers.
 
