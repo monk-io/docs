@@ -161,7 +161,7 @@ Currently MonkOS recognizes several "special" sections, or definition classes hi
 
 Runnables are the basic unit in Monk. A `runnable` is essentially something that MonkOS can run, manage and then stop. This can be viewed as one or more containers meant to be standing together, plus associated resource definitions, variables etc.
 
-<CustomLink to="./yaml/runnabls">Learn more about Runnables</CustomLink>
+<CustomLink to="./yaml/runnables">Learn more about Runnables</CustomLink>
 
 ### `process-group`
 
