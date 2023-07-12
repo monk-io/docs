@@ -1,4 +1,6 @@
-# Features
+---
+title: CLI Overview
+---
 
 This page describes primary MonkOS features and points to relevant resources for each of them.
 
