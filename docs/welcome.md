@@ -1,6 +1,6 @@
 ---
 id: welcome
-description: Welcome to MonkOS
+description: Welcome to Monk
 slug: /
 ---
 

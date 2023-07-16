@@ -15,17 +15,40 @@ module.exports = {
   mainSidebar: [
     {
       type: "category",
-      label: "About MonkOS",
+      label: "About Monk",
       collapsible: false,
       items: [
         "welcome",
-        "about/key-concepts",
+        {
+            type: "category",
+            label: "Monk Ecosystem",
+            collapsed: false,
+            items: [
+                "about/key-concepts",
+                "about/monkos",
+                "about/kits",
+                "about/whiteboard",
+                "about/monkscript",
+                "about/monkx",
+            ],
+        }, // Monk Ecosystem
         "about/support",
       ],
     },
     {
+        type: "category",
+        label: "Monk X - AI DevOps",
+        collapsed: false,
+        items: [
+            "gui/ai-agent",
+            "gui/building-your-system",
+            "gui/collaborating-with-monkx",
+            "gui/prompt-hub",
+        ],
+    },
+    {
       type: "category",
-      label: "GUI",
+      label: "Whiteboard GUI",
       collapsed: false,
       items: [
         "gui/overview",
@@ -41,7 +64,6 @@ module.exports = {
         "gui/kits-inspecting",
         "gui/code-inspecting",
         "gui/environments",
-        "gui/ai-agent",
       ],
     },
     {
@@ -113,13 +135,14 @@ module.exports = {
     },
     {
       type: "category",
-      label: "Develop Kits & MonkHub",
+      label: "Develop Kits",
       collapsed: false,
       items: [
         "monkscript/kits-overview",
+        "monkscript/hub",
         {
           type: "category",
-          label: "MonkScript",
+          label: "monkScript",
           collapsed: true,
           items: [
             "monkscript/index",
