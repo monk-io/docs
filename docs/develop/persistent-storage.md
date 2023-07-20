@@ -2,24 +2,50 @@
 title: "Add Persistent Storage"
 ---
 
-MonkOS is capable of creating and maintaining persistent volumes in your cloud environment. For example, you can create a volume usable by all containers in its region. This guide shows how to provision and mount such volume.
+MonkOS is capable of creating and maintaining persistent volumes in your cloud environment. For example, you can create
+a volume usable by all containers in its region. This guide shows how to provision and mount such volume.
 
-Persistent volumes are created close to the workloads, meaning that they will end up in the same region as the MonkOS node running the runnable or group in which the volume was specified.
+Persistent volumes are created close to the workloads, meaning that they will end up in the same region as the MonkOS
+node running the runnable or group in which the volume was specified.
 
 ## Prerequisites
 
 You need a MonkOS cluster with at least two nodes running in your chosen cloud to be able to try this out.
 
 ## Step 1: Preparing the Kit
-We will use a simple `mongodb` Kit to illustrate how the database could be stored on a persistent volume.
+
+We will write a simple `mongodb` Kit to illustrate how the database could be stored on a persistent volume.
 
 ### Basic Kit
+
 ```yaml title="database.yaml" linenums="1"
 namespace: guides
 
 database:
-    defines: runnable
-    inherits: mongodb/mongodb
+  defines: runnable
+  containers:
+    mongodb:
+      image: mongo
+      image-tag: latest
+```
+
+Now add volume and mount definitions to the Kit:
+
+```yaml title="database.yaml" linenums="1"
+namespace: guides
+
+database:
+  defines: runnable
+  containers:
+    mongodb:
+      image: mongo
+      image-tag: latest
+      mounted-volumes:
+        important-data:
+          path: /data/db
+  volumes:
+    important-data:
+      kind: local
 ```
 
 It is perfectly fine to run with:
@@ -27,69 +53,85 @@ It is perfectly fine to run with:
     monk load database.yaml
     monk run guides/database
 
-The MongoDB database will use its default local volume to store the data. This means that the data will be stored on the disk of the instance that is running this Kit.
+The MongoDB database will use its local volume to store the data. This means that the data will be stored on the disk of
+the instance that is running this Kit.
 
-### Extended Kit
-Let's extend `database.yaml` with a `volume` definition:
+In `mounted-volumes` for a container we chose to mount the volume in `/data/db` because that's the default path where
+MongoDB stores its data in `mongo` image. You can also add optional `subdir` property to mount the subdirectory
+of the referenced volume instead of root.
+
+On host side, meaning that the instance with runnable and volume attached, the volume will be mounted in MonkOS volumes
+directory, you can change it by setting `path` for a `volume`.
+
+```yaml title="database.yaml" linenums="1"
+...
+database:
+  defines: runnable
+  containers:
+    mongodb:
+      image: mongo
+      image-tag: latest
+      mounted-volumes:
+        important-data:
+          path: /data/db
+          subdir: data
+volumes:
+  important-data:
+    kind: local
+    path: <- `${monk-volume-path}/mongodb`
+```
+
+This will mount the volume in `/root/.monk/volumes/mongodb/data` on the host to `/data/db` in the container.
+
+### Extend Kit with Cloud Volume
+
+Let's extend `database.yaml` with a cloud volume definition:
 
 ```yaml title="database.yaml" linenums="1"
 namespace: guides
 
 database:
-    defines: runnable
-    inherits: mongodb/mongodb
-    volumes:
+  defines: runnable
+  containers:
+    mongodb:
+      image: mongo
+      image-tag: latest
+      mounted-volumes:
         important-data:
-            size: 60
-            kind: SSD
-            path: <- `${monk-volume-path}/mongodb`
+          path: /data/db
+  volumes:
+    important-data:
+      kind: SSD
+      size: 60
+      name: mongodb-volume
 ```
 
-We've added a volume named `important-data` in the new `volumes` section. The `size` is expressed in Gigabytes so our new volume will have 60GB. The `kind` is `SSD` - you can pick between `HDD` or `SSD` depending on your needs.
+We've added `size` and changed `kind` for our volume. The `size` is expressed in Gigabytes so our
+new volume will have 60GB. The `kind` is `SSD` - you can pick between `HDD` or `SSD` depending on your needs, some cloud
+providers have more volume types.
 
-The `path` tells MonkOS where to mount the volume on **host** meaning that the instance with this volume attached will see the persistent volume under the path specified here. In this case, the host will mount the volume in `${monk-volume-path}/mongodb`.
-
-Since we have the volume defined, now it's time to mount it inside the container. Let's extend the Kit again:
-
-```yaml title="database.yaml" linenums="1"
-namespace: guides
-
-database:
-    defines: runnable
-    inherits: mongodb/mongodb
-    volumes:
-        important-data:
-            size: 60
-            kind: SSD
-            path: <- $volume-data
-```
-
-We have just replaced the `${monk-volume-path}/mongodb` because `database` inherits from `mongodb/mongodb` which defines a variable `volume-data`. By looking at the `mongodb/mongodb` Kit we can see that the database container mounts `$volume-data` in `/data/db`:
-
-```yaml title="mongodb/mongodb" linenums="1"
-containers:
-    database:
-        image: mongo:latest
-        ports: 27017:27017
-        paths: <- `${volume-data}:/data/db` # <-----
-```
-
-This means it is sufficient to just provide the `volume-data` in the `volumes` section so that `important-data` will get mounted in a place where the mongodb container expects to save its state.
-
-**Important notice!** The path defined in volumes sections should be used the same for the path defined in containers section.
+We've also added `name` for our volume. This is the name that will be used to create the volume in the cloud. If you do
+not specify a name, MonkOS will use the same name as volume reference (here `important-data`).
 
 ## Step 2: Running the Kit
+
 ```yaml title="database.yaml" linenums="1"
 namespace: guides
 
 database:
-    defines: runnable
-    inherits: mongodb/mongodb
-    volumes:
+  defines: runnable
+  containers:
+    mongodb:
+      image: mongo
+      image-tag: latest
+      mounted-volumes:
         important-data:
-            size: 60
-            kind: SSD
-            path: <- $volume-data
+          path: /data/db
+  volumes:
+    important-data:
+      kind: SSD
+      size: 10
+      name: mongodb-volume
 ```
 
 Save this file as `database.yaml` and run with:
@@ -154,7 +196,8 @@ If you see similar output, it means that the cloud provided volume is mounted to
 
 ## Volume backups
 
-MonkOS can back up any defined volume using cloud volume snapshots. To enable backups at any point you can add the following definition inside your volume (here `important-data`):
+MonkOS can back up any defined cloud volume using volume snapshots. To enable backups at any point you can add the
+following definition inside your volume (here `important-data`):
 
 ```
 backup:
@@ -165,17 +208,15 @@ backup:
     start-day: MONDAY
 ```
 
-This can be read as follows: _At all times keep backups from last 10 days making a backup every week at midnight on Monday._
+This can be read as follows: _At all times keep backups from last 10 days making a backup every week at midnight on
+Monday._
 
-Times must be in `HH:MM` format, weekdays are one of `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, `SUNDAY`. The field `kind` sets the interval and can be one of `day`, `hour`, `week`.
+Times must be in `HH:MM` format, weekdays are one
+of `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, `SUNDAY`. The field `kind` sets the interval and
+can be one of `day`, `hour`, `week`.
 
-MonkOS delegates the backup process to the cloud it's running on and the backups can be managed via the cloud console and won't disappear even if MonkOS fails or gets removed from your cloud account.
-
-:::note
-
-Volume backups are released as canary feature in v3.2.0. They only work on GCP for now. Please confirm creation of the backups in your cloud console before assuming they are present.
-
-:::
+MonkOS delegates the backup process to the cloud it's running on and the backups can be managed via the cloud console
+and won't disappear even if MonkOS fails or gets removed from your cloud account.
 
 ## Full example of volumes with backup's usage
 
@@ -183,25 +224,27 @@ Volume backups are released as canary feature in v3.2.0. They only work on GCP f
 namespace: /postgres
 postgres:
   defines: runnable
+  containers:
+    postgres:
+      image: bitnami/postgresql
+      mounted-volumes:
+        postgres:
+          path: /var/lib/postgresql/data
+          subdir: data
   volumes:
     postgres:
       size: 2
       kind: HDD
-      path: <- `${monk-volume-path}/data`
       backup:
         rotation-days: 10
         every: 1
         kind: hour
         start-time: 00:00
         start-day: MONDAY
-  containers:
-    postgres:
-      image: bitnami/postgresql
-      paths:
-        - <- `${monk-volume-path}/data:/var/lib/postgresql/data`
 ```
-
 
 ## Conclusion
 
-You are now running a MongoDB database which stores its data on a persistent volume. In case the workload fails or the instance running the database container ceases to exist your database contents will be safe on the persistent volume. This mechanism can be applied to any workload or group of workloads with one or many separate volumes.
+You are now running a MongoDB database which stores its data on a persistent volume. In case the workload fails or the
+instance running the database container ceases to exist your database contents will be safe on the persistent volume.
+This mechanism can be applied to any workload or group of workloads with one or many separate volumes.
