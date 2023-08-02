@@ -24,3 +24,7 @@ import CustomLink from '@site/src/components/customLink';
 <CustomLink to="/basics/monk-in-10.md">Start with CLI</CustomLink>
 
 If at any time you need help or want to share feedback, we'd love to hear from you! Find all our contacts and resources on the [Support](about/support.md) page to find our contacts, or join us directly on [Discord](https://discord.gg/monk-io).
+
+## About the Documentation
+
+Monk’s documentation supports Monk products as well as the Monk Community. All Monk documentation is licensed via a Creative-Commons license, so please feel free to open a [GitHub Issue or PR directly](https://github.com/monk-io/docs) if you see anything you would like clarified or fixed.
