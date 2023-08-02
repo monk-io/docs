@@ -2,8 +2,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: "monk Docs",
-  tagline: "Make DevOps fun again with the p2p alternative to Kubernetes",
+  title: "Monk Documentation",
+  tagline: "Monk, the AI DevOps for the cloud.",
   url: "https://docs.monk.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
