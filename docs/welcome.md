@@ -4,45 +4,28 @@ description: Welcome to Monk
 slug: /
 ---
 
-# Welcome to MonkOS
+# Welcome to Monk
 
-Welcome to [MonkOS](https://monk.io), a new cloud OS.
+Welcome to [Monk](https://monk.io), the AI DevOps for the cloud. 
 
-MonkOS lets you compose, deploy, and manage your entire stack, on your own infrastructure, with nearly zero DevOps overhead.
+Monk takes any cloud application directly from source code to production, in any cloud.
 
-Think of MonkOS as a Kubernetes and Terraform rolled into one tool. MonkOS is **a new orchestrator that lets you take control of both the application and provisioning layers in one place** by (1) writing feature-packed YAML manifests, and (2) using the CLI to interact directly with your containers and cloud provider(s) of choice.
+Monk X, an expert autonomous AI DevOps agent trained on live application architectures. Being aware of the lowest-level infrastructure to the highest application intent, Monk X selects, builds, and runs a deployable diagram. Using our GUI Whiteboard or code, the running deployable designs are instrumented, inspectable and editable. Monk X communicates through a chat interface and is system-aware of both the existing configuration and all potential options.  
+
+Monk X is the AI element within the Monk ecosystem. This AI does not function independently; rather, it is powered by monkOS, an innovative distributed cloud operating system we have built. 
+
+monkOS comes with hundreds of ready pre-configured packages, called Kits. They are pre-packaged components such as containers, infrastructure elements and third party APIs. Kits are composable and portable. There are hundreds of public Kits available on monkHub. Kit repositories can be either public or private.
+
+You can interact with monkOS via our GUI (whiteboard) or CLI. 
+
 
 [Download MonkOS](./get-started/get-monk.md) and [get started in ten minutes or less](./basics/monk-in-10.md).
 
-## Key Features at a Glance
 
--   **Next-gen Manifests**: Compose your application _and_ provision workloads with composable and scriptable YAML manifests known as Monk Kits.
--   **Ready-to-use Stack Components**: Easily combine and customize containers or entire pre-composed stacks from the Monk Hub repository.
--   **Easily Mix and Match Kits**: Use our ready-made Kits or modify them to suit your needs with our Monk Hub wizard.
--   **Masterless P2P Clusters**: An encrypted 0-config network connects all containers in MonkOS securely and transparently--even across clouds.
--   **Multi-Cloud Support**: Deploy on any combination of GCP, AWS, Azure, Digital Ocean, bare metal, or even single board computers.
--   **Automatic Provisioning**: MonkOS does the heavy lifting in your cloud accounts or bare metal servers so you can focus on development.
--   **Automatic Security**: MonkOS dynamically manages cloud firewalls and security groups. Security is on by default.
--   **One CLI, Two Levels**: Control containers and environment in one place. Monk's CLI talks directly to your cloud provider, and the built-in Engine can provision workloads without 3rd party services (e.g. GKE, EKS, AKS).
--   **Orchestration on Your Terms**: MonkOS only saves you time and sanity composing and orchestrating your stack; you bring your own cloud and CI/CD workflow.
 
-Explore all features on the [Features](about/features.md) page.
-
-## Our Mission
-
-We're making infra stacks stupid-easy to build and manage. We've built everything from scratch, engine included, and don't rely on any 3rd party platforms except Docker.
-
-## Docs Overview
-
-These docs should have everything you need to get acquainted with MonkOS and start using it in minutes. Dive right in:
-
--   [Install Monk](get-started/get-monk.md) and compose your first stack in 10 minutes
--   Learn Monk's inner workings from [Reference](monkscript/index.md)
--   Explore Kits on [monkhub.io](https://monkhub.io)
 
 If at any time you need help or want to share feedback, we'd love to hear from you! Find all our contacts and resources on the [Support](about/support.md) page to find our contacts, or join us directly on [Discord](https://discord.gg/monk-io).
 
-**The best way to experience what MonkOS has to offer is to dive in and try it. We put great care into making everything simple and efficient. You should be able to get some containers running in a cluster, on a cloud, within 10 minutes from reading this sentence. [See for yourself &#8594;](basics/monk-in-10.md)**
 
 ## Experimental Features
 
