@@ -18,21 +18,9 @@ monkOS comes with hundreds of ready pre-configured packages, called Kits. They a
 
 You can interact with monkOS via our GUI (whiteboard) or CLI. 
 
+import CustomLink from '@site/src/components/customLink';
 
-[Download MonkOS](./get-started/get-monk.md) and [get started in ten minutes or less](./basics/monk-in-10.md).
-
-
-
+<CustomLink to="/gui/overview.md">Start with Whiteboard</CustomLink>
+<CustomLink to="/basics/monk-in-10.md">Start with CLI</CustomLink>
 
 If at any time you need help or want to share feedback, we'd love to hear from you! Find all our contacts and resources on the [Support](about/support.md) page to find our contacts, or join us directly on [Discord](https://discord.gg/monk-io).
-
-
-## Experimental Features
-
-As it goes with any software, you might encounter some bugs, but the core functionality is stable. See the [Features](about/features.md) page to check which ones are stable and which ones are in the experimental stage.
-
-:::warning important
-
-We invite you to try everything, but remember that using the experimental features in production might not be a good idea at this point. Check back anytime to see which features are being promoted to stable.
-
-:::

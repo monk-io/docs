@@ -4,17 +4,11 @@ title: CLI Overview
 
 This page describes primary MonkOS features and points to relevant resources for each of them.
 
-:::note
-
-The 🧪​ icon denotes experimental features. Please don't be upset if they cause problems and [let us know](support.md) if you encounter any bugs related to those.
-
-:::
-
 ## Supported Cloud Providers
 
 -   GCP
 -   AWS
--   Azure 🧪
+-   Azure
 -   DigitalOcean
 
 ## MonkScript
@@ -88,10 +82,6 @@ MonkOS is aware of changes happening to each part. Therefore you can easily perf
 ### Auto-scaling
 
 Implement horizontal and vertical scaling strategies to keep your system growing. MonkOS supports target-based algorythmic aut-scaling that allows you to specify scale as a function of any given set of metrics.
-
-### 🧪 Built-in Container Image Transport
-
-For deployment of private images within a cluster, our architecture allows for much faster of container images inside the cluster, speeding up deployment and repair processes.
 
 ## Infrastructure Provisioning
 
