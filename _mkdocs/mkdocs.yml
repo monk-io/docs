@@ -116,7 +116,3 @@ markdown_extensions:
     - pymdownx.emoji:
           emoji_index: !!python/name:materialx.emoji.twemoji
           emoji_generator: !!python/name:materialx.emoji.to_svg
-
-google_analytics:
-    - UA-188474701-2
-    - auto
