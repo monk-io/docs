@@ -122,6 +122,9 @@ module.exports = {
         gtag: {
           trackingID: "G-8G90Y8YY1W",
         },
+        googleTagManager: {
+          containerId: 'GTM-KH2XM63',
+        },
       },
     ],
   ],
