@@ -6,7 +6,7 @@ import Figure from "@site/src/components/figure";
 
 One of the crucial requirements of any deployment is storing secrets in a secure way. MonkOS offers a built-in secret storage that is backed by the Cloud KMS on your cloud account. MonkOS ensures that all your secrets stored within your infrastructure are always encrypted at rest with frequent key rotation.
 
-Secrets can be shared between multiple kits within the project’s environment.
+Secrets can be shared between multiple kits within the project’s environment. For the next example, we'll look at the postgres_password field in the postgres kit. Every kit has different fields, so yours may appear different but the principle is always the same.
 
 To change database password into a secret: Select the **db** kit and find **postgres\_password** in the **Settings tab** in the **Kit configuration** panel. Click blue **<-x** button next to the text input field containing the password.
 
