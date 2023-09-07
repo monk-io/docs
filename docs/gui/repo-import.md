@@ -6,7 +6,7 @@ import Figure from "@site/src/components/figure";
 
 A PostgreSQL database is not that useful by itself. With MonkOS you can add your services straight from GitHub - MonkOS converts your app into a private Kit and takes care of building it for you using Buildpacks. If you already have an app running on Heroku, Railway or other PaaS providers you can spin it up with MonkOS by just adding your existing repo.
 
-Click ![(plus)](https://monk-io.atlassian.net/wiki/s/481958474/6452/fd6418f9b90c3778951784f56d6337a7b98af733/_/images/icons/emoticons/add.png) and select **Add kit** just like before.
+Click on the plus sign and select **Add kit** just like before.
 
 <Figure src="/img/docs/gui/gui16.png" />
 
@@ -39,3 +39,9 @@ MonkOS will rebuild your services and deploy changes whenever you push to master
 Place your app inside the empty instance so that it doesn’t clash with the **db**. With two kits on the board you are ready to connect them.
 
 <Figure src="/img/docs/gui/gui40.png" />
+
+## Helpful tips
+
+* Private kits that you make out of your own code are visible to you and nobody else, and are therefore unavaialble in the hub
+
+* If a stand-in for a pivate kit is desired for experimentation we recommend "snake-game", which is available in the hub.
