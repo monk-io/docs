@@ -10,7 +10,7 @@ Account Settings.
 
 ## How to add a new token
 
-To reach your account settings, you can click on your avatar in the upper right
+To reach your account settings, click on your avatar in the upper right
 of your screen and select **Account Settings**.
 
 <Figure src="/img/docs/gui/gui60.png" caption="Account navigation drop-down"/>
@@ -22,13 +22,13 @@ Your account settings page will look similar to the below.
 <Figure src="/img/docs/gui/gui61.png" caption="Account settings page" />
 
 In this example we haven't yet added a cloud provider. Let's add and modify a token for
-Digital Ocean. First, we click on **+ Add** in th Cloud Credentials section. The same
+Digital Ocean. First, we click on **+ Add** in the Cloud Credentials section. The same
 credentials window appears:
 
 <Figure src="/img/docs/gui/gui9.png" caption="Add cloud provider selector" />
 
-Select your provider, in our case Digital Ocean. The next window prompts us to add a
-our new cloud credentials. Click **Add new cloud credentials**.
+Select your provider, in this case Digital Ocean. The next window prompts us to add a
+our new cloud credentials. Click **Add new credentials**.
 
 <Figure src="/img/docs/gui/gui57.png" caption="Choose credentials menu" />
 
@@ -42,10 +42,9 @@ visible.
 
 <Figure src="/img/docs/gui/gui63.png" caption="Account settings page with new token" />
 
-## How to modify and delete tokens
+## How to modify tokens
 
-You can rename your existing tokens at any time. To do so, click the meatball
-menu and then click the pencil.
+You can rename your existing tokens at any time. To do so, click the three dots and then click the pencil.
 
 <Figure src="/img/docs/gui/gui64.png" caption="Token menu with pencil and bin" />
 
@@ -58,10 +57,11 @@ And then click **Save**. Our token now has the updated name `Digital Ocean Token
 
 <Figure src="/img/docs/gui/gui66.png" caption="Token with new name displayed" />
 
-If the value of your token itself changes, rather than just updating the name, you will
-need to add the new credentials separately. If the pre-existing token(s) are now outdated
-you can delete them. To delete them, instead of clicking the pencil above you click the
-trash can:
+If the value of your token itself changes, then you will need to add the new credentials separately instead of just updating the name.
+
+## How to delete tokens
+
+ If the pre-existing token(s) have become outdated you can delete them. To delete tokens, click the trash can instead of clicking the pencil:
 
 <Figure src="/img/docs/gui/gui64.png" caption="Token menu with pencil and bin" />
 
