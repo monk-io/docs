@@ -31,9 +31,9 @@ Click **Save** to confirm.
 
 <Figure src="/img/docs/gui/gui42.png" caption="Form: Add new environment"/>
 
-New environment is created. Since each environment has its own cluster, like with a fresh project you will have to wait 2-3 minutes for the cluster to finish setting up before the first deployment of your new environment.
+New environment is created. Since each environment has its own cluster, like with a fresh project you will have to wait 2-3 minutes for the cluster to finish setting up before the first deployment of your new environment. (Specific setup times can vary due to the limitations of cloud providers; this is beyond the control of Monk)
 
-Environments can be edited by clciking **Environment settings** within the **Environment Switcher.**
+Environments can be edited by clicking **Environment settings** within the **Environment Switcher.**
 
 <Figure src="/img/docs/gui/gui45.png" caption="Switching between environments"/>
 
