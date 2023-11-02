@@ -6,17 +6,17 @@ slug: /
 
 # Welcome to Monk
 
-Welcome to [Monk](https://monk.io), the AI DevOps for the cloud. 
+Welcome to [Monk](https://monk.io), the AI DevOps for the cloud.
 
-Monk takes any cloud application directly from source code to production, in any cloud.
+Monk takes any cloud application directly from source code to production, in any cloud. With or without AI.
 
-Monk X, an expert autonomous AI DevOps agent trained on live application architectures. Being aware of the lowest-level infrastructure to the highest application intent, Monk X selects, builds, and runs a deployable diagram. Using our GUI Whiteboard or code, the running deployable designs are instrumented, inspectable and editable. Monk X communicates through a chat interface and is system-aware of both the existing configuration and all potential options.  
+Monk X, an expert autonomous AI DevOps agent trained on live application architectures. Being aware of the lowest-level infrastructure to the highest application intent, Monk X selects, builds, and runs a deployable diagram. Using our GUI Whiteboard or code, the running deployable designs are instrumented, inspectable and editable. Monk X communicates through a chat interface and is system-aware of both the existing configuration and all potential options.
 
-Monk X is the AI element within the Monk ecosystem. This AI does not function independently; rather, it is powered by monkOS, an innovative distributed cloud operating system we have built. 
+Monk X is the AI element within the Monk ecosystem. This AI does not function independently; rather, it is powered by monkOS, an innovative distributed cloud operating system we have built.
 
 monkOS comes with hundreds of ready pre-configured packages, called Kits. They are pre-packaged components such as containers, infrastructure elements and third party APIs. Kits are composable and portable. There are hundreds of public Kits available on monkHub. Kit repositories can be either public or private.
 
-You can interact with monkOS via our GUI (whiteboard) or CLI. 
+You can interact with monkOS via our GUI (whiteboard) or CLI.
 
 import CustomLink from '@site/src/components/customLink';
 

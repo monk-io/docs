@@ -79,12 +79,12 @@ module.exports = {
       theme: darkCodeTheme,
       darkTheme: darkCodeTheme,
     },
-    algolia: {
-      apiKey: "3f459c6b16389d8cfd66d06dd837a635",
-      indexName: "monk-docs",
-      appId: "JMJR6P1AKQ",
-      contextualSearch: true,
-    },
+    // algolia: {
+    // apiKey: "3f459c6b16389d8cfd66d06dd837a635",
+    // indexName: "monk-docs",
+    // appId: "JMJR6P1AKQ",
+    // contextualSearch: true,
+    // },
     metadata: [
       {
         property: "image",
@@ -126,6 +126,20 @@ module.exports = {
           containerId: 'GTM-KH2XM63',
         },
       },
+    ],
+  ],
+  themes: [
+    [
+      "@easyops-cn/docusaurus-search-local",
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+      ({
+        indexBlog: false,
+        hashed: true,
+        highlightSearchTermsOnTargetPage: false,
+        explicitSearchResultPath: true,
+        searchResultLimits: 7,
+        searchResultContextMaxLength: 20,
+      }),
     ],
   ],
 };

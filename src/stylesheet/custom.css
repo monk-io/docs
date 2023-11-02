@@ -162,3 +162,20 @@ figcaption {
   font-style: italic;
   text-align: center;
 }
+
+input {
+  outline: none !important;
+}
+
+.navbar__search-input {
+  border: none;
+  height: 3rem;
+}
+
+html[data-theme='dark'] .navbar__search-input {
+  background-color: #ffffff0d;
+}
+
+.container input[type='search'] {
+  height: 3rem;
+}
