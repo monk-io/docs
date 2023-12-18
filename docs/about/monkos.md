@@ -1,16 +1,16 @@
 ---
-title: monkOS
+title: MonkOS
 ---
 
-## monkOS as a Cloud Operating System 
+## MonkOS as a Cloud Operating System 
 
-**Conceptually:** monkOS is a cloud operating system. Cloud operating system here does not mean Linux on a VM at a cloud provider. We use the term to mean an operating system atop the cloud infrastructure. Unlike Linux which works with primitives like CPU, RAM, and disk; monkOS works with primitives like compute clusters, API endpoints and cloud storage.
+**Conceptually:** MonkOS is a cloud operating system. Cloud operating system here does not mean Linux on a VM at a cloud provider. We use the term to mean an operating system atop the cloud infrastructure. Unlike Linux which works with primitives like CPU, RAM, and disk; MonkOS works with primitives like compute clusters, API endpoints and cloud storage.
 
-**Technically:** monkOS is a distributed resource manager. Unlike tools such as Kubernetes or Terraform, monkOS employs a single, distributed control plane for all cloud resources, containers and APIs that make up your application. This means that monkOS constantly keeps track of your infrastructure and services running on top of that infrastructure. 
+**Technically:** MonkOS is a distributed resource manager. Unlike tools such as Kubernetes or Terraform, MonkOS employs a single, distributed control plane for all cloud resources, containers and APIs that make up your application. This means that MonkOS constantly keeps track of your infrastructure and services running on top of that infrastructure. 
 
-**monkOS** has many functions:
+**MonkOS** has many functions:
 
-- It is **multi-cloud** by default; a typical monkOS cluster can span across cloud providers and even on-premise machines.  monkOS boots up in minutes rather than hours. 
+- It is **multi-cloud** by default; a typical MonkOS cluster can span across cloud providers and even on-premise machines.  MonkOS boots up in minutes rather than hours. 
 - It **deploys container workloads** and provisions needed infrastructure.
 - It has a **built-in package manager** for fully portable packages called Kits. 
 - It **composes** these packages into higher order Kits by utilizing a powerful definition language ([monkScript](/about/monkscript.md)) that supports inheritance and composition. 
