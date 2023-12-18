@@ -112,7 +112,9 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl: "https://github.com/monk-io/docs/blob/main",
+          routeBasePath: "/",
         },
+        blog: false,
         theme: {
           customCss: [
             require.resolve("./src/stylesheet/custom.css"),
