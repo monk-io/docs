@@ -20,8 +20,8 @@ You can interact with MonkOS via our GUI (whiteboard) or CLI.
 
 import CustomLink from '@site/src/components/customLink';
 
-<CustomLink to="/docs/gui/overview">Start with Whiteboard</CustomLink>
-<CustomLink to="/docs/basics/monk-in-10">Start with CLI</CustomLink>
+<CustomLink to="/gui/overview">Start with Whiteboard</CustomLink>
+<CustomLink to="/basics/monk-in-10">Start with CLI</CustomLink>
 
 If at any time you need help or want to share feedback, we'd love to hear from you! Find all our contacts and resources on the [Support](about/support.md) page to find our contacts, or join us directly on [Discord](https://discord.gg/monk-io).
 

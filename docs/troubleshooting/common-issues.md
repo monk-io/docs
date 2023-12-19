@@ -52,7 +52,7 @@ terminal session, or as a background process.
 
 ### Some of my runnables have problem resolving hostnames of other runnables
 
-If some of the [runnables](/docs/monkscript/yaml/runnables/) crash with errors like `Error connecting to Redis on templates-stack-redis-redis:6379 (SocketError)` and you are using `alpine` based image then you have probably encountered a bug with `alpine` hostname resolving.
+If some of the [runnables](/monkscript/yaml/runnables/) crash with errors like `Error connecting to Redis on templates-stack-redis-redis:6379 (SocketError)` and you are using `alpine` based image then you have probably encountered a bug with `alpine` hostname resolving.
 
 How to verify it:
 

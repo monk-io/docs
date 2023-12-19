@@ -75,7 +75,7 @@ variable-name: variable value
 
 :::
 
-A variable can either just specify the value - in which case the type is inferred automatically, or specify its type and value. It's also possible for the value to be left undefined, to be set in another runnable derived by inheritance, in a parent process-group's scope, or at runtime (see [`Runtime variables`](/docs/cli/monk#runtime-variables)).
+A variable can either just specify the value - in which case the type is inferred automatically, or specify its type and value. It's also possible for the value to be left undefined, to be set in another runnable derived by inheritance, in a parent process-group's scope, or at runtime (see [`Runtime variables`](/cli/monk#runtime-variables)).
 
 | Field   | Value                            | Purpose                                                                               | Required |
 | ------- | -------------------------------- | ------------------------------------------------------------------------------------- | -------- |
