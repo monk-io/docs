@@ -3,12 +3,15 @@ title: Setting Up Your Project
 ---
 
 import Figure from "@site/src/components/figure";
+import CustomLink from '@site/src/components/customLink';
 
 :::note Prerequisites
 
 In order to build a project you will need to have your credentials ready for one or more of the following cloud providers:
 AWS, Digital Ocean, and/or GCP. 
 :::
+
+<CustomLink to="/gui/obtain-cloud-credentials">Learn how to obtain cloud credentials for your cloud provider(s)</CustomLink>
 
 After successful sign up, you will see the list of your projects. This list is initially empty as there are no projects in your account yet. To create a new project click **Create project** button in the top right corner.
 

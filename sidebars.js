@@ -52,6 +52,7 @@ module.exports = {
       collapsed: false,
       items: [
         "gui/overview",
+        "gui/obtain-cloud-credentials",
         "gui/project-setup",
         "gui/add-cloud-providers",
         "gui/instance-create",
