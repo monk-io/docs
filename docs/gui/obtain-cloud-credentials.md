@@ -38,6 +38,82 @@ Service Account Key is sensitive information. You can remove the file from your 
 
 ## Amazon Web Services (AWS)
 
+### AWS Account Security
+
+:::danger
+
+This is very important, read this first before proceeding with AWS.
+
+:::
+
+Monk requires an AWS account with sufficient permissions to create and manage resources. **It is strongly recommended to create a new IAM user for Monk, and not use the root account**.
+
+Some AWS users might receive an email from AWS stating that their account has been compromised. This has happened to some of our users whose AWS accounts are new. This is a false positive caused by the fact that AWS attempts to detect unusual activity on new accounts. If you receive such an email, you can rest assured that Monk has not compromised your credentials. It is also advisable to check your CloudTrail logs to confirm that no unusual activity has taken place.
+
+:::note
+
+We are actively working with AWS to resolve this issue and prevent it from happening in the future.
+
+:::
+
+Below is a policy containing the minimum permissions required for Monk to function. You can create a new policy in the AWS console and attach it to the IAM user. Monk does not use any other permissions and will not attempt to access any other resources.
+
+```json
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Sid": "VisualEditor0",
+               "Effect": "Allow",
+               "Action": [
+                   "ec2:AttachVolume",
+                   "ec2:AuthorizeSecurityGroupIngress",
+                   "ec2:DeleteSnapshot",
+                   "ec2:DescribeAddresses",
+                   "ec2:DescribeInstances",
+                   "ec2:DescribeRegions",
+                   "ec2:DescribeVolumesModifications",
+                   "ec2:DescribeSnapshots",
+                   "ec2:DeleteVolume",
+                   "iam:SimulateCustomPolicy",
+                   "ec2:CreateDefaultSubnet",
+                   "ec2:DescribeAvailabilityZones",
+                   "ec2:CreateSecurityGroup",
+                   "ec2:DescribeVolumes",
+                   "ec2:ModifyInstanceAttribute",
+                   "ec2:DescribeInstanceStatus",
+                   "ec2:DetachVolume",
+                   "ec2:ReleaseAddress",
+                   "ec2:ModifyVolume",
+                   "ec2:TerminateInstances",
+                   "ec2:CreateTags",
+                   "ec2:DeleteNetworkInterface",
+                   "ec2:RunInstances",
+                   "ec2:StopInstances",
+                   "ec2:AllocateAddress",
+                   "ec2:DescribeSecurityGroups",
+                   "ec2:CreateVolume",
+                   "ec2:RevokeSecurityGroupIngress",
+                   "ec2:DescribeImages",
+                   "ec2:DescribeSecurityGroupRules",
+                   "ec2:DeleteSecurityGroup",
+                   "ec2:DescribeInstanceTypes",
+                   "ec2:DescribeSubnets",
+                   "kms:DescribeKey",
+                   "kms:CreateKey",
+                   "kms:EnableKey",
+                   "kms:UpdateAlias",
+                   "kms:CreateAlias",
+                   "kms:Encrypt",
+                   "kms:Decrypt"
+               ],
+               "Resource": "*"
+           }
+       ]
+   }
+```
+
+
 ### Via AWS CLI
 
 If you're running the [AWS CLI](https://aws.amazon.com/cli/), you should be able to locate the credentials in the `~/.aws/credentials` on your machine, i.e.:
@@ -61,9 +137,9 @@ Alternatively, if you don't want AWS CLI, follow these steps to obtain your Acce
 
 See [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey) for more details.
 
-:::warning
+:::info
 
-Make sure that the account has **AmazonEC2FullAccess policy**.
+
 
 :::
 
