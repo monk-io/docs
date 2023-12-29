@@ -132,9 +132,10 @@ module.exports = {
   ],
   themes: [
     [
-      "@easyops-cn/docusaurus-search-local",
+      require.resolve("@easyops-cn/docusaurus-search-local"),
       /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
       ({
+        docsRouteBasePath: "/",
         indexBlog: false,
         hashed: true,
         highlightSearchTermsOnTargetPage: false,
