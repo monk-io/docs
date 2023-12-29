@@ -117,7 +117,7 @@ module.exports = {
         blog: false,
         theme: {
           customCss: [
-            require.resolve("./src/stylesheet/custom.css"),
+            require.resolve("./src/stylesheet/custom.scss"),
             require.resolve("./src/stylesheet/footer.scss"),
           ],
         },
@@ -132,9 +132,10 @@ module.exports = {
   ],
   themes: [
     [
-      "@easyops-cn/docusaurus-search-local",
+      require.resolve("@easyops-cn/docusaurus-search-local"),
       /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
       ({
+        docsRouteBasePath: "/",
         indexBlog: false,
         hashed: true,
         highlightSearchTermsOnTargetPage: false,
