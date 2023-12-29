@@ -132,6 +132,10 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 .navbar__brand {
   height: 50px;
+
+  .navbar__logo {
+    height: 100%;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {

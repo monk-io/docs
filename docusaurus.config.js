@@ -117,7 +117,7 @@ module.exports = {
         blog: false,
         theme: {
           customCss: [
-            require.resolve("./src/stylesheet/custom.css"),
+            require.resolve("./src/stylesheet/custom.scss"),
             require.resolve("./src/stylesheet/footer.scss"),
           ],
         },
