@@ -58,8 +58,8 @@ We run an APT repository containing official releases of Monk. You can obtain th
 
 Add MonkOS repository to your sources list:
 
-    curl https://us-east1-apt.pkg.dev/doc/repo-signing-key.gpg | sudo apt-key add
-    echo 'deb https://us-east1-apt.pkg.dev/projects/monk-releases monk-releases-apt main' | sudo tee -a  /etc/apt/sources.list.d/artifact-registry.list
+    curl https://apt.monk.io/repo-signing-key.pgp | sudo apt-key add
+    echo "deb [arch=amd64] https://apt.monk.io stable main" | sudo tee -a  /etc/apt/sources.list.d/monk.list
     sudo apt update
 
 Install `monkd` and `monk`:
@@ -191,7 +191,7 @@ Upgrading your local MonkOS to the newest version is simple.
 <TabItem value="mainLinux">
 
     sudo apt update
-    sudo apt upgrade monkd monk
+    sudo apt install monkd monk
 
 </TabItem>
 
