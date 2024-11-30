@@ -1,4 +1,4 @@
-# [docs.monk.io](https://docs.monk.io)
+# Monk Documentation [docs.monk.io](https://docs.monk.io)
 
 This is a repo for [monk.io documentation](https://docs.monk.io) and associated materials.
 
